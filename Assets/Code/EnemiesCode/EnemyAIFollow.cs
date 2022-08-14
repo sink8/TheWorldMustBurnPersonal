@@ -7,7 +7,7 @@ public class EnemyAIFollow : MonoBehaviour
 {
     [Header("Pathfinding")]
 
-    public Transform target;
+    public GameObject target;
     public float activateDistance = 50f;
     public float pathUpadateSeconds = 0.5f;
 
@@ -17,11 +17,14 @@ public class EnemyAIFollow : MonoBehaviour
     public float jumpNodeHeightRequirement = 0.8f;
     public float jumpModiefier = 0.3f;
     public float jumpCheckOffset = 0.1f;
+    public float rotationSpeed = 1f;
 
     [Header("Custom Behaviour")]
     public bool followEnabled = true;
     public bool jumpEnabled = true;
     public bool directionLookEnabled = true;
+    public bool rotateEnemyEnabled = false;
+    
 
     Path path;
     int currentWaypoint = 0;
@@ -31,6 +34,7 @@ public class EnemyAIFollow : MonoBehaviour
 
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player");
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -46,7 +50,7 @@ public class EnemyAIFollow : MonoBehaviour
     void UpdatePath()
     {
         if(followEnabled && TargetInDistance() && seeker.IsDone()) {
-            seeker.StartPath(rb.position, target.position, OnPathComplete);
+            seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
         }
     }
 
@@ -88,6 +92,19 @@ public class EnemyAIFollow : MonoBehaviour
             }
         }
 
+        if(rotateEnemyEnabled){
+            RotateEnemy();
+        }
+
+    }
+
+    void RotateEnemy(){
+        if(rb.velocity.x > 0.05f) {
+                transform.Rotate(0,0, rotationSpeed * Time.deltaTime,Space.Self);
+            }
+         if(rb.velocity.x < -0.05f) {
+                transform.Rotate(0,0, -rotationSpeed * Time.deltaTime,Space.Self);
+            }
     }
 
     private bool TargetInDistance() {
