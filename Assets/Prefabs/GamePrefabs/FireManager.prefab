@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,12 +48,11 @@ MonoBehaviour:
   mapMoving: {fileID: 0}
   mapManager: {fileID: 0}
   firePrefab: {fileID: -5825349054958040398, guid: 56ecef7a31f7ee745b45c29eed940e68, type: 3}
-  firePrefabup: {fileID: -5825349054958040398, guid: 56ecef7a31f7ee745b45c29eed940e68, type: 3}
   firePrefab2: {fileID: 4582448298955617623, guid: 06509c81d5f1ab147bc4d2fd993f7e64, type: 3}
-  firePrefabup2: {fileID: 4582448298955617623, guid: 06509c81d5f1ab147bc4d2fd993f7e64, type: 3}
   allFires: {fileID: 0}
   player: {fileID: 0}
   burnedParticle: {fileID: 7769672079985295185, guid: 93820cf5f53efc84fbd6387ae33b2422, type: 3}
+  meltedParticle: {fileID: 4555566301418291174, guid: e53fac094c522c04580022906409c9ff, type: 3}
   activeFires: []
   area:
     m_Position: {x: 0, y: 0, z: 0}
@@ -64,3 +64,6 @@ MonoBehaviour:
     m_Size: {x: 0, y: 0, z: 0}
   pos: {x: 0, y: 0}
   playerPosition2: {x: 0, y: 0}
+  InstantiateLights: 0
+  fireLight: {fileID: 0}
+  secrets: []

@@ -29,6 +29,7 @@ public class FireManager : MonoBehaviour
 
     public Transform player;
     public Transform burnedParticle;
+    public Transform meltedParticle;
 
     public List<Vector3Int> activeFires = new List<Vector3Int>();
 
@@ -110,6 +111,10 @@ public class FireManager : MonoBehaviour
         newFire.StartBurning(tilePosition, data, this);
         activeFires.Add(tilePosition);
 
+        if(data.snowTile == true){
+            MeltedParticles(tilePosition);
+        }
+
         if(InstantiateLights == true) {
             InstantiateFireLights(tilePosition);
         }
@@ -140,6 +145,10 @@ public class FireManager : MonoBehaviour
         newFire3.transform.position = mapMoving.GetCellCenterWorld(tilePosition);
         newFire3.StartBurning(tilePosition, data, this);
         activeFires.Add(tilePosition);
+
+        if(data.snowTile == true){
+            MeltedParticles(tilePosition);
+        }
 
         if (InstantiateLights == true) {
             InstantiateFireLights(tilePosition);
@@ -258,7 +267,12 @@ public class FireManager : MonoBehaviour
                 }
             }
         }
-        BurnedParticles(position);
+        if(data.snowTile == true){
+            //MeltedParticles(position);
+        }
+        else {
+            BurnedParticles(position);
+        }
 
         map.SetTile(position, null);
         if (scoreCounter) {
@@ -282,7 +296,13 @@ public class FireManager : MonoBehaviour
                 }
             }
         }
-        BurnedParticles(position);
+        if(data.snowTile == true){
+            MeltedParticles(position);
+        }
+        else {
+            BurnedParticles(position);
+        }
+
         mapMoving.SetTile(position, null);
 
 
@@ -296,6 +316,11 @@ public class FireManager : MonoBehaviour
         activeFires.Remove(position);
     }
 
+    void MeltedParticles( Vector3 posit ) {
+        var EndParticleclone = Instantiate(meltedParticle,posit , transform.rotation);
+        Destroy(EndParticleclone.gameObject, 1.5f);
+
+    }
 
     void BurnedParticles( Vector3 posit ) {
         var EndParticleclone = Instantiate(burnedParticle,posit , transform.rotation);
