@@ -6,8 +6,8 @@ public class RayCast2DController : MonoBehaviour
 {
     public LayerMask collisionMask;
     const float skinWidth = 0.15f;
-    public int horizontalRayCount = 4;
-    public int verticalRayCount = 4;
+    public int horizontalRayCount = 6;
+    public int verticalRayCount = 6;
 
     float horizontalRaySpacing;
     float verticalRaySpacing; 
