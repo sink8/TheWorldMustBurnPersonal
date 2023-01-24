@@ -45,7 +45,8 @@ public class FireManager : MonoBehaviour
 
     public bool InstantiateLights = false;
     [SerializeField] GameObject fireLight;
-    public GameObject[] secrets;
+    public List<GameObject> secrets = new List<GameObject>();
+
     void Start() {
         //player = GameObject.FindGameObjectWithTag("Player");
         Vector3 playerPosition = player.transform.position;
@@ -58,7 +59,10 @@ public class FireManager : MonoBehaviour
 
         AudioFW.PlayLoop("FireBurningLoop");
         SecretBurnableEffects();
-        secrets = GameObject.FindGameObjectsWithTag("Secret");
+        //secrets = GameObject.FindGameObjectsWithTag("Secret");
+        foreach(GameObject secr in GameObject.FindGameObjectsWithTag("Secret")) {
+            secrets.Add(secr);
+        }
     }
 
 
@@ -261,9 +265,11 @@ public class FireManager : MonoBehaviour
         TileData data = mapManager.GetTileData(position);
         // käydään läpi secret efectit ja tuhotaan samassa kohdassa oleva samalla kun se poltetaan
         if(data.secret == true){
-            foreach(var secr in secrets){
+            foreach(var secr in secrets.ToArray()) {
                 if(secr.transform.position.x - 0.5f == position.x && secr.transform.position.y - 0.5f == position.y){
+                    //var newpos
                     Destroy(secr);
+                    secrets.Remove(secr);
                 }
             }
         }
@@ -290,9 +296,10 @@ public class FireManager : MonoBehaviour
     public void FinishedBurningMoving(Vector3Int position) {
         TileData data = mapManager.GetTileDataMoving(position);
         if(data.secret == true){
-            foreach(var secr in secrets){
+            foreach(var secr in secrets.ToArray()){
                 if(secr.transform.position.x - 0.5f == position.x && secr.transform.position.y - 0.5f == position.y){
                     Destroy(secr);
+                    secrets.Remove(secr);
                 }
             }
         }

@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class MenuNavigation : MonoBehaviour
 {
-    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu;
-    public GameObject levelFirstButton, levelEndFirstButton, DeathFirstButton, PauseFirstButton, TitleFirstButton, SaveFirstButton, StartFirstButton;
+    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu;
+    public GameObject levelFirstButton, levelEndFirstButton, DeathFirstButton, PauseFirstButton, TitleFirstButton, SaveFirstButton, StartFirstButton, OptionsFirstButton,
+                        CreditsFirstButton;
 
     public GameObject lv1Score, lv2Score, lv3Score;
 
@@ -167,6 +168,27 @@ public class MenuNavigation : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(StartFirstButton);
     }
+
+    public void CloseCreditsMenu() {
+        CreditsMenu.SetActive(false);
+    }
+
+    public void CloseOptionsMenu() {
+        OptionsMenu.SetActive(false);
+    }
+
+    public void OpenCreditsMenu() {
+        CreditsMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(CreditsFirstButton);
+    }
+
+    public void OpenOptionsMenu() {
+        OptionsMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(OptionsFirstButton);
+    }
+
 
     public IEnumerator DoFade(CanvasGroup canvasGroup, float start, float end) {
         float counter = 0f;

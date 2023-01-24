@@ -23,7 +23,9 @@ public class LevelSelector : MonoBehaviour
 
 
     public void LoadLevels( int level) {
-        FindCurrentLevelNumber();
+        //FindCurrentLevelNumber();
+        print("leveli on " + level);
+        levelNum = level + 1;
         currentLevel = Instantiate(levelsAvailable[level]) as GameObject;
         currentLevel.transform.position = new Vector3(0, 0, 0);
             //Instantiate(levelsAvailable[level], new Vector3(0, 0, 0), Quaternion.identity);
@@ -64,7 +66,9 @@ public class LevelSelector : MonoBehaviour
 
 
     public void FindCurrentLevelNumber(){
+        print("find current level number lukee");
         for(int i = 0; i < levels.Length; i++){
+            print(i);
             if( levels[i].GetComponent<MovingOnLevelsMap>().currentLevel == true ){
                 levelNum = levels[i].GetComponent<MovingOnLevelsMap>().levelNumber;
             }

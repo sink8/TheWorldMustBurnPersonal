@@ -28,6 +28,7 @@ public static SaveUI instance;
     private string save3;
     int saveNumber;
 
+    public GameObject player;
     void Start()
     {
         instance = this;
@@ -192,6 +193,8 @@ public void DeleteInfoBin(){
 
 
     public void SaveOver1(){
+        NewGamePlayerPosition();
+
         if(saveNumber == 1) {
         SaveManager.instance.activeSave.saveName = "save1";
         activeInfo.lastSaveNumb = 1;
@@ -204,6 +207,12 @@ public void DeleteInfoBin(){
         SaveManager.instance.activeSave.saveName = "save3";
         activeInfo.lastSaveNumb = 3;
         }
+    }
+
+    void NewGamePlayerPosition() {
+        SaveManager.instance.activeSave.respawnPosition[0] = player.transform.position.x;
+        SaveManager.instance.activeSave.respawnPosition[1] = player.transform.position.y;
+        SaveManager.instance.activeSave.respawnPosition[2] = player.transform.position.z;
     }
 
 

@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
     {
         TouchWaterY(1);
         if(health == 0) {
-            playerParticles.SetActive(false);
+            //playerParticles.SetActive(false);
             if (timer > 0) {
                 timer -= Time.deltaTime;
                 if (timer <= 0) {

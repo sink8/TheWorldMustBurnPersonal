@@ -7,13 +7,13 @@ public class RayCastPlayer : MonoBehaviour
     public float fallMultiplayer = 2.5f;
     public float lowJumpMultiplayer = 2f;
 
-    public float jumpHeight = 4;
-    public float timeToJumpApex = 0.4f;
-    public float moveSpeed = 6;
-    public float gravity = -10;
-    public float jumpVelocity = 8;
-    public float accelerationTimeGrounded = 0.1f;
-    public float accelerationTimeAirborne = 0.2f;
+     float jumpHeight = 3.8f;
+     float timeToJumpApex = 0.5f;
+     float moveSpeed = 8;
+     float gravity = -8f;
+     float jumpVelocity = 10;
+     float accelerationTimeGrounded = 0.15f;
+    float accelerationTimeAirborne = 0.1f;
 
     float velocityXSmoothing; 
     [SerializeField] int maxJumps = 2;
@@ -50,8 +50,10 @@ public class RayCastPlayer : MonoBehaviour
 
     public GameObject playerBodyRed, playerBodyBlue, playerBodyPurple;
 
+    public InputManager inputManager;
 
     private void Start() {
+        inputManager = InputManager.instance;
 
         gm = FindObjectOfType<GameManager>();
 
@@ -102,7 +104,7 @@ public class RayCastPlayer : MonoBehaviour
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
  
-        if (Input.GetKeyDown(KeyCode.Space) && controller.collisions.below) {
+        if (inputManager.GetKeyDown(KeybindingActions.Jump) && controller.collisions.below) {
             CreateKipinä();
             velocity.y = jumpVelocity;
         }
@@ -111,7 +113,8 @@ public class RayCastPlayer : MonoBehaviour
             jumps = 0;
         }
 
-        if (Input.GetButtonDown("Jump") && jumps < maxJumps) {
+        //if (Input.GetButtonDown("Jump") && jumps < maxJumps) {
+        if (inputManager.GetKeyDown(KeybindingActions.Jump) && jumps < maxJumps) {
             AudioFW.Play("SwushLong");
             jumps++;
             velocity = Vector2.zero;
@@ -127,7 +130,7 @@ public class RayCastPlayer : MonoBehaviour
 
         if (velocity.y < 0) {
             velocity += Vector3.up * Physics2D.gravity.y * (fallMultiplayer - 1) * Time.deltaTime;
-        } else if (velocity.y > 0 && !Input.GetButton("Jump")) {
+        } else if (velocity.y > 0 && !inputManager.GetKeyDown(KeybindingActions.Jump)) {
             velocity += Vector3.up * Physics2D.gravity.y * (lowJumpMultiplayer - 1) * Time.deltaTime;
         }
 
@@ -146,7 +149,7 @@ public class RayCastPlayer : MonoBehaviour
     void Dash() {
         if (direction == 0) {
 
-            if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetButton("Dash")) && canDash == true) {
+            if ((inputManager.GetKeyDown(KeybindingActions.Dash)|| Input.GetButton("Dash")) && canDash == true) {
                 AudioFW.Play("SwushShort");
                 if (moveInput < 0) {
                     CreateDashKipinä();

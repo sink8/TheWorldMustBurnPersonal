@@ -124,7 +124,7 @@ public class MovingOnLevelsMap : MonoBehaviour
             menuNav.CloseLevelMenu();
             menuNav.CloseMixedMenuStuff();
             
-            for(int i = 0; i < levelSelector.levelsAvailable.Length; i ++) {
+            for(int i = 0; i < levelSelector.levelsAvailable.Length; i++) {
                 if(level == i + 1) {
                     levelSelector.LoadLevels(i);
                 }
