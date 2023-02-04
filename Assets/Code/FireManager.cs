@@ -339,6 +339,7 @@ public class FireManager : MonoBehaviour
 
         TileData data = mapManager.GetTileData(position);
         ParticleSystem secretParticle = Instantiate(data.secretParticle);
+        
         secretParticle.transform.position = map.GetCellCenterWorld(position);
 
     }
@@ -381,11 +382,12 @@ public class FireManager : MonoBehaviour
         BoundsInt bounds2 = mapMoving.cellBounds;
         foreach (Vector3Int pos in bounds.allPositionsWithin) {
             TileData data = mapManager.GetTileData(pos);
-            TileData data2 = mapManager.GetTileDataMoving(pos);
+
             Tile tile = map.GetTile<Tile>(pos);
             if (tile != null) {
                 if (data.canBurn == true && data.secret == true) {
                     ParticleSystem secretParticle = Instantiate(data.secretParticle);
+                    secretParticle.transform.SetParent(allFires.transform);
                     secretParticle.transform.position = map.GetCellCenterWorld(pos);
                     
                 }
@@ -398,6 +400,7 @@ public class FireManager : MonoBehaviour
             if (tile != null) {
                 if (data2.canBurn == true && data2.secret == true) {
                     ParticleSystem secretParticle = Instantiate(data2.secretParticle);
+                    secretParticle.transform.SetParent(allFires.transform);
                     secretParticle.transform.position = map.GetCellCenterWorld(pos);
                 }
             }

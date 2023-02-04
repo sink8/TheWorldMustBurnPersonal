@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MenuNavigation : MonoBehaviour
 {
-    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu;
+    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas;
     public GameObject levelFirstButton, levelEndFirstButton, DeathFirstButton, PauseFirstButton, TitleFirstButton, SaveFirstButton, StartFirstButton, OptionsFirstButton,
                         CreditsFirstButton;
 
@@ -151,6 +151,16 @@ public class MenuNavigation : MonoBehaviour
 
     public void CloseSavesMenu() {
         SavesMenu.SetActive(false);
+    }
+
+    public void CloseFirstMenu() {
+        StartCoroutine(waiter());
+        //FirstCanvas.SetActive(false);
+    }
+
+    IEnumerator waiter() {
+        yield return new WaitForSeconds(3);
+        FirstCanvas.SetActive(false);
     }
 
     public void OpenSavesMenu() {

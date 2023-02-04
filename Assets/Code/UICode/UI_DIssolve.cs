@@ -38,5 +38,15 @@ public class UI_DIssolve : MonoBehaviour
             isDissolving = true;
     }
 
+    public void Dissolvenull() {
+        StartCoroutine(waiter());
+    }
+
+
+    IEnumerator waiter() {
+        yield return new WaitForSeconds(3);
+        fade = 20;
+        dissolveMat.SetFloat("_CutOff", fade);
+    }
 
 }

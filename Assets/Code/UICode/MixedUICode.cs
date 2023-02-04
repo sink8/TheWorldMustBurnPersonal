@@ -25,7 +25,7 @@ public class MixedUICode : MonoBehaviour
     GameManager gm;
     bool waitingForKey = false;
     public Transform optionsPanel;
-    InputManager inputManager;
+    public InputManager inputManager;
     Event keyEvent;
     KeyCode newKey;
     [SerializeField] KeyBinding keyBinding;
@@ -33,7 +33,7 @@ public class MixedUICode : MonoBehaviour
 
     private void Awake() {
 
-        inputManager = InputManager.instance;
+        //inputManager = InputManager.instance;
         startingPosition = creditsObject.transform.localPosition;
         timer = creditsTime;
         optionsPanel = transform.Find("options");

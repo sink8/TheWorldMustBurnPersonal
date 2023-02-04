@@ -32,11 +32,12 @@ public class MovingOnLevelsMap : MonoBehaviour
 
     public LevelSelector levelSelector;
     public MenuNavigation menuNav;
+    CloudsSpawn spawn;
     StoreScores storeScores;
-    
-    void Start()
-    {
-        storeScores = GetComponent<StoreScores>();
+
+    private void Awake() {
+        //storeScores = GetComponent<StoreScores>();
+        spawn = FindObjectOfType<CloudsSpawn>();
     }
 
     // Update is called once per frame
@@ -96,6 +97,8 @@ public class MovingOnLevelsMap : MonoBehaviour
             SaveManager.instance.activeSave.respawnPosition[0] = player.transform.position.x;
             SaveManager.instance.activeSave.respawnPosition[1] = player.transform.position.y;
             SaveManager.instance.activeSave.respawnPosition[2] = player.transform.position.z;
+
+            spawn.DeleteCloud();
 
             SelectLevel(levelNumber);
 

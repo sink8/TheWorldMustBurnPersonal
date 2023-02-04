@@ -81,7 +81,7 @@ public class LevelEnd : MonoBehaviour
             LevelEndTextCommon();
             scoreCounter.RegisterNewScore(LevelNumber);
             //scoreCounter.RegisterScore();
-            anim.Play("FadeOut");
+            // anim.Play("FadeOut");
             //scoreCounter.scoreValue = 0;
             //Destroy(gameObject,3f);
             Destroy(collision.transform.parent.gameObject,3f);

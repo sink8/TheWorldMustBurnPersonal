@@ -21,11 +21,7 @@ public class CloudsSpawn : MonoBehaviour
         Invoke("AttemptSpawn", spawnInterval);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     void SpawnCloud(){
         GameObject cloud = Instantiate(clouds[Random.Range(0, clouds.Length - 1)]);
@@ -42,4 +38,10 @@ public class CloudsSpawn : MonoBehaviour
         SpawnCloud();
         Invoke("AttemptSpawn", spawnInterval);
     }
+
+    public void DeleteCloud() {
+        clouds = new GameObject[0];
+    }
+
+
 }

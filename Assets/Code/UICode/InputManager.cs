@@ -11,10 +11,10 @@ public static InputManager instance;
         if(instance == null){
             instance = this;
         }
-        else if(instance != null){
-            Destroy(this);
-        }
-        DontDestroyOnLoad(this);
+        //else if(instance != null){
+        //    Destroy(this);
+        //}
+        //DontDestroyOnLoad(this);
     }
 
     public KeyCode GetKeyForAction(KeybindingActions keybindingAction){
