@@ -23,9 +23,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4710063138608553609}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: -0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7534297115617392102}
   - {fileID: 1882449547007370214}
@@ -35,7 +36,7 @@ Transform:
   - {fileID: 3333226171752220155}
   - {fileID: 4710063139011372230}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4710063139011372231
 GameObject:
@@ -63,6 +64,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.14, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3390512334993318509}
   - {fileID: 3390512334052428183}
@@ -74,11 +76,20 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4710063138608553608}
     m_Modifications:
     - target: {fileID: 859226143815616911, guid: c4a1b4fc49b98f34e8328ddccb54c569, type: 3}
       propertyPath: ColorBySpeedModule.enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859226143815616912, guid: c4a1b4fc49b98f34e8328ddccb54c569, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 859226143815616912, guid: c4a1b4fc49b98f34e8328ddccb54c569, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 426864115
       objectReference: {fileID: 0}
     - target: {fileID: 859226143815616913, guid: c4a1b4fc49b98f34e8328ddccb54c569, type: 3}
       propertyPath: m_RootOrder
@@ -133,6 +144,9 @@ PrefabInstance:
       value: Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a1b4fc49b98f34e8328ddccb54c569, type: 3}
 --- !u!4 &3333226171752220155 stripped
 Transform:
@@ -144,6 +158,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4710063139011372230}
     m_Modifications:
     - target: {fileID: 179371554100895320, guid: 38529c37a15a898499b5823e48caff81, type: 3}
@@ -190,6 +205,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 179371554100895321, guid: 38529c37a15a898499b5823e48caff81, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 179371554100895321, guid: 38529c37a15a898499b5823e48caff81, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 426864115
+      objectReference: {fileID: 0}
     - target: {fileID: 179371554100895323, guid: 38529c37a15a898499b5823e48caff81, type: 3}
       propertyPath: m_Name
       value: PlayerEyes (1)
@@ -199,6 +222,9 @@ PrefabInstance:
       value: Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38529c37a15a898499b5823e48caff81, type: 3}
 --- !u!4 &3390512334993318509 stripped
 Transform:
@@ -210,6 +236,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4710063138608553608}
     m_Modifications:
     - target: {fileID: 4133852403124141720, guid: 4887cea0242772b4f9a6578fcd091943, type: 3}
@@ -219,6 +246,14 @@ PrefabInstance:
     - target: {fileID: 4133852403124141720, guid: 4887cea0242772b4f9a6578fcd091943, type: 3}
       propertyPath: m_TagString
       value: Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133852403124141722, guid: 4887cea0242772b4f9a6578fcd091943, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133852403124141722, guid: 4887cea0242772b4f9a6578fcd091943, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 426864115
       objectReference: {fileID: 0}
     - target: {fileID: 4133852403124141723, guid: 4887cea0242772b4f9a6578fcd091943, type: 3}
       propertyPath: m_RootOrder
@@ -265,6 +300,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4887cea0242772b4f9a6578fcd091943, type: 3}
 --- !u!4 &1454276342979500328 stripped
 Transform:
@@ -276,8 +314,17 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4710063138608553608}
     m_Modifications:
+    - target: {fileID: 3994421945429802704, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994421945429802704, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 426864115
+      objectReference: {fileID: 0}
     - target: {fileID: 3994421945429802705, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -331,6 +378,9 @@ PrefabInstance:
       value: Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
 --- !u!4 &1882449547007370214 stripped
 Transform:
@@ -342,6 +392,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4710063138608553608}
     m_Modifications:
     - target: {fileID: 5495080423320551341, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
@@ -359,6 +410,14 @@ PrefabInstance:
     - target: {fileID: 5495080423320551344, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
       propertyPath: m_TagString
       value: Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495080423320551346, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495080423320551346, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 426864115
       objectReference: {fileID: 0}
     - target: {fileID: 5495080423320551347, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
       propertyPath: m_RootOrder
@@ -405,6 +464,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
 --- !u!4 &7003861566130297843 stripped
 Transform:
@@ -416,6 +478,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4710063139011372230}
     m_Modifications:
     - target: {fileID: 179371554100895320, guid: 38529c37a15a898499b5823e48caff81, type: 3}
@@ -462,6 +525,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 179371554100895321, guid: 38529c37a15a898499b5823e48caff81, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 179371554100895321, guid: 38529c37a15a898499b5823e48caff81, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 426864115
+      objectReference: {fileID: 0}
     - target: {fileID: 179371554100895323, guid: 38529c37a15a898499b5823e48caff81, type: 3}
       propertyPath: m_Name
       value: PlayerEyes
@@ -471,6 +542,9 @@ PrefabInstance:
       value: Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38529c37a15a898499b5823e48caff81, type: 3}
 --- !u!4 &3390512334052428183 stripped
 Transform:
@@ -482,6 +556,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4710063138608553608}
     m_Modifications:
     - target: {fileID: 5044021916860438804, guid: 5a427f6277c61c4438676079a9820043, type: 3}
@@ -528,6 +603,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5044021916860438805, guid: 5a427f6277c61c4438676079a9820043, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044021916860438805, guid: 5a427f6277c61c4438676079a9820043, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 426864115
+      objectReference: {fileID: 0}
     - target: {fileID: 5044021916860438807, guid: 5a427f6277c61c4438676079a9820043, type: 3}
       propertyPath: m_Name
       value: PlayerAsParticles
@@ -537,6 +620,9 @@ PrefabInstance:
       value: Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a427f6277c61c4438676079a9820043, type: 3}
 --- !u!4 &7534297115617392102 stripped
 Transform:
@@ -548,8 +634,17 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4710063138608553608}
     m_Modifications:
+    - target: {fileID: 7072701337762024680, guid: e85a5b60835a58c43b291029da7d6eab, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7072701337762024680, guid: e85a5b60835a58c43b291029da7d6eab, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 426864115
+      objectReference: {fileID: 0}
     - target: {fileID: 7072701337762024681, guid: e85a5b60835a58c43b291029da7d6eab, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -603,6 +698,9 @@ PrefabInstance:
       value: Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e85a5b60835a58c43b291029da7d6eab, type: 3}
 --- !u!4 &6324214034236986063 stripped
 Transform:

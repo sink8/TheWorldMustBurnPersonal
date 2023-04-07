@@ -259,7 +259,25 @@ public class FireManager : MonoBehaviour
         AudioFW.AdjustVolume("FireBurningLoop", (float)activeFires.Count/30);
     }
 
+    public void InstantiateBurnedPrefab(Vector3Int position) {
+        TileData data = mapManager.GetTileData(position);
 
+        if (!data.leavesTile) {
+            map.SetTile(position, null);
+            NewAshTile(position, data.burned);
+        }
+
+        activeFires.Remove(position);
+    }
+    public void InstantiateBurnedPrefabMoving(Vector3Int position) {
+        TileData data = mapManager.GetTileDataMoving(position);
+
+        if (!data.leavesTile) {
+            mapMoving.SetTile(position, null);
+            NewAshTile(position, data.burned);
+        }
+        activeFires.Remove(position);
+    }
 
     public void FinishedBurning(Vector3Int position) {
         TileData data = mapManager.GetTileData(position);
@@ -280,16 +298,20 @@ public class FireManager : MonoBehaviour
             BurnedParticles(position);
         }
 
-        map.SetTile(position, null);
         if (scoreCounter) {
             scoreCounter.scoreValue += 1;
         }
 
-        if (!data.leavesTile) {
-            //var idx = strings.IndexOf(data.name);
-            //NewAshTile(position, prefabs[idx]);
-            NewAshTile(position, data.burned);
+        if (data.leavesTile) {
+            map.SetTile(position, null);
+
         }
+
+        //if (!data.leavesTile) {
+        //var idx = strings.IndexOf(data.name);
+        //NewAshTile(position, prefabs[idx]);
+        //NewAshTile(position, data.burned);
+        //}
         activeFires.Remove(position);
     }
 
@@ -310,16 +332,17 @@ public class FireManager : MonoBehaviour
             BurnedParticles(position);
         }
 
-        mapMoving.SetTile(position, null);
-
+        if (data.leavesTile) {
+            mapMoving.SetTile(position, null);
+        }
 
         if (scoreCounter) {
             scoreCounter.scoreValue += 1;
         }
 
-        if (!data.leavesTile) {
-            NewAshTile(position, data.burned);
-        }
+        //if (!data.leavesTile) {
+        //    NewAshTile(position, data.burned);
+        //}
         activeFires.Remove(position);
     }
 

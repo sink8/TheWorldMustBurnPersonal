@@ -8,8 +8,8 @@ public class Fire : MonoBehaviour
     TileData data;
     FireManager fireManager;
 
-    private float burnTimeCounter, spreadInterwallCounter;
-        
+    public float burnTimeCounter, spreadInterwallCounter, burnedPrefabCpunter;
+    bool burnedPrefabBool = false;    
     public void StartBurning(Vector3Int position, TileData data, FireManager fm) {
         this.position = position;
         this.data = data;
@@ -17,13 +17,25 @@ public class Fire : MonoBehaviour
 
         burnTimeCounter = data.burnTime;
         spreadInterwallCounter = data.spreadInterwall;
+        burnedPrefabCpunter = data.burnedPrefabTime;
     }
 
     private void Update() {
         burnTimeCounter -= Time.deltaTime;
-        if(burnTimeCounter <= 0) {
-            fireManager.FinishedBurning(position);
-            Destroy(gameObject);
+        if (data.leavesTile) {
+            if (burnTimeCounter <= 0) {
+                fireManager.FinishedBurning(position);
+                Destroy(gameObject);
+            }
+        } else {
+            if (burnedPrefabBool == false) {
+                burnedPrefabCpunter -= Time.deltaTime;
+                if (burnedPrefabCpunter <= 0) {
+                    fireManager.InstantiateBurnedPrefab(position);
+                    burnedPrefabBool = true;
+                    Destroy(gameObject, 3f);
+                }
+            }
         }
 
         spreadInterwallCounter -= Time.deltaTime;
@@ -32,6 +44,8 @@ public class Fire : MonoBehaviour
             fireManager.TryToSpread(position, data.spreadChange);
             fireManager.TryToSpreadMoving(position, data.spreadChange);
         }
+
+
 
     }
 
