@@ -31,21 +31,5 @@ public class InstructionsForPlayer : MonoBehaviour
     }
 
 
-    private void Update() {
-
-        /*if (jumpbool == true && Input.GetKeyDown(KeyCode.Space)) {
-            timerbool = true;
-
-        }
-
-        if (Timer > 0 && timerbool == true) {
-            Timer -= Time.deltaTime; // how much time has passed since last update. Eventually it will drop below zero
-            if (Timer <= 0) {
-                //Timer = 0;
-                canvas.enabled = false;
-                textgo.SetActive(false);
-            }
-        }*/
-    }
 
 }// class

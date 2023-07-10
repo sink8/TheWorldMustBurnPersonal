@@ -9,7 +9,7 @@ public class RayCastPlayer : MonoBehaviour
 
      float jumpHeight = 4.1f;
      float timeToJumpApex = 0.5f;
-     float moveSpeed = 8;
+     public float moveSpeed = 8;
      float gravity = -8f;
      float jumpVelocity = 10;
      float accelerationTimeGrounded = 0.15f;

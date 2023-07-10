@@ -284,14 +284,21 @@ public class FireManager : MonoBehaviour
         // käydään läpi secret efectit ja tuhotaan samassa kohdassa oleva samalla kun se poltetaan
         if(data.secret == true){
             foreach(var secr in secrets.ToArray()) {
-                if(secr.transform.position.x - 0.5f == position.x && secr.transform.position.y - 0.5f == position.y){
+                scoreCounter.secretValue += 1;
+                if (secr.transform.position.x - 0.5f == position.x && secr.transform.position.y - 0.5f == position.y){
                     //var newpos
                     Destroy(secr);
                     secrets.Remove(secr);
                 }
             }
         }
-        if(data.snowTile == true){
+        if (data.canSmoke) {
+            var randomNum = Random.Range(0, 3);
+            if (randomNum == 1) {
+                InstantiateSmoke(position);
+            }
+        }
+        if (data.snowTile == true){
             //MeltedParticles(position);
         }
         else {
@@ -320,12 +327,21 @@ public class FireManager : MonoBehaviour
         if(data.secret == true){
             foreach(var secr in secrets.ToArray()){
                 if(secr.transform.position.x - 0.5f == position.x && secr.transform.position.y - 0.5f == position.y){
+                    scoreCounter.secretValue += 1;
                     Destroy(secr);
                     secrets.Remove(secr);
+                    //tallennetaan tieto siitä, että salisuus löytyi
+
                 }
             }
         }
-        if(data.snowTile == true){
+        if (data.canSmoke) {
+            var randomNum = Random.Range(0, 3);
+            if (randomNum == 1) {
+                InstantiateSmokeMoving(position);
+            }
+        }
+        if (data.snowTile == true){
             MeltedParticles(position);
         }
         else {
@@ -339,6 +355,8 @@ public class FireManager : MonoBehaviour
         if (scoreCounter) {
             scoreCounter.scoreValue += 1;
         }
+
+
 
         //if (!data.leavesTile) {
         //    NewAshTile(position, data.burned);
@@ -446,6 +464,21 @@ public class FireManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void InstantiateSmoke(Vector3Int tilePosition) {
+        TileData data = mapManager.GetTileData(tilePosition);
+        GameObject smokeParticle = Instantiate(data.smokeParticle);
+
+        smokeParticle.transform.position = map.GetCellCenterWorld(tilePosition);
+        smokeParticle.transform.SetParent(allFires.transform);
+    }
+
+    public void InstantiateSmokeMoving(Vector3Int tilePosition) {
+        TileData data = mapManager.GetTileDataMoving(tilePosition);
+        GameObject smokeParticle = Instantiate(data.smokeParticle);
+        smokeParticle.transform.position = map.GetCellCenterWorld(tilePosition);
+        smokeParticle.transform.SetParent(allFires.transform);
     }
 
 }

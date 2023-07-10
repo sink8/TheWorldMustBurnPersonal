@@ -7,6 +7,7 @@ public class ScoreCounter : MonoBehaviour
 {
     public int levelNumber = 1;
     public float scoreValue = 0;
+    public int secretValue = 0;
     Text score;
     public GameObject timer;
     public FireManager fm;
@@ -72,6 +73,8 @@ public class ScoreCounter : MonoBehaviour
                         storeScores.goldHighSeconds[i] = gameTimer.gameTime - gameTimer.timer;
                     }
                 }
+
+
             }
         }
     }
@@ -104,6 +107,8 @@ public class ScoreCounter : MonoBehaviour
                 }
             }
         //}
+        SaveManager.instance.activeSave.secretsFound[i - 1] = secretValue;
+
         SaveManager.instance.SaveBin();
         SaveUI.instance.SaveBinInfo();
     }

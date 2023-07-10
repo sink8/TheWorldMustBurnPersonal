@@ -15,12 +15,18 @@ MonoBehaviour:
   tiles:
   - {fileID: 11400000, guid: 5db865f6f26b235498502ae497ad163a, type: 2}
   - {fileID: 11400000, guid: f36815290f92e5c4a9ccaea66e7cc868, type: 2}
+  burned: {fileID: 0}
   spreadChange: 100
   spreadInterwall: 0
   burnTime: 0
+  burnedPrefabTime: 1.5
   canBurn: 0
   ashTile: 0
   groudTile: 0
   waterTile: 1
   leavesTile: 0
   secret: 0
+  snowTile: 0
+  canSmoke: 0
+  secretParticle: {fileID: 0}
+  smokeParticle: {fileID: 7300671956358044777, guid: cae1a17a3213c2447b4e235d732a9e45, type: 3}
