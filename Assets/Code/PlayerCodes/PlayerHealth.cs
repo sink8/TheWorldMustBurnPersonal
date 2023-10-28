@@ -11,7 +11,6 @@ public class PlayerHealth : MonoBehaviour
     public Tilemap map;
     public Tilemap mapMoving;
 
-
     public GameObject player;
     GameObject playerParticles;
     public int health = 1;
@@ -25,6 +24,10 @@ public class PlayerHealth : MonoBehaviour
     public Animator anim;
     bool fadebool = false;
     PlayLoops playLoops;
+
+    public bool respawnActivated = false;
+    Vector3 reSpawnpoint;
+
     void Start() {
         //DeathUI = GameObject.Find("Menu");
         map = GameObject.FindGameObjectWithTag("Map").GetComponent<Tilemap>();
@@ -56,8 +59,13 @@ public class PlayerHealth : MonoBehaviour
     public void Damaged(int damage) {
         
         health -= damage;
-        playLoops.StopLevelMusic();
-        if (health <= 0) {
+
+        if (health >= 1)
+        {
+            player.transform.position = reSpawnpoint;
+        } else
+        {
+            playLoops.StopLevelMusic();
             health = 0;
             // kuolema animaatio
             if (fadebool == false) {
@@ -98,11 +106,30 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    void ReSpawnPoint()
+    {
+        respawnActivated = true;
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Water")){
+            AudioFW.Play("Death");
             Damaged(1);
         }
+
+        print("osui");
+        if (collision.gameObject.CompareTag("Respawn"))
+        {
+            print("player osui");
+            
+            ReSpawnPoint();
+            reSpawnpoint = collision.ClosestPoint(transform.position);
+        }
+
     }
+
+
     void DestroySpark() {
         var projectileEndParticleclone = Instantiate(DeathParticle, transform.position, transform.rotation);
         Destroy(projectileEndParticleclone.gameObject, 1);

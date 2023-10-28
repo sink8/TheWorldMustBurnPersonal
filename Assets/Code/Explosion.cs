@@ -20,6 +20,7 @@ public class Explosion : MonoBehaviour
         
         map = GameObject.FindGameObjectWithTag("Map").GetComponent<Tilemap>();
         mapMoving = GameObject.FindGameObjectWithTag("MovingMap").GetComponent<Tilemap>();
+        
 
     }
 

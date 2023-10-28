@@ -25,6 +25,7 @@ public class AshTilesColliding : MonoBehaviour
         playercontroller = player.GetComponent<SimplePlayerControllerDoubleJump>();
         fireManager = GameObject.FindObjectOfType<FireManager>();
         dissolveMat = GetComponent<SpriteRenderer>().material;
+        
 
         m_Collider = GetComponent<Collider2D>();
         m_Point = new Vector3(-5.3f, -0.4f, 0);
