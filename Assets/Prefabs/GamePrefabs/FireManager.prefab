@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5122752516184926208
 MonoBehaviour:
@@ -53,6 +53,7 @@ MonoBehaviour:
   player: {fileID: 0}
   burnedParticle: {fileID: 7769672079985295185, guid: 93820cf5f53efc84fbd6387ae33b2422, type: 3}
   meltedParticle: {fileID: 4555566301418291174, guid: e53fac094c522c04580022906409c9ff, type: 3}
+  fireupParticle: {fileID: 1005203583034169666, guid: c245fbda317852845853a32a99b62bcd, type: 3}
   activeFires: []
   area:
     m_Position: {x: 0, y: 0, z: 0}

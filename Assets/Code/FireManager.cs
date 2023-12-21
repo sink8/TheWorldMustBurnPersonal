@@ -30,6 +30,7 @@ public class FireManager : MonoBehaviour
     public Transform player;
     public Transform burnedParticle;
     public Transform meltedParticle;
+    public Transform fireupParticle;
 
     public List<Vector3Int> activeFires = new List<Vector3Int>();
 
@@ -122,6 +123,12 @@ public class FireManager : MonoBehaviour
         if(InstantiateLights == true) {
             InstantiateFireLights(tilePosition);
         }
+
+        var randomNum = Random.Range(0, 4);
+        if (randomNum == 1)
+        {
+            FireupParticles(tilePosition);
+        }
         /*if (map.HasTile(tempTilepos) && dataunder.groudTile == true) {
             newFire = Instantiate(firePrefab);
             newFire.transform.SetParent(allFires.transform);
@@ -156,6 +163,12 @@ public class FireManager : MonoBehaviour
 
         if (InstantiateLights == true) {
             InstantiateFireLights(tilePosition);
+        }
+
+        var randomNum = Random.Range(0, 4);
+        if (randomNum == 1)
+        {
+            FireupParticles(tilePosition);
         }
         /*if (mapMoving.HasTile(tempTilepos) && dataunder.groudTile == true) {
             newFire3 = Instantiate(firePrefab2);
@@ -373,6 +386,13 @@ public class FireManager : MonoBehaviour
     void BurnedParticles( Vector3 posit ) {
         var EndParticleclone = Instantiate(burnedParticle,posit , transform.rotation);
         Destroy(EndParticleclone.gameObject, 1.5f);
+
+    }
+
+    void FireupParticles(Vector3 posit)
+    {
+        var EndParticleclone = Instantiate(fireupParticle, posit, transform.rotation);
+        Destroy(EndParticleclone.gameObject, 11f);
 
     }
 
