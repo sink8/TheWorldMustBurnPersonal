@@ -28,13 +28,14 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 149, y: 9.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5678157564202134999}
   - {fileID: 6199269235077705560}
   - {fileID: 6199269236266519838}
   - {fileID: 4534696847752565474}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3020769058512993881
 SpriteRenderer:
@@ -100,56 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c0a1cd945a4974b9b9a0e25936acc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4275929680183990431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4534696847752565473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f72e55f51e6cb3f43958b12f763ef62f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gobject: {fileID: 36151626966115395}
-  axis: {x: 1, y: 5, z: 0}
-  angle: 3
---- !u!114 &1935281467578084648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5678157564202134996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f72e55f51e6cb3f43958b12f763ef62f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gobject: {fileID: 36151626966115395}
-  axis: {x: 1, y: 5, z: 36.18}
-  angle: 3
---- !u!114 &728288928755011065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6199269236266519837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f72e55f51e6cb3f43958b12f763ef62f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gobject: {fileID: 36151626966115395}
-  axis: {x: 7.72, y: 3.21, z: 9.56}
-  angle: 3
 --- !u!1001 &4275929680667471692
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 203832875646101100}
     m_Modifications:
     - target: {fileID: 1517466027, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
@@ -258,28 +215,65 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0.6509434
+      value: 0.7169812
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0.5665809
+      value: 0.60819805
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.08290317
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0.65882355
       objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 0.0990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.38864556
+      objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1517466027, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 412463791563603373, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4275929680183990431}
   m_SourcePrefab: {fileID: 100100000, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
 --- !u!1 &4534696847752565473 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 412463791563603373, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
   m_PrefabInstance: {fileID: 4275929680667471692}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4275929680183990431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4534696847752565473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f72e55f51e6cb3f43958b12f763ef62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gobject: {fileID: 36151626966115395}
+  axis: {x: 1, y: 5, z: 0}
+  angle: 3
 --- !u!4 &4534696847752565474 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 412463791563603374, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
@@ -290,6 +284,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 203832875646101100}
     m_Modifications:
     - target: {fileID: 412463791563603373, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
@@ -362,28 +357,61 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0.735849
+      value: 0.8679245
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0.6473217
+      value: 0.74479014
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.17702027
+      value: 0.10234957
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0.7921569
       objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 0.051886797
+      objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.35663748
+      objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1517466027, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 412463791563603373, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1935281467578084648}
   m_SourcePrefab: {fileID: 100100000, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
 --- !u!1 &5678157564202134996 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 412463791563603373, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
   m_PrefabInstance: {fileID: 5437396824215048313}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1935281467578084648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5678157564202134996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f72e55f51e6cb3f43958b12f763ef62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gobject: {fileID: 36151626966115395}
+  axis: {x: 1, y: 5, z: 36.18}
+  angle: 3
 --- !u!4 &5678157564202134999 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 412463791563603374, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
@@ -394,6 +422,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 203832875646101100}
     m_Modifications:
     - target: {fileID: 1517466027, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
@@ -478,33 +507,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.b
-      value: 0.7075472
+      value: 0.8773585
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.g
-      value: 0.6271034
+      value: 0.7660276
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.r
-      value: 0.15018693
+      value: 0.086908154
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key2.b
-      value: 0.23113209
+      value: 0.15566039
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key2.g
-      value: 0.47780448
+      value: 0.42705527
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key2.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.m_NumColorKeys
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
 --- !u!4 &6199269235077705560 stripped
 Transform:
@@ -516,6 +552,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 203832875646101100}
     m_Modifications:
     - target: {fileID: 1517466027, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
@@ -595,29 +632,70 @@ PrefabInstance:
       value: 59945
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime1
+      value: 65150
+      objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0.6509434
+      value: 0.7264151
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0.5665809
+      value: 0.61620057
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.08290317
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0.65882355
       objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 0.050418302
+      objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.34654394
+      objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 412463791563603376, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1517466027, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 412463791563603373, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 728288928755011065}
   m_SourcePrefab: {fileID: 100100000, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
 --- !u!1 &6199269236266519837 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 412463791563603373, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}
   m_PrefabInstance: {fileID: 6030714782027854000}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &728288928755011065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6199269236266519837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f72e55f51e6cb3f43958b12f763ef62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gobject: {fileID: 36151626966115395}
+  axis: {x: 7.72, y: 3.21, z: 9.56}
+  angle: 3
 --- !u!4 &6199269236266519838 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 412463791563603374, guid: 4a8ea35f6f5d47f4386ba2726561bd4a, type: 3}

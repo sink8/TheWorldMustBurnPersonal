@@ -355,7 +355,7 @@ public class FireManager : MonoBehaviour
             }
         }
         if (data.snowTile == true){
-            MeltedParticles(position);
+            //MeltedParticles(position);
         }
         else {
             BurnedParticles(position);

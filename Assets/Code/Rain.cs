@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rain : MonoBehaviour
 {
     public ParticleSystem rain;
-    public float rainCycle = 5;
+    public float rainCycle = 9;
     public float timer = 0;
     public bool rainBool = true;
 
