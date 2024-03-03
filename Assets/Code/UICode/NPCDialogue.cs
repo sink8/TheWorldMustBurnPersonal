@@ -13,6 +13,7 @@ public class NPCDialogue : MonoBehaviour
 
     TMP_Text text;
     CanvasGroup group;
+    public EnemyHealth enemyHealth;
     bool dialogueStarted;
 
     public NPCDialogueTrigger trigger;
@@ -21,6 +22,7 @@ public class NPCDialogue : MonoBehaviour
     {
         text = GetComponent<TMP_Text>();
         group = GetComponent<CanvasGroup>();
+        enemyHealth = gameObject.GetComponentInParent<EnemyHealth>();
         group.alpha = 0;
 
     }
@@ -41,6 +43,8 @@ public class NPCDialogue : MonoBehaviour
             }
 
         }
+
+
     }
 
     void StartDialogue() {
@@ -62,6 +66,14 @@ public class NPCDialogue : MonoBehaviour
     {
         if(trigger.triggered == true) {
             StartDialogue();
+        }
+
+        if(enemyHealth.health == 0)
+        {
+            lineIndex = 1;
+            text.SetText(dialogueLines[lineIndex]);
+            group.alpha = 1;
+            dialogueStarted = true;
         }
     }
 }

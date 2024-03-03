@@ -95,9 +95,11 @@ GameObject:
   - component: {fileID: 146359809}
   - component: {fileID: 146359811}
   - component: {fileID: 146359810}
+  - component: {fileID: 6528670584660973748}
+  - component: {fileID: 6244965589802004128}
   m_Layer: 0
   m_Name: water1 (2)
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,6 +224,78 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!50 &6528670584660973748
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146359808}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!61 &6244965589802004128
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146359808}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &203975170
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,9 +542,11 @@ GameObject:
   - component: {fileID: 750033971}
   - component: {fileID: 750033973}
   - component: {fileID: 750033972}
+  - component: {fileID: 1432994822644013305}
+  - component: {fileID: 2712203228104829650}
   m_Layer: 0
   m_Name: water1 (1)
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,6 +671,78 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1432994822644013305
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750033970}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!50 &2712203228104829650
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750033970}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
 --- !u!1 &805269836
 GameObject:
   m_ObjectHideFlags: 0
@@ -4309,7 +4457,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 2
   m_Text: "This mysterious energy nullifies your fire power. You can touch things
     without burning them and might find it usefull. \n"
 --- !u!1 &80607319157092668
@@ -5672,7 +5820,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 2
   m_Text: 'This mysterious energy nullifies your fire power. You can touch things
     without burning them and might find it usefull. '
 --- !u!1 &3156554194322427993
@@ -7352,7 +7500,7 @@ Transform:
   - {fileID: 146359809}
   - {fileID: 7866413285450075234}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4957600621016728382
 GameObject:
@@ -110581,9 +110729,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4928352830984494838, guid: f7d8bce31ddfa1145b9702620b4e573d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6425380331218445200, guid: f7d8bce31ddfa1145b9702620b4e573d, type: 3}
       propertyPath: m_Name
       value: Burning object
+      objectReference: {fileID: 0}
+    - target: {fileID: 6425380331218445200, guid: f7d8bce31ddfa1145b9702620b4e573d, type: 3}
+      propertyPath: m_TagString
+      value: Palo
       objectReference: {fileID: 0}
     - target: {fileID: 6425380331218445204, guid: f7d8bce31ddfa1145b9702620b4e573d, type: 3}
       propertyPath: m_RootOrder
@@ -110637,19 +110793,53 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1052410689
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7402889633421846089, guid: f7d8bce31ddfa1145b9702620b4e573d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5210225198026548428, guid: f7d8bce31ddfa1145b9702620b4e573d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6425380331218445204, guid: f7d8bce31ddfa1145b9702620b4e573d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1323782548799357509}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6425380331218445200, guid: f7d8bce31ddfa1145b9702620b4e573d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9220634756338181277}
   m_SourcePrefab: {fileID: 100100000, guid: f7d8bce31ddfa1145b9702620b4e573d, type: 3}
 --- !u!4 &2267975315171358225 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6425380331218445204, guid: f7d8bce31ddfa1145b9702620b4e573d, type: 3}
   m_PrefabInstance: {fileID: 5067392727183398277}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2267975315171358229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6425380331218445200, guid: f7d8bce31ddfa1145b9702620b4e573d, type: 3}
+  m_PrefabInstance: {fileID: 5067392727183398277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &9220634756338181277
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2267975315171358229}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fa07db6887a1fad4eaaa163ec377d02c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6668591986823931188 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1934691601603506353, guid: f7d8bce31ddfa1145b9702620b4e573d, type: 3}
