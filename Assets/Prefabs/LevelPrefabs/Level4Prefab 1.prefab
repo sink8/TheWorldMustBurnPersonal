@@ -4346,7 +4346,7 @@ MonoBehaviour:
     FieldOfView: 60
     OrthographicSize: 9
     NearClipPlane: 0.3
-    FarClipPlane: 2
+    FarClipPlane: 2.88
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -4447,7 +4447,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 2
+  far clip plane: 2.88
   field of view: 60
   orthographic: 1
   orthographic size: 9
@@ -22015,6 +22015,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7927620164570821946, guid: 540e1648d8882144f8a37beaae297e01, type: 3}
+      propertyPath: lengthInSec
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927620164570821946, guid: 540e1648d8882144f8a37beaae297e01, type: 3}
       propertyPath: autoRandomSeed
       value: 1
       objectReference: {fileID: 0}
@@ -22028,6 +22032,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7927620164570821946, guid: 540e1648d8882144f8a37beaae297e01, type: 3}
       propertyPath: VelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927620164570821946, guid: 540e1648d8882144f8a37beaae297e01, type: 3}
+      propertyPath: CollisionModule.quality
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7927620164570821946, guid: 540e1648d8882144f8a37beaae297e01, type: 3}
@@ -22051,8 +22059,20 @@ PrefabInstance:
       value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 7927620164570821946, guid: 540e1648d8882144f8a37beaae297e01, type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927620164570821946, guid: 540e1648d8882144f8a37beaae297e01, type: 3}
+      propertyPath: CollisionModule.m_Dampen.scalar
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927620164570821946, guid: 540e1648d8882144f8a37beaae297e01, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927620164570821946, guid: 540e1648d8882144f8a37beaae297e01, type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7927620164570821946, guid: 540e1648d8882144f8a37beaae297e01, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -22060,7 +22080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7927620164570821946, guid: 540e1648d8882144f8a37beaae297e01, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 2.94
+      value: 3.41
       objectReference: {fileID: 0}
     - target: {fileID: 7927620164570821946, guid: 540e1648d8882144f8a37beaae297e01, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
@@ -23606,8 +23626,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rain: {fileID: 3000537545402591183}
-  rainCycle: 9
+  rainCycle: 10
   timer: 8
+  raintime: 4
   rainBool: 0
 --- !u!1 &8293565817658711622 stripped
 GameObject:

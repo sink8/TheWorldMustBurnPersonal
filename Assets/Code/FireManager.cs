@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class FireManager : MonoBehaviour
 {
@@ -79,6 +80,7 @@ public class FireManager : MonoBehaviour
             TileData data = mapManager.GetTileData(tilePostion);
 
             if(data != null && data.canBurn) {
+
                 if (Random.Range(50f, 100f) <= data.spreadChange)
                     SetTileOnFire(tilePostion, data);
             }
@@ -104,6 +106,9 @@ public class FireManager : MonoBehaviour
     }
 
     public void SetTileOnFire(Vector3Int tilePosition, TileData data) {
+
+        //map.SetColliderType(tilePosition, Tile.ColliderType.None);
+        
 
         Vector3Int tempTilepos = tilePosition;
         tempTilepos.y -= 1;

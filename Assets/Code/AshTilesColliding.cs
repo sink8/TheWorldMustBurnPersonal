@@ -45,7 +45,8 @@ public class AshTilesColliding : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
 
             if (collision.gameObject.CompareTag("DashBox")) {
-                isDissolving = true;
+            GetComponent<Collider2D>().enabled = false;
+            isDissolving = true;
                 gameObject.layer = 8;
         }
     }
