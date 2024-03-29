@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
+using TMPro;
 
 public class FireManager : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class FireManager : MonoBehaviour
 
     public Transform player;
     public Transform burnedParticle;
+    public Transform burnedParticleStart;
     public Transform meltedParticle;
     public Transform fireupParticle;
 
@@ -40,6 +42,9 @@ public class FireManager : MonoBehaviour
     public float burnRadius = 1.5f;
 
     public ScoreCounter scoreCounter;
+    public Transform scoreInsPrefab;
+    public float minSpawnDelay = 0.01f;
+    public float maxSpawnDelay = 0.2f;
 
     public BoundsInt bounds;
     public Vector2 pos;
@@ -108,7 +113,7 @@ public class FireManager : MonoBehaviour
     public void SetTileOnFire(Vector3Int tilePosition, TileData data) {
 
         //map.SetColliderType(tilePosition, Tile.ColliderType.None);
-        
+        BurnedParticleKpinäts(tilePosition);
 
         Vector3Int tempTilepos = tilePosition;
         tempTilepos.y -= 1;
@@ -152,6 +157,7 @@ public class FireManager : MonoBehaviour
 
     public void SetTileOnFireMoving(Vector3Int tilePosition, TileData data) {
 
+        BurnedParticleKpinäts(tilePosition);
         Vector3Int tempTilepos = tilePosition;
         tempTilepos.y -= 1;
         //TileData dataunder = mapManager.GetTileDataMoving(tempTilepos);
@@ -298,6 +304,7 @@ public class FireManager : MonoBehaviour
     }
 
     public void FinishedBurning(Vector3Int position) {
+        
         TileData data = mapManager.GetTileData(position);
         // käydään läpi secret efectit ja tuhotaan samassa kohdassa oleva samalla kun se poltetaan
         if(data.secret == true){
@@ -310,6 +317,7 @@ public class FireManager : MonoBehaviour
                 }
             }
         }
+        StartCoroutine(InstantiateScorePrefab(position));
         if (data.canSmoke) {
             var randomNum = Random.Range(0, 3);
             if (randomNum == 1) {
@@ -341,6 +349,7 @@ public class FireManager : MonoBehaviour
     }
 
     public void FinishedBurningMoving(Vector3Int position) {
+        
         TileData data = mapManager.GetTileDataMoving(position);
         if(data.secret == true){
             foreach(var secr in secrets.ToArray()){
@@ -353,6 +362,7 @@ public class FireManager : MonoBehaviour
                 }
             }
         }
+        StartCoroutine(InstantiateScorePrefab(position));
         if (data.canSmoke) {
             var randomNum = Random.Range(0, 3);
             if (randomNum == 1) {
@@ -391,6 +401,12 @@ public class FireManager : MonoBehaviour
     void BurnedParticles( Vector3 posit ) {
         var EndParticleclone = Instantiate(burnedParticle,posit , transform.rotation);
         Destroy(EndParticleclone.gameObject, 1.5f);
+
+    }
+    void BurnedParticleKpinäts(Vector3 posit)
+    {
+        var EndParticleclone = Instantiate(burnedParticleStart, posit, transform.rotation);
+        Destroy(EndParticleclone.gameObject, 1.1f);
 
     }
 
@@ -498,6 +514,21 @@ public class FireManager : MonoBehaviour
         smokeParticle.transform.position = map.GetCellCenterWorld(tilePosition);
         smokeParticle.transform.SetParent(allFires.transform);
     }
+
+    public IEnumerator InstantiateScorePrefab( Vector3 tilePosition)
+    {
+        Vector2 randomOffset = new Vector2(Random.Range(-0.15f, 0.15f), Random.Range(-0.15f, 0.15f));
+        Vector3 spawnPosition = tilePosition + new Vector3(randomOffset.x, randomOffset.y, 0f);
+        float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
+        var scoreprefab = Instantiate(scoreInsPrefab, spawnPosition, transform.rotation);
+        var textComponent = scoreprefab.GetComponentInChildren<TMP_Text>();
+        textComponent.text = scoreCounter.runningScore.ToString();
+
+        Destroy(scoreprefab.gameObject, 1f);
+        yield return new WaitForSeconds(delay);
+    }
+
+
 
     public void InstantiateSmokeMoving(Vector3Int tilePosition) {
         TileData data = mapManager.GetTileDataMoving(tilePosition);

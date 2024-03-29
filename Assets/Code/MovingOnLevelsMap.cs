@@ -92,7 +92,7 @@ public class MovingOnLevelsMap : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E)) {
             
             SaveManager.instance.activeSave.respawnPosition[0] = player.transform.position.x;
             SaveManager.instance.activeSave.respawnPosition[1] = player.transform.position.y;
