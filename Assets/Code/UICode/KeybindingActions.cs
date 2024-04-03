@@ -6,6 +6,6 @@ public enum KeybindingActions{
     Shoot,
     Jump,
     Dash,
-    Interact
-
+    Interact,
+    DashDown
 }

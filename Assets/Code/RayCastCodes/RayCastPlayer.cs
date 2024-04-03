@@ -187,6 +187,61 @@ public class RayCastPlayer : MonoBehaviour
         }
     }
 
+    void DashDown()
+    {
+        if (direction == 0)
+        {
+
+            if ((inputManager.GetKeyDown(KeybindingActions.DashDown) || Input.GetButton("DashDown")) && canDash == true)
+            {
+                AudioFW.Play("SwushShort");
+                if (moveInput < 0)
+                {
+                    CreateDashKipinä();
+                    direction = 1;
+                    dash = true;
+                    //dashBlock.SetActive(true);
+                }
+                else if (moveInput > 0)
+                {
+                    CreateDashKipinä();
+                    direction = 2;
+                    dash = true;
+                    //dashBlock.SetActive(true);
+                }
+
+                canDash = false;
+                StartCoroutine(DashTimer());
+            }
+        }
+        else
+        {
+            if (dashTime <= 0)
+            {
+                dash = false;
+                direction = 0;
+                dashTime = startDashTime;
+                velocity = Vector2.zero;
+                dashBlock.SetActive(false);
+            }
+            else
+            {
+                dashTime -= Time.deltaTime;
+
+                if (direction == 1)
+                {
+                    dashBlock.SetActive(true);
+                    velocity = Vector2.left * dashSpeed;
+                }
+                else if (direction == 2)
+                {
+                    dashBlock.SetActive(true);
+                    velocity = Vector2.right * dashSpeed;
+                }
+            }
+        }
+    }
+
     private IEnumerator DashTimer() {
         yield return new WaitForSeconds(1f);
         canDash = true;

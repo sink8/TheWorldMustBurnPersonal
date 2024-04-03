@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c549008f833ef094cb4efe577cd9439c, type: 3}
+  m_Name: SoftGroundTiles
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 61423d868a4c9a14d8692e4080ebad06, type: 2}
+  burned: {fileID: 0}
+  spreadChange: 100
+  spreadInterwall: 0
+  burnTime: 0
+  burnedPrefabTime: 1.5
+  canBurn: 0
+  ashTile: 0
+  groudTile: 1
+  waterTile: 0
+  leavesTile: 0
+  secret: 0
+  snowTile: 0
+  canSmoke: 0
+  softGround: 1
+  secretParticle: {fileID: 0}
+  smokeParticle: {fileID: 0}
