@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MenuNavigation : MonoBehaviour
 {
-    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas;
+    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas, AudioMenu;
     public GameObject levelFirstButton, levelEndFirstButton, DeathFirstButton, PauseFirstButton, TitleFirstButton, SaveFirstButton, StartFirstButton, OptionsFirstButton,
                         CreditsFirstButton;
 
@@ -197,6 +197,17 @@ public class MenuNavigation : MonoBehaviour
         OptionsMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(OptionsFirstButton);
+    }
+
+    public void OpenMenuNoise()
+    {
+        AudioMenu.SetActive(true);
+        //AudioFW.Play("MenuClick");
+    }
+    public void CloseMenuNoise()
+    {
+        AudioMenu.SetActive(false);
+        AudioFW.Play("MenuEnd");
     }
 
 

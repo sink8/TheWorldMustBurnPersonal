@@ -60,9 +60,9 @@ public class LevelEnd : MonoBehaviour
             //playLoops.StopLevelMusic();
             //anim.Play("FadeOut");
             menuNav.OpenPauseMenu();
-            
+            AudioFW.Play("MenuClick");
             //Destroy(transform.parent.gameObject, 3f);
-           
+
         }
     }
 
