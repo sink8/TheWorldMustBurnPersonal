@@ -75,7 +75,16 @@ public class SparksBurnTiles : MonoBehaviour
             }
 
         }
-
+        if (collision.gameObject.CompareTag("DashBox"))
+        {
+            fireManager.dashTrigger = false;
+            //fireManager.BurnFromPlayerPositionDash();
+        }
+        if (collision.gameObject.CompareTag("DashDown"))
+        {
+            fireManager.dashTrigger = false;
+            //fireManager.BurnFromPlayerPositionDash();
+        }
 
     }
 
@@ -92,6 +101,35 @@ public class SparksBurnTiles : MonoBehaviour
             fireManager.dashTrigger = true;
             Debug.Log("dashboxdown");
             fireManager.BurnFromPlayerPositionDash();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("DashBox"))
+        {
+            fireManager.dashTrigger = false;
+            //fireManager.BurnFromPlayerPositionDash();
+        }
+        if (collision.gameObject.CompareTag("DashDown"))
+        {
+            fireManager.dashTrigger = false;
+            //fireManager.BurnFromPlayerPositionDash();
+        }
+    }
+
+    
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("DashBox"))
+        {
+            fireManager.dashTrigger = false;
+            //fireManager.BurnFromPlayerPositionDash();
+        }
+        if (collision.gameObject.CompareTag("DashDown"))
+        {
+            fireManager.dashTrigger = false;
+            //fireManager.BurnFromPlayerPositionDash();
         }
     }
     public void InstantiateExplosion(Vector3Int tilePosition, TileData data, GameObject prefab) {

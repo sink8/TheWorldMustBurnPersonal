@@ -32,6 +32,15 @@ public class StonesRunes : MonoBehaviour
         //ChangeRuneslightAlpha(stoneMaterial);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            EnableRuneLight();
+        }
+    }
+
+
     public void EnableRuneLight(){
 
         //if (!isVisible) {

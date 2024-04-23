@@ -14,9 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 11400000, guid: 28df061d3b9209e47a57fb54ac82a30b, type: 2}
-  walkingSpeed: 0
+  burned: {fileID: 0}
   spreadChange: 100
   spreadInterwall: 1
-  burnTime: 4
+  burnTime: 3.5
+  spreadInterwallGround: 0
+  groundTime: 0
+  burnedPrefabTime: 1.5
   canBurn: 1
   ashTile: 0
+  groudTile: 0
+  waterTile: 0
+  leavesTile: 0
+  secret: 0
+  snowTile: 0
+  canSmoke: 0
+  softGround: 0
+  secretParticle: {fileID: 0}
+  smokeParticle: {fileID: 0}

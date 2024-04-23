@@ -42,8 +42,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d463715d34449434183ee8b78b8ca7f8, type: 2}
   burned: {fileID: 0}
   spreadChange: 100
-  spreadInterwall: 0.6
-  burnTime: 3.5
+  spreadInterwall: 0.8
+  burnTime: 2.2
+  spreadInterwallGround: 0
+  groundTime: 0
   burnedPrefabTime: 1.5
   canBurn: 1
   ashTile: 0
@@ -53,5 +55,6 @@ MonoBehaviour:
   secret: 0
   snowTile: 0
   canSmoke: 0
+  softGround: 0
   secretParticle: {fileID: 0}
   smokeParticle: {fileID: 0}

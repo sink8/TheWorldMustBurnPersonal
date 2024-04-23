@@ -4058,10 +4058,13 @@ MonoBehaviour:
   scoreCounter: {fileID: 0}
   EndLevelScoreTextCommon: {fileID: 0}
   EndLevelScoreTextHighScore: {fileID: 0}
+  endLevelQuestion: {fileID: 0}
   menuNav: {fileID: 0}
+  pause: {fileID: 0}
   playLoops: {fileID: 0}
   anim: {fileID: 2798039246309952}
   imag: {fileID: 2881494479849445758}
+  pauseOpen: 0
   playerParticles: []
 --- !u!114 &4330621925482765087
 MonoBehaviour:
@@ -19320,7 +19323,7 @@ Transform:
   - {fileID: 2790762672041264216}
   - {fileID: 5796397172025311179}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9206921849880354989
 GameObject:
