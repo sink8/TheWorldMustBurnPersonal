@@ -49,9 +49,13 @@ MonoBehaviour:
   mapManager: {fileID: 0}
   firePrefab: {fileID: -5825349054958040398, guid: 56ecef7a31f7ee745b45c29eed940e68, type: 3}
   firePrefab2: {fileID: 4582448298955617623, guid: 06509c81d5f1ab147bc4d2fd993f7e64, type: 3}
+  softGround: {fileID: 0}
   allFires: {fileID: 0}
   player: {fileID: 0}
+  dashPos: {fileID: 0}
+  playerdashPosDown: {fileID: 0}
   burnedParticle: {fileID: 7769672079985295185, guid: 93820cf5f53efc84fbd6387ae33b2422, type: 3}
+  burnedParticleStart: {fileID: 0}
   meltedParticle: {fileID: 4555566301418291174, guid: e53fac094c522c04580022906409c9ff, type: 3}
   fireupParticle: {fileID: 1005203583034169666, guid: c245fbda317852845853a32a99b62bcd, type: 3}
   activeFires: []
@@ -59,13 +63,18 @@ MonoBehaviour:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 0, y: 0, z: 0}
   burnRadius: 1.5
+  destRadius: 0.5
   scoreCounter: {fileID: 0}
-  scoreInsPrefab: {fileID: 7610199428661101805, guid: 35de22012a515e648aa15f17df28e541, type: 3}
+  scoreInsPrefab: {fileID: 5943893081600028547, guid: 38c94690b8026d74284a48a15cf3f288, type: 3}
+  minSpawnDelay: 0.01
+  maxSpawnDelay: 0.2
   bounds:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 0, y: 0, z: 0}
   pos: {x: 0, y: 0}
   playerPosition2: {x: 0, y: 0}
+  dashPosition2: {x: 0, y: 0}
   InstantiateLights: 0
+  dashTrigger: 0
   fireLight: {fileID: 0}
   secrets: []

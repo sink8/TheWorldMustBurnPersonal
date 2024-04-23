@@ -21,6 +21,7 @@ public class MenuNavigation : MonoBehaviour
     public GameObject[] levels;
     public GameObject[] locks;
     public MenuAudio menuAudio;
+    bool pauseOpen = false;
 
     private void Start() {
         //levels = GameObject.FindGameObjectsWithTag("Level");
@@ -51,10 +52,24 @@ public class MenuNavigation : MonoBehaviour
             UnlockAllLevels();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-
-            OpenPauseMenu();
+        if(pauseOpen == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                OpenPauseMenu();
+                pauseOpen = true;
+                AudioFW.Play("MenuEnd");
+            }
         }
+        else if (pauseOpen == true) {
+            if(Input.GetKeyDown(KeyCode.Escape)) {
+                ClosePauseMenu();
+                AudioFW.Play("MenuEnd");
+                pauseOpen = false;
+            }
+
+        }
+
         /*if (EventSystem.current.currentSelectedGameObject != null) {
         if(EventSystem.current.currentSelectedGameObject.name == "Level1Button") {
             lv1Score.SetActive(true);

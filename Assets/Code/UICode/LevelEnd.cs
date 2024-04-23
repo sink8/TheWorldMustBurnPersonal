@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class LevelEnd : MonoBehaviour
@@ -15,13 +16,17 @@ public class LevelEnd : MonoBehaviour
     public ScoreCounter scoreCounter;
     public Text EndLevelScoreTextCommon;
     public Text EndLevelScoreTextHighScore;
+    public GameObject endLevelQuestion;
+
     GameManager gm;
 
     public MenuNavigation menuNav;
+    public GameObject pause;
     public PlayLoops playLoops;
     public Animator anim;
     public Image imag;
     bool levelend = false;
+    public bool pauseOpen = false;
     float timer = 2f;
 
     public GameObject[] playerParticles;
@@ -31,6 +36,7 @@ public class LevelEnd : MonoBehaviour
 
         playLoops = FindObjectOfType<PlayLoops>();
         playLoops.StartLevelMusic(LevelNumber);
+        
 
         tileAmount = fm.GetComponent<FireManager>().GetTileAmountSprite();
 
@@ -56,22 +62,65 @@ public class LevelEnd : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            //playLoops.StopLevelMusic();
-            //anim.Play("FadeOut");
-            menuNav.OpenPauseMenu();
-            AudioFW.Play("MenuClick");
-            //Destroy(transform.parent.gameObject, 3f);
+        //if (pauseOpen == false)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Escape))
+        //    {
+        //        //playLoops.StopLevelMusic();
+        //        //anim.Play("FadeOut");
+        //        pause.SetActive(!pause.activeSelf);
+        //        //menuNav.OpenPauseMenu();
+        //        AudioFW.Play("MenuClick");
+        //        pauseOpen = true;
+        //        //Destroy(transform.parent.gameObject, 3f);
 
-        }
+        //    }
+        //}
+            
+    //    if (pauseOpen == true)
+    //        {
+    //        if (Input.GetKeyDown(KeyCode.Escape))
+    //        {
+    //                //playLoops.StopLevelMusic();
+    //                //anim.Play("FadeOut");
+    //                menuNav.ClosePauseMenu();
+    //                AudioFW.Play("MenuEnd");
+    //                //pauseOpen = false;
+
+    //        }
+            
+    //}
+
+        //if (pauseOpen == true)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.T))
+        //    {
+        //        //playLoops.StopLevelMusic();
+        //        //anim.Play("FadeOut");
+        //        menuNav.ClosePauseMenu();
+        //        AudioFW.Play("MenuEnd");
+        //        //pauseOpen = false;
+
+        //    }
+        //}
     }
 
+    public void PauseOpenBool()
+    {
+        pauseOpen = false;
+    }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            endLevelQuestion.SetActive(true);
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Player")) {
+        }
+
+        if(Input.GetKeyDown(KeyCode.G))
+        {
             levelend = true;
-            
             LevelEndParticles();
             playLoops.StopLevelMusic();
             //SaveManager.instance.SaveBin();
@@ -84,11 +133,39 @@ public class LevelEnd : MonoBehaviour
             // anim.Play("FadeOut");
             //scoreCounter.scoreValue = 0;
             //Destroy(gameObject,3f);
-            Destroy(collision.transform.parent.gameObject,3f);
-
+            Destroy(collision.transform.parent.gameObject, 3f);
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Player")) {
+            endLevelQuestion.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                levelend = true;
+                LevelEndParticles();
+                playLoops.StopLevelMusic();
+                //SaveManager.instance.SaveBin();
+                menuNav.OpenLevelEndMenu();
+                EndLevelScoreTextCommon = GameObject.Find("CommonEndText").GetComponent<Text>();
+                EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
+                LevelEndTextCommon();
+                scoreCounter.RegisterNewScore(LevelNumber);
+                //scoreCounter.RegisterScore();
+                // anim.Play("FadeOut");
+                //scoreCounter.scoreValue = 0;
+                //Destroy(gameObject,3f);
+                Destroy(collision.transform.parent.gameObject, 3f);
+            }
+
+
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        endLevelQuestion.SetActive(false);
+    }
 
     void LevelEndTextCommon() {
         if(scoreCounter.runningScore < 50 && scoreCounter.runningScore > 0) {

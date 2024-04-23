@@ -78,6 +78,22 @@ public class SparksBurnTiles : MonoBehaviour
 
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("DashBox"))
+        {
+            fireManager.dashTrigger = true;
+            Debug.Log("dashbox");
+            fireManager.BurnFromPlayerPositionDash();
+        }
+        if (collision.gameObject.CompareTag("DashDown"))
+        {
+            fireManager.dashTrigger = true;
+            Debug.Log("dashboxdown");
+            fireManager.BurnFromPlayerPositionDash();
+        }
+    }
     public void InstantiateExplosion(Vector3Int tilePosition, TileData data, GameObject prefab) {
 
         var explosion = Instantiate(prefab);

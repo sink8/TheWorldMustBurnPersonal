@@ -1,20 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class InputManager : MonoBehaviour
 {
 public static InputManager instance;
-[SerializeField] KeyBinding keyBindings; 
+[SerializeField] KeyBinding keyBindings;
+    public bool usingController = false;
+    
     
     private void Awake(){
         if(instance == null){
             instance = this;
         }
+
+        
         //else if(instance != null){
         //    Destroy(this);
         //}
         //DontDestroyOnLoad(this);
+    }
+
+    private void Update()
+    {
+        if (Input.GetJoystickNames().Length > 0)
+  
+
+        if (Gamepad.all.Count > 0)
+        {
+            usingController = true;
+        }
+        else
+        {
+            usingController = false;
+        }
+
     }
 
     public KeyCode GetKeyForAction(KeybindingActions keybindingAction){

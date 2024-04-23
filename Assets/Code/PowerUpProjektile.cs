@@ -16,6 +16,7 @@ public class PowerUpProjektile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
+            //AudioFW.Play("PowerUp");
             FindObjectOfType<GameManager>().ActivatePowerup(type);
         }
         /*weapon.SetActive(true);

@@ -23,12 +23,18 @@ public class RayCastPlayer : MonoBehaviour
     [SerializeField]
     [Range(1f, 60f)] float dashSpeed;
     [SerializeField]
+    [Range(1f, 60f)] float dashDownSpeed;
+    [SerializeField]
     [Range(0f, 2f)] float dashTime;
+    [SerializeField]
+    [Range(0f, 2f)] float dashTimeDown;
+
     [SerializeField] float dashTimer = 0.5f;
     float timer = 0;
     bool canDash = true;
 
     public float startDashTime;
+    public float startDashTimeDown;
     public int direction;
     public bool isDashButtonDown;
     public bool dash = false;
@@ -40,6 +46,7 @@ public class RayCastPlayer : MonoBehaviour
     public ParticleSystem kipinä;
     public ParticleSystem dashKipinä;
     public GameObject dashBlock;
+    public GameObject dashBlockDown;
     PlayerHealth playerHealth;
     GameStart gameStart;
 
@@ -103,8 +110,8 @@ public class RayCastPlayer : MonoBehaviour
         }
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
- 
-        if (inputManager.GetKeyDown(KeybindingActions.Jump) && controller.collisions.below) {
+
+        if (((inputManager.GetKeyDown(KeybindingActions.Jump) && controller.collisions.below)) || ((Input.GetButtonDown("Jump") && controller.collisions.below) )) {
             CreateKipinä();
             velocity.y = jumpVelocity;
         }
@@ -114,7 +121,7 @@ public class RayCastPlayer : MonoBehaviour
         }
 
         //if (Input.GetButtonDown("Jump") && jumps < maxJumps) {
-        if (inputManager.GetKeyDown(KeybindingActions.Jump) && jumps < maxJumps) {
+        if ((inputManager.GetKeyDown(KeybindingActions.Jump) && jumps < maxJumps) || (Input.GetButtonDown("Jump") && jumps < maxJumps)) {
             AudioFW.Play("SwushLong");
             jumps++;
             velocity = Vector2.zero;
@@ -130,11 +137,12 @@ public class RayCastPlayer : MonoBehaviour
 
         if (velocity.y < 0) {
             velocity += Vector3.up * Physics2D.gravity.y * (fallMultiplayer - 1) * Time.deltaTime;
-        } else if (velocity.y > 0 && !inputManager.GetKeyDown(KeybindingActions.Jump)) {
+        } else if ((velocity.y > 0 && !inputManager.GetKeyDown(KeybindingActions.Jump)) || (velocity.y > 0 && (!Input.GetButtonDown("Jump"))) ) {
             velocity += Vector3.up * Physics2D.gravity.y * (lowJumpMultiplayer - 1) * Time.deltaTime;
         }
 
            Dash();
+        DashDown();
     }
     void CreateKipinä() {
         kipinä.Play();
@@ -146,53 +154,11 @@ public class RayCastPlayer : MonoBehaviour
 
 
 
-    void Dash() {
-        if (direction == 0) {
-
-            if ((inputManager.GetKeyDown(KeybindingActions.Dash)|| Input.GetButton("Dash")) && canDash == true) {
-                AudioFW.Play("SwushShort");
-                if (moveInput < 0) {
-                    CreateDashKipinä();
-                    direction = 1;
-                    dash = true;
-                    //dashBlock.SetActive(true);
-                } else if (moveInput > 0) {
-                    CreateDashKipinä();
-                    direction = 2;
-                    dash = true;
-                    //dashBlock.SetActive(true);
-                } 
-
-                canDash = false;
-                StartCoroutine(DashTimer());
-            }
-        } else {
-            if (dashTime <= 0) {
-                dash = false;
-                direction = 0;
-                dashTime = startDashTime;
-                velocity = Vector2.zero;
-                dashBlock.SetActive(false);
-            } else {
-                dashTime -= Time.deltaTime;
-
-                if (direction == 1) {
-                    dashBlock.SetActive(true);
-                    velocity = Vector2.left * dashSpeed;
-                } else if (direction == 2) {
-                    dashBlock.SetActive(true);
-                    velocity = Vector2.right * dashSpeed;
-                }
-            }
-        }
-    }
-
-    void DashDown()
+    void Dash()
     {
         if (direction == 0)
         {
-
-            if ((inputManager.GetKeyDown(KeybindingActions.DashDown) || Input.GetButton("DashDown")) && canDash == true)
+            if ((inputManager.GetKeyDown(KeybindingActions.Dash) || Input.GetButton("Dash")) && canDash == true)
             {
                 AudioFW.Play("SwushShort");
                 if (moveInput < 0)
@@ -209,7 +175,6 @@ public class RayCastPlayer : MonoBehaviour
                     dash = true;
                     //dashBlock.SetActive(true);
                 }
-
                 canDash = false;
                 StartCoroutine(DashTimer());
             }
@@ -239,6 +204,49 @@ public class RayCastPlayer : MonoBehaviour
                     velocity = Vector2.right * dashSpeed;
                 }
             }
+        }
+    }
+
+    void DashDown()
+    {
+        if (direction == 0)
+        {
+            if ((inputManager.GetKeyDown(KeybindingActions.DashDown) || Input.GetButton("DashDown")) && canDash == true)
+            {
+                AudioFW.Play("SwushShort");
+                CreateDashKipinä();
+                direction = 3;
+                dash = true;
+                canDash = false;
+                StartCoroutine(DashTimer());
+            }
+        }
+        else
+        {
+            if (dashTime <= 0)
+            {
+                dash = false;
+                direction = 0;
+                dashTime = startDashTimeDown;
+                velocity = Vector2.zero;
+                dashBlockDown.SetActive(false);
+            }
+            else
+            {
+                dashTime -= Time.deltaTime;
+
+                if (direction == 3)
+                {
+                    dashBlockDown.SetActive(true);
+                    velocity = Vector2.down * dashDownSpeed;
+                }
+
+            }
+        }
+
+        if (dash == false)
+        {
+            dashBlockDown.SetActive(false);
         }
     }
 

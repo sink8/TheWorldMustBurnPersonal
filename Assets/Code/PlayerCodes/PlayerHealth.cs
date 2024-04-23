@@ -28,10 +28,14 @@ public class PlayerHealth : MonoBehaviour
     public bool respawnActivated = false;
     Vector3 reSpawnpoint;
 
+    public GameObject preCheckPoint;
+    public GameObject savedCheckPoint;
+
     void Start() {
         //DeathUI = GameObject.Find("Menu");
         map = GameObject.FindGameObjectWithTag("Map").GetComponent<Tilemap>();
         mapMoving = GameObject.FindGameObjectWithTag("MovingMap").GetComponent<Tilemap>();
+
 
         menuNav = FindObjectOfType<MenuNavigation>();
         playerController = FindObjectOfType<RayCastPlayer>();
@@ -108,7 +112,10 @@ public class PlayerHealth : MonoBehaviour
 
     void ReSpawnPoint()
     {
+        AudioFW.Play("Checkpoint");
         respawnActivated = true;
+        savedCheckPoint.SetActive(true);
+        preCheckPoint.SetActive(false);
 
     }
 
@@ -118,7 +125,7 @@ public class PlayerHealth : MonoBehaviour
             Damaged(1);
         }
 
-        print("osui");
+        //print("osui");
         if (collision.gameObject.CompareTag("Respawn"))
         {
             print("player osui");

@@ -13,7 +13,7 @@ public class EnemyHealth : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Sparks") || collision.gameObject.CompareTag("Explosion")) {
             health = 0;
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 0.3f);
         }
     }
 

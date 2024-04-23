@@ -22,14 +22,19 @@ public class FireManager : MonoBehaviour
     [SerializeField]
     private FireMoving firePrefab2;
 
+    [SerializeField]
+    private SoftGround softGround;
 
     Fire newFire;
     FireMoving newFire3;
+    SoftGround softGroundNew;
 
     public GameObject allFires;
 
-
+    RayCastPlayer raycastPlayer;
     public Transform player;
+    public Transform dashPos;
+    public Transform playerdashPosDown;
     public Transform burnedParticle;
     public Transform burnedParticleStart;
     public Transform meltedParticle;
@@ -40,6 +45,7 @@ public class FireManager : MonoBehaviour
     public BoundsInt area;
 
     public float burnRadius = 1.5f;
+    public float destRadius = 0.5f;
 
     public ScoreCounter scoreCounter;
     public Transform scoreInsPrefab;
@@ -49,8 +55,10 @@ public class FireManager : MonoBehaviour
     public BoundsInt bounds;
     public Vector2 pos;
     public Vector2 playerPosition2;
+    public Vector2 dashPosition2;
 
     public bool InstantiateLights = false;
+    public bool dashTrigger = false;
     [SerializeField] GameObject fireLight;
     public List<GameObject> secrets = new List<GameObject>();
 
@@ -66,6 +74,7 @@ public class FireManager : MonoBehaviour
 
         AudioFW.PlayLoop("FireBurningLoop");
         SecretBurnableEffects();
+        raycastPlayer = player.GetComponent<RayCastPlayer>();
         //secrets = GameObject.FindGameObjectsWithTag("Secret");
         foreach(GameObject secr in GameObject.FindGameObjectsWithTag("Secret")) {
             secrets.Add(secr);
@@ -88,6 +97,12 @@ public class FireManager : MonoBehaviour
 
                 if (Random.Range(50f, 100f) <= data.spreadChange)
                     SetTileOnFire(tilePostion, data);
+            }
+            if (data != null && data.softGround)
+            {
+
+                if (Random.Range(50f, 100f) <= data.spreadChange)
+                    StartDestroyingSoftGround(tilePostion, data);
             }
         }
     }
@@ -203,9 +218,15 @@ public class FireManager : MonoBehaviour
 
         BurnFromPlayerPosition();
         BurnFromPlayerPositionMoving();
+        //BurnFromDashPosition();
+        if(dashTrigger == true)
+        {
+            BurnFromPlayerPositionDash();
+        }
+        
         //var hitP = map.GetComponent<SparksBurnTiles>().hitPosition;
 
-        
+
     }
 
     void BurnFromPlayerPosition() {
@@ -242,7 +263,41 @@ public class FireManager : MonoBehaviour
                         if (activeFires.Contains(gpos)) return; // ei sytytet� palavaa uudestaan
                         SetTileOnFire(gpos, data);
                     }
+
             } else Debug.DrawLine(playerPosition2, pos, Color.red);
+        }
+    }
+
+    public void BurnFromPlayerPositionDash()
+    {
+        //playerPosition2 = player.transform.position;
+        //Vector3Int playergridPos = map.WorldToCell(playerPosition2);
+        dashPosition2 = playerdashPosDown.transform.position;
+        Vector3Int playergridPos = map.WorldToCell(dashPosition2);
+
+        int gr = Mathf.FloorToInt(burnRadius + 0.5f);
+        //var bounds = new BoundsInt(playergridPos, new Vector3Int(gr * 2 + 1, gr * 2 + 1, 1));
+        bounds = new BoundsInt(playergridPos.x - gr, playergridPos.y - gr, 0, gr * 2 + 1, gr * 2 + 1, 1);
+
+        var rsq = burnRadius * burnRadius;
+
+        foreach (var gpos in bounds.allPositionsWithin)
+        {
+            pos = (Vector2)map.CellToWorld(gpos) + Vector2.one * 0.5f;
+            TileData data = mapManager.GetTileData(gpos);
+            if (rsq >= (dashPosition2 - pos).sqrMagnitude)
+            {
+
+                Debug.DrawLine(dashPosition2, pos, Color.white);
+                if (map.HasTile(gpos) && data.softGround)
+                {
+                    print("tekeekö tää mitään");
+                    if (activeFires.Contains(gpos)) return; // ei sytytet� palavaa uudestaan
+                    StartDestroyingSoftGround(gpos, data);
+                    //SetTileOnFire(gpos, data);
+                }
+            }
+            else Debug.DrawLine(dashPosition2, pos, Color.red);
         }
     }
 
@@ -536,5 +591,83 @@ public class FireManager : MonoBehaviour
         smokeParticle.transform.position = map.GetCellCenterWorld(tilePosition);
         smokeParticle.transform.SetParent(allFires.transform);
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("DashBox"))
+        {
+            Debug.Log("dashbox");
+            BurnFromDashPosition();
+        }
+        if (collision.gameObject.CompareTag("DashDown"))
+        {
+            Debug.Log("dashboxdown");
+            BurnFromDashPosition();
+        }
+    }
+
+    public void BurnFromDashPosition()
+    {
+        Debug.Log("Starts burning from dash position");
+        //var Position2 = playerdashPosDown.transform.position;
+        //Vector3Int playergridPos = map.WorldToCell(Position2);
+        playerPosition2 = player.transform.position;
+        Vector3Int playergridPos = mapMoving.WorldToCell(playerPosition2);
+
+        int gr = Mathf.FloorToInt(destRadius + 0.5f);
+        //var bounds = new BoundsInt(playergridPos, new Vector3Int(gr * 2 + 1, gr * 2 + 1, 1));
+        bounds = new BoundsInt(playergridPos.x - gr, playergridPos.y - gr, 0, gr * 2 + 1, gr * 2 + 1, 1);
+
+        var rsq = destRadius * destRadius;
+
+
+        foreach (var gpos in bounds.allPositionsWithin)
+        {
+            pos = (Vector2)map.CellToWorld(gpos) + Vector2.one * 0.5f;
+            TileData data = mapManager.GetTileData(gpos);
+            if (rsq >= (playerPosition2 - pos).sqrMagnitude)
+            {
+                print("entäs tähä");
+                Debug.DrawLine(playerPosition2, pos, Color.blue);
+                if (map.HasTile(gpos) && data.softGround == true)
+                {
+                    print("pääsi start destoying soft groundiin asti 11");
+                    if (activeFires.Contains(gpos)) return; // ei sytytet� palavaa uudestaan
+                    StartDestroyingSoftGround(gpos, data);
+
+                    //SetTileOnFire(gpos, data);
+                    print("pääsi start destoying soft groundiin asti");
+                }
+            }
+            else Debug.DrawLine(playerPosition2, pos, Color.green);
+        }
+
+
+    }
+
+    void StartDestroyingSoftGround(Vector3Int tilePosition, TileData data)
+    {
+        //map.SetColliderType(tilePosition, Tile.ColliderType.None);
+        BurnedParticleKpinäts(tilePosition);
+
+        Vector3Int tempTilepos = tilePosition;
+        tempTilepos.y -= 1;
+        softGroundNew = Instantiate(softGround);
+        //softGround.transform.SetParent(allFires.transform);
+        softGroundNew.transform.position = map.GetCellCenterWorld(tilePosition);
+        softGroundNew.StartBurningGround(tilePosition, data, this);
+        activeFires.Add(tilePosition);
+
+        if (data.snowTile == true)
+        {
+            MeltedParticles(tilePosition);
+        }
+
+    }
+
+
+
 
 }

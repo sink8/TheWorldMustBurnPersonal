@@ -12,6 +12,7 @@ public class TileData : ScriptableObject
     
     public float spreadChange = 100; 
     public float spreadInterwall, burnTime;
+    public float spreadInterwallGround, groundTime;
     public float burnedPrefabTime = 1.5f;
     public bool canBurn, ashTile, groudTile, waterTile, leavesTile, secret, snowTile, canSmoke, softGround;
     public ParticleSystem secretParticle;
