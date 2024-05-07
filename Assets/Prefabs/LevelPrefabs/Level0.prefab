@@ -11020,7 +11020,7 @@ Transform:
   - {fileID: 6508604678409935976}
   - {fileID: 6181752781333577067}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1967149648217313393
 GameObject:
@@ -11150,10 +11150,13 @@ MonoBehaviour:
   scoreCounter: {fileID: 0}
   EndLevelScoreTextCommon: {fileID: 0}
   EndLevelScoreTextHighScore: {fileID: 0}
+  endLevelQuestion: {fileID: 0}
   menuNav: {fileID: 0}
+  pause: {fileID: 0}
   playLoops: {fileID: 0}
   anim: {fileID: 6547638753349620089}
   imag: {fileID: 6523756144680564430}
+  pauseOpen: 0
   playerParticles: []
 --- !u!114 &7085201219886672122
 MonoBehaviour:
@@ -14957,6 +14960,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1139553881274018278}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
+      propertyPath: dashBlockDown
+      value: 
+      objectReference: {fileID: 3604050008345724018}
+    - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: startDashTime
       value: 0.18
       objectReference: {fileID: 0}
@@ -15325,6 +15332,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4501045813068345283, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
   m_PrefabInstance: {fileID: 4455734365895746855}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &797780375568536640 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3947330074843099495, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
+  m_PrefabInstance: {fileID: 4455734365895746855}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1139553881274018278 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3604411304337870017, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
@@ -15355,6 +15367,7 @@ MonoBehaviour:
   rain: {fileID: 0}
   rainCycle: 6
   timer: 0
+  raintime: 4
   rainBool: 0
 --- !u!4 &2366400336507998428 stripped
 Transform:
@@ -15364,6 +15377,16 @@ Transform:
 --- !u!198 &3323346883552532223 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1426256443060499416, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
+  m_PrefabInstance: {fileID: 4455734365895746855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3604050008345724018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1139932627609297237, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
+  m_PrefabInstance: {fileID: 4455734365895746855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3827212529245647134 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 633054027909370937, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
   m_PrefabInstance: {fileID: 4455734365895746855}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &4455734364662005788 stripped
@@ -16328,6 +16351,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2366400336507998428}
     - target: {fileID: 5122752516184926208, guid: 0e87026038f2e9446a7ae181a04213c9, type: 3}
+      propertyPath: dashPos
+      value: 
+      objectReference: {fileID: 797780375568536640}
+    - target: {fileID: 5122752516184926208, guid: 0e87026038f2e9446a7ae181a04213c9, type: 3}
       propertyPath: allFires
       value: 
       objectReference: {fileID: 7006670431464624776}
@@ -16347,6 +16374,14 @@ PrefabInstance:
       propertyPath: burnedParticle
       value: 
       objectReference: {fileID: 7769672079985295185, guid: 93820cf5f53efc84fbd6387ae33b2422, type: 3}
+    - target: {fileID: 5122752516184926208, guid: 0e87026038f2e9446a7ae181a04213c9, type: 3}
+      propertyPath: playerdashPosDown
+      value: 
+      objectReference: {fileID: 3827212529245647134}
+    - target: {fileID: 5122752516184926208, guid: 0e87026038f2e9446a7ae181a04213c9, type: 3}
+      propertyPath: burnedParticleStart
+      value: 
+      objectReference: {fileID: 4769923137880941548, guid: 75799c75bf4f5134e984ac3751156ff2, type: 3}
     - target: {fileID: 5122752516184926209, guid: 0e87026038f2e9446a7ae181a04213c9, type: 3}
       propertyPath: m_Name
       value: FireManager

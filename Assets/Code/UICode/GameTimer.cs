@@ -13,7 +13,7 @@ public class GameTimer : MonoBehaviour
     Text countDownText;
     void Start()
     {
-        timer = gameTime;
+        //timer = gameTime;
     }
 
     // Update is called once per frame
@@ -22,11 +22,11 @@ public class GameTimer : MonoBehaviour
         int min = Mathf.FloorToInt(timer / 60);
         int sec = Mathf.FloorToInt(timer % 60);
 
-        timer -= 1 * Time.deltaTime;
+        timer += 1 * Time.deltaTime;
         countDownText.text = min.ToString("00") + ":" + sec.ToString("00") ;
 
-        if (timer <= 0) {
-            timer = 0;
+        //if (timer <= 0) {
+          //  timer = 0;
 
 /*            if (ScoreCounter.scoreValue < winPoints) {
                 print(" you lose ");
@@ -35,6 +35,6 @@ public class GameTimer : MonoBehaviour
                 print(" you win ");
                 //win.SetActive(true);
             }*/
-        }
+       // }
     }
 }

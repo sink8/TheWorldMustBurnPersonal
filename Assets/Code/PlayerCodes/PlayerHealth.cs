@@ -31,6 +31,8 @@ public class PlayerHealth : MonoBehaviour
     public GameObject preCheckPoint;
     public GameObject savedCheckPoint;
 
+    public Animator animat;
+
     void Start() {
         //DeathUI = GameObject.Find("Menu");
         map = GameObject.FindGameObjectWithTag("Map").GetComponent<Tilemap>();
@@ -66,6 +68,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (health >= 1)
         {
+            animat.Play("dissolve_fade");
             player.transform.position = reSpawnpoint;
         } else
         {

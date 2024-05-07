@@ -20,6 +20,7 @@ public class ScoreCounter : MonoBehaviour
     public GameObject bronce, silver, gold;
     void Start()
     {
+        fm = FindObjectOfType<FireManager>();
         burnableTilesCount = fm.GetComponent<FireManager>().GetTileAmountSprite();
         print(burnableTilesCount);
         score = GetComponent<Text>();

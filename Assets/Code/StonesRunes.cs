@@ -17,6 +17,8 @@ public class StonesRunes : MonoBehaviour
     public float refreshRateLight = 0.05f;
     public float shininess;
 
+    public bool hasAlfa = false;
+
     void Start()
     {
         stoneMaterial = GetComponentInChildren<SpriteRenderer>().material;
@@ -25,10 +27,10 @@ public class StonesRunes : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G)) {
-            print("jotain");
-            EnableRuneLight();
-        }
+        //if (Input.GetKeyDown(KeyCode.G)) {
+        //    print("jotain");
+        //    EnableRuneLight();
+        //}
         //ChangeRuneslightAlpha(stoneMaterial);
     }
 
@@ -47,7 +49,11 @@ public class StonesRunes : MonoBehaviour
         float shininess = Mathf.PingPong(Time.time, 9.0f);
         //stoneMaterial.SetFloat("_CutOff", shininess);
         StartCoroutine(GrowRunes(stoneMaterial));
-        StartCoroutine(ChangeRunesAlpha(stoneMaterial));
+        if (hasAlfa)
+        {
+            StartCoroutine(ChangeRunesAlpha(stoneMaterial));
+        }
+        
         //ChangeRuneslightAlpha(stoneMaterial);
 
         //}

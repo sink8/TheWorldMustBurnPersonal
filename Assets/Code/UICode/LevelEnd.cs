@@ -183,17 +183,17 @@ public class LevelEnd : MonoBehaviour
         }
 
 
-        for(int i = 0; i < storeScores.levels.Length; i++) {
-            if(LevelNumber == i + 1) {
-                if (((scoreCounter.runningScore >= 50 && scoreCounter.runningScore < 75) && (scoreCounter.runningScore > storeScores.bronceHighScores[i] * 100))) {
-                    EndLevelScoreTextHighScore.text = "New highscore  for  bronze  category";
-                } else if (((scoreCounter.runningScore >= 75 && scoreCounter.runningScore < 100) && (scoreCounter.runningScore > (storeScores.silverHighScores[i] * 100)))) {
-                    EndLevelScoreTextHighScore.text = "New highscore for  the  Silver  category";
-                } else if ((scoreCounter.runningScore >= 100 && (scoreCounter.runningScore > (storeScores.goldHighScores[i] * 100)))) {
-                    EndLevelScoreTextHighScore.text = "New highscore for the Gold category";
-                } else EndLevelScoreTextHighScore.text = "";
-            }
-        }
+        //for(int i = 0; i < storeScores.levels.Length; i++) {
+        //    if(LevelNumber == i + 1) {
+        //        if (((scoreCounter.runningScore >= 50 && scoreCounter.runningScore < 75) && (scoreCounter.runningScore > storeScores.bronceHighScores[i] * 100))) {
+        //            EndLevelScoreTextHighScore.text = "New highscore  for  bronze  category";
+        //        } else if (((scoreCounter.runningScore >= 75 && scoreCounter.runningScore < 100) && (scoreCounter.runningScore > (storeScores.silverHighScores[i] * 100)))) {
+        //            EndLevelScoreTextHighScore.text = "New highscore for  the  Silver  category";
+        //        } else if ((scoreCounter.runningScore >= 100 && (scoreCounter.runningScore > (storeScores.goldHighScores[i] * 100)))) {
+        //            EndLevelScoreTextHighScore.text = "New highscore for the Gold category";
+        //        } else EndLevelScoreTextHighScore.text = "";
+        //    }
+        //}
     }
 
     public void LevelEndParticles() {

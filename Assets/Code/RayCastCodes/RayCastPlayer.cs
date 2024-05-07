@@ -207,7 +207,7 @@ public class RayCastPlayer : MonoBehaviour
         }
         if (dash == false)
         {
-            dashBlockDown.SetActive(false);
+            dashBlock.SetActive(false);
         }
     }
 
