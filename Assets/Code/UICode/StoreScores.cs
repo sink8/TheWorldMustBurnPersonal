@@ -91,7 +91,7 @@ public class StoreScores : MonoBehaviour
         }
 
         for (int j = 0; j < levels.Length-1; j++) {
-            if (bronceHighScores[j] >= 0.5 || silverHighScores[j] >= 0.5 || goldHighScores[j] >= 0.5) {
+            if (bronceHighScores[j] >= 0.1 || silverHighScores[j] >= 0.1 || goldHighScores[j] >= 0.1) {
                 levels[j+1].GetComponent<MovingOnLevelsMap>().locked = false;
                 locks[j+1].SetActive(false);
             }

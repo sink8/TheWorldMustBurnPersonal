@@ -346,6 +346,12 @@ public class FireManager : MonoBehaviour
             NewAshTile(position, data.burned);
         }
 
+        StartCoroutine(InstantiateScorePrefab(position));
+
+        if (scoreCounter) {
+            scoreCounter.scoreValue += 1;
+        }
+
         activeFires.Remove(position);
     }
     public void InstantiateBurnedPrefabMoving(Vector3Int position) {
@@ -355,6 +361,12 @@ public class FireManager : MonoBehaviour
             mapMoving.SetTile(position, null);
             NewAshTile(position, data.burned);
         }
+        StartCoroutine(InstantiateScorePrefab(position));
+
+        if (scoreCounter) {
+            scoreCounter.scoreValue += 1;
+        }
+
         activeFires.Remove(position);
     }
 
@@ -362,6 +374,7 @@ public class FireManager : MonoBehaviour
         
         TileData data = mapManager.GetTileData(position);
         // käydään läpi secret efectit ja tuhotaan samassa kohdassa oleva samalla kun se poltetaan
+
         if(data.secret == true){
             foreach(var secr in secrets.ToArray()) {
                 scoreCounter.secretValue += 1;
@@ -373,6 +386,7 @@ public class FireManager : MonoBehaviour
             }
         }
         StartCoroutine(InstantiateScorePrefab(position));
+
         if (data.canSmoke) {
             var randomNum = Random.Range(0, 3);
             if (randomNum == 1) {
@@ -406,6 +420,7 @@ public class FireManager : MonoBehaviour
     public void FinishedBurningMoving(Vector3Int position) {
         
         TileData data = mapManager.GetTileDataMoving(position);
+
         if(data.secret == true){
             foreach(var secr in secrets.ToArray()){
                 if(secr.transform.position.x - 0.5f == position.x && secr.transform.position.y - 0.5f == position.y){
@@ -417,7 +432,9 @@ public class FireManager : MonoBehaviour
                 }
             }
         }
+
         StartCoroutine(InstantiateScorePrefab(position));
+
         if (data.canSmoke) {
             var randomNum = Random.Range(0, 3);
             if (randomNum == 1) {

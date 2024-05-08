@@ -56,7 +56,7 @@ public class ScoreCounter : MonoBehaviour
     public void RegisterScore() {
         for (int i = 0; i < 3; i++) {
             if (levelNumber == i + 1) {
-                if (perScore >= 0.5 && perScore < 0.75) {
+                if (perScore >= 0.1 && perScore < 0.75) {
                     if (perScore > storeScores.bronceHighScores[i]) {
                         storeScores.bronceHighScores[i] = perScore;
                         storeScores.bronceHighSeconds[i] = gameTimer.gameTime - gameTimer.timer;
@@ -83,7 +83,7 @@ public class ScoreCounter : MonoBehaviour
     public async void RegisterNewScore(int i) {
         //for(int i = 0; i < storeScores.levels.Length; i++) {
             perScore = scoreValue / burnableTilesCount;
-            if (perScore >= 0.50 && perScore < 0.75) {
+            if (perScore >= 0.10 && perScore < 0.75) {
                 if (perScore > storeScores.bronceHighScores[i-1]) {
                     storeScores.bronceHighScores[i-1] = perScore;
                     storeScores.bronceHighSeconds[i-1] = gameTimer.gameTime - gameTimer.timer;

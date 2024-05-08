@@ -10,25 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c549008f833ef094cb4efe577cd9439c, type: 3}
-  m_Name: SoftGroundTiles
+  m_Name: New Tile Data
   m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 11400000, guid: 61423d868a4c9a14d8692e4080ebad06, type: 2}
+  tiles: []
   burned: {fileID: 0}
   spreadChange: 100
-  spreadInterwall: 0.58
-  burnTime: 2
-  spreadInterwallGround: 0.6
-  groundTime: 0.2
+  spreadInterwall: 0
+  burnTime: 0
   burnedPrefabTime: 1.5
-  canBurn: 1
+  canBurn: 0
   ashTile: 0
   groudTile: 0
   waterTile: 0
-  leavesTile: 1
+  leavesTile: 0
   secret: 0
   snowTile: 0
   canSmoke: 0
-  softGround: 1
+  softGround: 0
   secretParticle: {fileID: 0}
   smokeParticle: {fileID: 0}
