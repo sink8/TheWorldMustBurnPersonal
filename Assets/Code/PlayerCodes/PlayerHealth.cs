@@ -69,7 +69,9 @@ public class PlayerHealth : MonoBehaviour
         if (health >= 1)
         {
             animat.Play("dissolve_fade");
-            player.transform.position = reSpawnpoint;
+            AudioFW.Play("Death");
+            DestroySpark();
+            StartCoroutine(WaitTillRespawn());
         } else
         {
             playLoops.StopLevelMusic();
@@ -88,6 +90,12 @@ public class PlayerHealth : MonoBehaviour
             menuNav.OpenDeathMenu();
 
         }
+    }
+
+    IEnumerator WaitTillRespawn()
+    {
+        yield return new WaitForSeconds(0.5f);
+        player.transform.position = reSpawnpoint;
     }
 
     public void DestroyLevel() {

@@ -36,9 +36,11 @@ public class StoreScores : MonoBehaviour
 
     public GameObject[] levels;
     public GameObject[] locks;
+    public GameObject[] finished;
 
     public GameObject player;
     bool movePlayer = false;
+    public string levelNameX;
 
     private async void Start() {
         //levels = GameObject.FindGameObjectsWithTag("Level");
@@ -91,9 +93,12 @@ public class StoreScores : MonoBehaviour
         }
 
         for (int j = 0; j < levels.Length-1; j++) {
+
+
             if (bronceHighScores[j] >= 0.1 || silverHighScores[j] >= 0.1 || goldHighScores[j] >= 0.1) {
                 levels[j+1].GetComponent<MovingOnLevelsMap>().locked = false;
                 locks[j+1].SetActive(false);
+                finished[j].GetComponent<Renderer>().sortingOrder = 40;
             }
         }
 
@@ -112,10 +117,11 @@ public class StoreScores : MonoBehaviour
     public void UpdateScores() {
         for(int i = 0; i < levels.Length; i++) {
             if (player.transform.position == levels[i].transform.position) {
-                bronceText.text = Mathf.RoundToInt((bronceHighScores[i]) * 100) + " % " + Mathf.RoundToInt(bronceHighSeconds[i] / 60) + " min " + Mathf.RoundToInt(bronceHighSeconds[i] % 60) + " s ";
-                silverText.text = Mathf.RoundToInt((silverHighScores[i]) * 100) + " % " + Mathf.RoundToInt(silverHighSeconds[i] / 60) + " min " + Mathf.RoundToInt(silverHighSeconds[i] % 60) + " s ";
+                bronceText.text = Mathf.RoundToInt((bronceHighScores[i]) * 100) + " % " + Mathf.FloorToInt(bronceHighSeconds[i] / 60) + " min " + Mathf.RoundToInt(bronceHighSeconds[i] % 60) + " s ";
+                silverText.text = Mathf.RoundToInt((silverHighScores[i]) * 100) + " % " + Mathf.FloorToInt(silverHighSeconds[i] / 60) + " min " + Mathf.RoundToInt(silverHighSeconds[i] % 60) + " s ";
                 goldText.text = Mathf.RoundToInt((goldHighScores[i]) * 100) + " % " + Mathf.RoundToInt(goldHighSeconds[i] / 60) + " min " + Mathf.RoundToInt(goldHighSeconds[i] % 60) + " s ";
-                LevelTitle.text = "Highscores level  " + (i + 1); 
+                //LevelTitle.text = "Highscores level  " + (i + 1);
+                LevelTitle.text = "Highscores level  " + (i + 1 ) + "-" + levelNameX;
 
             }
         }

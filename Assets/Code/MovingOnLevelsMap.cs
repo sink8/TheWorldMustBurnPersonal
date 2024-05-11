@@ -33,10 +33,11 @@ public class MovingOnLevelsMap : MonoBehaviour
     public LevelSelector levelSelector;
     public MenuNavigation menuNav;
     CloudsSpawn spawn;
-    StoreScores storeScores;
+    [SerializeField] StoreScores storeScores;
 
     private void Awake() {
-        //storeScores = GetComponent<StoreScores>();
+        storeScores = GetComponentInParent<StoreScores>();
+        
         spawn = FindObjectOfType<CloudsSpawn>();
     }
 
@@ -50,6 +51,7 @@ public class MovingOnLevelsMap : MonoBehaviour
 
         if(currentLevel == true && locked == false) {
             // press something and level loads
+            storeScores.levelNameX = levelName;
         }
 
         if ((Input.GetAxis("Vertical") > 0)) {

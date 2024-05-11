@@ -114,27 +114,30 @@ public class LevelEnd : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("player touches ending");
             endLevelQuestion.SetActive(true);
 
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                levelend = true;
+                LevelEndParticles();
+                playLoops.StopLevelMusic();
+                //SaveManager.instance.SaveBin();
+                menuNav.OpenLevelEndMenu();
+                EndLevelScoreTextCommon = GameObject.Find("CommonEndText").GetComponent<Text>();
+                EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
+                LevelEndTextCommon();
+                scoreCounter.RegisterNewScore(LevelNumber);
+                //scoreCounter.RegisterScore();
+                // anim.Play("FadeOut");
+                //scoreCounter.scoreValue = 0;
+                //Destroy(gameObject,3f);
+                Destroy(collision.transform.parent.gameObject, 3f);
+            }
+
         }
 
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            levelend = true;
-            LevelEndParticles();
-            playLoops.StopLevelMusic();
-            //SaveManager.instance.SaveBin();
-            menuNav.OpenLevelEndMenu();
-            EndLevelScoreTextCommon = GameObject.Find("CommonEndText").GetComponent<Text>();
-            EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
-            LevelEndTextCommon();
-            scoreCounter.RegisterNewScore(LevelNumber);
-            //scoreCounter.RegisterScore();
-            // anim.Play("FadeOut");
-            //scoreCounter.scoreValue = 0;
-            //Destroy(gameObject,3f);
-            Destroy(collision.transform.parent.gameObject, 3f);
-        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

@@ -59,19 +59,19 @@ public class ScoreCounter : MonoBehaviour
                 if (perScore >= 0.1 && perScore < 0.75) {
                     if (perScore > storeScores.bronceHighScores[i]) {
                         storeScores.bronceHighScores[i] = perScore;
-                        storeScores.bronceHighSeconds[i] = gameTimer.gameTime - gameTimer.timer;
+                        storeScores.bronceHighSeconds[i] =  gameTimer.timer;
                     }
                 }
                 if (perScore >= 0.75 && perScore < 1) {
                     if (perScore > storeScores.silverHighScores[i]) {
                         storeScores.silverHighScores[i] = perScore;
-                        storeScores.silverHighSeconds[i] = gameTimer.gameTime - gameTimer.timer;
+                        storeScores.silverHighSeconds[i] = gameTimer.timer;
                     }
                 }
                 if (perScore >= 1) {
                     if (perScore > storeScores.goldHighScores[i]) {
                         storeScores.goldHighScores[i] = perScore;
-                        storeScores.goldHighSeconds[i] = gameTimer.gameTime - gameTimer.timer;
+                        storeScores.goldHighSeconds[i] = gameTimer.timer;
                     }
                 }
 
@@ -86,17 +86,17 @@ public class ScoreCounter : MonoBehaviour
             if (perScore >= 0.10 && perScore < 0.75) {
                 if (perScore > storeScores.bronceHighScores[i-1]) {
                     storeScores.bronceHighScores[i-1] = perScore;
-                    storeScores.bronceHighSeconds[i-1] = gameTimer.gameTime - gameTimer.timer;
+                    storeScores.bronceHighSeconds[i-1] = gameTimer.timer;
                     SaveManager.instance.activeSave.bronceHighScoresSave[i-1] = perScore;
-                    SaveManager.instance.activeSave.bronceHighSecondsSave[i-1] = gameTimer.gameTime - gameTimer.timer;
+                    SaveManager.instance.activeSave.bronceHighSecondsSave[i-1] = gameTimer.timer;
                 }
             }
             if (perScore >= 0.75 && perScore < 1) {
                 if (perScore > storeScores.silverHighScores[i-1]) {
                     storeScores.silverHighScores[i-1] = perScore;
-                    storeScores.silverHighSeconds[i-1] = gameTimer.gameTime - gameTimer.timer;
+                    storeScores.silverHighSeconds[i-1] = gameTimer.timer;
                     SaveManager.instance.activeSave.silverHighScoresSave[i-1] = perScore;
-                    SaveManager.instance.activeSave.silverHighSecondsSave[i-1] = gameTimer.gameTime - gameTimer.timer;
+                    SaveManager.instance.activeSave.silverHighSecondsSave[i-1] =  gameTimer.timer;
                 }
             }
             if (perScore >= 1) {
@@ -104,7 +104,7 @@ public class ScoreCounter : MonoBehaviour
                     storeScores.goldHighScores[i-1] = perScore;
                     storeScores.goldHighSeconds[i-1] = gameTimer.gameTime - gameTimer.timer;
                     SaveManager.instance.activeSave.goldHighScoresSave[i-1] = perScore;
-                    SaveManager.instance.activeSave.goldHighSecondsSave[i-1] = gameTimer.gameTime - gameTimer.timer;
+                    SaveManager.instance.activeSave.goldHighSecondsSave[i-1] = gameTimer.timer;
                 }
             }
         //}
