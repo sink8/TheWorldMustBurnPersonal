@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class MovingOnLevelsMap : MonoBehaviour
 {
+    Newcontrolsmap _inputActions;
+    Vector2 movement;
+    bool _pressed = false;
 
     [Header("Destinations")]
     public GameObject upDestination;
@@ -35,17 +39,32 @@ public class MovingOnLevelsMap : MonoBehaviour
     CloudsSpawn spawn;
     [SerializeField] StoreScores storeScores;
 
+    private void OnEnable()
+    {
+        _inputActions = new Newcontrolsmap();
+        _inputActions.map.Enable();
+        _inputActions.map.Press.performed += ctx => _pressed = true;
+    }
+
+    private void OnDisable()
+    {
+        _inputActions = null; 
+    }
     private void Awake() {
         storeScores = GetComponentInParent<StoreScores>();
         
         spawn = FindObjectOfType<CloudsSpawn>();
+        _inputActions.map.Press.performed += ctx => _pressed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        HandleInput();
+        var hor = movement.x;
+        var ver = movement.y;
 
-        if(player.transform.position == transform.position) {
+        if (player.transform.position == transform.position) {
             currentLevel = true;
         }
 
@@ -76,25 +95,25 @@ public class MovingOnLevelsMap : MonoBehaviour
             }
         } 
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || ver > 0.6f) {
             if (upDestination != null && upDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == true) {
                 AudioFW.Play("MenuCan'tGoOn");
             }
-        } else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) ) {
+        } else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || ver < -0.6f ) {
             if (downDestination != null && downDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == true) {
                 AudioFW.Play("MenuCan'tGoOn");
             }
-        } else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
+        } else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || hor > 0.6f) {
             if (rightDestination != null && rightDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == true) {
                 AudioFW.Play("MenuCan'tGoOn");
             }
-        } else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
+        } else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || hor < -0.6f) {
             if (leftDestination != null && leftDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == true) {
                 AudioFW.Play("MenuCan'tGoOn");
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E)) {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E) || _pressed == true) {
             
             SaveManager.instance.activeSave.respawnPosition[0] = player.transform.position.x;
             SaveManager.instance.activeSave.respawnPosition[1] = player.transform.position.y;
@@ -114,6 +133,13 @@ public class MovingOnLevelsMap : MonoBehaviour
             //    levelSelector.LoadLevel3();
             //}
         }
+    }
+
+    void HandleInput()
+    {
+        movement = _inputActions.map.Move.ReadValue<Vector2>();
+        
+        Debug.Log(movement.ToString());
     }
 
     IEnumerator Move( GameObject direction ) {
