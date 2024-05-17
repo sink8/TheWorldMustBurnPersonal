@@ -20,6 +20,7 @@ public class Sparks : MonoBehaviour {
 
     public float lookAngle;
     public Vector2 shootDirection;
+    public float mag;
 
     public InputManager inputManager;
     private void Start() {
@@ -28,6 +29,7 @@ public class Sparks : MonoBehaviour {
     }
 
     void Update() {
+        mag = shootDirection.magnitude;
 
         float v = Input.GetAxisRaw("Vertical");
         float h = Input.GetAxisRaw("Horizontal");
@@ -91,7 +93,7 @@ public class Sparks : MonoBehaviour {
 
     void ProjectileKeys() {
         if (timeBtwShots <= 0) {
-            print("shoot or something11");
+            //print("shoot or something11");
             /*if (Input.GetKeyDown(KeyCode.X)) {
                 Instantiate(projectile, shotPoint.position, transform.rotation);
                 //Instantiate(projectile,shotPoint.position,)
@@ -107,36 +109,36 @@ public class Sparks : MonoBehaviour {
                 timeBtwShots = startTimeBtwShots;
             }*/
 
- 
+            
 
             // this should be done again/ fixed
-            if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1")) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))) {
+            if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1") || (inputManager.GetKeyDown(KeybindingActions.Shoot))) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))) {
                 Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, 23f));
                 timeBtwShots = startTimeBtwShots;
-            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1")) && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))) {
+            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1") || (inputManager.GetKeyDown(KeybindingActions.Shoot))) && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))) {
                 Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, 23f));
                 timeBtwShots = startTimeBtwShots;
 
-            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1")) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))) {
+            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1") || (inputManager.GetKeyDown(KeybindingActions.Shoot))) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))) {
                 Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, -23f));
                 timeBtwShots = startTimeBtwShots;
 
-            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1")) && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))) {
+            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1") || (inputManager.GetKeyDown(KeybindingActions.Shoot))) && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))) {
                 Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, -23f));
                 timeBtwShots = startTimeBtwShots;
 
-            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1")) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))) {
+            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1") || (inputManager.GetKeyDown(KeybindingActions.Shoot))) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))) {
                 Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, 45f));
                 timeBtwShots = startTimeBtwShots;
 
-            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1")) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))) {
+            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1") || (inputManager.GetKeyDown(KeybindingActions.Shoot))) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))) {
                 Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, -45f));
                 timeBtwShots = startTimeBtwShots;
 
-            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1")) && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))) {
+            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1") || (inputManager.GetKeyDown(KeybindingActions.Shoot))) && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))) {
                 Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, -90f));
                 timeBtwShots = startTimeBtwShots;
-            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1")) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))) {
+            } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1") || (inputManager.GetKeyDown(KeybindingActions.Shoot))) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))) {
                 Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, 0f));
                 timeBtwShots = startTimeBtwShots;
             } else if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire1")) && (player.transform.localScale.x == 1)) {
@@ -177,18 +179,52 @@ public class Sparks : MonoBehaviour {
 
     void ShootWithGamePad()
     {
+        
         if (timeBtwShots <= 0)
         {
+            //if (player.transform.localScale.x == 1){
+            //    shootDirection = new Vector2(0, 1);
+            //} else if (player.transform.localScale.x == -1)
+            //{
+            //    shootDirection = new Vector2(0, -1);
+            //}
             shootDirection = Vector2.right * Input.GetAxis(horizontalAxis2) + Vector2.up * Input.GetAxis(verticalAxis2);
-            if (shootDirection.sqrMagnitude > 0.1f)
+
+            //shootDirection = Vector2.right * Input.GetAxis(horizontalAxis2) + Vector2.down * Input.GetAxis(verticalAxis2);
+            if (shootDirection.sqrMagnitude > 0.05f && ((shootDirection.x != 0) || shootDirection.y != 0))
             {
-                if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire"))){ 
+                shootDirection = Vector2.right * Input.GetAxis(horizontalAxis2) + Vector2.up * Input.GetAxis(verticalAxis2);
+                if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire")) || (inputManager.GetKeyDown(KeybindingActions.Shoot))){ 
                 AudioFW.Play("Spark1");
                 transform.rotation = Quaternion.Euler(0, 0, shootDirection.x);
                 float angle = Mathf.Atan2(Input.GetAxis(verticalAxis2), Input.GetAxis(horizontalAxis2)) * Mathf.Rad2Deg;
                 Instantiate(projectile, shotPoint.position, Quaternion.Euler(0, 0, angle));
                 timeBtwShots = startTimeBtwShots;
                 print("shoot or something");
+                }
+            } else
+            {
+                if (player.transform.localScale.x == 1)
+                {
+                    //shootDirection = new Vector2(0, 1);
+                    if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire")) || (inputManager.GetKeyDown(KeybindingActions.Shoot)))
+                    {
+                        AudioFW.Play("Spark1");
+                        Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, -45f));
+                        timeBtwShots = startTimeBtwShots;
+                        print("shoot or something");
+                    }
+                }
+                else if (player.transform.localScale.x == -1)
+                {
+                    if ((Input.GetKeyDown(KeyCode.E) || Input.GetButton("Fire")) || (inputManager.GetKeyDown(KeybindingActions.Shoot)))
+                    {
+                        //shootDirection = new Vector2(0, -1);
+                        AudioFW.Play("Spark1");
+                        Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, 45f));
+                        timeBtwShots = startTimeBtwShots;
+                        print("shoot or something");
+                    }
                 }
             }
         }

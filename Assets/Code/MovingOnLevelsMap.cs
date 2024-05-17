@@ -9,6 +9,8 @@ public class MovingOnLevelsMap : MonoBehaviour
     Newcontrolsmap _inputActions;
     Vector2 movement;
     bool _pressed = false;
+    public float hor = 0;
+    public float ver = 0;
 
     [Header("Destinations")]
     public GameObject upDestination;
@@ -43,26 +45,29 @@ public class MovingOnLevelsMap : MonoBehaviour
     {
         _inputActions = new Newcontrolsmap();
         _inputActions.map.Enable();
-        _inputActions.map.Press.performed += ctx => _pressed = true;
+        //_inputActions.map.Press.started += ctx => _pressed = true;
+        _inputActions.map.Press.started += OnPress;
     }
 
     private void OnDisable()
     {
-        _inputActions = null; 
+        _inputActions.map.Disable();
+        _inputActions.map.Press.started -= OnPress;
+        //_inputActions.map.Press.performed += ctx => _pressed = false;
     }
     private void Awake() {
         storeScores = GetComponentInParent<StoreScores>();
         
         spawn = FindObjectOfType<CloudsSpawn>();
-        _inputActions.map.Press.performed += ctx => _pressed = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         HandleInput();
-        var hor = movement.x;
-        var ver = movement.y;
+        hor = movement.x;
+        ver = movement.y;
 
         if (player.transform.position == transform.position) {
             currentLevel = true;
@@ -73,22 +78,22 @@ public class MovingOnLevelsMap : MonoBehaviour
             storeScores.levelNameX = levelName;
         }
 
-        if ((Input.GetAxis("Vertical") > 0)) {
+        if ((Input.GetAxis("Vertical") > 0) || ver > 0.6f) {
             if (upDestination != null && upDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
                 currentLevel = false;
                 StartCoroutine(Move(upDestination));
             }
-        } else if (Input.GetAxis("Vertical") < 0) {
+        } else if ((Input.GetAxis("Vertical") < 0) || ver < -0.6f ) {
             if (downDestination != null && downDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
                 currentLevel = false;
                 StartCoroutine(Move(downDestination));
             }
-        } else if (Input.GetAxis("Horizontal") > 0) {
+        } else if ((Input.GetAxis("Horizontal") > 0)|| hor > 0.6f) {
             if (rightDestination != null && rightDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
                 currentLevel = false;
                 StartCoroutine(Move(rightDestination));
             }
-        } else if (Input.GetAxis("Horizontal") < 0) {
+        } else if ((Input.GetAxis("Horizontal") < 0) || hor < -0.6f) {
             if (leftDestination != null && leftDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
                 currentLevel = false;
                 StartCoroutine(Move(leftDestination));
@@ -113,7 +118,8 @@ public class MovingOnLevelsMap : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E) || _pressed == true) {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E) ) {
+        //if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E) || _pressed == true) {
             
             SaveManager.instance.activeSave.respawnPosition[0] = player.transform.position.x;
             SaveManager.instance.activeSave.respawnPosition[1] = player.transform.position.y;
@@ -135,11 +141,22 @@ public class MovingOnLevelsMap : MonoBehaviour
         }
     }
 
+    private void OnPress(InputAction.CallbackContext context)
+    {
+        SaveManager.instance.activeSave.respawnPosition[0] = player.transform.position.x;
+        SaveManager.instance.activeSave.respawnPosition[1] = player.transform.position.y;
+        SaveManager.instance.activeSave.respawnPosition[2] = player.transform.position.z;
+
+        spawn.DeleteCloud();
+
+        SelectLevel(levelNumber);
+    }
+
     void HandleInput()
     {
         movement = _inputActions.map.Move.ReadValue<Vector2>();
         
-        Debug.Log(movement.ToString());
+        //Debug.Log(movement.ToString());
     }
 
     IEnumerator Move( GameObject direction ) {

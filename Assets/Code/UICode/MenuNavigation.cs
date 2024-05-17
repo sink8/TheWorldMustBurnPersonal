@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class MenuNavigation : MonoBehaviour
 {
@@ -21,19 +22,56 @@ public class MenuNavigation : MonoBehaviour
     public GameObject[] levels;
     public GameObject[] locks;
     public MenuAudio menuAudio;
-    bool pauseOpen = false;
+    public bool pauseOpen = false;
+
+    Newcontrolsmap _inputActions;
+    public PlayerInput _playerInput;   
+    InputAction _menuActions;
+
+    public GameObject nodes;
+    private void OnEnable()
+    {
+        _inputActions = new Newcontrolsmap();
+        _inputActions.map.Enable();
+        _inputActions.map.Pause.started += OnPause;
+        //_inputActions.map.Pause.started += ctx => _pressed = true;
+        //_inputActions.map.Pause.canceled += ctx => _pressed = false;
+    }
+
+    private void OnDisable()
+    {
+        _inputActions.map.Pause.started -= OnPause;
+        _inputActions.map.Disable();
+
+    }
+
+    private void OnPause(InputAction.CallbackContext context)
+    {
+        if (pauseOpen)
+        {
+            ClosePauseHere();
+        }
+        else
+        {
+            OpenPauseHere();
+        }
+    }
 
     private void Start() {
         //levels = GameObject.FindGameObjectsWithTag("Level");
         //locks = GameObject.FindGameObjectsWithTag("Locks");
+        
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(TitleFirstButton);
+
+        //_menuActions = _playerInput.actions["Pause"];
 
     }
 
     private void Update() {
 
+        
         /*if(player.transform.position == levels[0].transform.position) {
             lv1Score.SetActive(true);
             lv2Score.SetActive(false);
@@ -60,15 +98,29 @@ public class MenuNavigation : MonoBehaviour
                 pauseOpen = true;
                 AudioFW.Play("MenuEnd");
             }
+
+            //if (_pressed == true)
+            //{
+            //    OpenPauseMenu();
+            //    pauseOpen = true;
+            //    AudioFW.Play("MenuEnd");
+            //}
         }
         else if (pauseOpen == true) {
             if(Input.GetKeyDown(KeyCode.Escape)) {
                 ClosePauseMenu();
                 AudioFW.Play("MenuEnd");
-                pauseOpen = false;
+                
             }
 
+            //if (_pressed == true)
+            //{
+            //    ClosePauseMenu();
+            //    pauseOpen = false;
+            //    AudioFW.Play("MenuEnd");
+            //}
         }
+
 
         /*if (EventSystem.current.currentSelectedGameObject != null) {
         if(EventSystem.current.currentSelectedGameObject.name == "Level1Button") {
@@ -88,16 +140,35 @@ public class MenuNavigation : MonoBehaviour
     }*/
     }
 
+    void OpenPauseHere()
+    {
+        OpenPauseMenu();
+        pauseOpen = true;
+        AudioFW.Play("MenuEnd");
+        //nodes.SetActive(false);
+        
+    }
 
+    void ClosePauseHere()
+    {
+        ClosePauseMenu();
+        
+        AudioFW.Play("MenuEnd");
+        //nodes.SetActive(true);
+        
+    }
+ 
     public void OpenLevelMenu() {
         menuAudio.StopMenuMusic();
         levelMenu.SetActive(true);
+        _inputActions.UI.Enable();
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(levelFirstButton);
     }
 
     public void CloseLevelMenu() {
         levelMenu.SetActive(false);
+        _inputActions.UI.Disable();
     }
 
     public void OpenLevelEndMenu() {
@@ -122,6 +193,7 @@ public class MenuNavigation : MonoBehaviour
     }
 
     public void OpenPauseMenu() {
+        Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(PauseFirstButton);
@@ -129,6 +201,8 @@ public class MenuNavigation : MonoBehaviour
 
     public void ClosePauseMenu() {
         pauseMenu.SetActive(false);
+        pauseOpen = false;
+        Time.timeScale = 1f;
     }
 
 
