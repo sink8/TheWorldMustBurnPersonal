@@ -51,9 +51,10 @@ public class BurningMovingObject : MonoBehaviour
             var pos = (Vector2)map.CellToWorld(gpos) + Vector2.one * 0.5f;
             TileData data = mapManager.GetTileData(gpos);
             if (rsq >= (playerPosition - pos).sqrMagnitude) {
-
+                
                 Debug.DrawLine(playerPosition, pos, Color.white);
                 if (map.HasTile(gpos) && data.canBurn == true) {
+                    
                     if (fireManager.activeFires.Contains(gpos)) return; // ei sytytetä palavaa uudestaan
                     fireManager.SetTileOnFire(gpos, data);
                 }

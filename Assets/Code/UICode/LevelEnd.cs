@@ -30,10 +30,14 @@ public class LevelEnd : MonoBehaviour
     float timer = 2f;
 
     public GameObject[] playerParticles;
+    public InputManager inputManager;
 
-    void Start()
+
+        
+
+        void Start()
     {
-
+        inputManager = InputManager.instance;
         playLoops = FindObjectOfType<PlayLoops>();
         playLoops.StartLevelMusic(LevelNumber);
         
@@ -117,7 +121,7 @@ public class LevelEnd : MonoBehaviour
             Debug.Log("player touches ending");
             endLevelQuestion.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.G) || (inputManager.GetKeyDown(KeybindingActions.Interact)))
             {
                 levelend = true;
                 LevelEndParticles();
@@ -144,7 +148,7 @@ public class LevelEnd : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) {
             endLevelQuestion.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.G) || (inputManager.GetKeyDown(KeybindingActions.Interact)))
             {
                 levelend = true;
                 LevelEndParticles();

@@ -124,22 +124,11 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3ef9a7dc-dc3e-45bf-a853-a6fa23b8f923"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""id"": ""3045c47e-4a88-47d0-a331-bae64184609f"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""New control scheme1"",
-                    ""action"": ""Press"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1893ecea-09cb-4a0a-9fc3-16a1dd393829"",
-                    ""path"": ""<DualShockGamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""New control scheme1"",
+                    ""groups"": """",
                     ""action"": ""Press"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -148,6 +137,17 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""bec2c1bd-c7b4-42a0-9ced-c898e482bbcd"",
                     ""path"": ""<DualShockGamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d19dba74-e1fd-4d61-8595-f390c0db082f"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -407,6 +407,17 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87335cc4-f754-4979-99a9-d172f627ab29"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }

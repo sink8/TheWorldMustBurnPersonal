@@ -145,7 +145,7 @@ public class MenuNavigation : MonoBehaviour
         OpenPauseMenu();
         pauseOpen = true;
         AudioFW.Play("MenuEnd");
-        //nodes.SetActive(false);
+       
         
     }
 
@@ -193,6 +193,7 @@ public class MenuNavigation : MonoBehaviour
     }
 
     public void OpenPauseMenu() {
+        nodes.SetActive(false);
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
@@ -203,6 +204,7 @@ public class MenuNavigation : MonoBehaviour
         pauseMenu.SetActive(false);
         pauseOpen = false;
         Time.timeScale = 1f;
+        nodes.SetActive(true);
     }
 
 
