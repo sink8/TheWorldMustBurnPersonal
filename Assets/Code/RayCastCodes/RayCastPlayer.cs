@@ -28,6 +28,9 @@ public class RayCastPlayer : MonoBehaviour
     [Range(0f, 2f)] float dashTime;
     [SerializeField]
     [Range(0f, 2f)] float dashTimeDown;
+    [SerializeField] float hangTime = 0.1f;
+
+    float hangTimeCounter;
 
     [SerializeField] float dashTimer = 0.5f;
     float timer = 0;
@@ -38,6 +41,8 @@ public class RayCastPlayer : MonoBehaviour
     public int direction;
     public bool isDashButtonDown;
     public bool dash = false;
+    public bool inAirCurrent = false;
+    public float AirVelocitySteam = 5f;
     GameManager gm;
 
     RayCast2DController controller;
@@ -76,7 +81,6 @@ public class RayCastPlayer : MonoBehaviour
     }
 
     private void Update() {
-
 
         moveInput = Input.GetAxis("Horizontal");
         moveInputY = Input.GetAxis("Vertical");
@@ -117,29 +121,48 @@ public class RayCastPlayer : MonoBehaviour
         }
 
         if (controller.collisions.below == true) {
+            hangTimeCounter = hangTime;
             jumps = 0;
         }
 
         //if (Input.GetButtonDown("Jump") && jumps < maxJumps) {
-        if ((inputManager.GetKeyDown(KeybindingActions.Jump) && jumps < maxJumps) || (Input.GetButtonDown("Jump") && jumps < maxJumps)) {
+        if ((inputManager.GetKeyDown(KeybindingActions.Jump) && ((jumps < maxJumps) || hangTimeCounter > 0f)) || (Input.GetButtonDown("Jump") && ((jumps < maxJumps) || hangTimeCounter > 0f))) {
             AudioFW.Play("SwushLong");
             jumps++;
             velocity = Vector2.zero;
             velocity.y = jumpVelocity;
             //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             CreateKipinä();
+            hangTimeCounter = 0;
         }
 
         float targetVelocityX = input.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
-        velocity.y += gravity * Time.deltaTime;
+        //velocity.y += gravity * Time.deltaTime;
+        
+
+        if (!inAirCurrent)
+        {
+            velocity.y += gravity * Time.deltaTime;
+        } else
+        {
+            velocity.y = AirVelocitySteam;
+        }
         controller.Move(velocity * Time.deltaTime);
 
-        if (velocity.y < 0) {
-            velocity += Vector3.up * Physics2D.gravity.y * (fallMultiplayer - 1) * Time.deltaTime;
-        } else if ((velocity.y > 0 && !inputManager.GetKeyDown(KeybindingActions.Jump)) || (velocity.y > 0 && (!Input.GetButtonDown("Jump"))) ) {
-            velocity += Vector3.up * Physics2D.gravity.y * (lowJumpMultiplayer - 1) * Time.deltaTime;
+        if(!inAirCurrent)
+        {
+            if (velocity.y < 0)
+            {
+                velocity += Vector3.up * Physics2D.gravity.y * (fallMultiplayer - 1) * Time.deltaTime;
+                hangTimeCounter -= Time.deltaTime;
+            }
+            else if ((velocity.y > 0 && !inputManager.GetKeyDown(KeybindingActions.Jump)) || (velocity.y > 0 && (!Input.GetButtonDown("Jump"))))
+            {
+                velocity += Vector3.up * Physics2D.gravity.y * (lowJumpMultiplayer - 1) * Time.deltaTime;
+            }
         }
+
 
            Dash();
         DashDown();
@@ -252,6 +275,21 @@ public class RayCastPlayer : MonoBehaviour
         {
             dashBlockDown.SetActive(false);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("AirCurrent"))
+        {
+            inAirCurrent = true;
+            velocity.y = AirVelocitySteam;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("AirCurrent"));
+        inAirCurrent = false;
     }
 
     private IEnumerator DashTimer() {
