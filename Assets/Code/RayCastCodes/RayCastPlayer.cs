@@ -283,6 +283,7 @@ public class RayCastPlayer : MonoBehaviour
         {
             inAirCurrent = true;
             velocity.y = AirVelocitySteam;
+            jumps = 0;
         }
     }
 
