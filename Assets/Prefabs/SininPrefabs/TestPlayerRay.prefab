@@ -85,6 +85,7 @@ MonoBehaviour:
   verticalAxis2: Vertical2
   lookAngle: 0
   shootDirection: {x: 0, y: 0}
+  mag: 0
   inputManager: {fileID: 0}
 --- !u!1 &1139932627609297237
 GameObject:
@@ -245,6 +246,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1047963, y: 1.5129459}
   m_EdgeRadius: 0
+--- !u!1 &1565827653347918635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7113406419828209048}
+  m_Layer: 7
+  m_Name: BallTargetPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7113406419828209048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565827653347918635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.8, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2090468872533308923}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2090468872533308912
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +320,7 @@ Transform:
   - {fileID: 1335452988}
   - {fileID: 1795500209916735647}
   - {fileID: 5442302880289142797}
+  - {fileID: 7113406419828209048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -402,23 +435,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallMultiplayer: 2.94
   lowJumpMultiplayer: 2
+  jumpHeight: 4
+  timeToJumpApex: 0.5
   moveSpeed: 9
+  jumpVelocity: 10
   maxJumps: 2
   jumps: 0
   dashSpeed: 21.6
   dashDownSpeed: 0
   dashTime: 0.54
   dashTimeDown: 0
+  hangTime: 0.1
   dashTimer: 0.5
   startDashTime: 0.22
   startDashTimeDown: 0
   direction: 0
   isDashButtonDown: 0
   dash: 0
+  inAirCurrent: 0
+  airCurrentStrength: 5
+  airCurrentDamping: 2
+  airCurrentExitDuration: 1
   "kipin\xE4": {fileID: 1426256443060499416}
   "dashKipin\xE4": {fileID: 3604411304337870017}
   dashBlock: {fileID: 4501045813068345283}
   dashBlockDown: {fileID: 0}
+  moveInputY: 0
   playerBodyRed: {fileID: 8111793821507332670}
   playerBodyBlue: {fileID: 4880184542107393322}
   playerBodyPurple: {fileID: 4620400722318480888}

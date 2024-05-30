@@ -16,6 +16,8 @@ public class ScoreCounter : MonoBehaviour
     [SerializeField] int burnableTilesCount;
     public float runningScore;
     public float perScore;
+    public Image scoreBar;
+    [SerializeField] Gradient scorebarColor;
 
     public GameObject bronce, silver, gold;
     void Start()
@@ -49,7 +51,9 @@ public class ScoreCounter : MonoBehaviour
             silver.SetActive(false);
             bronce.SetActive(false);
             gold.SetActive(true);
-        } 
+        }
+
+        scorebarFiller();
 
     }
 
@@ -114,6 +118,11 @@ public class ScoreCounter : MonoBehaviour
         SaveUI.instance.SaveBinInfo();
     }
 
+    void scorebarFiller()
+    {
+        scoreBar.fillAmount = runningScore / 100;
+        scoreBar.color = scorebarColor.Evaluate(runningScore / 100);
+    }
 
 
 

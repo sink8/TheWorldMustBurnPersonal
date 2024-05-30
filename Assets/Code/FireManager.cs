@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 using TMPro;
+using static ScoreBallsMovingToBar;
+using UnityEngine.U2D;
 
 public class FireManager : MonoBehaviour
 {
@@ -62,6 +64,14 @@ public class FireManager : MonoBehaviour
     [SerializeField] GameObject fireLight;
     public List<GameObject> secrets = new List<GameObject>();
 
+    public GameObject spritePrefab; // The sprite prefab with the HoveringMovement script attached
+    public Vector2 spawnAreaMin; // Minimum bounds of the spawn area
+    public Vector2 spawnAreaMax; // Maximum bounds of the spawn area
+    //public GameObject targetPosition; // The fixed target position
+    public RectTransform uiTarget; // The UI element to move towards
+    public Canvas canvas; // The Canvas containing the UI element
+    
+
     void Start() {
         //player = GameObject.FindGameObjectWithTag("Player");
         Vector3 playerPosition = player.transform.position;
@@ -78,6 +88,29 @@ public class FireManager : MonoBehaviour
         //secrets = GameObject.FindGameObjectsWithTag("Secret");
         foreach(GameObject secr in GameObject.FindGameObjectsWithTag("Secret")) {
             secrets.Add(secr);
+        }
+        //targetPosition = GameObject.Find("BallTargetPos");
+
+        GameObject tempObject = GameObject.Find("ScoreUIprefab");
+        GameObject tempObject2 = GameObject.Find("StartPoint");
+
+        if (tempObject != null)
+        {
+            //If we found the object , get the Canvas component from it.
+            canvas = tempObject.GetComponent<Canvas>();
+            if (canvas == null)
+            {
+                Debug.Log("Could not locate Canvas component on " + tempObject.name);
+            }
+        }
+        if (tempObject2 != null)
+        {
+            //If we found the object , get the Canvas component from it.
+            uiTarget = tempObject2.GetComponent<RectTransform>();
+            if (canvas == null)
+            {
+                Debug.Log("Could not locate Canvas component on " + tempObject2.name);
+            }
         }
     }
 
@@ -223,10 +256,10 @@ public class FireManager : MonoBehaviour
         {
             BurnFromPlayerPositionDash();
         }
-        
+
         //var hitP = map.GetComponent<SparksBurnTiles>().hitPosition;
 
-
+        //targetWorldPosition = UIUtilities.GetWorldPositionFromUI(canvas, uiTarget);
     }
 
     void BurnFromPlayerPosition() {
@@ -386,6 +419,8 @@ public class FireManager : MonoBehaviour
             }
         }
         StartCoroutine(InstantiateScorePrefab(position));
+        SpawnSprite(position);
+
 
         if (data.canSmoke) {
             var randomNum = Random.Range(0, 3);
@@ -434,6 +469,7 @@ public class FireManager : MonoBehaviour
         }
 
         StartCoroutine(InstantiateScorePrefab(position));
+        SpawnSprite(position);
 
         if (data.canSmoke) {
             var randomNum = Random.Range(0, 3);
@@ -686,5 +722,21 @@ public class FireManager : MonoBehaviour
 
 
 
+    public void SpawnSprite(Vector3Int pos)
+    {
+        Vector3 spawnPosition = pos;
+        //Vector3 spawnPosition = new Vector3(targetPosition.transform.position.x, targetPosition.transform.position.y, targetPosition.transform.position.z);
 
+        // Instantiate the object at the converted position
+        Instantiate(spritePrefab, spawnPosition, Quaternion.identity);
+
+        //Vector2 targetWorldPosition = UIUtilities.GetWorldPositionFromUI(canvas, uiTarget);
+        ScoreBallsMovingToBar movementScript = spritePrefab.GetComponent<ScoreBallsMovingToBar>();
+        if (movementScript != null)
+        {
+            //movementScript.targetPosition = targetWorldPosition;
+            movementScript.uiTarget = uiTarget;
+            movementScript.canvas = canvas;
+        }
+    }
 }
