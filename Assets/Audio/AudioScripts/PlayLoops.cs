@@ -37,6 +37,10 @@ public class PlayLoops : MonoBehaviour
         if (levelNum == 5) {
             //AudioFW.PlayLoop("Level5");
         }
+        if (levelNum == 6)
+        {
+            AudioFW.PlayLoop("Level1Forest_2");
+        }
     }
 
     public void StopLevelMusic() {
@@ -55,6 +59,10 @@ public class PlayLoops : MonoBehaviour
         if (levelNum == 5) {
             AudioFW.StopLoop("Level5");
         }
+        if (levelNum == 6)
+        {
+            AudioFW.StopLoop("Level1Forest_2");
+        }
     }
     public void StopAllLevelMusic() {
             AudioFW.StopLoop("Level1Forest");
@@ -62,6 +70,7 @@ public class PlayLoops : MonoBehaviour
             AudioFW.StopLoop("Level3Forest");
             AudioFW.StopLoop("Level2Cave");
             AudioFW.StopLoop("Level5");
+            AudioFW.StopLoop("Level1Forest_2");
     }
 
 
