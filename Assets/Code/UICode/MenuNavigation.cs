@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 
 public class MenuNavigation : MonoBehaviour
 {
-    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas, AudioMenu;
+    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas, AudioMenu, OptionsMenuGameplay;
     public GameObject levelFirstButton, levelEndFirstButton, DeathFirstButton, PauseFirstButton, TitleFirstButton, SaveFirstButton, StartFirstButton, OptionsFirstButton,
-                        CreditsFirstButton;
+                        CreditsFirstButton, OptionsFirstButtonGameplay;
 
     public GameObject lv1Score, lv2Score, lv3Score;
 
@@ -23,6 +23,7 @@ public class MenuNavigation : MonoBehaviour
     public GameObject[] locks;
     public MenuAudio menuAudio;
     public bool pauseOpen = false;
+    bool gameStarted = false;
 
     Newcontrolsmap _inputActions;
     public PlayerInput _playerInput;   
@@ -227,6 +228,7 @@ public class MenuNavigation : MonoBehaviour
 
     public void OpenMixedMenuStuff() {
         mixMenuStuff.SetActive(true);
+        gameStarted = true;
 
     }
 
@@ -275,8 +277,23 @@ public class MenuNavigation : MonoBehaviour
     }
 
     public void CloseOptionsMenu() {
+        if (gameStarted)
+        {
+            OpenPauseMenu();    
+        }else
+        {
+            OpenTitleMenu();
+        }
+
+
         OptionsMenu.SetActive(false);
     }
+
+    public void CloseOptionsMenuGameplay()
+    {
+        OptionsMenuGameplay.SetActive(false);
+    }
+
 
     public void OpenCreditsMenu() {
         CreditsMenu.SetActive(true);
@@ -288,6 +305,13 @@ public class MenuNavigation : MonoBehaviour
         OptionsMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(OptionsFirstButton);
+    }
+
+    public void OpenOptionsMenuGameplay()
+    {
+        OptionsMenuGameplay.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(OptionsFirstButtonGameplay);
     }
 
     public void OpenMenuNoise()
