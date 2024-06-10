@@ -32,7 +32,7 @@ public class UI_DIssolve : MonoBehaviour
             }
 
             dissolveMat.SetFloat("_CutOff", fade);
-    }
+        }
 
     public void KlickDissolve(){
             isDissolving = true;
