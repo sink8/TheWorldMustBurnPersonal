@@ -38,7 +38,7 @@ public class MixedUICode : MonoBehaviour
         timer = creditsTime;
         optionsPanel = transform.Find("options");
         Credits();
-        ChangeKey();
+        //ChangeKey();
     }
 
  
