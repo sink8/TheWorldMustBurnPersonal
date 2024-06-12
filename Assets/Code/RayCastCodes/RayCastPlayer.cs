@@ -28,6 +28,9 @@ public class RayCastPlayer : MonoBehaviour
     [Range(0f, 2f)] float dashTime;
     [SerializeField]
     [Range(0f, 2f)] float dashTimeDown;
+    [SerializeField]
+    [Range(0f, 2f)] float dashDistance = 2f;
+
     [SerializeField] float hangTime = 0.1f;
 
     float hangTimeCounter;
@@ -36,10 +39,10 @@ public class RayCastPlayer : MonoBehaviour
     float timer = 0;
     bool canDash = true;
 
-    public float startDashTime;
-    public float startDashTimeDown;
+    public float startDashTime = 0.5f;
+    public float startDashTimeDown = 0.5f;
     public int direction;
-    public bool isDashButtonDown;
+    //public bool isDashButtonDown;
     public bool dash = false;
     public bool inAirCurrent = false;
     private bool exitingAirCurrent;
@@ -63,7 +66,8 @@ public class RayCastPlayer : MonoBehaviour
     float moveInputX;
     public float moveInputY;
 
-
+    bool lookingRight, lookingLeft = false;
+    
     // animation states
 
 
@@ -95,9 +99,13 @@ public class RayCastPlayer : MonoBehaviour
         Vector3 characterScale = transform.localScale;
         if (Input.GetAxis("Horizontal") < 0) {
             characterScale.x = -1;
+            lookingLeft = true;
+            lookingRight = false;
         }
         if (Input.GetAxis("Horizontal") > 0) {
             characterScale.x = 1;
+            lookingRight = true;
+            lookingLeft = false;
         }
         transform.localScale = characterScale;
 
@@ -193,6 +201,7 @@ public class RayCastPlayer : MonoBehaviour
         Dash();
         DashDown();
     }
+
     void CreateKipinä() {
         kipinä.Play();
     }
@@ -211,15 +220,17 @@ public class RayCastPlayer : MonoBehaviour
               if (((UserInput.instance.DashInput ) && canDash == true) )
             {
                 AudioFW.Play("SwushShort");
-                if (moveInputX < 0)
-                {
+                //if (moveInputX < 0)
+                if (lookingLeft == true)
+                    {
                     CreateDashKipinä();
                     direction = 1;
                     dash = true;
                     //dashBlock.SetActive(true);
                 }
-                else if (moveInputX > 0)
-                {
+                //else if (moveInputX > 0)
+                else if (lookingRight == true)
+                        {
                     CreateDashKipinä();
                     direction = 2;
                     dash = true;
@@ -247,11 +258,13 @@ public class RayCastPlayer : MonoBehaviour
                 {
                     dashBlock.SetActive(true);
                     velocity = Vector2.left * dashSpeed;
+                    
                 }
                 else if (direction == 2)
                 {
                     dashBlock.SetActive(true);
                     velocity = Vector2.right * dashSpeed;
+                    
                 }
             }
         }
@@ -277,17 +290,17 @@ public class RayCastPlayer : MonoBehaviour
         }
         else
         {
-            if (dashTime <= 0)
+            if (dashTimeDown <= 0)
             {
                 dash = false;
                 direction = 0;
-                dashTime = startDashTimeDown;
+                dashTimeDown = startDashTimeDown;
                 velocity = Vector2.zero;
                 dashBlockDown.SetActive(false);
             }
             else
             {
-                dashTime -= Time.deltaTime;
+                dashTimeDown -= Time.deltaTime;
 
                 if (direction == 3)
                 {
@@ -329,6 +342,8 @@ public class RayCastPlayer : MonoBehaviour
     private IEnumerator DashTimer() {
         yield return new WaitForSeconds(1f);
         canDash = true;
+        dashTime = startDashTime;
+        dashTimeDown = startDashTimeDown;
     }
 
 } // class

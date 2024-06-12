@@ -35,6 +35,14 @@ public class SoundMixerManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        SetMusicVolume();
+        SetMasterVolume();
+        SetSoundFXVolume();
+    }
+
+
     public void SetMasterVolume()
     {
 
