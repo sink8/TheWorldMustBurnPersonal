@@ -38,8 +38,11 @@ public class MovingOnLevelsMap : MonoBehaviour
 
     public LevelSelector levelSelector;
     public MenuNavigation menuNav;
+    public SecretManager secretManager;
     CloudsSpawn spawn;
     [SerializeField] StoreScores storeScores;
+
+    public bool isSecretLevel;
 
     private void OnEnable()
     {
@@ -190,5 +193,11 @@ public class MovingOnLevelsMap : MonoBehaviour
         }
     }
 
+    void SecretsLevelStuff()
+    {
+        // näytä erikseen onko tämä leveli esim 21, secret. 
+        // jos level on secret bool = true, niin se aukeaa eri tavalla. 
+        // tähän erillinen SecretHandler
+    }
   
 } // class

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class LevelEnd : MonoBehaviour
 {
@@ -118,7 +119,7 @@ public class LevelEnd : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("player touches ending");
+            
             endLevelQuestion.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.G) || (inputManager.GetKeyDown(KeybindingActions.Interact)))
@@ -132,6 +133,7 @@ public class LevelEnd : MonoBehaviour
                 EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
                 LevelEndTextCommon();
                 scoreCounter.RegisterNewScore(LevelNumber);
+                SecretManager.Instance.SaveSecrets();
                 //scoreCounter.RegisterScore();
                 // anim.Play("FadeOut");
                 //scoreCounter.scoreValue = 0;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class LevelSelector : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class LevelSelector : MonoBehaviour
     MovingOnLevelsMap levelsScript;
 
     public GameObject[] levelsAvailable;
+    public GameObject[] secretsLevelsAvailable;
     public GameObject currentLevel;
 
     public int levelNum;
@@ -17,9 +19,31 @@ public class LevelSelector : MonoBehaviour
 
     void Start(){
         levels = GameObject.FindGameObjectsWithTag("Level");
+        SecretManager.Instance.LoadSecrets();
     }
 
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SecretManager.Instance.SaveSecrets();
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SecretManager.Instance.LoadSecrets();
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log("added secrets d: " );
+            SecretManager.Instance.AddSecret(levelNum, "secret1");
+            SecretManager.Instance.AddSecret(levelNum, "secret2");
+            SecretManager.Instance.AddSecret(2, "secret3");
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Debug.Log("Total secrets found: " + SecretManager.Instance.GetTotalFoundSecrets());
+        }
+    }
 
 
     public void LoadLevels( int level) {

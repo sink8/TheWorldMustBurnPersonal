@@ -13,6 +13,8 @@ public class SaveManager : MonoBehaviour
     public SaveData activeSave;
     public bool hasLoaded;
     StoreScores storeScores;
+
+    public int[] Maxsecrets = new int[20];
     //public int numberOfLevels = 20;
     private void Awake() {
         storeScores = FindObjectOfType<StoreScores>();
@@ -128,4 +130,5 @@ public class SaveData {
     public float[] goldHighSecondsSave = new float[20];
 
     public int[] secretsFound = new int[20];
+    public string[] secretsFoundNames = new string[20];
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class InstructionsForPlayer : MonoBehaviour
@@ -8,6 +9,66 @@ public class InstructionsForPlayer : MonoBehaviour
 
     public GameObject textgo;
     public Canvas canvas;
+
+    public string jump;
+    public string dash;
+    public string dashDown;
+    public string shoot;
+
+    public string jumpPad, dashPad, dashDownPad, shootPad;
+
+    public TMPro.TextMeshProUGUI jumpTmp;
+    public TMPro.TextMeshProUGUI dashTmp;
+    public TMPro.TextMeshProUGUI shootTmp;
+    public TMPro.TextMeshProUGUI dashDownTmp;
+
+     public TMPro.TextMeshProUGUI jumpTmpPad, dashTmpPad, shootTmpPad, dashDownTmpPad;
+
+    public TMPro.TextMeshProUGUI textCanv;
+
+    public GameObject objtjump, objtdash, objtdashDown, objShoot;
+    public GameObject objtjumpPad, objtdashPad, objtdashDownPad, objShootPad;
+
+    bool usingController = false;
+
+    public int triggernum = 10;
+    // 1 jump, 2 jump2, 3 dash, 4 water, 5 shoot
+    private void Start()
+    {
+
+       objtjump = GameObject.Find("ActionBindingTextJump");
+       jumpTmp = objtjump.GetComponent<TMPro.TextMeshProUGUI>();
+
+        objtdash = GameObject.Find("ActionBindingTextDash");
+        dashTmp = objtdash.GetComponent<TMPro.TextMeshProUGUI>();
+
+        objtdashDown = GameObject.Find("ActionBindingTextDashDown");
+        dashDownTmp = objtdashDown.GetComponent<TMPro.TextMeshProUGUI>();
+
+        objShoot = GameObject.Find("ActionBindingTextShoot");
+        shootTmp = objShoot.GetComponent<TMPro.TextMeshProUGUI>();
+
+
+        objtjumpPad = GameObject.Find("ActionBindingTextJumpPad");
+        jumpTmpPad = objtjumpPad.GetComponent<TMPro.TextMeshProUGUI>();
+
+        objtdashPad = GameObject.Find("ActionBindingTextDashPad");
+        dashTmpPad = objtdashPad.GetComponent<TMPro.TextMeshProUGUI>();
+
+        objtdashDownPad = GameObject.Find("ActionBindingTextDashDownPad");
+        dashDownTmpPad = objtdashDownPad.GetComponent<TMPro.TextMeshProUGUI>();
+
+        objShootPad = GameObject.Find("ActionBindingTextShootPad");
+        shootTmpPad = objShootPad.GetComponent<TMPro.TextMeshProUGUI>();
+
+        //var actionBindTransform = objt.transform.Find("ActionBindingText");
+
+        //if (actionBindTransform != null)
+        //{
+        //    objt2 = actionBindTransform.gameObject;
+        //    // Now you can use actionBindingText as needed
+        //}
+    }
     //bool jumpbool, timerbool = false;
 
 
@@ -18,8 +79,34 @@ public class InstructionsForPlayer : MonoBehaviour
     //     }
 
     // }
+
+    private void Update()
+    {
+        jump = jumpTmp.text;
+        dash = dashTmp.text;
+        dashDown = dashDownTmp.text;
+        shoot = shootTmp.text;
+        jumpPad = jumpTmpPad.text;
+        dashPad = dashTmpPad.text;
+        dashDownPad = dashDownTmpPad.text;
+        shootPad = shootTmpPad.text;
+
+        if (Input.GetJoystickNames().Length > 0)
+
+
+            if (Gamepad.all.Count > 0)
+            {
+                usingController = true;
+            }
+            else
+            {
+                usingController = false;
+            }
+        //Instuctions();
+    }
     private void OnTriggerStay2D(Collider2D other) {
            if (other.gameObject.CompareTag("Player")) {
+            Instuctions();
            canvas.enabled = true;
            textgo.SetActive(true);
        }
@@ -30,6 +117,47 @@ public class InstructionsForPlayer : MonoBehaviour
         textgo.SetActive(false);
     }
 
+    void Instuctions()
+    {
+        switch (triggernum)
+        {
+            case 7:
+                print(" ");
+                break;
+            case 6:
+                print("Press " + dashDown );
+                break;
+            case 5:
+                print("Water is dangerous");
+                break;
+            case 4:
+                print("Mysterious energy gives you power to shoot fireballs, press " + shoot );
+                break;
+            case 3:
+                
+                textCanv.text = "Press " + dash + " after trees have burned";
+                break;
+            case 2:
+                
+                textCanv.text = "Press " + jump + " 2 times ";
+                break;
+            case 1:
+                if (usingController == false)
+                {
+                    textCanv.text = "Press  " + jump;
+                }
+                else
+                {
+                    textCanv.text = "Press  " + jumpPad;
+                }
 
+                    break;
+                
+            default:
+                
+                textCanv.text = " _ " ;
+                break;
+        }
+    }
 
 }// class

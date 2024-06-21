@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
 public static InputManager instance;
 [SerializeField] KeyBinding keyBindings;
     public bool usingController = false;
-    
+    public string name;
     
     private void Awake(){
         if(instance == null){
@@ -36,6 +36,8 @@ public static InputManager instance;
         {
             usingController = false;
         }
+
+        //name = Input.GetJoystickNames()[0];
 
     }
 
