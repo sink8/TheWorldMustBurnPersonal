@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject fm;
     PowerUpProjektile powerup;
 
+    public bool hasTimer = false;
     void Start()
     {
 
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update() {
+        if(hasTimer == true) {
         if (powerupTimer > 0) {
             powerupTimer -= Time.deltaTime; // how much time has passed since last update. Eventually it will drop below zero
             if (powerupTimer <= 0) {
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
                 fm.SetActive(true);
             } 
         }
+    }
 
         if(State == PowerupType.None) {
             weapon.SetActive(false);

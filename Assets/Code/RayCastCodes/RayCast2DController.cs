@@ -57,6 +57,9 @@ public class RayCast2DController : MonoBehaviour
             Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
 
             if (hit) {
+                if (hit.collider.CompareTag("JumpThroughPlatform")) {
+                continue;
+                }
 
                 if(hit.distance == 0) {
                     continue;
@@ -105,6 +108,11 @@ public class RayCast2DController : MonoBehaviour
             Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.red);
 
             if (hit) {
+                if (hit.collider.CompareTag("JumpThroughPlatform") && directionY == 1) {
+                // Ignore collisions with jump-through platforms when moving upwards
+                continue;
+                }
+
                 velocity.y = (hit.distance - skinWidth) * directionY;
                 rayLength = hit.distance;
 

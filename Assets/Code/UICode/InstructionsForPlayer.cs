@@ -123,15 +123,19 @@ public class InstructionsForPlayer : MonoBehaviour
         {
             case 7:
                 print(" ");
+                textCanv.text = "Checkpoint";
                 break;
             case 6:
                 print("Press " + dashDown );
+                textCanv.text = "Press  " + dashDown;
                 break;
             case 5:
                 print("Water is dangerous");
+
                 break;
             case 4:
-                print("Mysterious energy gives you power to shoot fireballs, press " + shoot );
+                print("Press " + shoot );
+                textCanv.text = "Press  " + shoot;
                 break;
             case 3:
                 
