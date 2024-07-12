@@ -92,7 +92,7 @@ public class StoreScores : MonoBehaviour
             }
         }
 
-        for (int j = 0; j < levels.Length-1; j++) {
+        for (int j = 0; j < 20; j++) {
 
 
             if (bronceHighScores[j] >= 0.1 || silverHighScores[j] >= 0.1 || goldHighScores[j] >= 0.1) {
@@ -102,6 +102,13 @@ public class StoreScores : MonoBehaviour
             }
         }
 
+        // secrets, how will those be opened. Shitty way but I'm in hurry
+        if(SecretManager.Instance.secretsFound >= 3)
+        {
+            levels[20].GetComponent<MovingOnLevelsMap>().locked = false;
+            locks[20].SetActive(false);
+            finished[20].GetComponent<Renderer>().sortingOrder = 40;
+        }
 
         //if (bronceHighScores[0] >= 0.5 || silverHighScores[0] >= 0.5 || goldHighScores[0] >= 0.5) {
         //    levels[1].GetComponent<MovingOnLevelsMap>().locked = false;

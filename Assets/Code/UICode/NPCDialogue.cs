@@ -15,6 +15,7 @@ public class NPCDialogue : MonoBehaviour
     CanvasGroup group;
     public EnemyHealth enemyHealth;
     bool dialogueStarted;
+    [SerializeField] bool isCloud = false;
 
     public NPCDialogueTrigger trigger;
 
@@ -64,16 +65,25 @@ public class NPCDialogue : MonoBehaviour
 
     void Update()
     {
-        if(trigger.triggered == true) {
-            StartDialogue();
+
+
+
+        if(isCloud == false)
+        {
+            if (trigger.triggered == true)
+            {
+                StartDialogue();
+            }
+
+
+            if (enemyHealth.health == 0)
+            {
+                lineIndex = 1;
+                text.SetText(dialogueLines[lineIndex]);
+                group.alpha = 1;
+                dialogueStarted = true;
+            }
         }
 
-        if(enemyHealth.health == 0)
-        {
-            lineIndex = 1;
-            text.SetText(dialogueLines[lineIndex]);
-            group.alpha = 1;
-            dialogueStarted = true;
-        }
     }
 }

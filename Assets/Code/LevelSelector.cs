@@ -19,7 +19,7 @@ public class LevelSelector : MonoBehaviour
 
     void Start(){
         levels = GameObject.FindGameObjectsWithTag("Level");
-        SecretManager.Instance.LoadSecrets();
+        
     }
 
     private void Update()
@@ -35,9 +35,10 @@ public class LevelSelector : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             Debug.Log("added secrets d: " );
-            SecretManager.Instance.AddSecret(levelNum, "secret1");
-            SecretManager.Instance.AddSecret(levelNum, "secret2");
-            SecretManager.Instance.AddSecret(2, "secret3");
+            //SecretManager.Instance.AddSecret(levelNum, "secret1");
+
+            SecretManager.Instance.AddSecret(2, "secret1");
+            SecretManager.Instance.AddSecret(1, "secret3");
         }
         if (Input.GetKeyDown(KeyCode.T))
         {

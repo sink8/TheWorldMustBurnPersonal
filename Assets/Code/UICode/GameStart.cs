@@ -13,6 +13,8 @@ public class GameStart : MonoBehaviour
     public GameObject playerParticles;
     public GameObject lightP;
     public ParticleSystem spark;
+
+    
     //RayCastPlayer playerC;
     private void Start() {
         gm = FindObjectOfType<GameManager>();

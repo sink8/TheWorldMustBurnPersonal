@@ -33,10 +33,10 @@ public class LevelEnd : MonoBehaviour
     public GameObject[] playerParticles;
     public InputManager inputManager;
 
+    //public Transform secret1Position, secret2Position;
 
-        
 
-        void Start()
+    void Start()
     {
         inputManager = InputManager.instance;
         playLoops = FindObjectOfType<PlayLoops>();
@@ -54,6 +54,8 @@ public class LevelEnd : MonoBehaviour
 
         if (playerParticles == null)
             playerParticles = GameObject.FindGameObjectsWithTag("Particles");
+
+
     }
 
     private void Update() {
@@ -134,6 +136,7 @@ public class LevelEnd : MonoBehaviour
                 LevelEndTextCommon();
                 scoreCounter.RegisterNewScore(LevelNumber);
                 SecretManager.Instance.SaveSecrets();
+                SecretManager.Instance.GetTotalFoundSecrets();
                 //scoreCounter.RegisterScore();
                 // anim.Play("FadeOut");
                 //scoreCounter.scoreValue = 0;

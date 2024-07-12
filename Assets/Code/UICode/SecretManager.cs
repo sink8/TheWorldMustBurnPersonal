@@ -18,6 +18,8 @@ using Newtonsoft.Json;
 
     public Dictionary<int, HashSet<string>> foundSecrets;
 
+    public TMPro.TextMeshProUGUI Secret1, Secret2;
+
 
 
     void Awake()
@@ -33,12 +35,14 @@ using Newtonsoft.Json;
         {
             Destroy(gameObject);
         }
+        LoadSecrets();
     }
 
     private void Update()
     {
         //secretsFound = GetTotalFoundSecrets();
-
+        Secret1.text = secretsFound + "/3";
+        
 
     }
     // Method to add a found secret
@@ -105,6 +109,7 @@ using Newtonsoft.Json;
             var ser = JsonConvert.DeserializeObject<SerializableDictionary<int, HashSet<string>>>(json);
             foundSecrets = data.ToDictionary();
 
+            print("secrets loaded");
             Debug.Log(json);
             Debug.Log(ser);
         }
@@ -118,6 +123,7 @@ using Newtonsoft.Json;
             {
                 total += secrets.Count;
             }
+        secretsFound = total;
             return total;
         }
 
