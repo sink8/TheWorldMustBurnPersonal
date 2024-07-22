@@ -516,6 +516,7 @@ GameObject:
   - component: {fileID: 8794547816260391985}
   - component: {fileID: 6965137101316841880}
   - component: {fileID: 8171173916434880419}
+  - component: {fileID: 8819588221508993025}
   m_Layer: 0
   m_Name: Secret1
   m_TagString: Untagged
@@ -605,6 +606,7 @@ MonoBehaviour:
   secretName: ekaSecret
   secretLevelBool: 0
   secretLevelPoint: {fileID: 0}
+  audioSource: {fileID: 8819588221508993025}
 --- !u!61 &6965137101316841880
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -677,6 +679,102 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!82 &8819588221508993025
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257435921717593173}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 1022165863121724501, guid: 855fd1c550768ff49861254eebc03f99, type: 2}
+  m_audioClip: {fileID: 8300000, guid: fb6bdd84775fc2e44a6b477867cb5c4e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.673
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 0
+  MaxDistance: 17.03
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -1.6774639
+      outSlope: -1.6774639
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.042613637
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.0720458
+      outSlope: -2.0720458
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07670456
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.966
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1259277939412165576
 GameObject:
   m_ObjectHideFlags: 0
@@ -7942,6 +8040,7 @@ MonoBehaviour:
   secretName: tokasecret
   secretLevelBool: 0
   secretLevelPoint: {fileID: 7479966656855916177}
+  audioSource: {fileID: 0}
 --- !u!61 &7407972960116093716
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10801,6 +10900,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2090468872533308912, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3733634271157510203}
+    - targetCorrespondingSourceObject: {fileID: 2090468872533308912, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5497285131950047206}
   m_SourcePrefab: {fileID: 100100000, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
 --- !u!1 &13334314749815961 stripped
 GameObject:
@@ -10894,6 +10996,14 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!81 &5497285131950047206
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368060262004832316}
+  m_Enabled: 1
 --- !u!198 &2032690785136180756 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1426256443060499416, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}

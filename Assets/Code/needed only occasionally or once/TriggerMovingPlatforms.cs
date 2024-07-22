@@ -9,10 +9,7 @@ public class TriggerMovingPlatforms : MonoBehaviour
 
     [SerializeField] bool vertical = false;
     [SerializeField] bool horizontal = false;
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -27,6 +24,7 @@ public class TriggerMovingPlatforms : MonoBehaviour
             if(horizontal) { platformController.enabled = true;
             } 
             else { platformController.enabled = false;
+                platformControllerVert.enabled = true;
             }
         }
     }

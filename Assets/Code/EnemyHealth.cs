@@ -8,6 +8,15 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] bool canChange = true;
     [SerializeField] GameObject piviHahmo;
 
+    [SerializeField] ParticleSystem cryDrops;
+    [SerializeField] GameObject deathZone;
+
+    [SerializeField] float cryCycle = 10;
+    [SerializeField] float timer = 0;
+    [SerializeField] float crytime = 4;
+    [SerializeField] bool cryBool = true;
+    [SerializeField] bool CancryBool = true;
+
     void Start()
     {
         
@@ -31,6 +40,33 @@ public class EnemyHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Palo")) {
             Destroy(gameObject);
         }
+    }
+
+    private void Update()
+    {
+        if(CancryBool)
+        {
+            timer += Time.deltaTime;
+            if (!cryBool && timer >= cryCycle)
+            {
+                StartCoroutine(PlayCry());
+            }
+        }
+
+    }
+
+    IEnumerator PlayCry()
+    {
+        cryBool = true;
+        cryDrops.Play();
+        AudioFW.PlayLoop("Rain");
+        yield return new WaitForSeconds(crytime);
+
+        AudioFW.StopLoop("Rain");
+        cryDrops.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        timer = 0;
+        cryBool = false;
+
     }
 
 }
