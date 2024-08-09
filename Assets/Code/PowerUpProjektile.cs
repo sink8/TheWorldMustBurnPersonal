@@ -18,6 +18,8 @@ public class PowerUpProjektile : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) {
             //AudioFW.Play("PowerUp");
             FindObjectOfType<GameManager>().ActivatePowerup(type);
+            AudioFW.Play("PowerUp");
+
         }
         /*weapon.SetActive(true);
         powerupTimer = projectileTime;

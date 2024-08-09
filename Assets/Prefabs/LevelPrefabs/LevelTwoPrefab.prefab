@@ -3753,6 +3753,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 0}
   canvas: {fileID: 7404205788856773626}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!1 &1285659970106926304
 GameObject:
   m_ObjectHideFlags: 0
@@ -3846,6 +3872,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 7047310857803011030}
   canvas: {fileID: 7404205788856773626}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &2134066619591865940
 Rigidbody2D:
   serializedVersion: 4
@@ -4730,6 +4782,7 @@ MonoBehaviour:
   - I'm just hanging here, minding my own business
   - Wha..
   enemyHealth: {fileID: 0}
+  isCloud: 0
   trigger: {fileID: 8848804028465832762}
 --- !u!114 &841956416798407203
 MonoBehaviour:
@@ -9833,7 +9886,7 @@ Transform:
   - {fileID: 1907500408}
   - {fileID: 7974295927341627603}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5865545878681660872
 GameObject:
@@ -10178,6 +10231,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 8008017163662445805}
   canvas: {fileID: 7404205788856773626}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &9137964768001850216
 Rigidbody2D:
   serializedVersion: 4
@@ -10490,7 +10569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &228407990226314468
 Transform:
   m_ObjectHideFlags: 0
@@ -10677,6 +10756,7 @@ MonoBehaviour:
   - I saw what you did!
   - Why..
   enemyHealth: {fileID: 0}
+  isCloud: 0
   trigger: {fileID: 3408429733393400674}
 --- !u!114 &46157433578645348
 MonoBehaviour:
@@ -11305,6 +11385,7 @@ MonoBehaviour:
   - What are you doing here?
   - noo
   enemyHealth: {fileID: 0}
+  isCloud: 0
   trigger: {fileID: 1803686090108945479}
 --- !u!114 &5581482917744277174
 MonoBehaviour:
@@ -109002,6 +109083,22 @@ PrefabInstance:
       propertyPath: fm
       value: 
       objectReference: {fileID: 9200919305300867771}
+    - target: {fileID: 8638617077088784655, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 9200919305792493106}
+    - target: {fileID: 8638617077088784655, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638617077088784655, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638617077088784655, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -757513779
+      objectReference: {fileID: 0}
     - target: {fileID: 8689150986604523068, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_Name
       value: ScoreUIprefab

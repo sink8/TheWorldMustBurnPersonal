@@ -82,7 +82,7 @@ public class SparksBurnTiles : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("DashDown"))
         {
-            fireManager.dashTrigger = false;
+            fireManager.dashDownTrigger = false;
             //fireManager.BurnFromPlayerPositionDash();
         }
 
@@ -98,7 +98,7 @@ public class SparksBurnTiles : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("DashDown"))
         {
-            fireManager.dashTrigger = true;
+            fireManager.dashDownTrigger = true;
             Debug.Log("dashboxdown");
             fireManager.BurnFromPlayerPositionDash();
         }
@@ -113,7 +113,7 @@ public class SparksBurnTiles : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("DashDown"))
         {
-            fireManager.dashTrigger = false;
+            fireManager.dashDownTrigger = false;
             //fireManager.BurnFromPlayerPositionDash();
         }
     }
@@ -128,7 +128,7 @@ public class SparksBurnTiles : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("DashDown"))
         {
-            fireManager.dashTrigger = false;
+            fireManager.dashDownTrigger = false;
             //fireManager.BurnFromPlayerPositionDash();
         }
     }

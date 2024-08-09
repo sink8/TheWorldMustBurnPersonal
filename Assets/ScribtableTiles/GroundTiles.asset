@@ -217,10 +217,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b509dc17709ef2e4ca499edbca68ca4c, type: 2}
   - {fileID: 11400000, guid: 9c3fd111280b1cf43b9f9b6098064aec, type: 2}
   - {fileID: 11400000, guid: 278f3292e17527c4aa508320fabbe5f6, type: 2}
+  - {fileID: 11400000, guid: b95b288b3ee3a4b479201380e27fac9a, type: 2}
+  - {fileID: 11400000, guid: 4d407887963276c4b99ce00c18902a6c, type: 2}
   burned: {fileID: 0}
   spreadChange: 0
   spreadInterwall: 0
   burnTime: 0
+  spreadInterwallGround: 0
+  groundTime: 0
+  burnedPrefabTime: 1.5
   canBurn: 0
   ashTile: 0
   groudTile: 1
@@ -228,4 +233,8 @@ MonoBehaviour:
   leavesTile: 0
   secret: 0
   snowTile: 0
+  canSmoke: 0
+  softGround: 0
+  ice: 0
   secretParticle: {fileID: 0}
+  smokeParticle: {fileID: 0}

@@ -60,6 +60,7 @@ public class FireManager : MonoBehaviour
     public Vector2 dashPosition2;
 
     public bool InstantiateLights = false;
+    public bool dashDownTrigger = false;
     public bool dashTrigger = false;
     [SerializeField] GameObject fireLight;
     public List<GameObject> secrets = new List<GameObject>();
@@ -254,9 +255,13 @@ public class FireManager : MonoBehaviour
         //BurnFromDashPosition();
         if(dashTrigger == true)
         {
-            BurnFromPlayerPositionDash();
+            BurnFromPlayerPositionDashO(dashPos);
         }
 
+        if (dashDownTrigger == true)
+        {
+            BurnFromPlayerPositionDashO(playerdashPosDown);
+        }
         //var hitP = map.GetComponent<SparksBurnTiles>().hitPosition;
 
         //targetWorldPosition = UIUtilities.GetWorldPositionFromUI(canvas, uiTarget);
@@ -331,6 +336,39 @@ public class FireManager : MonoBehaviour
                 }
             }
             else Debug.DrawLine(dashPosition2, pos, Color.red);
+        }
+    }
+
+    public void BurnFromPlayerPositionDashO(Transform dashpos)
+    {
+        //playerPosition2 = player.transform.position;
+        //Vector3Int playergridPos = map.WorldToCell(playerPosition2);
+        Vector2 dashPositionO = dashpos.transform.position;
+        Vector3Int playergridPos = map.WorldToCell(dashPositionO);
+
+        int gr = Mathf.FloorToInt(burnRadius + 0.5f);
+        //var bounds = new BoundsInt(playergridPos, new Vector3Int(gr * 2 + 1, gr * 2 + 1, 1));
+        bounds = new BoundsInt(playergridPos.x - gr, playergridPos.y - gr, 0, gr * 2 + 1, gr * 2 + 1, 1);
+
+        var rsq = burnRadius * burnRadius;
+
+        foreach (var gpos in bounds.allPositionsWithin)
+        {
+            pos = (Vector2)map.CellToWorld(gpos) + Vector2.one * 0.5f;
+            TileData data = mapManager.GetTileData(gpos);
+            if (rsq >= (dashPositionO - pos).sqrMagnitude)
+            {
+
+                Debug.DrawLine(dashPositionO, pos, Color.white);
+                if (map.HasTile(gpos) && data.softGround)
+                {
+                    print("tekeekö tää mitään");
+                    if (activeFires.Contains(gpos)) return; // ei sytytet� palavaa uudestaan
+                    StartDestroyingSoftGround(gpos, data);
+                    //SetTileOnFire(gpos, data);
+                }
+            }
+            else Debug.DrawLine(dashPositionO, pos, Color.red);
         }
     }
 
