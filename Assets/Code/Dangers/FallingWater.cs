@@ -31,13 +31,14 @@ public class FallingWater : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Sparks") || collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Palo"))
         {
-            
+            col2.enabled = true;
             AudioFW.Play("HitEnemyWater");
             fallingWater.Play();
             
-            animator_1.Play("WaterLevelDown");
+            //animator_1.Play("WaterLevelDown");
+            animator_1.Play("wawywater2");
             animator_fire.Play("FireUpNewAnimation");
-            col2.enabled = true;
+            
             StartCoroutine(later());
             //Destroy(gameObject, 0.7f);
         }
@@ -50,7 +51,8 @@ public class FallingWater : MonoBehaviour
             AudioFW.Play("HitEnemyWater");
             fallingWater.Play();
 
-            animator_1.Play("WaterLevelDown");
+            //animator_1.Play("WaterLevelDown");
+            animator_1.Play("wawywater2");
             animator_fire.Play("FireUpNewAnimation");
             col2.enabled = true;
             StartCoroutine(later());
@@ -65,7 +67,7 @@ public class FallingWater : MonoBehaviour
 
         col.enabled = false;
         animator_fire.enabled = false;
-        block.SetActive(false);
+        //block.SetActive(false);
         fallingWater.Stop();
     }
 
