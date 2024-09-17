@@ -41,6 +41,10 @@ public class PlayLoops : MonoBehaviour
         {
             AudioFW.PlayLoop("Level1Forest_2");
         }
+        if (levelNum == 7)
+        {
+            AudioFW.PlayLoop("Tyypin_track_1");
+        }
     }
 
     public void StopLevelMusic() {
@@ -63,6 +67,10 @@ public class PlayLoops : MonoBehaviour
         {
             AudioFW.StopLoop("Level1Forest_2");
         }
+        if (levelNum == 7)
+        {
+            AudioFW.StopLoop("Tyypin_track_1");
+        }
     }
     public void StopAllLevelMusic() {
             AudioFW.StopLoop("Level1Forest");
@@ -71,6 +79,7 @@ public class PlayLoops : MonoBehaviour
             AudioFW.StopLoop("Level2Cave");
             AudioFW.StopLoop("Level5");
             AudioFW.StopLoop("Level1Forest_2");
+            AudioFW.StopLoop("Tyypin_track_1");
     }
 
 

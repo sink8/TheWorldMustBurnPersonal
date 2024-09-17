@@ -14,6 +14,7 @@ public class Rain : MonoBehaviour
 
     private void Start() {
         playerHealth = FindObjectOfType<PlayerHealth>();
+        timer = rainCycle;
     }
 
     private void OnParticleCollision(GameObject other) {
@@ -28,6 +29,7 @@ public class Rain : MonoBehaviour
 
         timer += Time.deltaTime;
         if (!rainBool && timer >= rainCycle) {
+            print("coroutine started");
             StartCoroutine(PlayRain());
         }
 

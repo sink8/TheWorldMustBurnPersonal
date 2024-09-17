@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.14, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4448030642921678839}
   - {fileID: 4448030644131056653}
@@ -58,6 +59,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8806826464250081404}
   - {fileID: 623991194653124220}
@@ -74,6 +76,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6046804006583524114}
     m_Modifications:
     - target: {fileID: 7072701337762024681, guid: e85a5b60835a58c43b291029da7d6eab, type: 3}
@@ -141,6 +144,9 @@ PrefabInstance:
       value: 0.42745098
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e85a5b60835a58c43b291029da7d6eab, type: 3}
 --- !u!4 &5004359437398382421 stripped
 Transform:
@@ -152,6 +158,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6046804006583524114}
     m_Modifications:
     - target: {fileID: 859226143815616911, guid: c4a1b4fc49b98f34e8328ddccb54c569, type: 3}
@@ -160,15 +167,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 859226143815616911, guid: c4a1b4fc49b98f34e8328ddccb54c569, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0.62352943
+      value: 0.4339623
       objectReference: {fileID: 0}
     - target: {fileID: 859226143815616911, guid: c4a1b4fc49b98f34e8328ddccb54c569, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0
+      value: 0.18315813
       objectReference: {fileID: 0}
     - target: {fileID: 859226143815616911, guid: c4a1b4fc49b98f34e8328ddccb54c569, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.42745098
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859226143815616911, guid: c4a1b4fc49b98f34e8328ddccb54c569, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 859226143815616913, guid: c4a1b4fc49b98f34e8328ddccb54c569, type: 3}
       propertyPath: m_RootOrder
@@ -223,6 +234,9 @@ PrefabInstance:
       value: Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a1b4fc49b98f34e8328ddccb54c569, type: 3}
 --- !u!4 &4392961028568039521 stripped
 Transform:
@@ -234,6 +248,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6046804006583524114}
     m_Modifications:
     - target: {fileID: 5495080423320551341, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
@@ -246,15 +261,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5495080423320551341, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0.62352943
+      value: 0.8018868
       objectReference: {fileID: 0}
     - target: {fileID: 5495080423320551341, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0
+      value: 0.36373198
       objectReference: {fileID: 0}
     - target: {fileID: 5495080423320551341, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.42745098
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495080423320551341, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5495080423320551344, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
       propertyPath: m_Name
@@ -309,6 +328,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0551fbdb7f6554d9a02b09662a1668, type: 3}
 --- !u!4 &8324243861988204137 stripped
 Transform:
@@ -320,6 +342,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6046804005375598940}
     m_Modifications:
     - target: {fileID: 179371554100895320, guid: 38529c37a15a898499b5823e48caff81, type: 3}
@@ -375,6 +398,9 @@ PrefabInstance:
       value: Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38529c37a15a898499b5823e48caff81, type: 3}
 --- !u!4 &4448030644131056653 stripped
 Transform:
@@ -386,19 +412,24 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6046804006583524114}
     m_Modifications:
     - target: {fileID: 5044021916860438794, guid: 5a427f6277c61c4438676079a9820043, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0.6226415
+      value: 0.62352943
       objectReference: {fileID: 0}
     - target: {fileID: 5044021916860438794, guid: 5a427f6277c61c4438676079a9820043, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0
+      value: 0.21188891
       objectReference: {fileID: 0}
     - target: {fileID: 5044021916860438794, guid: 5a427f6277c61c4438676079a9820043, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.425676
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044021916860438794, guid: 5a427f6277c61c4438676079a9820043, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5044021916860438804, guid: 5a427f6277c61c4438676079a9820043, type: 3}
       propertyPath: m_RootOrder
@@ -453,6 +484,9 @@ PrefabInstance:
       value: Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a427f6277c61c4438676079a9820043, type: 3}
 --- !u!4 &8806826464250081404 stripped
 Transform:
@@ -464,6 +498,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6046804006583524114}
     m_Modifications:
     - target: {fileID: 4133852403124141701, guid: 4887cea0242772b4f9a6578fcd091943, type: 3}
@@ -472,11 +507,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4133852403124141701, guid: 4887cea0242772b4f9a6578fcd091943, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0
+      value: 0.3237126
       objectReference: {fileID: 0}
     - target: {fileID: 4133852403124141701, guid: 4887cea0242772b4f9a6578fcd091943, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.42745098
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133852403124141701, guid: 4887cea0242772b4f9a6578fcd091943, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4133852403124141720, guid: 4887cea0242772b4f9a6578fcd091943, type: 3}
       propertyPath: m_Name
@@ -531,6 +570,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4887cea0242772b4f9a6578fcd091943, type: 3}
 --- !u!4 &475606863576128690 stripped
 Transform:
@@ -542,6 +584,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6046804006583524114}
     m_Modifications:
     - target: {fileID: 3994421945429802703, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
@@ -550,11 +593,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3994421945429802703, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0
+      value: 0.24098662
       objectReference: {fileID: 0}
     - target: {fileID: 3994421945429802703, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.42745098
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994421945429802703, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3994421945429802705, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
       propertyPath: m_RootOrder
@@ -609,6 +656,9 @@ PrefabInstance:
       value: Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
 --- !u!4 &623991194653124220 stripped
 Transform:
@@ -620,6 +670,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6046804005375598940}
     m_Modifications:
     - target: {fileID: 179371554100895320, guid: 38529c37a15a898499b5823e48caff81, type: 3}
@@ -675,6 +726,9 @@ PrefabInstance:
       value: Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38529c37a15a898499b5823e48caff81, type: 3}
 --- !u!4 &4448030642921678839 stripped
 Transform:

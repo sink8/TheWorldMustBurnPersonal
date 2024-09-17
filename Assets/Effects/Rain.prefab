@@ -3936,11 +3936,11 @@ ParticleSystem:
   TrailModule:
     enabled: 1
     mode: 0
-    ratio: 0.91
+    ratio: 0.36
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.73
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3990,7 +3990,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minVertexDistance: 0.2
+    minVertexDistance: 1.04
     textureMode: 1
     textureScale: {x: 1, y: 1}
     ribbonCount: 1
@@ -4777,8 +4777,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6686bf5211021da4caa02700e47fac69, type: 2}
+  - {fileID: 2100000, guid: ba5c8f17f37fdc14d89797afd6b20189, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4797,7 +4797,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1052410689
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 7
   m_RenderMode: 1
   m_MeshDistribution: 0

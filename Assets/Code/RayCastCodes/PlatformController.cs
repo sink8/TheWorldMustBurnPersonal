@@ -13,6 +13,7 @@ public class PlatformController : RaycastPlatformController
    public override void Start()
     {
         base.Start();
+        
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class PlatformController : RaycastPlatformController
         //float newY = Mathf.Sin(Time.time * speed) * height + pos.y;
 
         Vector2 velocity = move * Time.deltaTime ;
-        move.y = Mathf.Sin(Time.time ) * platformMoveeight ;
+        move.y = Mathf.Sin(Time.time * platformSpeed) * platformMoveeight ;
         CalculatePassengerMovement(velocity);
         MovePassengers(true);
         //transform.position = new Vector2(move.x, newY);

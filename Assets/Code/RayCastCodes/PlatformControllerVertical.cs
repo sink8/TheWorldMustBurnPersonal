@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlatformControllerVertical : RaycastPlatformController {
     public LayerMask passengerMask;
     public Vector2 move;
+    Vector2 move_base;
     public float platformSpeed = 2f;
     public float platformMoveeight = 3f;
 
     public List<PassengerMovement> passengerMovement;
     public override void Start() {
         base.Start();
+        move_base = move;
     }
 
     // Update is called once per frame
@@ -19,7 +21,7 @@ public class PlatformControllerVertical : RaycastPlatformController {
         //float newY = Mathf.Sin(Time.time * speed) * height + pos.y;
 
         Vector2 velocity = move * Time.deltaTime;
-        move.x = Mathf.Sin(Time.time) * platformMoveeight;
+        move.x = Mathf.Sin(Time.time * platformSpeed) * platformMoveeight;
         CalculatePassengerMovement(velocity);
         MovePassengers(true);
 

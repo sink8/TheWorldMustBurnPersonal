@@ -9,9 +9,12 @@ public class TriggerMovingPlatforms : MonoBehaviour
 
     [SerializeField] bool vertical = false;
     [SerializeField] bool horizontal = false;
+    Animator animator;
 
-
-    // Update is called once per frame
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     void Update()
     {
         
@@ -21,7 +24,8 @@ public class TriggerMovingPlatforms : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Sparks"))
         {
-            if(horizontal) { platformController.enabled = true;
+            animator.Play("kristalli_pun");
+            if(vertical) { platformController.enabled = true;
             } 
             else { platformController.enabled = false;
                 platformControllerVert.enabled = true;

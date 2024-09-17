@@ -443,6 +443,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 5716340109844213166}
   canvas: {fileID: 7285009221860491821}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &6754547634746325565
 Rigidbody2D:
   serializedVersion: 4
@@ -3533,6 +3559,7 @@ MonoBehaviour:
   - Who are you?
   - What are you..
   enemyHealth: {fileID: 0}
+  isCloud: 0
   trigger: {fileID: 8402485501461520529}
 --- !u!114 &9214667029879186580
 MonoBehaviour:
@@ -5214,6 +5241,7 @@ MonoBehaviour:
   - Yeah, I hate jumping
   - 
   enemyHealth: {fileID: 0}
+  isCloud: 0
   trigger: {fileID: 7618222875245350524}
 --- !u!114 &5358407887730656357
 MonoBehaviour:
@@ -5396,6 +5424,7 @@ MonoBehaviour:
   - What are you doing here?
   - ...
   enemyHealth: {fileID: 0}
+  isCloud: 0
   trigger: {fileID: 4076661975571325029}
 --- !u!114 &2165717333422048720
 MonoBehaviour:
@@ -6446,6 +6475,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 3550722893345130671}
   canvas: {fileID: 7285009221860491821}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!1 &3548065840728473431
 GameObject:
   m_ObjectHideFlags: 0
@@ -6862,6 +6917,7 @@ MonoBehaviour:
   - I will never reach those flowers.
   - 
   enemyHealth: {fileID: 0}
+  isCloud: 0
   trigger: {fileID: 6593879775439545887}
 --- !u!114 &4580865114996714069
 MonoBehaviour:
@@ -7457,6 +7513,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 201297798336299498}
   canvas: {fileID: 7285009221860491821}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &255160849379547654
 Rigidbody2D:
   serializedVersion: 4
@@ -8050,6 +8132,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 4410585318080884482}
   canvas: {fileID: 7285009221860491821}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &4054139389495886331
 Rigidbody2D:
   serializedVersion: 4
@@ -8971,6 +9079,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 2804251673819790542}
   canvas: {fileID: 7285009221860491821}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!1 &6063559916261025438
 GameObject:
   m_ObjectHideFlags: 0
@@ -9361,7 +9495,7 @@ Transform:
   - {fileID: 6620196703029986963}
   - {fileID: 7412542988675501479}
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6516070262661246194
 GameObject:
@@ -9541,6 +9675,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 0}
   canvas: {fileID: 7285009221860491821}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!1 &7309645925237944938
 GameObject:
   m_ObjectHideFlags: 0
@@ -10163,7 +10323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005915fff67bf974e9d7a6c79a4da977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelNumber: 6
+  LevelNumber: 7
   tileAmount: 0
   fm: {fileID: 7209642190128723869}
   storeScores: {fileID: 0}
@@ -10552,6 +10712,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 4618720560846270882}
   canvas: {fileID: 7285009221860491821}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &2538032885228318184
 Rigidbody2D:
   serializedVersion: 4
@@ -10672,6 +10858,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 3064514837312109196}
   canvas: {fileID: 7285009221860491821}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &8549643168259061151
 Rigidbody2D:
   serializedVersion: 4
