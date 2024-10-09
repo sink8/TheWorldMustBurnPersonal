@@ -91,6 +91,8 @@ public class InstructionsForPlayer : MonoBehaviour
         dashDownPad = dashDownTmpPad.text;
         shootPad = shootTmpPad.text;
 
+        // Ei tunnista pag komentoa koska pad näppäimet eivät valittuna kun ohjain ei ole kytketty. 
+
         if (Input.GetJoystickNames().Length > 0)
 
 

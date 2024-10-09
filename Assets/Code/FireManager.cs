@@ -668,9 +668,10 @@ public class FireManager : MonoBehaviour
         float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
         var scoreprefab = Instantiate(scoreInsPrefab, spawnPosition, transform.rotation);
         var textComponent = scoreprefab.GetComponentInChildren<TMP_Text>();
+
         textComponent.text = scoreCounter.runningScore.ToString();
 
-        Destroy(scoreprefab.gameObject, 1f);
+        //Destroy(scoreprefab.gameObject, 1f);
         yield return new WaitForSeconds(delay);
     }
 
