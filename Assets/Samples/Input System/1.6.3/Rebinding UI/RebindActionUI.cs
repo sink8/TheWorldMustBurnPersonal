@@ -373,6 +373,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 if(binding.effectivePath == newBinding.effectivePath)
                 {
                     Debug.Log("dublicate binding found: " + newBinding.effectivePath);
+
                     return true;
                 }
             }
@@ -467,6 +468,10 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         [Tooltip("Optional text label that will be updated with prompt for user input.")]
         [SerializeField]
         private TMPro.TextMeshProUGUI m_RebindText;
+
+        [Tooltip("Optional text label that will be updated with prompt for user input and it is already in use.")]
+        [SerializeField]
+        private TMPro.TextMeshProUGUI m_RebindTextDudlicate;
 
         [Tooltip("Optional bool field which allows you to OVERRIDE the action label with your own text")]
         public bool m_OverRideActionLabel;

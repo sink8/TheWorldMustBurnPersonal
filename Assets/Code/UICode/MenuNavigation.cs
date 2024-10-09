@@ -9,7 +9,7 @@ public class MenuNavigation : MonoBehaviour
 {
     public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas, AudioMenu, OptionsMenuGameplay;
     public GameObject levelFirstButton, levelEndFirstButton, DeathFirstButton, PauseFirstButton, TitleFirstButton, SaveFirstButton, StartFirstButton, OptionsFirstButton,
-                        CreditsFirstButton, OptionsFirstButtonGameplay;
+                        CreditsFirstButton, OptionsFirstButtonGameplay, KeyPindingsFisrt, PadPindingsFirst;
 
     public GameObject lv1Score, lv2Score, lv3Score;
 
