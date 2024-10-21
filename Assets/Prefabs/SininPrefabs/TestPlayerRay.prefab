@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 2090468872533308927}
   - component: {fileID: 2090468872533308922}
   - component: {fileID: 2839848466966483387}
+  - component: {fileID: 3240398192983726556}
   m_Layer: 7
   m_Name: TestPlayerRay
   m_TagString: Player
@@ -529,6 +530,14 @@ MonoBehaviour:
   preCheckPoint: {fileID: 0}
   savedCheckPoint: {fileID: 0}
   animat: {fileID: 8783499847665378130}
+--- !u!81 &3240398192983726556
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090468872533308912}
+  m_Enabled: 1
 --- !u!1 &2090468873649811847
 GameObject:
   m_ObjectHideFlags: 0
