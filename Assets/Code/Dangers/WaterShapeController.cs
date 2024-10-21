@@ -26,12 +26,12 @@ public class WaterShapeController : MonoBehaviour
     // How much to spread to the other springs
     public float spread = 0.006f;
 
-    void Start() { 
-       
+    void Start() {
+        StartCoroutine(CreateWaves());
     }
     void OnValidate() {
         // Clean waterpoints 
-        StartCoroutine(CreateWaves());
+        //StartCoroutine(CreateWaves());
     }
     IEnumerator CreateWaves() {
         foreach (Transform child in wavePoints.transform) {

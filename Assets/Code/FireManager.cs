@@ -666,12 +666,13 @@ public class FireManager : MonoBehaviour
         Vector2 randomOffset = new Vector2(Random.Range(-0.15f, 0.15f), Random.Range(-0.15f, 0.15f));
         Vector3 spawnPosition = tilePosition + new Vector3(randomOffset.x, randomOffset.y, 0f);
         float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
-        var scoreprefab = Instantiate(scoreInsPrefab, spawnPosition, transform.rotation);
-        var textComponent = scoreprefab.GetComponentInChildren<TMP_Text>();
+        //var scoreprefab = Instantiate(scoreInsPrefab, spawnPosition, transform.rotation);
+        //var textComponent = scoreprefab.GetComponentInChildren<TMP_Text>();
 
-        textComponent.text = scoreCounter.runningScore.ToString();
+        //textComponent.text = scoreCounter.runningScore.ToString();
 
-        //Destroy(scoreprefab.gameObject, 1f);
+        //Destroy(scoreprefab.gameObject, 1f); // 
+        // Running score tulee tästä, instantioi tuon
         yield return new WaitForSeconds(delay);
     }
 

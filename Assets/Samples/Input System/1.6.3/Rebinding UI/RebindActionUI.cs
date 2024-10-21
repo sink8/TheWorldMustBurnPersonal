@@ -12,11 +12,16 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
     /// <summary>
     /// A reusable component with a self-contained UI for rebinding a single action.
     /// </summary>
+    /// 
+    
     public class RebindActionUI : MonoBehaviour
     {
         /// <summary>
         /// Reference to the action that is to be rebound.
         /// </summary>
+        /// 
+
+        public GameObject dublicateText;
         public InputActionReference actionReference
         {
             get => m_Action;
@@ -373,6 +378,20 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 if(binding.effectivePath == newBinding.effectivePath)
                 {
                     Debug.Log("dublicate binding found: " + newBinding.effectivePath);
+                    //Display the duplicate warning on the UI
+                    //if (dublicateText != null) {
+                        //Debug.Log("dublicate binding found: dkfidfj");
+                        //dublicateText.SetActive(true); // Activate the duplicate warning UI
+                        //var textComponent = dublicateText.GetComponent<TMPro.TextMeshProUGUI>();
+                        //if (textComponent != null) {
+                        //    textComponent.text = $"Duplicate key detected for: {newBinding.effectivePath}";
+                        //}
+                    //}
+                    //var text = "Duplicate";
+
+                    //m_RebindText.text = text;
+                    //m_RebindOverlay.SetActive(false);
+                    //m_RebindTextDudlicate.text = text;
 
                     return true;
                 }
@@ -385,10 +404,24 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                     if (action.bindings[i].effectivePath == newBinding.effectivePath)
                     {
                         Debug.Log("dublicate binding found: " + newBinding.effectivePath);
+
+                        if (dublicateText != null) {
+                            dublicateText.SetActive(true);
+                            var textComponent = dublicateText.GetComponent<TMPro.TextMeshProUGUI>();
+                            if (textComponent != null) {
+                                textComponent.text = $"Duplicate key detected for: {newBinding.effectivePath}";
+                            }
+                        }
+
                         return true;
                     }
                     
-                }    
+                }  
+                
+            }
+            // Hide the duplicate warning if no duplicates are found
+            if (dublicateText != null) {
+                dublicateText.SetActive(false);
             }
             return false;
         }
@@ -464,6 +497,10 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         [Tooltip("Optional UI that will be shown while a rebind is in progress.")]
         [SerializeField]
         private GameObject m_RebindOverlay;
+
+        [Tooltip("Optional UI that will be shown while a rebind is in progress.")]
+        [SerializeField]
+        private GameObject m_RebindOverlayDublicate;
 
         [Tooltip("Optional text label that will be updated with prompt for user input.")]
         [SerializeField]
