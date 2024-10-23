@@ -21,7 +21,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         /// </summary>
         /// 
 
-        public GameObject dublicateText;
+        bool dublicateFound = false;
         public InputActionReference actionReference
         {
             get => m_Action;
@@ -239,6 +239,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
         private void ResetBinding(InputAction action, int bindingIndex)
         {
+
             InputBinding newBinding = action.bindings[bindingIndex];
             string oldOverridePath = newBinding.overridePath;
 
@@ -292,6 +293,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             {
                 m_RebindOperation?.Dispose();
                 m_RebindOperation = null;
+                
             }
 
             action.Disable();
@@ -305,9 +307,11 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                     {
                         action.Enable();
                         m_RebindStopEvent?.Invoke(this, operation);
+                        
                         m_RebindOverlay?.SetActive(false);
                         UpdateBindingDisplay();
                         CleanUp();
+
                     })
                 .OnComplete(
                     operation =>
@@ -319,6 +323,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                         if(CheckDublicateBindings(action, bindingIndex, allCompositeParts))
                         {
                             action.RemoveBindingOverride(bindingIndex);
+                            
                             CleanUp();
                             PerformInteractiveRebind(action, bindingIndex, allCompositeParts);
                             return;
@@ -347,16 +352,30 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             m_RebindOverlay?.SetActive(true);
             if (m_RebindText != null)
             {
-                var text = !string.IsNullOrEmpty(m_RebindOperation.expectedControlType)
-                    ? $"{partName}Waiting for {m_RebindOperation.expectedControlType} input..."
-                    : $"{partName}Waiting for input...";
-                m_RebindText.text = text;
+                if(dublicateFound == false)
+                {
+                    
+                    var text = !string.IsNullOrEmpty(m_RebindOperation.expectedControlType)
+                        ? $"{partName}Waiting for {m_RebindOperation.expectedControlType} input..."
+                        : $"{partName}Waiting for input...";
+                    m_RebindText.text = text;
+                } else
+                {
+                    var dup = "duplicate found, choose something else"  ;
+                    m_RebindText.text = dup;
+                    dublicateFound = false;
+                }
+
             }
 
             // If we have no rebind overlay and no callback but we have a binding text label,
             // temporarily set the binding text label to "<Waiting>".
             if (m_RebindOverlay == null && m_RebindText == null && m_RebindStartEvent == null && m_BindingText != null)
+            {
                 m_BindingText.text = "<Waiting...>";
+                dublicateFound = false;
+            }
+               
 
             // Give listeners a chance to act on the rebind starting.
             m_RebindStartEvent?.Invoke(this, m_RebindOperation);
@@ -378,6 +397,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 if(binding.effectivePath == newBinding.effectivePath)
                 {
                     Debug.Log("dublicate binding found: " + newBinding.effectivePath);
+                    dublicateFound = true;
+
                     //Display the duplicate warning on the UI
                     //if (dublicateText != null) {
                         //Debug.Log("dublicate binding found: dkfidfj");
@@ -387,11 +408,13 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                         //    textComponent.text = $"Duplicate key detected for: {newBinding.effectivePath}";
                         //}
                     //}
-                    //var text = "Duplicate";
+                    var text = "Duplicate";
 
-                    //m_RebindText.text = text;
-                    //m_RebindOverlay.SetActive(false);
-                    //m_RebindTextDudlicate.text = text;
+                   // m_RebindText.text = text;
+                   //// m_RebindOverlay.SetActive(false);
+                   // m_RebindOverlayDublicate.SetActive(true);
+                   // m_RebindOverlayBasic.SetActive(false);
+                   // m_RebindTextDudlicate.text = text;
 
                     return true;
                 }
@@ -405,24 +428,13 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                     {
                         Debug.Log("dublicate binding found: " + newBinding.effectivePath);
 
-                        if (dublicateText != null) {
-                            dublicateText.SetActive(true);
-                            var textComponent = dublicateText.GetComponent<TMPro.TextMeshProUGUI>();
-                            if (textComponent != null) {
-                                textComponent.text = $"Duplicate key detected for: {newBinding.effectivePath}";
-                            }
-                        }
-
                         return true;
                     }
                     
                 }  
                 
             }
-            // Hide the duplicate warning if no duplicates are found
-            if (dublicateText != null) {
-                dublicateText.SetActive(false);
-            }
+
             return false;
         }
 
@@ -497,6 +509,10 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         [Tooltip("Optional UI that will be shown while a rebind is in progress.")]
         [SerializeField]
         private GameObject m_RebindOverlay;
+
+        [Tooltip("Optional UI that will be shown while a rebind is in progress.")]
+        [SerializeField]
+        private GameObject m_RebindOverlayBasic;
 
         [Tooltip("Optional UI that will be shown while a rebind is in progress.")]
         [SerializeField]

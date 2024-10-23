@@ -20,6 +20,8 @@ public class AshTilesColliding : MonoBehaviour
     Collider2D m_Collider;
     public Transform m_NewTransform;
     Vector3 m_Point;
+
+    public int frames; 
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
         playercontroller = player.GetComponent<SimplePlayerControllerDoubleJump>();
@@ -57,6 +59,10 @@ public class AshTilesColliding : MonoBehaviour
             Debug.Log("Bounds contain the point : " + m_Point);
         }*/
 
+        frames = frames + 1;
+        frames = +1;
+
+        Debug.Log(frames); 
 
         for (var i = go.Count - 1; i > -1; i--) {
             if (go[i] == null)
