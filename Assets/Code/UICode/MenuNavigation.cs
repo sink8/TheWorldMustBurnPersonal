@@ -23,7 +23,11 @@ public class MenuNavigation : MonoBehaviour
     public GameObject[] locks;
     public MenuAudio menuAudio;
     public bool pauseOpen = false;
+    public bool canYouOpenPauseMenu = false;
     bool gameStarted = false;
+
+    public Button backButton;
+    public int randomInt;
 
     Newcontrolsmap _inputActions;
     public PlayerInput _playerInput;   
@@ -91,35 +95,38 @@ public class MenuNavigation : MonoBehaviour
             UnlockAllLevels();
         }
 
-        if(pauseOpen == false)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                OpenPauseMenu();
-                pauseOpen = true;
-                AudioFW.Play("MenuEnd");
+        if (canYouOpenPauseMenu == false) {
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                TriggerBackButton();
             }
-
-            //if (_pressed == true)
-            //{
-            //    OpenPauseMenu();
-            //    pauseOpen = true;
-            //    AudioFW.Play("MenuEnd");
-            //}
         }
-        else if (pauseOpen == true) {
-            if(Input.GetKeyDown(KeyCode.Escape)) {
-                ClosePauseMenu();
-                AudioFW.Play("MenuEnd");
+
+        if (canYouOpenPauseMenu == true) {
+            if(pauseOpen == false)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    OpenPauseMenu();
+                    pauseOpen = true;
+                    AudioFW.Play("MenuEnd");
+                }
+
+                //if (_pressed == true)
+                //{
+                //    OpenPauseMenu();
+                //    pauseOpen = true;
+                //    AudioFW.Play("MenuEnd");
+                //}
+            }
+            else if (pauseOpen == true) {
+                if(Input.GetKeyDown(KeyCode.Escape)) {
+                    ClosePauseMenu();
+                    AudioFW.Play("MenuEnd");
                 
+                }
+
             }
 
-            //if (_pressed == true)
-            //{
-            //    ClosePauseMenu();
-            //    pauseOpen = false;
-            //    AudioFW.Play("MenuEnd");
-            //}
         }
 
 
@@ -140,6 +147,21 @@ public class MenuNavigation : MonoBehaviour
         //Debug.Log(EventSystem.current.currentSelectedGameObject.name);
     }*/
     }
+
+    public void TriggerBackButton() {
+        if (backButton != null) {
+            backButton.onClick.Invoke();
+        }
+    }
+
+    public void SetBackButton(Button newBackButton) {
+        backButton = newBackButton;
+        Debug.Log("Back button updated to: " + newBackButton.name);
+    }
+
+
+
+
 
     void OpenPauseHere()
     {
@@ -312,6 +334,18 @@ public class MenuNavigation : MonoBehaviour
         OptionsMenuGameplay.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(OptionsFirstButtonGameplay);
+    }
+
+    public void OpenOptionsKeyBindings() {
+        
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(KeyPindingsFisrt);
+    }
+
+    public void OpenOptionsKeyBindingsPad() {
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(PadPindingsFirst);
     }
 
     public void OpenMenuNoise()
