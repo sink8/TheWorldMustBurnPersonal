@@ -546,12 +546,14 @@ public class FireManager : MonoBehaviour
 
     void BurnedParticles( Vector3 posit ) {
         var EndParticleclone = Instantiate(burnedParticle,posit , transform.rotation);
+        EndParticleclone.transform.SetParent(allFires.transform);
         Destroy(EndParticleclone.gameObject, 1.5f);
 
     }
     void BurnedParticleKpinäts(Vector3 posit)
     {
         var EndParticleclone = Instantiate(burnedParticleStart, posit, transform.rotation);
+        EndParticleclone.transform.SetParent(allFires.transform);
         Destroy(EndParticleclone.gameObject, 1.1f);
 
     }
@@ -559,6 +561,7 @@ public class FireManager : MonoBehaviour
     void FireupParticles(Vector3 posit)
     {
         var EndParticleclone = Instantiate(fireupParticle, posit, transform.rotation);
+        EndParticleclone.transform.SetParent(allFires.transform);
         Destroy(EndParticleclone.gameObject, 11f);
 
     }
