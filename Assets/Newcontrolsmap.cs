@@ -53,6 +53,15 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""51c3674e-e815-4e30-8690-56cbc0d7ea51"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f6feee4c-2fe3-4b4e-ad69-9791fe1cc552"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -454,6 +474,7 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
         m_map_Move = m_map.FindAction("Move", throwIfNotFound: true);
         m_map_Press = m_map.FindAction("Press", throwIfNotFound: true);
         m_map_Pause = m_map.FindAction("Pause", throwIfNotFound: true);
+        m_map_Cancel = m_map.FindAction("Cancel", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -523,6 +544,7 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
     private readonly InputAction m_map_Move;
     private readonly InputAction m_map_Press;
     private readonly InputAction m_map_Pause;
+    private readonly InputAction m_map_Cancel;
     public struct MapActions
     {
         private @Newcontrolsmap m_Wrapper;
@@ -530,6 +552,7 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_map_Move;
         public InputAction @Press => m_Wrapper.m_map_Press;
         public InputAction @Pause => m_Wrapper.m_map_Pause;
+        public InputAction @Cancel => m_Wrapper.m_map_Cancel;
         public InputActionMap Get() { return m_Wrapper.m_map; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -548,6 +571,9 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @Cancel.started += instance.OnCancel;
+            @Cancel.performed += instance.OnCancel;
+            @Cancel.canceled += instance.OnCancel;
         }
 
         private void UnregisterCallbacks(IMapActions instance)
@@ -561,6 +587,9 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @Cancel.started -= instance.OnCancel;
+            @Cancel.performed -= instance.OnCancel;
+            @Cancel.canceled -= instance.OnCancel;
         }
 
         public void RemoveCallbacks(IMapActions instance)
@@ -663,6 +692,7 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnPress(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

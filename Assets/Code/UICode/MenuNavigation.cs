@@ -259,9 +259,22 @@ public class MenuNavigation : MonoBehaviour
     }
 
     public void OpenTitleMenu() {
-        TitleMunu.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(TitleFirstButton);
+        if(canYouOpenPauseMenu == false)
+        {
+            TitleMunu.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(TitleFirstButton);
+
+        }
+    }
+
+    public void GoBackToTitleMenu()
+    {
+
+            TitleMunu.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(TitleFirstButton);
+
     }
 
     public void CloseSavesMenu() {
