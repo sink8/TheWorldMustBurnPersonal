@@ -123,6 +123,7 @@ public class LevelEnd : MonoBehaviour
         {
             
             endLevelQuestion.SetActive(true);
+                Debug.Log(" trigger stay");
 
             if (Input.GetKeyDown(KeyCode.G) || (inputManager.GetKeyDown(KeybindingActions.Interact)))
             {
@@ -152,9 +153,10 @@ public class LevelEnd : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
             endLevelQuestion.SetActive(true);
-
+            Debug.Log(" trigger enter");
             if (Input.GetKeyDown(KeyCode.G) || (inputManager.GetKeyDown(KeybindingActions.Interact)))
             {
+                
                 levelend = true;
                 LevelEndParticles();
                 playLoops.StopLevelMusic();
@@ -164,8 +166,8 @@ public class LevelEnd : MonoBehaviour
                 EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
                 LevelEndTextCommon();
                 scoreCounter.RegisterNewScore(LevelNumber);
-                //scoreCounter.RegisterScore();
-                // anim.Play("FadeOut");
+                SecretManager.Instance.SaveSecrets();
+                SecretManager.Instance.GetTotalFoundSecrets();
                 //scoreCounter.scoreValue = 0;
                 //Destroy(gameObject,3f);
                 Destroy(collision.transform.parent.gameObject, 3f);

@@ -62,7 +62,7 @@ public class AshTilesColliding : MonoBehaviour
         frames = frames + 1;
         frames = +1;
 
-        Debug.Log(frames); 
+        //Debug.Log(frames); 
 
         for (var i = go.Count - 1; i > -1; i--) {
             if (go[i] == null)
