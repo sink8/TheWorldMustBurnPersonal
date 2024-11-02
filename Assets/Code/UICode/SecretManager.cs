@@ -68,6 +68,17 @@ using Newtonsoft.Json;
         return false;
     }
 
+    public void ClearSecret(int level)
+    {
+        if (!foundSecrets.ContainsKey(level))
+        {
+            foundSecrets[level] = new HashSet<string>();
+        }
+
+        //foundSecrets[level].Add(secret);
+        foundSecrets[level].Clear();
+    }
+
     // Method to get all found secrets for a level
     public HashSet<string> GetFoundSecrets(int level)
     {

@@ -34,11 +34,14 @@ public class MenuNavigation : MonoBehaviour
     InputAction _menuActions;
 
     public GameObject nodes;
+    InputAction cancelAction;
     private void OnEnable()
     {
         _inputActions = new Newcontrolsmap();
         _inputActions.map.Enable();
         _inputActions.map.Pause.started += OnPause;
+        _inputActions.map.Cancel.performed += CancelTest;
+
         //_inputActions.map.Pause.started += ctx => _pressed = true;
         //_inputActions.map.Pause.canceled += ctx => _pressed = false;
     }
@@ -46,6 +49,7 @@ public class MenuNavigation : MonoBehaviour
     private void OnDisable()
     {
         _inputActions.map.Pause.started -= OnPause;
+        _inputActions.map.Cancel.performed -= CancelTest;
         _inputActions.map.Disable();
 
     }
@@ -99,7 +103,10 @@ public class MenuNavigation : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape)) {
                 TriggerBackButton();
             }
+
         }
+
+
 
         if (canYouOpenPauseMenu == true) {
             if(pauseOpen == false)
@@ -129,6 +136,8 @@ public class MenuNavigation : MonoBehaviour
 
         }
 
+        
+
 
         /*if (EventSystem.current.currentSelectedGameObject != null) {
         if(EventSystem.current.currentSelectedGameObject.name == "Level1Button") {
@@ -146,6 +155,15 @@ public class MenuNavigation : MonoBehaviour
         }
         //Debug.Log(EventSystem.current.currentSelectedGameObject.name);
     }*/
+    }
+
+    void CancelTest(InputAction.CallbackContext ctx)
+    {
+        //Debug.Log("cancel test");
+        if (canYouOpenPauseMenu == false)
+        {
+                TriggerBackButton();
+        }
     }
 
     public void TriggerBackButton() {

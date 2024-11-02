@@ -10,8 +10,10 @@ public class RayCastPlayer : MonoBehaviour
     public float jumpHeight = 4f;
     public float timeToJumpApex = 0.5f;
     public float moveSpeed = 8;
-    float gravity = -8f;
+    [SerializeField] float gravity = -8f;
     public float jumpVelocity = 10;
+    float jumpVelocityDown = -1100;
+
     float accelerationTimeGrounded = 0.15f;
     float accelerationTimeAirborne = 0.1f;
 
@@ -44,6 +46,7 @@ public class RayCastPlayer : MonoBehaviour
     public int direction;
     //public bool isDashButtonDown;
     public bool dash = false;
+    public bool dashDownVelocity = false;
     public bool inAirCurrent = false;
     private bool exitingAirCurrent;
     private float airCurrentExitTimer;
@@ -82,6 +85,7 @@ public class RayCastPlayer : MonoBehaviour
 
         controller = GetComponent<RayCast2DController>();
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+        //gravity = -5.5f;
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         print(" gravity " + gravity + " jump velocity " + jumpVelocity);
 
@@ -126,6 +130,7 @@ public class RayCastPlayer : MonoBehaviour
 
         if (controller.collisions.above || controller.collisions.below) {
             velocity.y = 0;
+            dashDownVelocity = false;
         }
 
         //Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -159,6 +164,14 @@ public class RayCastPlayer : MonoBehaviour
         float targetVelocityX = moveInput.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         //velocity.y += gravity * Time.deltaTime;
+
+        // Apply gravity with different multipliers for jumping and falling
+
+        if (velocity.y < 0 )
+        {
+            if( dash == false && dashDownVelocity == false)
+            velocity.y = jumpVelocityDown * Time.deltaTime; // Use a smaller fall multiplier (e.g., half)
+        }
 
 
         if (inAirCurrent)
@@ -286,6 +299,7 @@ public class RayCastPlayer : MonoBehaviour
                 dash = true;
                 canDash = false;
                 StartCoroutine(DashTimer());
+                dashDownVelocity = true;
             }
         }
         else
@@ -297,6 +311,7 @@ public class RayCastPlayer : MonoBehaviour
                 dashTimeDown = startDashTimeDown;
                 velocity = Vector2.zero;
                 dashBlockDown.SetActive(false);
+                dashDownVelocity = true;
             }
             else
             {
@@ -306,6 +321,7 @@ public class RayCastPlayer : MonoBehaviour
                 {
                     dashBlockDown.SetActive(true);
                     velocity = Vector2.down * dashDownSpeed;
+                    dashDownVelocity = true;
                 }
 
             }
