@@ -390,6 +390,15 @@ public class MenuNavigation : MonoBehaviour
         AudioFW.Play("MenuEnd");
     }
 
+    public void CanYouOpenPauseMenuYes()
+    {
+        canYouOpenPauseMenu = true;
+    }
+
+    public void CanYouOpenPauseMenuNo()
+    {
+        canYouOpenPauseMenu = false;
+    }
 
     public IEnumerator DoFade(CanvasGroup canvasGroup, float start, float end) {
         float counter = 0f;

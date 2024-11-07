@@ -28,8 +28,8 @@ public class PlayerHealth : MonoBehaviour
     public bool respawnActivated = false;
     Vector3 reSpawnpoint;
 
-    public GameObject preCheckPoint;
-    public GameObject savedCheckPoint;
+    public ParticleSystem preCheckPoint;
+    public ParticleSystem savedCheckPoint;
 
     public Animator animat;
 
@@ -124,9 +124,16 @@ public class PlayerHealth : MonoBehaviour
     void ReSpawnPoint()
     {
         AudioFW.Play("Checkpoint");
-        respawnActivated = true;
-        savedCheckPoint.SetActive(true);
-        preCheckPoint.SetActive(false);
+        //respawnActivated = true;
+        //if(respawnActivated == false)
+        //{
+            respawnActivated = true;
+            savedCheckPoint.Play();
+            preCheckPoint.Stop();
+            //savedCheckPoint.SetActive(true);
+            //preCheckPoint.SetActive(false);
+
+        //}
 
     }
 
@@ -140,9 +147,45 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Respawn"))
         {
             print("player osui");
-            
+
+            Transform savedChild = collision.transform.Find("saved");
+            Transform preChild = collision.transform.Find("pre");
+
+            if (savedChild != null)
+            {
+                ParticleSystem particsaved = savedChild.GetComponent<ParticleSystem>();
+                if (particsaved != null)
+                {
+                    savedCheckPoint = particsaved;
+                }
+                else
+                {
+                    Debug.Log("No particle system found on the 'saved' object in Respawn");
+                }
+            }
+            else
+            {
+                Debug.Log("No 'saved' child object found in Respawn");
+            }
+
+            if (savedChild != null)
+            {
+                ParticleSystem particpre = preChild.GetComponent<ParticleSystem>();
+                if (particpre != null)
+                {
+                    preCheckPoint = particpre;
+                }
+                else
+                {
+                    Debug.Log("No particle system found on the 'saved' object in Respawn");
+                }
+            }
+
+
             ReSpawnPoint();
             reSpawnpoint = collision.ClosestPoint(transform.position);
+
+
         }
 
     }

@@ -87,7 +87,23 @@ PrefabInstance:
     - target: {fileID: 1881778460715150676, guid: bcd5707bd165f8d489777c1980104389, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fa56d94342ef3a24fa8ba422de620fdf, type: 2}
+      objectReference: {fileID: 2100000, guid: 8dcf8194385b2e74e91b7ee9134d1c61, type: 2}
+    - target: {fileID: 3223019274165146668, guid: bcd5707bd165f8d489777c1980104389, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223019274165146668, guid: bcd5707bd165f8d489777c1980104389, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223019274165146668, guid: bcd5707bd165f8d489777c1980104389, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223019274165146668, guid: bcd5707bd165f8d489777c1980104389, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.9
+      objectReference: {fileID: 0}
     - target: {fileID: 3223019274165146668, guid: bcd5707bd165f8d489777c1980104389, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime1
       value: 13493

@@ -5506,7 +5506,7 @@ Transform:
   - {fileID: 4030479580872268440}
   - {fileID: 3543252861537576651}
   m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2542352548151422170
 GameObject:
@@ -5850,6 +5850,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 2236511596944852324}
   canvas: {fileID: 5273975859946069897}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &1781379072832383233
 Rigidbody2D:
   serializedVersion: 4
@@ -6346,6 +6372,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 7366118061925412654}
   canvas: {fileID: 5273975859946069897}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &2021000513131916041
 Rigidbody2D:
   serializedVersion: 4
@@ -6992,6 +7044,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 4848553995148455817}
   canvas: {fileID: 5273975859946069897}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!1 &4806564375495156407
 GameObject:
   m_ObjectHideFlags: 0
@@ -7112,6 +7190,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 3301003773614896241}
   canvas: {fileID: 5273975859946069897}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!1 &4848553995148455817
 GameObject:
   m_ObjectHideFlags: 0
@@ -7287,6 +7391,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 2614245388220758399}
   canvas: {fileID: 5273975859946069897}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &8693306815366006786
 Rigidbody2D:
   serializedVersion: 4
@@ -7622,6 +7752,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 2591298023693262482}
   canvas: {fileID: 5273975859946069897}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &2850895515867425902
 Rigidbody2D:
   serializedVersion: 4
@@ -9295,6 +9451,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 1928569979985701723}
   canvas: {fileID: 5273975859946069897}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &2000693146340116294
 Rigidbody2D:
   serializedVersion: 4
@@ -9583,7 +9765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &768081926296167345
 Transform:
   m_ObjectHideFlags: 0
@@ -9621,6 +9803,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 0}
   canvas: {fileID: 5273975859946069897}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!1 &8388111194609937773
 GameObject:
   m_ObjectHideFlags: 0
@@ -12718,6 +12926,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4769923137880941548, guid: 75799c75bf4f5134e984ac3751156ff2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827750944907280798, guid: 75799c75bf4f5134e984ac3751156ff2, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8827750944907280798, guid: 75799c75bf4f5134e984ac3751156ff2, type: 3}
@@ -18655,6 +18867,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5096114317111032607}
     m_Modifications:
     - target: {fileID: 3994421945429802703, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994421945429802703, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
       propertyPath: simulationSpeed
       value: 0.79
       objectReference: {fileID: 0}
@@ -18916,7 +19132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3994421945429802706, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3994421945429802706, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
       propertyPath: m_TagString
@@ -121101,6 +121317,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8827750944907280798, guid: 75799c75bf4f5134e984ac3751156ff2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827750944907280798, guid: 75799c75bf4f5134e984ac3751156ff2, type: 3}
       propertyPath: simulationSpeed
       value: 2.17
       objectReference: {fileID: 0}
@@ -122501,6 +122721,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3543252861537576651}
     m_Modifications:
     - target: {fileID: 3994421945429802703, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994421945429802703, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
       propertyPath: simulationSpeed
       value: 0.79
       objectReference: {fileID: 0}
@@ -122762,7 +122986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3994421945429802706, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3994421945429802706, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
       propertyPath: m_TagString
@@ -126218,6 +126442,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4928410207186125265}
     m_Modifications:
+    - target: {fileID: 243880857554982347, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 111.79997
+      objectReference: {fileID: 0}
+    - target: {fileID: 243880857554982347, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1148232864408282577, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -126302,13 +126534,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1962295515380086222, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -41.800003
+      objectReference: {fileID: 0}
     - target: {fileID: 2414463419339060197, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -122.5
+      value: -101
       objectReference: {fileID: 0}
     - target: {fileID: 2414463419339060197, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -9.900024
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365871746229805345, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 111.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365871746229805345, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5103186080317106226, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -126321,6 +126565,14 @@ PrefabInstance:
     - target: {fileID: 6079924113286301198, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640786200909580323, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 111.79997
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640786200909580323, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7763195339139239139, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: fm

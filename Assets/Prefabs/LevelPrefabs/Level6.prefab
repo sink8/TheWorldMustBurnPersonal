@@ -7636,7 +7636,7 @@ Transform:
   - {fileID: 3236710692703580436}
   - {fileID: 4349755954603172970}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3664699243892011913
 GameObject:
@@ -7967,6 +7967,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 727217727968987582}
   canvas: {fileID: 285042250483986089}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &2010077747126828603
 Rigidbody2D:
   serializedVersion: 4
@@ -8216,6 +8242,7 @@ MonoBehaviour:
   imag: {fileID: 0}
   pauseOpen: 0
   playerParticles: []
+  inputManager: {fileID: 0}
 --- !u!114 &2759828870240711218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9001,6 +9028,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 0}
   canvas: {fileID: 285042250483986089}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!1 &7985090971533153937
 GameObject:
   m_ObjectHideFlags: 0
@@ -9176,6 +9229,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textgo: {fileID: 358241118627534469}
   canvas: {fileID: 285042250483986089}
+  jump: 
+  dash: 
+  dashDown: 
+  shoot: 
+  jumpPad: 
+  dashPad: 
+  dashDownPad: 
+  shootPad: 
+  jumpTmp: {fileID: 0}
+  dashTmp: {fileID: 0}
+  shootTmp: {fileID: 0}
+  dashDownTmp: {fileID: 0}
+  jumpTmpPad: {fileID: 0}
+  dashTmpPad: {fileID: 0}
+  shootTmpPad: {fileID: 0}
+  dashDownTmpPad: {fileID: 0}
+  textCanv: {fileID: 0}
+  objtjump: {fileID: 0}
+  objtdash: {fileID: 0}
+  objtdashDown: {fileID: 0}
+  objShoot: {fileID: 0}
+  objtjumpPad: {fileID: 0}
+  objtdashPad: {fileID: 0}
+  objtdashDownPad: {fileID: 0}
+  objShootPad: {fileID: 0}
+  triggernum: 10
 --- !u!50 &8694220854334796551
 Rigidbody2D:
   serializedVersion: 4
@@ -9696,7 +9775,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.29036137, g: 0.3681381, b: 0.7075472, a: 1}
-  m_Intensity: 0.69
+  m_Intensity: 0.18
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 000000003b3018f5bf7c45c13fd6b67d
@@ -10030,6 +10109,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1042865692788631101, guid: a0d7efad61aa5de4c8bf7b8154ed2ffc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7292921560561072349}
+    - targetCorrespondingSourceObject: {fileID: 1042865692788631101, guid: a0d7efad61aa5de4c8bf7b8154ed2ffc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5226165306326415054}
   m_SourcePrefab: {fileID: 100100000, guid: a0d7efad61aa5de4c8bf7b8154ed2ffc, type: 3}
 --- !u!1 &609660875519961958 stripped
 GameObject:
@@ -10062,6 +10144,51 @@ MonoBehaviour:
   move: {x: 9, y: 0}
   platformSpeed: 2
   platformMoveeight: 3
+--- !u!61 &5226165306326415054
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609660875519961958}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!4 &2599695487167272541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2458695749454732038, guid: a0d7efad61aa5de4c8bf7b8154ed2ffc, type: 3}
@@ -10311,9 +10438,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1962295515380086222, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -41.800003
+      objectReference: {fileID: 0}
     - target: {fileID: 7311248852817772253, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_text
       value: Press G to continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638617077088784655, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1911095078037361505}
+    - target: {fileID: 8638617077088784655, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638617077088784655, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638617077088784655, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -757513779
       objectReference: {fileID: 0}
     - target: {fileID: 8689150986604523068, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_Name
@@ -13298,6 +13445,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5991824194366823074}
     - target: {fileID: 5122752516184926208, guid: 0e87026038f2e9446a7ae181a04213c9, type: 3}
+      propertyPath: fireLight
+      value: 
+      objectReference: {fileID: 7238001042343459065, guid: a5725c555e8afee42850ee1194d812b0, type: 3}
+    - target: {fileID: 5122752516184926208, guid: 0e87026038f2e9446a7ae181a04213c9, type: 3}
       propertyPath: mapMoving
       value: 
       objectReference: {fileID: 3993073576727447226}
@@ -13313,6 +13464,10 @@ PrefabInstance:
       propertyPath: burnedParticle
       value: 
       objectReference: {fileID: 7769672079985295185, guid: 93820cf5f53efc84fbd6387ae33b2422, type: 3}
+    - target: {fileID: 5122752516184926208, guid: 0e87026038f2e9446a7ae181a04213c9, type: 3}
+      propertyPath: InstantiateLights
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5122752516184926208, guid: 0e87026038f2e9446a7ae181a04213c9, type: 3}
       propertyPath: playerdashPosDown
       value: 
