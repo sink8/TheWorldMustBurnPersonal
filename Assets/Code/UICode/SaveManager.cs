@@ -16,6 +16,7 @@ public class SaveManager : MonoBehaviour
 
     public int[] Maxsecrets = new int[20];
     //public int numberOfLevels = 20;
+
     private void Awake() {
         storeScores = FindObjectOfType<StoreScores>();
         var level = storeScores.levels;

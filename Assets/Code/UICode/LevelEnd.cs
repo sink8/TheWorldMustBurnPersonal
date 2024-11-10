@@ -33,6 +33,8 @@ public class LevelEnd : MonoBehaviour
     public GameObject[] playerParticles;
     public InputManager inputManager;
 
+    public GameObject thisLevel;
+
     //public Transform secret1Position, secret2Position;
 
 
@@ -130,7 +132,7 @@ public class LevelEnd : MonoBehaviour
                 levelend = true;
                 LevelEndParticles();
                 playLoops.StopLevelMusic();
-                //SaveManager.instance.SaveBin();
+                SaveManager.instance.SaveBin();
                 menuNav.OpenLevelEndMenu();
                 EndLevelScoreTextCommon = GameObject.Find("CommonEndText").GetComponent<Text>();
                 EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
@@ -142,7 +144,8 @@ public class LevelEnd : MonoBehaviour
                 // anim.Play("FadeOut");
                 //scoreCounter.scoreValue = 0;
                 //Destroy(gameObject,3f);
-                Destroy(collision.transform.parent.gameObject, 3f);
+                Destroy(collision.transform.parent.gameObject, 2f);
+                Destroy(thisLevel, 2f);
             }
 
         }
@@ -160,7 +163,7 @@ public class LevelEnd : MonoBehaviour
                 levelend = true;
                 LevelEndParticles();
                 playLoops.StopLevelMusic();
-                //SaveManager.instance.SaveBin();
+                SaveManager.instance.SaveBin();
                 menuNav.OpenLevelEndMenu();
                 EndLevelScoreTextCommon = GameObject.Find("CommonEndText").GetComponent<Text>();
                 EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
@@ -170,7 +173,8 @@ public class LevelEnd : MonoBehaviour
                 SecretManager.Instance.GetTotalFoundSecrets();
                 //scoreCounter.scoreValue = 0;
                 //Destroy(gameObject,3f);
-                Destroy(collision.transform.parent.gameObject, 3f);
+                Destroy(collision.transform.parent.gameObject, 2f);
+                Destroy(thisLevel, 2f);
             }
 
 

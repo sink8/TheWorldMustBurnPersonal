@@ -26,7 +26,7 @@ public static SaveUI instance;
     private string save1;
     private string save2;
     private string save3;
-    int saveNumber;
+    public int saveNumber;
 
     public GameObject player;
     void Start()
@@ -48,9 +48,9 @@ public static SaveUI instance;
         LoadBinInfo();
         }
 
-        if(Input.GetKeyDown(KeyCode.H)){
-        DeleteInfoBin();
-        }
+        //if(Input.GetKeyDown(KeyCode.H)){
+        //DeleteInfoBin();
+        //}
     }
    public void UpdateSaveText(){
        if(activeInfo.testbool1 == true){
@@ -76,12 +76,18 @@ public static SaveUI instance;
         SaveManager.instance.LoadBin();
         if(saveName == "save1"){
             activeInfo.lastSaveNumb = 1;
+            saveNumber = 1;
+            SaveManager.instance.SaveBin();
         }
         if(saveName == "save2"){
             activeInfo.lastSaveNumb = 2;
+            saveNumber = 1;
+            SaveManager.instance.SaveBin();
         }
         if(saveName == "save3"){
             activeInfo.lastSaveNumb = 3;
+            saveNumber = 3;
+            SaveManager.instance.SaveBin();
         }
    }
 
@@ -133,46 +139,54 @@ public void DeleteInfoBin(){
 
     public void CreateNewSave(int number){
         if(number == 1){
-        if(activeInfo.testbool1 == false) {
-        SaveManager.instance.activeSave.saveName = "save1";
-        activeInfo.testbool1 = true;
-        activeInfo.lastSaveNumb = 1;
-        SaveBinInfo();
-            } else {
+
+            if(activeInfo.testbool1 == false) {
+            SaveManager.instance.activeSave.saveName = "save1";
+            activeInfo.testbool1 = true;
+            activeInfo.lastSaveNumb = 1;
                 saveNumber = 1;
-                OpenAlreadyExists();
-                CloseSavesMenu();
-                // jos on jo olemassa, kysy tuhontaanko vanha, tuhoa ja tee uusi save tämän tilalle
-            }
+                SaveBinInfo();
+                SaveManager.instance.SaveBin();
+            } else
+                {
+                    saveNumber = 1;
+                    OpenAlreadyExists();
+                    CloseSavesMenu();
+                    // jos on jo olemassa, kysy tuhontaanko vanha, tuhoa ja tee uusi save tämän tilalle
+                }
         }
 
         if(number == 2){
-        if(activeInfo.testbool2 == false) {
-        SaveManager.instance.activeSave.saveName = "save2";
-        activeInfo.testbool2 = true;
-        activeInfo.lastSaveNumb = 2;
-        SaveBinInfo();
-            } else {
-                saveNumber = 2;
-                OpenAlreadyExists();
-                CloseSavesMenu();
-                // jos on jo olemassa, kysy tuhontaanko vanha, tuhoa ja tee uusi save tämän tilalle
-            }
+            if(activeInfo.testbool2 == false) {
+            SaveManager.instance.activeSave.saveName = "save2";
+            activeInfo.testbool2 = true;
+            activeInfo.lastSaveNumb = 2;
+            saveNumber = 2;
+            SaveBinInfo();
+            SaveManager.instance.SaveBin();
+                } else {
+                    saveNumber = 2;
+                    OpenAlreadyExists();
+                    CloseSavesMenu();
+                    // jos on jo olemassa, kysy tuhontaanko vanha, tuhoa ja tee uusi save tämän tilalle
+                }
         }
 
         if(number == 3){
-        if(activeInfo.testbool3 == false) {
-        SaveManager.instance.activeSave.saveName = "save3";
-        activeInfo.testbool3 = true;
-        activeInfo.lastSaveNumb = 3;
-        SaveBinInfo();
-            }else {
-                saveNumber = 3;
-                OpenAlreadyExists();
-                CloseSavesMenu();
-                // jos on jo olemassa, kysy tuhontaanko vanha, tuhoa ja tee uusi save tämän tilalle
+            if(activeInfo.testbool3 == false) {
+            SaveManager.instance.activeSave.saveName = "save3";
+            activeInfo.testbool3 = true;
+            activeInfo.lastSaveNumb = 3;
+            saveNumber = 3;
+            SaveBinInfo();
+            SaveManager.instance.SaveBin();
+                }else {
+                    saveNumber = 3;
+                    OpenAlreadyExists();
+                    CloseSavesMenu();
+                    // jos on jo olemassa, kysy tuhontaanko vanha, tuhoa ja tee uusi save tämän tilalle
+                }
             }
-        }
     }
 
     public void ContinueGame(){
@@ -180,12 +194,15 @@ public void DeleteInfoBin(){
 
         if(activeInfo.lastSaveNumb == 1){
             SaveManager.instance.activeSave.saveName = "save1";
+            saveNumber = 1;
         }
                if(activeInfo.lastSaveNumb == 2){
             SaveManager.instance.activeSave.saveName = "save2";
+            saveNumber = 2;
         } 
                 if(activeInfo.lastSaveNumb == 3){
             SaveManager.instance.activeSave.saveName = "save3";
+            saveNumber = 3;
         }
         SaveManager.instance.LoadBin();
         }

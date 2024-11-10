@@ -36,30 +36,30 @@ public class InstructionsForPlayer : MonoBehaviour
     private void Start()
     {
 
-       objtjump = GameObject.Find("ActionBindingTextJump");
-       jumpTmp = objtjump.GetComponent<TMPro.TextMeshProUGUI>();
+       //objtjump = GameObject.Find("ActionBindingTextJump");
+       //jumpTmp = objtjump.GetComponent<TMPro.TextMeshProUGUI>();
 
-        objtdash = GameObject.Find("ActionBindingTextDash");
-        dashTmp = objtdash.GetComponent<TMPro.TextMeshProUGUI>();
+       // objtdash = GameObject.Find("ActionBindingTextDash");
+       // dashTmp = objtdash.GetComponent<TMPro.TextMeshProUGUI>();
 
-        objtdashDown = GameObject.Find("ActionBindingTextDashDown");
-        dashDownTmp = objtdashDown.GetComponent<TMPro.TextMeshProUGUI>();
+       // objtdashDown = GameObject.Find("ActionBindingTextDashDown");
+       // dashDownTmp = objtdashDown.GetComponent<TMPro.TextMeshProUGUI>();
 
-        objShoot = GameObject.Find("ActionBindingTextShoot");
-        shootTmp = objShoot.GetComponent<TMPro.TextMeshProUGUI>();
+       // objShoot = GameObject.Find("ActionBindingTextShoot");
+       // shootTmp = objShoot.GetComponent<TMPro.TextMeshProUGUI>();
 
 
-        objtjumpPad = GameObject.Find("ActionBindingTextJumpPad");
-        jumpTmpPad = objtjumpPad.GetComponent<TMPro.TextMeshProUGUI>();
+       // objtjumpPad = GameObject.Find("ActionBindingTextJumpPad");
+       // jumpTmpPad = objtjumpPad.GetComponent<TMPro.TextMeshProUGUI>();
 
-        objtdashPad = GameObject.Find("ActionBindingTextDashPad");
-        dashTmpPad = objtdashPad.GetComponent<TMPro.TextMeshProUGUI>();
+       // objtdashPad = GameObject.Find("ActionBindingTextDashPad");
+       // dashTmpPad = objtdashPad.GetComponent<TMPro.TextMeshProUGUI>();
 
-        objtdashDownPad = GameObject.Find("ActionBindingTextDashDownPad");
-        dashDownTmpPad = objtdashDownPad.GetComponent<TMPro.TextMeshProUGUI>();
+       // objtdashDownPad = GameObject.Find("ActionBindingTextDashDownPad");
+       // dashDownTmpPad = objtdashDownPad.GetComponent<TMPro.TextMeshProUGUI>();
 
-        objShootPad = GameObject.Find("ActionBindingTextShootPad");
-        shootTmpPad = objShootPad.GetComponent<TMPro.TextMeshProUGUI>();
+       // objShootPad = GameObject.Find("ActionBindingTextShootPad");
+       // shootTmpPad = objShootPad.GetComponent<TMPro.TextMeshProUGUI>();
 
         //var actionBindTransform = objt.transform.Find("ActionBindingText");
 

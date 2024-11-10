@@ -20,7 +20,8 @@ using Newtonsoft.Json;
 
     public TMPro.TextMeshProUGUI Secret1, Secret2;
 
-
+    public int activeSaveForThis;
+    [SerializeField] SaveUI saveUI;
 
     void Awake()
     {
@@ -35,13 +36,16 @@ using Newtonsoft.Json;
         {
             Destroy(gameObject);
         }
+
         LoadSecrets();
+        
+        activeSaveForThis = saveUI.saveNumber;
     }
 
     private void Update()
     {
         //secretsFound = GetTotalFoundSecrets();
-        Secret1.text = secretsFound + "/3";
+        Secret1.text = secretsFound.ToString() + "/3";
         
 
     }
@@ -101,7 +105,7 @@ using Newtonsoft.Json;
         {
         //Example implementation for saving secrets using JSON
             string json = JsonConvert.SerializeObject(new SerializableDictionary<int, HashSet<string>>(foundSecrets));
-        File.WriteAllText(Application.dataPath + "/secrets.json", json);
+        File.WriteAllText(Application.dataPath + "/save" + activeSaveForThis.ToString() + "secrets.json", json);
         Debug.Log("save stuff " + json + Application.dataPath);
 
         //var json = JsonConvert.SerializeObject(new SerializedData());
@@ -112,7 +116,7 @@ using Newtonsoft.Json;
         public void LoadSecrets()
         {
             // Example implementation for loading secrets using JSON
-            string path = Application.dataPath + "/secrets.json";
+            string path = Application.dataPath + "/save" + activeSaveForThis.ToString() + "secrets.json";
             if (File.Exists(path))
             {
             string json = File.ReadAllText(path);

@@ -76,8 +76,8 @@ public class SecretTrigger : MonoBehaviour
         {
             if (SecretManager.Instance.HasFoundSecret(levelNumberTämä, secretName) == false)
             {
-                AudioFW.Play("Secret");
-                print("joooo");
+                //AudioFW.Play("Secret");
+                //print("joooo");
                 if (secretLevelBool) {
                     StartCoroutine(WaitTillSecret());
                 }

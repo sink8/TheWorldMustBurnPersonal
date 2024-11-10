@@ -8,7 +8,7 @@ public class PlatformController : RaycastPlatformController
     public Vector2 move;
     public float platformSpeed = 2f;
     public float platformMoveeight = 3f;
-
+    public float startPhase = Mathf.PI / 2;
     public List<PassengerMovement> passengerMovement;
    public override void Start()
     {
@@ -23,7 +23,9 @@ public class PlatformController : RaycastPlatformController
         //float newY = Mathf.Sin(Time.time * speed) * height + pos.y;
 
         Vector2 velocity = move * Time.deltaTime ;
-        move.y = Mathf.Sin(Time.time * platformSpeed) * platformMoveeight ;
+        move.y = Mathf.Sin(Time.time * platformSpeed + startPhase) * platformMoveeight ;
+
+
         CalculatePassengerMovement(velocity);
         MovePassengers(true);
         //transform.position = new Vector2(move.x, newY);
