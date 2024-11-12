@@ -136,16 +136,44 @@ public class InstructionsForPlayer : MonoBehaviour
 
                 break;
             case 4:
-                print("Press " + shoot );
-                textCanv.text = "Press  " + shoot;
+                
+                if (usingController == false)
+                {
+                    
+                    textCanv.text = "Press  " + " + direction to shoot fireballs";
+                }
+                else
+                {
+                    textCanv.text = "Press " + shootPad + " + direction to shoot fireballs";
+
+                }
+
                 break;
             case 3:
                 
-                textCanv.text = "Press " + dash + " after trees have burned";
+                if (usingController == false)
+                {
+                    textCanv.text = "Press  " + jump;
+                }
+                else
+                {
+                    textCanv.text = "Press " + dashPad + " after trees have burned";
+                    
+                }
+
                 break;
             case 2:
                 
-                textCanv.text = "Press " + jump + " 2 times ";
+                if (usingController == false)
+                {
+                    textCanv.text = "Press  " + jump;
+                }
+                else
+                {
+                    textCanv.text = "Press " + jumpPad + " 2 times ";
+                    
+                }
+
                 break;
             case 1:
                 if (usingController == false)
