@@ -162,6 +162,7 @@ public class InstructionsForPlayer : MonoBehaviour
                 }
 
                 break;
+
             case 2:
                 
                 if (usingController == false)
@@ -173,8 +174,8 @@ public class InstructionsForPlayer : MonoBehaviour
                     textCanv.text = "Press " + jumpPad + " 2 times ";
                     
                 }
-
                 break;
+
             case 1:
                 if (usingController == false)
                 {

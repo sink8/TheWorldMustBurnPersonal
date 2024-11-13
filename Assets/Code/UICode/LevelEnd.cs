@@ -127,7 +127,7 @@ public class LevelEnd : MonoBehaviour
             endLevelQuestion.SetActive(true);
                 Debug.Log(" trigger stay");
 
-            if (Input.GetKeyDown(KeyCode.G) || (inputManager.GetKeyDown(KeybindingActions.Interact)))
+            if (Input.GetKeyDown(KeyCode.G) || (inputManager.GetKeyDown(KeybindingActions.Interact) || (UserInput.instance.ContinueInput)))
             {
                 levelend = true;
                 LevelEndParticles();
@@ -157,7 +157,7 @@ public class LevelEnd : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) {
             endLevelQuestion.SetActive(true);
             Debug.Log(" trigger enter");
-            if (Input.GetKeyDown(KeyCode.G) || (inputManager.GetKeyDown(KeybindingActions.Interact)))
+            if (Input.GetKeyDown(KeyCode.G) || (inputManager.GetKeyDown(KeybindingActions.Interact) || (UserInput.instance.ContinueInput)))
             {
                 
                 levelend = true;

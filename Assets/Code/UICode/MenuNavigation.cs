@@ -39,7 +39,7 @@ public class MenuNavigation : MonoBehaviour
     {
         _inputActions = new Newcontrolsmap();
         _inputActions.map.Enable();
-        _inputActions.map.Pause.started += OnPause;
+        //_inputActions.map.Pause.started += OnPause;
         _inputActions.map.Cancel.performed += CancelTest;
 
         //_inputActions.map.Pause.started += ctx => _pressed = true;
@@ -48,23 +48,23 @@ public class MenuNavigation : MonoBehaviour
 
     private void OnDisable()
     {
-        _inputActions.map.Pause.started -= OnPause;
+        //_inputActions.map.Pause.started -= OnPause;
         _inputActions.map.Cancel.performed -= CancelTest;
         _inputActions.map.Disable();
 
     }
 
-    private void OnPause(InputAction.CallbackContext context)
-    {
-        if (pauseOpen)
-        {
-            ClosePauseHere();
-        }
-        else
-        {
-            OpenPauseHere();
-        }
-    }
+    //private void OnPause(InputAction.CallbackContext context)
+    //{
+    //    if (pauseOpen)
+    //    {
+    //        ClosePauseHere();
+    //    }
+    //    else
+    //    {
+    //        OpenPauseHere();
+    //    }
+    //}
 
     private void Start() {
         //levels = GameObject.FindGameObjectsWithTag("Level");

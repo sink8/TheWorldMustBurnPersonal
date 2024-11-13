@@ -32,18 +32,18 @@ public class PlayLoops : MonoBehaviour
         }
 
         if (levelNum == 4) {
-            AudioFW.PlayLoop("Level2Cave");
+            AudioFW.PlayLoop("njilnjil_track_1");
         }
         if (levelNum == 5) {
-            //AudioFW.PlayLoop("Level5");
+            AudioFW.PlayLoop("njilnjil_track_3");
         }
         if (levelNum == 6)
         {
-            AudioFW.PlayLoop("Level1Forest_2");
+            AudioFW.PlayLoop("njilnjil_track_3");
         }
         if (levelNum == 7)
         {
-            AudioFW.PlayLoop("Tyypin_track_1");
+            AudioFW.PlayLoop("njilnjil_track_1");
         }
     }
 
@@ -58,18 +58,18 @@ public class PlayLoops : MonoBehaviour
             AudioFW.StopLoop("Level3Forest");
         }
         if (levelNum == 4) {
-            AudioFW.StopLoop("Level2Cave");
+            AudioFW.StopLoop("njilnjil_track_1");
         }
         if (levelNum == 5) {
-            AudioFW.StopLoop("Level5");
+            AudioFW.StopLoop("njilnjil_track_1");
         }
         if (levelNum == 6)
         {
-            AudioFW.StopLoop("Level1Forest_2");
+            AudioFW.StopLoop("njilnjil_track_1");
         }
         if (levelNum == 7)
         {
-            AudioFW.StopLoop("Tyypin_track_1");
+            AudioFW.StopLoop("njilnjil_track_1");
         }
     }
     public void StopAllLevelMusic() {
@@ -79,7 +79,9 @@ public class PlayLoops : MonoBehaviour
             AudioFW.StopLoop("Level2Cave");
             AudioFW.StopLoop("Level5");
             AudioFW.StopLoop("Level1Forest_2");
-            AudioFW.StopLoop("Tyypin_track_1");
+            AudioFW.StopLoop("njilnjil_track_1");
+            AudioFW.StopLoop("njilnjil_track_2");
+            AudioFW.StopLoop("njilnjil_track_3");
     }
 
 

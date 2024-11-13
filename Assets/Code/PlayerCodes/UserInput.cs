@@ -16,6 +16,7 @@ public class UserInput : MonoBehaviour
     public bool DashDownInput { get; private set; }
     public Vector2 AimInput { get; private set; }
     public bool MenuOpenCloseInput { get; private set; }
+    public bool ContinueInput { get; private set; }
 
     PlayerInput _playerInput;
 
@@ -26,6 +27,7 @@ public class UserInput : MonoBehaviour
     InputAction dashDownAction;
     InputAction AimAction;
     InputAction menuOpenCloseAction;
+    InputAction continueAction;
 
     private void Awake()
     {
@@ -53,6 +55,7 @@ public class UserInput : MonoBehaviour
         shootAction = _playerInput.actions["Shoot"];
         AimAction = _playerInput.actions["Aim"];
         menuOpenCloseAction = _playerInput.actions["MenuOpenClose"];
+        continueAction = _playerInput.actions["Continue"];
     }
 
     void UpdateInputs()
@@ -65,6 +68,7 @@ public class UserInput : MonoBehaviour
         DashInput = dashAction.WasPressedThisFrame();
         DashDownInput = dashDownAction.WasPressedThisFrame();
         MenuOpenCloseInput = menuOpenCloseAction.WasPressedThisFrame();
+        ContinueInput = continueAction.WasPressedThisFrame();
         AimInput = AimAction.ReadValue<Vector2>();
     }
 

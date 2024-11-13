@@ -6827,6 +6827,7 @@ MonoBehaviour:
   pauseOpen: 0
   playerParticles: []
   inputManager: {fileID: 0}
+  thisLevel: {fileID: 0}
 --- !u!114 &6892542331276613158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11556,7 +11557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2839848466966483387, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: health
-      value: 30
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2839848466966483387, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: DeathUI
@@ -11569,11 +11570,11 @@ PrefabInstance:
     - target: {fileID: 2839848466966483387, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: preCheckPoint
       value: 
-      objectReference: {fileID: 393211158270326769}
+      objectReference: {fileID: 393211158270326764}
     - target: {fileID: 2839848466966483387, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: savedCheckPoint
       value: 
-      objectReference: {fileID: 2295532353580562518}
+      objectReference: {fileID: 2295532353580562507}
     - target: {fileID: 3157213671280842578, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -19146,14 +19147,14 @@ PrefabInstance:
       addedObject: {fileID: 5825329816764627414}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
+--- !u!198 &2295532353580562507 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3994421945429802703, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
+  m_PrefabInstance: {fileID: 2933065035058759300}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2295532353580562517 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3994421945429802705, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
-  m_PrefabInstance: {fileID: 2933065035058759300}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2295532353580562518 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3994421945429802706, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
   m_PrefabInstance: {fileID: 2933065035058759300}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3070550578538871476
@@ -121176,9 +121177,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
---- !u!1 &393211158270326769 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3994421945429802706, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
+--- !u!198 &393211158270326764 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3994421945429802703, guid: a3d6c0381e5b53e4e8d03487ebc5a2dc, type: 3}
   m_PrefabInstance: {fileID: 3610759830969649443}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &393211158270326770 stripped

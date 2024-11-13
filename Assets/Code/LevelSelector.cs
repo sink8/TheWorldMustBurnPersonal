@@ -59,6 +59,7 @@ public class LevelSelector : MonoBehaviour
         print("leveli on " + level);
         levelNum = level + 1;
         currentLevel = Instantiate(levelsAvailable[level]) as GameObject;
+        currentLevel.SetActive(true);
         currentLevel.transform.position = new Vector3(0, 0, 0);
             //Instantiate(levelsAvailable[level], new Vector3(0, 0, 0), Quaternion.identity);
             menuAudio.StopMenuMusic();
