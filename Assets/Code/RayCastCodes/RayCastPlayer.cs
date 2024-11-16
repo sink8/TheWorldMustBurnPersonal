@@ -128,10 +128,10 @@ public class RayCastPlayer : MonoBehaviour
         }
 
 
-        if (controller.collisions.above || controller.collisions.below) {
-            velocity.y = 0;
-            dashDownVelocity = false;
-        }
+        // if (controller.collisions.above || controller.collisions.below) {
+        //     velocity.y = 0;
+        //     dashDownVelocity = false;
+        // }
 
         //Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         var moveInput = UserInput.instance.MoveInput;
@@ -167,11 +167,11 @@ public class RayCastPlayer : MonoBehaviour
 
         // Apply gravity with different multipliers for jumping and falling
 
-        if (velocity.y < 0 )
-        {
-            if( dash == false && dashDownVelocity == false)
-            velocity.y = jumpVelocityDown * Time.deltaTime; // Use a smaller fall multiplier (e.g., half)
-        }
+        // if (velocity.y < 0 )
+        // {
+        //     if( dash == false && dashDownVelocity == false)
+        //     velocity.y = jumpVelocityDown * Time.deltaTime; // Use a smaller fall multiplier (e.g., half)
+        // }
 
 
         if (inAirCurrent)
@@ -212,7 +212,7 @@ public class RayCastPlayer : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         Dash();
-        DashDown();
+        //DashDown();
     }
 
     void CreateKipinä() {
