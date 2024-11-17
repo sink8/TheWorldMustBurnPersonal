@@ -81,27 +81,37 @@ public class MovingOnLevelsMap : MonoBehaviour
             storeScores.levelNameX = levelName;
         }
 
-        if ((Input.GetAxis("Vertical") > 0) || ver > 0.6f) {
-            if (upDestination != null && upDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
-                currentLevel = false;
-                StartCoroutine(Move(upDestination));
+        if (Mathf.Abs(ver) > Mathf.Abs(hor))
+        {
+            if ((Input.GetAxis("Vertical") > 0) || ver > 0.6f) {
+                if (upDestination != null && upDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
+                    currentLevel = false;
+                    StartCoroutine(Move(upDestination));
+                }
+            } else if ((Input.GetAxis("Vertical") < 0) || ver < -0.6f) {
+                if (downDestination != null && downDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
+                    currentLevel = false;
+                    StartCoroutine(Move(downDestination));
+                }
             }
-        } else if ((Input.GetAxis("Vertical") < 0) || ver < -0.6f ) {
-            if (downDestination != null && downDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
-                currentLevel = false;
-                StartCoroutine(Move(downDestination));
-            }
-        } else if ((Input.GetAxis("Horizontal") > 0)|| hor > 0.6f) {
-            if (rightDestination != null && rightDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
-                currentLevel = false;
-                StartCoroutine(Move(rightDestination));
-            }
-        } else if ((Input.GetAxis("Horizontal") < 0) || hor < -0.6f) {
-            if (leftDestination != null && leftDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
-                currentLevel = false;
-                StartCoroutine(Move(leftDestination));
+        }
+        else
+        {
+
+            if ((Input.GetAxis("Horizontal") > 0) || hor > 0.6f) {
+                if (rightDestination != null && rightDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
+                    currentLevel = false;
+                    StartCoroutine(Move(rightDestination));
+                }
+            } else if ((Input.GetAxis("Horizontal") < 0) || hor < -0.6f) {
+                if (leftDestination != null && leftDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
+                    currentLevel = false;
+                    StartCoroutine(Move(leftDestination));
+                }
             }
         } 
+
+            
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || ver > 0.6f) {
             if (upDestination != null && upDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == true) {
@@ -121,7 +131,7 @@ public class MovingOnLevelsMap : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E) ) {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return)) {
         //if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E) || _pressed == true) {
             
             SaveManager.instance.activeSave.respawnPosition[0] = player.transform.position.x;

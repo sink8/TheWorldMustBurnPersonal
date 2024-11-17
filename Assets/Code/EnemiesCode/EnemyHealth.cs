@@ -16,10 +16,10 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] float crytime = 4;
     [SerializeField] bool cryBool = true;
     [SerializeField] bool CancryBool = true;
-
+    GameObject allFires;
     void Start()
     {
-        
+        allFires = GameObject.Find("AllFires");
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -29,7 +29,9 @@ public class EnemyHealth : MonoBehaviour
             if (canChange && health <= 0)
             {
                 // instantiate höyry olio
-                Instantiate(piviHahmo, gameObject.transform.position, transform.rotation);
+                var pilvi = Instantiate(piviHahmo, gameObject.transform.position, transform.rotation);
+                pilvi.transform.SetParent(allFires.transform);
+                
             }
 
             Destroy(gameObject, 0.3f);
