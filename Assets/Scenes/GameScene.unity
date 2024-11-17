@@ -222786,7 +222786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 744450548671310808, guid: cb9fad60fc9d09142b834d49ce823128, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 889897189911515179, guid: cb9fad60fc9d09142b834d49ce823128, type: 3}
       propertyPath: dashTmp
@@ -222852,6 +222852,14 @@ PrefabInstance:
       propertyPath: objtdashDownPad
       value: 
       objectReference: {fileID: 139002721}
+    - target: {fileID: 1368060262004832306, guid: cb9fad60fc9d09142b834d49ce823128, type: 3}
+      propertyPath: hangTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368060262004832306, guid: cb9fad60fc9d09142b834d49ce823128, type: 3}
+      propertyPath: jumpVelocityDown
+      value: -129.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1586206991649739767, guid: cb9fad60fc9d09142b834d49ce823128, type: 3}
       propertyPath: dashTmp
       value: 
@@ -223452,7 +223460,7 @@ PrefabInstance:
       objectReference: {fileID: 1557770246}
     - target: {fileID: 5680549280684719714, guid: 7e8cd9b28d83c9e47bbb438a924710dc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5711713375940231944, guid: 7e8cd9b28d83c9e47bbb438a924710dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
