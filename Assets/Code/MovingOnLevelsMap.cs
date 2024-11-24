@@ -81,37 +81,77 @@ public class MovingOnLevelsMap : MonoBehaviour
             storeScores.levelNameX = levelName;
         }
 
-        if (Mathf.Abs(ver) > Mathf.Abs(hor))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
-            if ((Input.GetAxis("Vertical") > 0) || ver > 0.6f) {
-                if (upDestination != null && upDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
-                    currentLevel = false;
-                    StartCoroutine(Move(upDestination));
-                }
-            } else if ((Input.GetAxis("Vertical") < 0) || ver < -0.6f) {
-                if (downDestination != null && downDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
-                    currentLevel = false;
-                    StartCoroutine(Move(downDestination));
-                }
+            AttemptMove(upDestination, upDestinationFinal);
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        {
+            AttemptMove(downDestination, downDestinationFinal);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        {
+            AttemptMove(leftDestination, leftDestinationFinal);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        {
+            AttemptMove(rightDestination, rightDestinationFinal);
+        }
+
+        else if (Mathf.Abs(ver) > Mathf.Abs(hor)) // Vertical axis priority
+        {
+            if (ver > 0.6f)
+            {
+                AttemptMove(upDestination, upDestinationFinal);
+            }
+            else if (ver < -0.6f)
+            {
+                AttemptMove(downDestination, downDestinationFinal);
             }
         }
-        else
+        else // Horizontal axis priority
         {
-
-            if ((Input.GetAxis("Horizontal") > 0) || hor > 0.6f) {
-                if (rightDestination != null && rightDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
-                    currentLevel = false;
-                    StartCoroutine(Move(rightDestination));
-                }
-            } else if ((Input.GetAxis("Horizontal") < 0) || hor < -0.6f) {
-                if (leftDestination != null && leftDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
-                    currentLevel = false;
-                    StartCoroutine(Move(leftDestination));
-                }
+            if (hor > 0.6f)
+            {
+                AttemptMove(rightDestination, rightDestinationFinal);
             }
-        } 
+            else if (hor < -0.6f)
+            {
+                AttemptMove(leftDestination, leftDestinationFinal);
+            }
+        }
 
-            
+        //if (Mathf.Abs(ver) > Mathf.Abs(hor))
+        //{
+        //    if ((Input.GetAxisRaw("Vertical") > 0) || ver > 0.6f) {
+        //        if (upDestination != null && upDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
+        //            currentLevel = false;
+        //            StartCoroutine(Move(upDestination));
+        //        }
+        //    } else if ((Input.GetAxisRaw("Vertical") < 0) || ver < -0.6f) {
+        //        if (downDestination != null && downDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
+        //            currentLevel = false;
+        //            StartCoroutine(Move(downDestination));
+        //        }
+        //    }
+        //}
+        //else
+        //{
+
+        //    if ((Input.GetAxisRaw("Horizontal") > 0) || hor > 0.6f) {
+        //        if (rightDestination != null && rightDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
+        //            currentLevel = false;
+        //            StartCoroutine(Move(rightDestination));
+        //        }
+        //    } else if ((Input.GetAxisRaw("Horizontal") < 0) || hor < -0.6f) {
+        //        if (leftDestination != null && leftDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == false) {
+        //            currentLevel = false;
+        //            StartCoroutine(Move(leftDestination));
+        //        }
+        //    }
+        //} 
+
+
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || ver > 0.6f) {
             if (upDestination != null && upDestinationFinal.GetComponent<MovingOnLevelsMap>().locked == true) {
@@ -151,6 +191,15 @@ public class MovingOnLevelsMap : MonoBehaviour
             //if (currentLevel == true && levelNumber == 3) {
             //    levelSelector.LoadLevel3();
             //}
+        }
+    }
+
+    void AttemptMove(GameObject destination, GameObject destinationFinal)
+    {
+        if (destination != null && destinationFinal.GetComponent<MovingOnLevelsMap>().locked == false)
+        {
+            currentLevel = false;
+            StartCoroutine(Move(destination));
         }
     }
 

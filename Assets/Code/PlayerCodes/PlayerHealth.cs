@@ -86,7 +86,7 @@ public class PlayerHealth : MonoBehaviour
             //playerController.DeathAnim();
             //anim.Play("FadeIn");
             //anim.Play("FadeOut");
-            Destroy(transform.parent.gameObject, 0.5f);
+            Destroy(transform.parent.gameObject, 0.3f);
             menuNav.OpenDeathMenu();
 
         }
@@ -94,7 +94,7 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator WaitTillRespawn()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         player.transform.position = reSpawnpoint;
     }
 

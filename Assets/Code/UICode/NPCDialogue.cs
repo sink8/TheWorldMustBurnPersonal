@@ -18,6 +18,11 @@ public class NPCDialogue : MonoBehaviour
     [SerializeField] bool isCloud = false;
 
     public NPCDialogueTrigger trigger;
+    public float timeTillChange = 4f;
+    float timer = 0;
+
+    public bool isPlant, isWater, isPilvi, isRock;
+    public Animator anim;
 
     void Start()
     {
@@ -29,22 +34,29 @@ public class NPCDialogue : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Player")) {
-            if (!dialogueStarted) {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (!dialogueStarted)
+            {
                 lineIndex = 0;
                 text.SetText(dialogueLines[lineIndex]);
                 group.alpha = 1;
                 dialogueStarted = true;
-                //} else if (lineIndex < dialogueLines.Count) {
-                //    text.SetText(dialogueLines[lineIndex++]); //  
-                //}
-                //else {
-                //    group.alpha = 0;
-                //}
+
+                if (dialogueStarted == true)
+                {
+
+
+                    //} else if (lineIndex < dialogueLines.Count) {
+                    //    text.SetText(dialogueLines[lineIndex++]); //  
+                    //}
+                    //else {
+                    //    group.alpha = 0;
+                    //}
+                }
+
             }
-
         }
-
 
     }
 
@@ -54,6 +66,7 @@ public class NPCDialogue : MonoBehaviour
             text.SetText(dialogueLines[lineIndex]);
             group.alpha = 1;
             dialogueStarted = true;
+
             //} else if (lineIndex < dialogueLines.Count) {
             //    text.SetText(dialogueLines[lineIndex++]); //  
             //}
@@ -64,15 +77,32 @@ public class NPCDialogue : MonoBehaviour
     }
 
     void Update()
-    {
+        {
 
+        if(dialogueStarted == true)
+            {
+                timer = timer + Time.deltaTime;
+                    if (timer >= timeTillChange)
+                    {
+                        if (lineIndex < dialogueLines.Count)
+                        {
+                            text.SetText(dialogueLines[lineIndex++]); //  
+                        }
+                    }
 
+            if (isPlant)
+            {
+                anim.Play("Lehti_idle_New_1");
+            }
+
+        }
 
         if(isCloud == false)
         {
             if (trigger.triggered == true)
             {
                 StartDialogue();
+                }
             }
 
 
@@ -85,5 +115,5 @@ public class NPCDialogue : MonoBehaviour
             }
         }
 
-    }
+    
 }

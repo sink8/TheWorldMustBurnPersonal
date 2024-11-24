@@ -41,6 +41,7 @@ public class FireManager : MonoBehaviour
     public Transform burnedParticleStart;
     public Transform meltedParticle;
     public Transform fireupParticle;
+    public Transform winesParticle;
 
     public List<Vector3Int> activeFires = new List<Vector3Int>();
 
@@ -522,6 +523,16 @@ public class FireManager : MonoBehaviour
             BurnedParticles(position);
         }
 
+        if (data.wine == true)
+        {
+            
+            var randomNumw = Random.Range(0, 6);
+            if (randomNumw == 1)
+            {
+                BurnedParticlesWine(position);
+            }
+            
+        }
         if (data.leavesTile) {
             mapMoving.SetTile(position, null);
         }
@@ -529,6 +540,7 @@ public class FireManager : MonoBehaviour
         if (scoreCounter) {
             scoreCounter.scoreValue += 1;
         }
+
 
 
 
@@ -548,6 +560,14 @@ public class FireManager : MonoBehaviour
         var EndParticleclone = Instantiate(burnedParticle,posit , transform.rotation);
         EndParticleclone.transform.SetParent(allFires.transform);
         Destroy(EndParticleclone.gameObject, 1.5f);
+
+    }
+
+    void BurnedParticlesWine(Vector3 posit)
+    {
+        var EndParticleclone = Instantiate(winesParticle, posit, transform.rotation);
+        EndParticleclone.transform.SetParent(allFires.transform);
+        Destroy(EndParticleclone.gameObject, 2f);
 
     }
     void BurnedParticleKpinäts(Vector3 posit)

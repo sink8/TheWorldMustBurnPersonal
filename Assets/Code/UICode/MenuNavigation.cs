@@ -106,7 +106,7 @@ public class MenuNavigation : MonoBehaviour
 
         }
 
-
+        
 
         if (canYouOpenPauseMenu == true) {
             if(pauseOpen == false)
@@ -128,6 +128,7 @@ public class MenuNavigation : MonoBehaviour
             else if (pauseOpen == true) {
                 if(Input.GetKeyDown(KeyCode.Escape)) {
                     ClosePauseMenu();
+                    PauseOpenFalse();
                     AudioFW.Play("MenuEnd");
                 
                 }
@@ -137,7 +138,7 @@ public class MenuNavigation : MonoBehaviour
         }
 
         
-
+        
 
         /*if (EventSystem.current.currentSelectedGameObject != null) {
         if(EventSystem.current.currentSelectedGameObject.name == "Level1Button") {
@@ -155,6 +156,16 @@ public class MenuNavigation : MonoBehaviour
         }
         //Debug.Log(EventSystem.current.currentSelectedGameObject.name);
     }*/
+    }
+
+    public void PauseOpenTrue()
+    {
+        pauseOpen = true;
+    }
+
+    public void PauseOpenFalse()
+    {
+        pauseOpen = false;
     }
 
     void CancelTest(InputAction.CallbackContext ctx)
@@ -243,7 +254,7 @@ public class MenuNavigation : MonoBehaviour
 
     public void ClosePauseMenu() {
         pauseMenu.SetActive(false);
-        pauseOpen = false;
+        //pauseOpen = false;
         Time.timeScale = 1f;
         nodes.SetActive(true);
     }

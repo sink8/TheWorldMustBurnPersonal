@@ -58,6 +58,7 @@ MonoBehaviour:
   burnedParticleStart: {fileID: 0}
   meltedParticle: {fileID: 4555566301418291174, guid: e53fac094c522c04580022906409c9ff, type: 3}
   fireupParticle: {fileID: 1005203583034169666, guid: c245fbda317852845853a32a99b62bcd, type: 3}
+  winesParticle: {fileID: 7769672079985295185, guid: a2c94b2675bf8c746a16ea8f4c9c7977, type: 3}
   activeFires: []
   area:
     m_Position: {x: 0, y: 0, z: 0}
@@ -75,6 +76,7 @@ MonoBehaviour:
   playerPosition2: {x: 0, y: 0}
   dashPosition2: {x: 0, y: 0}
   InstantiateLights: 0
+  dashDownTrigger: 0
   dashTrigger: 0
   fireLight: {fileID: 0}
   secrets: []
