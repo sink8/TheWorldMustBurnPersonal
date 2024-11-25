@@ -12,6 +12,7 @@ public class TriggerMovingPlatforms : MonoBehaviour
     [SerializeField] bool horizontal = false;
     [SerializeField] bool points = false;
     Animator animator;
+    [SerializeField] GameObject particle;
 
     private void Start()
     {
@@ -26,6 +27,13 @@ public class TriggerMovingPlatforms : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Sparks"))
         {
+
+            GameObject smokeParticle = Instantiate(particle);
+
+            smokeParticle.transform.position = gameObject.transform.position;
+            //smokeParticle.transform.SetParent(allFires.transform);
+            Destroy(smokeParticle, 2);
+
             animator.Play("kristalli_pun");
             if(vertical) { platformController.enabled = true;
             } 

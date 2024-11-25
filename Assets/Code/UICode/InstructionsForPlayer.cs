@@ -35,31 +35,31 @@ public class InstructionsForPlayer : MonoBehaviour
     // 1 jump, 2 jump2, 3 dash, 4 water, 5 shoot
     private void Start()
     {
+        
+        //objtjump = GameObject.Find("ActionBindingTextJump");
+        //jumpTmp = objtjump.GetComponent<TMPro.TextMeshProUGUI>();
 
-       //objtjump = GameObject.Find("ActionBindingTextJump");
-       //jumpTmp = objtjump.GetComponent<TMPro.TextMeshProUGUI>();
+        // objtdash = GameObject.Find("ActionBindingTextDash");
+        // dashTmp = objtdash.GetComponent<TMPro.TextMeshProUGUI>();
 
-       // objtdash = GameObject.Find("ActionBindingTextDash");
-       // dashTmp = objtdash.GetComponent<TMPro.TextMeshProUGUI>();
+        // objtdashDown = GameObject.Find("ActionBindingTextDashDown");
+        // dashDownTmp = objtdashDown.GetComponent<TMPro.TextMeshProUGUI>();
 
-       // objtdashDown = GameObject.Find("ActionBindingTextDashDown");
-       // dashDownTmp = objtdashDown.GetComponent<TMPro.TextMeshProUGUI>();
-
-       // objShoot = GameObject.Find("ActionBindingTextShoot");
-       // shootTmp = objShoot.GetComponent<TMPro.TextMeshProUGUI>();
+        // objShoot = GameObject.Find("ActionBindingTextShoot");
+        // shootTmp = objShoot.GetComponent<TMPro.TextMeshProUGUI>();
 
 
-       // objtjumpPad = GameObject.Find("ActionBindingTextJumpPad");
-       // jumpTmpPad = objtjumpPad.GetComponent<TMPro.TextMeshProUGUI>();
+        // objtjumpPad = GameObject.Find("ActionBindingTextJumpPad");
+        // jumpTmpPad = objtjumpPad.GetComponent<TMPro.TextMeshProUGUI>();
 
-       // objtdashPad = GameObject.Find("ActionBindingTextDashPad");
-       // dashTmpPad = objtdashPad.GetComponent<TMPro.TextMeshProUGUI>();
+        // objtdashPad = GameObject.Find("ActionBindingTextDashPad");
+        // dashTmpPad = objtdashPad.GetComponent<TMPro.TextMeshProUGUI>();
 
-       // objtdashDownPad = GameObject.Find("ActionBindingTextDashDownPad");
-       // dashDownTmpPad = objtdashDownPad.GetComponent<TMPro.TextMeshProUGUI>();
+        // objtdashDownPad = GameObject.Find("ActionBindingTextDashDownPad");
+        // dashDownTmpPad = objtdashDownPad.GetComponent<TMPro.TextMeshProUGUI>();
 
-       // objShootPad = GameObject.Find("ActionBindingTextShootPad");
-       // shootTmpPad = objShootPad.GetComponent<TMPro.TextMeshProUGUI>();
+        // objShootPad = GameObject.Find("ActionBindingTextShootPad");
+        // shootTmpPad = objShootPad.GetComponent<TMPro.TextMeshProUGUI>();
 
         //var actionBindTransform = objt.transform.Find("ActionBindingText");
 
@@ -108,9 +108,10 @@ public class InstructionsForPlayer : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other) {
            if (other.gameObject.CompareTag("Player")) {
+            Debug.Log($"Triggernum set to {triggernum} for {gameObject.name}");
             Instuctions();
-           canvas.enabled = true;
-           textgo.SetActive(true);
+               canvas.enabled = true;
+               textgo.SetActive(true);
        }
     }
 
@@ -121,8 +122,11 @@ public class InstructionsForPlayer : MonoBehaviour
 
     void Instuctions()
     {
+        Debug.Log($"Triggernum before switch: {triggernum}, Object: {gameObject.name}");
+        
         switch (triggernum)
         {
+            
             case 7:
                 print(" ");
                 textCanv.text = "Checkpoint";
@@ -153,7 +157,7 @@ public class InstructionsForPlayer : MonoBehaviour
                 
                 if (usingController == false)
                 {
-                    textCanv.text = "Press  " + jump;
+                    textCanv.text = "Press  " + dash + " after tree has burned";
                 }
                 else
                 {
@@ -167,12 +171,12 @@ public class InstructionsForPlayer : MonoBehaviour
                 
                 if (usingController == false)
                 {
-                    textCanv.text = "Press  " + jump;
+                    textCanv.text = "Press  " + jump + " 2 times";
                 }
                 else
                 {
                     textCanv.text = "Press " + jumpPad + " 2 times ";
-                    
+                    print("case 2");
                 }
                 break;
 
@@ -180,6 +184,7 @@ public class InstructionsForPlayer : MonoBehaviour
                 if (usingController == false)
                 {
                     textCanv.text = "Press  " + jump;
+                    print("case 1");
                 }
                 else
                 {
