@@ -51,7 +51,7 @@ public class FireManager : MonoBehaviour
     public float destRadius = 0.5f;
 
     public ScoreCounter scoreCounter;
-    public Transform scoreInsPrefab;
+    //public Transform scoreInsPrefab;
     public float minSpawnDelay = 0.01f;
     public float maxSpawnDelay = 0.2f;
 
@@ -791,7 +791,10 @@ public class FireManager : MonoBehaviour
         //Vector3 spawnPosition = new Vector3(targetPosition.transform.position.x, targetPosition.transform.position.y, targetPosition.transform.position.z);
 
         // Instantiate the object at the converted position
-        Instantiate(spritePrefab, spawnPosition, Quaternion.identity);
+        var thisstuff = Instantiate(spritePrefab, spawnPosition, Quaternion.identity);
+
+        thisstuff.transform.SetParent(allFires.transform);
+        //thisstuff.transform.position = mapMoving.GetCellCenterWorld(pos);
 
         //Vector2 targetWorldPosition = UIUtilities.GetWorldPositionFromUI(canvas, uiTarget);
         ScoreBallsMovingToBar movementScript = spritePrefab.GetComponent<ScoreBallsMovingToBar>();

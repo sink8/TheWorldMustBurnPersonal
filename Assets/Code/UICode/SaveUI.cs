@@ -23,6 +23,8 @@ public static SaveUI instance;
     public Button saveButton2;
     public Button saveButton3;
 
+    public string savenameThis;
+
     private string save1;
     private string save2;
     private string save3;
@@ -81,7 +83,7 @@ public static SaveUI instance;
         }
         if(saveName == "save2"){
             activeInfo.lastSaveNumb = 2;
-            saveNumber = 1;
+            saveNumber = 2;
             SaveManager.instance.SaveBin();
         }
         if(saveName == "save3"){
@@ -90,6 +92,43 @@ public static SaveUI instance;
             SaveManager.instance.SaveBin();
         }
    }
+    public void ContinueGame(){
+        savenameThis = SaveManager.instance.activeSave.saveName;
+        SaveManager.instance.LoadBin();
+
+        if(savenameThis == "save1"){
+            activeInfo.lastSaveNumb = 1;
+            saveNumber = 1;
+            SaveManager.instance.SaveBin();
+        }
+        if(savenameThis == "save2"){
+            activeInfo.lastSaveNumb = 2;
+            saveNumber = 2;
+            SaveManager.instance.SaveBin();
+        }
+        if(savenameThis == "save3"){
+            activeInfo.lastSaveNumb = 3;
+            saveNumber = 3;
+            SaveManager.instance.SaveBin();
+        }
+
+        // if(activeInfo.lastSaveNumb == 1){
+        //     SaveManager.instance.activeSave.saveName = "save1";
+        //     saveNumber = 1;
+        //     SaveManager.instance.SaveBin();
+        // }
+        //        if(activeInfo.lastSaveNumb == 2){
+        //     SaveManager.instance.activeSave.saveName = "save2";
+        //     saveNumber = 2;
+        //     SaveManager.instance.SaveBin();
+        // } 
+        //         if(activeInfo.lastSaveNumb == 3){
+        //     SaveManager.instance.activeSave.saveName = "save3";
+        //     saveNumber = 3;
+        //     SaveManager.instance.SaveBin();
+        // }
+
+    }
 
     public void SaveBinInfo(){
     if(!Directory.Exists("FireSaves"))
@@ -189,23 +228,6 @@ public void DeleteInfoBin(){
             }
     }
 
-    public void ContinueGame(){
-
-
-        if(activeInfo.lastSaveNumb == 1){
-            SaveManager.instance.activeSave.saveName = "save1";
-            saveNumber = 1;
-        }
-               if(activeInfo.lastSaveNumb == 2){
-            SaveManager.instance.activeSave.saveName = "save2";
-            saveNumber = 2;
-        } 
-                if(activeInfo.lastSaveNumb == 3){
-            SaveManager.instance.activeSave.saveName = "save3";
-            saveNumber = 3;
-        }
-        SaveManager.instance.LoadBin();
-        }
     
 
 
