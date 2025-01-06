@@ -12,7 +12,7 @@ public class RayCastPlayer : MonoBehaviour
     public float moveSpeed = 8;
     [SerializeField] float gravity = -8f;
     public float jumpVelocity = 10;
-    float jumpVelocityDown = -220;
+    float jumpVelocityDown = -230;
 
     float accelerationTimeGrounded = 0.15f;
     float accelerationTimeAirborne = 0.1f;
