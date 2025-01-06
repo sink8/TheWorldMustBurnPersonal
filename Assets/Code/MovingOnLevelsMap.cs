@@ -50,6 +50,10 @@ public class MovingOnLevelsMap : MonoBehaviour
         _inputActions.map.Enable();
         //_inputActions.map.Press.started += ctx => _pressed = true;
         _inputActions.map.Press.started += OnPress;
+
+            SaveManager.instance.activeSave.respawnPosition[0] = player.transform.position.x;
+            SaveManager.instance.activeSave.respawnPosition[1] = player.transform.position.y;
+            SaveManager.instance.activeSave.respawnPosition[2] = player.transform.position.z;
     }
 
     private void OnDisable()
@@ -254,9 +258,9 @@ public class MovingOnLevelsMap : MonoBehaviour
 
     void SecretsLevelStuff()
     {
-        // näytä erikseen onko tämä leveli esim 21, secret. 
+        // nï¿½ytï¿½ erikseen onko tï¿½mï¿½ leveli esim 21, secret. 
         // jos level on secret bool = true, niin se aukeaa eri tavalla. 
-        // tähän erillinen SecretHandler
+        // tï¿½hï¿½n erillinen SecretHandler
     }
   
 } // class

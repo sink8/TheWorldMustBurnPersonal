@@ -25,7 +25,7 @@ using Newtonsoft.Json;
 
     void Awake()
     {
-        // Implement Singleton pattern to ensure only one instance of SecretManager exists
+        // // Implement Singleton pattern to ensure only one instance of SecretManager exists
         if (Instance == null)
         {
             Instance = this;
@@ -36,10 +36,11 @@ using Newtonsoft.Json;
         {
             Destroy(gameObject);
         }
-
-        LoadSecrets();
+        activeSaveForThis =  saveUI.activeInfo.lastSaveNumb ;
+        GetTotalFoundSecrets();
         
-        activeSaveForThis = saveUI.saveNumber;
+        //activeSaveForThis = saveUI.saveNumber;
+        // this made save manager to un enable
     }
 
     private void Update()
