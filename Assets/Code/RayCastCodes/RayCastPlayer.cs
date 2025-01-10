@@ -150,7 +150,7 @@ public class RayCastPlayer : MonoBehaviour
         //if (Input.GetButtonDown("Jump") && jumps < maxJumps) {
         if ((UserInput.instance.JumpJustPressed) && ((jumps < maxJumps) || hangTimeCounter > 0f))
         {
-            Debug.Log(" jump pressed");
+            //Debug.Log(" jump pressed");
             //if ((inputManager.GetKeyDown(KeybindingActions.Jump) && ((jumps < maxJumps) || hangTimeCounter > 0f)) || (Input.GetButtonDown("Jump") && ((jumps < maxJumps) || hangTimeCounter > 0f))) {
             AudioFW.Play("SwushLong");
             jumps++;
@@ -312,8 +312,9 @@ public class RayCastPlayer : MonoBehaviour
     {
         if (direction == 0)
         {
-            if ((UserInput.instance.DashDownInput || moveInputY < -0.1f) && canDash == true)
-            {
+            //if ((UserInput.instance.DashDownInput || moveInputY < -0.1f) && canDash == true)
+            if ((UserInput.instance.DashDownInput) && canDash == true)
+                {
                 AudioFW.Play("SwushShort");
                 CreateDashKipinä();
                 direction = 3;

@@ -134,7 +134,7 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3045c47e-4a88-47d0-a331-bae64184609f"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

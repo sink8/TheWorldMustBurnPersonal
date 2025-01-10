@@ -108,7 +108,7 @@ public class InstructionsForPlayer : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other) {
            if (other.gameObject.CompareTag("Player")) {
-            Debug.Log($"Triggernum set to {triggernum} for {gameObject.name}");
+           // Debug.Log($"Triggernum set to {triggernum} for {gameObject.name}");
             Instuctions();
                canvas.enabled = true;
                textgo.SetActive(true);
@@ -122,7 +122,7 @@ public class InstructionsForPlayer : MonoBehaviour
 
     void Instuctions()
     {
-        Debug.Log($"Triggernum before switch: {triggernum}, Object: {gameObject.name}");
+        //Debug.Log($"Triggernum before switch: {triggernum}, Object: {gameObject.name}");
         
         switch (triggernum)
         {
