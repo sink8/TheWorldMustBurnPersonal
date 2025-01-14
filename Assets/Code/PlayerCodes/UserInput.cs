@@ -44,6 +44,8 @@ public class UserInput : MonoBehaviour
     void Update()
     {
         UpdateInputs();
+
+
     }
 
     void SetupInputActions()

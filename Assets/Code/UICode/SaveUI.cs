@@ -42,13 +42,13 @@ public static SaveUI instance;
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Y)){
-        SaveBinInfo();
-        }
+        //if(Input.GetKeyDown(KeyCode.Y)){
+        //SaveBinInfo();
+        //}
 
-        if(Input.GetKeyDown(KeyCode.P)){
-        LoadBinInfo();
-        }
+        //if(Input.GetKeyDown(KeyCode.P)){
+        //LoadBinInfo();
+        //}
 
         //if(Input.GetKeyDown(KeyCode.H)){
         //DeleteInfoBin();

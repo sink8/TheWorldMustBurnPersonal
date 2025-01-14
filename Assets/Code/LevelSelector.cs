@@ -24,14 +24,14 @@ public class LevelSelector : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            SecretManager.Instance.SaveSecrets();
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            SecretManager.Instance.LoadSecrets();
-        }
+        //if (Input.GetKeyDown(KeyCode.N))
+        //{
+        //    SecretManager.Instance.SaveSecrets();
+        //}
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    SecretManager.Instance.LoadSecrets();
+        //}
         //if (Input.GetKeyDown(KeyCode.A))
         //{
         //    Debug.Log("added secrets d: " );
@@ -40,17 +40,17 @@ public class LevelSelector : MonoBehaviour
         //    SecretManager.Instance.AddSecret(2, "secret1");
         //    SecretManager.Instance.AddSecret(1, "secret3");
         //}
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log("Total secrets found: " + SecretManager.Instance.GetTotalFoundSecrets());
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    Debug.Log("Total secrets found: " + SecretManager.Instance.GetTotalFoundSecrets());
             
-        }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SecretManager.Instance.ResetSecrets();
-            Debug.Log("secrets cleared ");
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    SecretManager.Instance.ResetSecrets();
+        //    Debug.Log("secrets cleared ");
+        //}
     }
 
 

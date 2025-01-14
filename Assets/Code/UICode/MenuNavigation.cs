@@ -80,7 +80,7 @@ public class MenuNavigation : MonoBehaviour
 
     private void Update() {
 
-        
+
         /*if(player.transform.position == levels[0].transform.position) {
             lv1Score.SetActive(true);
             lv2Score.SetActive(false);
@@ -95,18 +95,21 @@ public class MenuNavigation : MonoBehaviour
             lv3Score.SetActive(true);
         }*/
 
-        if (Input.GetKeyDown(KeyCode.U)) {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
             UnlockAllLevels();
         }
 
-        if (canYouOpenPauseMenu == false) {
-            if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (canYouOpenPauseMenu == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
                 TriggerBackButton();
             }
 
         }
 
-        
+
 
         if (canYouOpenPauseMenu == true) {
             if(pauseOpen == false)
@@ -126,11 +129,12 @@ public class MenuNavigation : MonoBehaviour
                 //}
             }
             else if (pauseOpen == true) {
-                if(Input.GetKeyDown(KeyCode.Escape)) {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
                     ClosePauseMenu();
                     PauseOpenFalse();
                     AudioFW.Play("MenuEnd");
-                
+
                 }
 
             }

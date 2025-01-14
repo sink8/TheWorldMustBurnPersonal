@@ -93,7 +93,7 @@ public class SparksBurnTiles : MonoBehaviour
         if (collision.gameObject.CompareTag("DashBox"))
         {
             fireManager.dashTrigger = true;
-            Debug.Log("dashbox");
+            //Debug.Log("dashbox");
             fireManager.BurnFromPlayerPositionDash();
         }
         if (collision.gameObject.CompareTag("DashDown"))

@@ -25,19 +25,19 @@ public class SaveManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K)){
-            //Save();
-            SaveBin();
-        }
+        //if(Input.GetKeyDown(KeyCode.K)){
+        //    //Save();
+        //    SaveBin();
+        //}
 
-        if(Input.GetKeyDown(KeyCode.L)){
-        //Load();
-        LoadBin();
-        }
+        //if(Input.GetKeyDown(KeyCode.L)){
+        ////Load();
+        //LoadBin();
+        //}
 
-        if(Input.GetKeyDown(KeyCode.H)){
-        DeleteSavedDataBin();
-        }
+        //if(Input.GetKeyDown(KeyCode.H)){
+        //DeleteSavedDataBin();
+        //}
     }
 
 public void Save(){

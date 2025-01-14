@@ -25,7 +25,7 @@ public static InputManager instance;
 
     private void Update()
     {
-        if (Input.GetJoystickNames().Length > 0)
+        //if (Input.GetJoystickNames().Length > 0)
   
 
         if (Gamepad.all.Count > 0)

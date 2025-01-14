@@ -93,7 +93,7 @@ public class InstructionsForPlayer : MonoBehaviour
 
         // Ei tunnista pag komentoa koska pad näppäimet eivät valittuna kun ohjain ei ole kytketty. 
 
-        if (Input.GetJoystickNames().Length > 0)
+        //if (Input.GetJoystickNames().Length > 0)
 
 
             if (Gamepad.all.Count > 0)
@@ -176,7 +176,7 @@ public class InstructionsForPlayer : MonoBehaviour
                 else
                 {
                     textCanv.text = "Press " + jumpPad + " 2 times ";
-                    print("case 2");
+                    //print("case 2");
                 }
                 break;
 

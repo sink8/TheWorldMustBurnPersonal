@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 
 public class RayCastPlayer : MonoBehaviour
 {
@@ -79,6 +83,26 @@ public class RayCastPlayer : MonoBehaviour
     public InputManager inputManager;
     Vector2 moveInput;
 
+    gamact1 _inputActions;
+    private void OnEnable()
+    {
+        _inputActions = new gamact1();
+        _inputActions.Gameplay.Enable();
+        //_inputActions.map.Pause.started += OnPause;
+        
+
+        //_inputActions.map.Pause.started += ctx => _pressed = true;
+        //_inputActions.map.Pause.canceled += ctx => _pressed = false;
+    }
+
+    private void OnDisable()
+    {
+        //_inputActions.map.Pause.started -= OnPause;
+        
+        _inputActions.Gameplay.Disable();
+
+    }
+
     private void Start() {
         
         inputManager = InputManager.instance;
@@ -98,17 +122,21 @@ public class RayCastPlayer : MonoBehaviour
     }
 
     private void Update() {
+        moveInput = UserInput.instance.MoveInput;
 
-        moveInputX = Input.GetAxis("Horizontal");
-        moveInputY = Input.GetAxis("Vertical");
+        moveInputX = moveInput.x;
+        moveInputY = moveInput.y;
+
+        //moveInputX = Input.GetAxis("Horizontal");
+        //moveInputY = Input.GetAxis("Vertical");
 
         Vector3 characterScale = transform.localScale;
-        if (Input.GetAxis("Horizontal") < 0) {
+        if (moveInputX < 0) {
             characterScale.x = -1;
             lookingLeft = true;
             lookingRight = false;
         }
-        if (Input.GetAxis("Horizontal") > 0) {
+        if (moveInputX > 0) {
             characterScale.x = 1;
             lookingRight = true;
             lookingLeft = false;
@@ -131,7 +159,7 @@ public class RayCastPlayer : MonoBehaviour
 
 
         //Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        moveInput = UserInput.instance.MoveInput;
+        
 
         if ((UserInput.instance.JumpJustPressed && controller.collisions.below))
         {
@@ -166,6 +194,12 @@ public class RayCastPlayer : MonoBehaviour
 
         Dash();
         DashDown();
+
+        if (UserInput.instance.JumpJustPressed) Debug.Log("Jump triggered");
+        if (UserInput.instance.DashInput) Debug.Log("Dash triggered");
+
+
+
     }
 
     private void FixedUpdate()
