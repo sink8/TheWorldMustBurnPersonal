@@ -36,7 +36,9 @@ using Newtonsoft.Json;
         {
             Destroy(gameObject);
         }
+
         activeSaveForThis =  saveUI.activeInfo.lastSaveNumb ;
+        LoadSecrets();
         GetTotalFoundSecrets();
         
         //activeSaveForThis = saveUI.saveNumber;

@@ -28,12 +28,15 @@ public class LevelEnd : MonoBehaviour
     public Image imag;
     bool levelend = false;
     public bool pauseOpen = false;
+    bool playerIsonEndArea = false;
+    bool allIsDone = false;
     float timer = 2f;
 
     public GameObject[] playerParticles;
     public InputManager inputManager;
 
     public GameObject thisLevel;
+    public GameObject objectjoo;
 
     //public Transform secret1Position, secret2Position;
 
@@ -69,6 +72,11 @@ public class LevelEnd : MonoBehaviour
                     menuNav.FadeLevelEnd();
                 }
             }
+        }
+
+        if( playerIsonEndArea == true && allIsDone == false)
+        {
+            ThisHappensWhenLevelEnds();
         }
 
         //if (pauseOpen == false)
@@ -119,48 +127,17 @@ public class LevelEnd : MonoBehaviour
         pauseOpen = false;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
             
-            endLevelQuestion.SetActive(true);
+    //        endLevelQuestion.SetActive(true);
                 
 
-            if (Input.GetKeyDown(KeyCode.G) || (UserInput.instance.ContinueInput))
-            {
-                Debug.Log(" trigger presses end");
-                levelend = true;
-                LevelEndParticles();
-                playLoops.StopLevelMusic();
-                SaveManager.instance.SaveBin();
-                menuNav.OpenLevelEndMenu();
-                EndLevelScoreTextCommon = GameObject.Find("CommonEndText").GetComponent<Text>();
-                EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
-                LevelEndTextCommon();
-                scoreCounter.RegisterNewScore(LevelNumber);
-                SecretManager.Instance.SaveSecrets();
-                SecretManager.Instance.GetTotalFoundSecrets();
-                //scoreCounter.RegisterScore();
-                // anim.Play("FadeOut");
-                //scoreCounter.scoreValue = 0;
-                //Destroy(gameObject,3f);
-                Destroy(collision.transform.parent.gameObject, 2f);
-                Destroy(thisLevel, 2f);
-            }
-
-        }
-
-
-    }
-
-    //private void OnTriggerEnter2D(Collider2D collision) {
-    //    if (collision.gameObject.CompareTag("Player")) {
-    //        endLevelQuestion.SetActive(true);
-    //        Debug.Log(" trigger enter");
     //        if (Input.GetKeyDown(KeyCode.G) || (UserInput.instance.ContinueInput))
     //        {
-                
+    //            Debug.Log(" trigger presses end");
     //            levelend = true;
     //            LevelEndParticles();
     //            playLoops.StopLevelMusic();
@@ -172,19 +149,94 @@ public class LevelEnd : MonoBehaviour
     //            scoreCounter.RegisterNewScore(LevelNumber);
     //            SecretManager.Instance.SaveSecrets();
     //            SecretManager.Instance.GetTotalFoundSecrets();
+    //            //scoreCounter.RegisterScore();
+    //            // anim.Play("FadeOut");
     //            //scoreCounter.scoreValue = 0;
     //            //Destroy(gameObject,3f);
     //            Destroy(collision.transform.parent.gameObject, 2f);
     //            Destroy(thisLevel, 2f);
     //        }
 
-
     //    }
+
+
     //}
-    
+
+    void ThisHappensWhenLevelEnds()
+    {
+        playerIsonEndArea = true;
+
+        endLevelQuestion.SetActive(true);
+        Debug.Log(" trigger enter");
+        if (Input.GetKeyDown(KeyCode.G) || (UserInput.instance.ContinueInput))
+        {
+
+            levelend = true;
+            LevelEndParticles();
+            playLoops.StopLevelMusic();
+            SaveManager.instance.SaveBin();
+            menuNav.OpenLevelEndMenu();
+            EndLevelScoreTextCommon = GameObject.Find("CommonEndText").GetComponent<Text>();
+            EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
+            LevelEndTextCommon();
+            scoreCounter.RegisterNewScore(LevelNumber);
+            SecretManager.Instance.SaveSecrets();
+            SecretManager.Instance.GetTotalFoundSecrets();
+            //scoreCounter.scoreValue = 0;
+            //Destroy(gameObject,3f);
+            Destroy(thisLevel, 0.3f);
+            Destroy(objectjoo, 0.4f);
+
+            //allIsDone = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerIsonEndArea = true;
+            endLevelQuestion.SetActive(true);
+        }
+
+        //if (collision.gameObject.CompareTag("Player"))
+        //{
+        //    playerIsonEndArea = true;
+
+        //    endLevelQuestion.SetActive(true);
+        //    Debug.Log(" trigger enter");
+        //    if (Input.GetKeyDown(KeyCode.G) || (UserInput.instance.ContinueInput))
+        //    {
+
+        //        levelend = true;
+        //        LevelEndParticles();
+        //        playLoops.StopLevelMusic();
+        //        SaveManager.instance.SaveBin();
+        //        menuNav.OpenLevelEndMenu();
+        //        EndLevelScoreTextCommon = GameObject.Find("CommonEndText").GetComponent<Text>();
+        //        EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
+        //        LevelEndTextCommon();
+        //        scoreCounter.RegisterNewScore(LevelNumber);
+        //        SecretManager.Instance.SaveSecrets();
+        //        SecretManager.Instance.GetTotalFoundSecrets();
+        //        //scoreCounter.scoreValue = 0;
+        //        //Destroy(gameObject,3f);
+        //        Destroy(collision.transform.parent.gameObject, 2f);
+        //        Destroy(thisLevel, 2f);
+        //    }
+
+
+        //}
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        endLevelQuestion.SetActive(false);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            objectjoo = collision.transform.parent.gameObject;
+            playerIsonEndArea = false;
+            endLevelQuestion.SetActive(false);
+        }
     }
 
     void LevelEndTextCommon() {
