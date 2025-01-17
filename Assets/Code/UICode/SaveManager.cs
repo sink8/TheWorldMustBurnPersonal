@@ -120,6 +120,7 @@ public class SaveData {
 
 
     public string saveName;
+    public bool levelFinished = false;
     public float[] respawnPosition = new float[3];
     public int test;
     public float[] bronceHighScoresSave = new float[20];

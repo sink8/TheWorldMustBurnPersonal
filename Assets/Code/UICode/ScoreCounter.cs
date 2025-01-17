@@ -86,6 +86,7 @@ public class ScoreCounter : MonoBehaviour
 
     public async void RegisterNewScore(int i) {
         //for(int i = 0; i < storeScores.levels.Length; i++) {
+
             perScore = scoreValue / burnableTilesCount;
             if (perScore >= 0.10 && perScore < 0.75) {
                 if (perScore > storeScores.bronceHighScores[i-1]) {
