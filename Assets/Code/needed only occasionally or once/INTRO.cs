@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class INTRO : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public CinemachineVirtualCamera[] camerasV;
+    public CinemachineVirtualCamera kokkoCam;
+    public CinemachineVirtualCamera liekkiCam;
+
+
+
+
+
+
     void Start()
     {
         
@@ -13,6 +22,10 @@ public class INTRO : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            liekkiCam.Priority = 20;
+        }
+
     }
 }

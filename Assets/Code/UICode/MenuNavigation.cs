@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class MenuNavigation : MonoBehaviour
 {
-    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas, AudioMenu, OptionsMenuGameplay;
+    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas, AudioMenu, OptionsMenuGameplay, intro;
     public GameObject levelFirstButton, levelEndFirstButton, DeathFirstButton, PauseFirstButton, TitleFirstButton, SaveFirstButton, StartFirstButton, OptionsFirstButton,
                         CreditsFirstButton, OptionsFirstButtonGameplay, KeyPindingsFisrt, PadPindingsFirst;
 
@@ -35,6 +35,8 @@ public class MenuNavigation : MonoBehaviour
 
     public GameObject nodes;
     InputAction cancelAction;
+
+
     private void OnEnable()
     {
         _inputActions = new Newcontrolsmap();
@@ -284,6 +286,21 @@ public class MenuNavigation : MonoBehaviour
     public void OpenMixedMenuStuff() {
         mixMenuStuff.SetActive(true);
         gameStarted = true;
+        player.transform.position = new Vector3( SaveManager.instance.activeSave.respawnPosition[0], SaveManager.instance.activeSave.respawnPosition[1], SaveManager.instance.activeSave.respawnPosition[2]);
+
+
+    }
+
+    IEnumerator MixedMenuDelay()
+    {
+        yield return new WaitForSeconds(25);
+        OpenMixedMenuStuff();
+        StopIntro();
+    }
+
+    public void OpenMixedMenuStuffDelay()
+    {
+        StartCoroutine(MixedMenuDelay());
 
     }
 
@@ -413,6 +430,16 @@ public class MenuNavigation : MonoBehaviour
     public void CanYouOpenPauseMenuNo()
     {
         canYouOpenPauseMenu = false;
+    }
+
+    public void PlayIntro()
+    {
+        intro.SetActive(true);
+    }
+
+    public void StopIntro()
+    {
+        intro.SetActive(false);
     }
 
     public IEnumerator DoFade(CanvasGroup canvasGroup, float start, float end) {

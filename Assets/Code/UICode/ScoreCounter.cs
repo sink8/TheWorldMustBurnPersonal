@@ -22,6 +22,10 @@ public class ScoreCounter : MonoBehaviour
     public GameObject bronce, silver, gold;
     void Start()
     {
+        if(SaveManager.instance.activeSave.levelFinished[levelNumber - 1] == true)
+        {
+            timer.SetActive(true);
+        }
         fm = FindObjectOfType<FireManager>();
         burnableTilesCount = fm.GetComponent<FireManager>().GetTileAmountSprite();
         print(burnableTilesCount);
@@ -86,7 +90,7 @@ public class ScoreCounter : MonoBehaviour
 
     public async void RegisterNewScore(int i) {
         //for(int i = 0; i < storeScores.levels.Length; i++) {
-
+        SaveManager.instance.activeSave.levelFinished[i-1] = true;
             perScore = scoreValue / burnableTilesCount;
             if (perScore >= 0.10 && perScore < 0.75) {
                 if (perScore > storeScores.bronceHighScores[i-1]) {
@@ -107,7 +111,7 @@ public class ScoreCounter : MonoBehaviour
             if (perScore >= 1) {
                 if (perScore > storeScores.goldHighScores[i-1]) {
                     storeScores.goldHighScores[i-1] = perScore;
-                    storeScores.goldHighSeconds[i-1] = gameTimer.gameTime - gameTimer.timer;
+                    storeScores.goldHighSeconds[i-1] = gameTimer.timer;
                     SaveManager.instance.activeSave.goldHighScoresSave[i-1] = perScore;
                     SaveManager.instance.activeSave.goldHighSecondsSave[i-1] = gameTimer.timer;
                 }

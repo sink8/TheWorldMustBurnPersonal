@@ -36,6 +36,8 @@ public static SaveUI instance;
         instance = this;
         LoadBinInfo();
         UpdateSaveText();
+
+
     }
 
     // Update is called once per frame
@@ -76,7 +78,8 @@ public static SaveUI instance;
        SaveManager.instance.activeSave.saveName = saveName;
         
         SaveManager.instance.LoadBin();
-        if(saveName == "save1"){
+        player.transform.position = new Vector3(SaveManager.instance.activeSave.respawnPosition[0], SaveManager.instance.activeSave.respawnPosition[1], SaveManager.instance.activeSave.respawnPosition[2]);
+        if (saveName == "save1"){
             activeInfo.lastSaveNumb = 1;
             saveNumber = 1;
             SaveManager.instance.SaveBin();
@@ -95,8 +98,8 @@ public static SaveUI instance;
     public void ContinueGame(){
         savenameThis = SaveManager.instance.activeSave.saveName;
         SaveManager.instance.LoadBin();
-
-        if(savenameThis == "save1"){
+        player.transform.position = new Vector3(SaveManager.instance.activeSave.respawnPosition[0], SaveManager.instance.activeSave.respawnPosition[1], SaveManager.instance.activeSave.respawnPosition[2]);
+        if (savenameThis == "save1"){
             activeInfo.lastSaveNumb = 1;
             saveNumber = 1;
             SaveManager.instance.SaveBin();
@@ -237,14 +240,17 @@ public void DeleteInfoBin(){
         if(saveNumber == 1) {
         SaveManager.instance.activeSave.saveName = "save1";
         activeInfo.lastSaveNumb = 1;
+            SecretManager.Instance.ClearSecretsSave(1);
         }
         if(saveNumber == 2) {
         SaveManager.instance.activeSave.saveName = "save2";
         activeInfo.lastSaveNumb = 2;
+            SecretManager.Instance.ClearSecretsSave(2);
         }
         if(saveNumber == 3) {
         SaveManager.instance.activeSave.saveName = "save3";
         activeInfo.lastSaveNumb = 3;
+            SecretManager.Instance.ClearSecretsSave(3);
         }
     }
 

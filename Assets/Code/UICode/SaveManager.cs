@@ -30,9 +30,10 @@ public class SaveManager : MonoBehaviour
         //    SaveBin();
         //}
 
-        //if(Input.GetKeyDown(KeyCode.L)){
-        ////Load();
-        //LoadBin();
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    //Load();
+        //    LoadBin();
         //}
 
         //if(Input.GetKeyDown(KeyCode.H)){
@@ -120,7 +121,7 @@ public class SaveData {
 
 
     public string saveName;
-    public bool levelFinished = false;
+    public bool[] levelFinished = new bool[20];
     public float[] respawnPosition = new float[3];
     public int test;
     public float[] bronceHighScoresSave = new float[20];

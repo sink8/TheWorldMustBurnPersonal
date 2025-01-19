@@ -32,6 +32,7 @@ public class StoreScores : MonoBehaviour
     public float[] silverHighSeconds;
     public float[] goldHighSeconds;
     public int[] secrets;
+    public bool[] levelsFinished;
     public int[] tileAmounts;
 
     public GameObject[] levels;
@@ -52,6 +53,7 @@ public class StoreScores : MonoBehaviour
         silverHighSeconds = new float[levelAmount];
         goldHighSeconds = new float[levelAmount];
         secrets = new int[levelAmount];
+        levelsFinished = new bool[levelAmount];
         //locks = GameObject.FindGameObjectsWithTag("Locks");
 
 
@@ -83,6 +85,7 @@ public class StoreScores : MonoBehaviour
             silverHighSeconds = SaveManager.instance.activeSave.silverHighSecondsSave;
             goldHighSeconds = SaveManager.instance.activeSave.goldHighSecondsSave;
             secrets = SaveManager.instance.activeSave.secretsFound;
+            levelsFinished = SaveManager.instance.activeSave.levelFinished;
             if(movePlayer == false){
                 var xpos = SaveManager.instance.activeSave.respawnPosition[0];
                 var ypos = SaveManager.instance.activeSave.respawnPosition[1];

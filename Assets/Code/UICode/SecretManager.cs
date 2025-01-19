@@ -37,7 +37,7 @@ using Newtonsoft.Json;
             Destroy(gameObject);
         }
 
-        activeSaveForThis =  saveUI.activeInfo.lastSaveNumb ;
+        activeSaveForThis =  saveUI.saveNumber ;
         LoadSecrets();
         GetTotalFoundSecrets();
         
@@ -47,6 +47,8 @@ using Newtonsoft.Json;
 
     private void Update()
     {
+        activeSaveForThis = saveUI.saveNumber;
+
         //secretsFound = GetTotalFoundSecrets();
         Secret1.text = secretsFound.ToString() + "/3";
         
@@ -132,9 +134,38 @@ using Newtonsoft.Json;
             Debug.Log(ser);
         }
         }
+    public void ClearSecrets()
+    {
+        string path = Application.dataPath + "/save" + activeSaveForThis.ToString() + "secrets.json";
 
-        // Method to count total number of found secrets
-        public int GetTotalFoundSecrets()
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            Debug.Log("Secrets file deleted: " + path);
+        }
+        else
+        {
+            Debug.Log("Secrets file not found: " + path);
+        }
+    }
+
+    public void ClearSecretsSave(int i)
+    {
+        string path = Application.dataPath + "/save" + i.ToString() + "secrets.json";
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            Debug.Log("Secrets file deleted: " + path);
+        }
+        else
+        {
+            Debug.Log("Secrets file not found: " + path);
+        }
+    }
+
+    // Method to count total number of found secrets
+    public int GetTotalFoundSecrets()
         {
             int total = 0;
             foreach (var secrets in foundSecrets.Values)

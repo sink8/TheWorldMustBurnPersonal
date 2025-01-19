@@ -127,40 +127,7 @@ public class LevelEnd : MonoBehaviour
         pauseOpen = false;
     }
 
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player"))
-    //    {
-            
-    //        endLevelQuestion.SetActive(true);
-                
 
-    //        if (Input.GetKeyDown(KeyCode.G) || (UserInput.instance.ContinueInput))
-    //        {
-    //            Debug.Log(" trigger presses end");
-    //            levelend = true;
-    //            LevelEndParticles();
-    //            playLoops.StopLevelMusic();
-    //            SaveManager.instance.SaveBin();
-    //            menuNav.OpenLevelEndMenu();
-    //            EndLevelScoreTextCommon = GameObject.Find("CommonEndText").GetComponent<Text>();
-    //            EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
-    //            LevelEndTextCommon();
-    //            scoreCounter.RegisterNewScore(LevelNumber);
-    //            SecretManager.Instance.SaveSecrets();
-    //            SecretManager.Instance.GetTotalFoundSecrets();
-    //            //scoreCounter.RegisterScore();
-    //            // anim.Play("FadeOut");
-    //            //scoreCounter.scoreValue = 0;
-    //            //Destroy(gameObject,3f);
-    //            Destroy(collision.transform.parent.gameObject, 2f);
-    //            Destroy(thisLevel, 2f);
-    //        }
-
-    //    }
-
-
-    //}
 
     void ThisHappensWhenLevelEnds()
     {
@@ -172,6 +139,7 @@ public class LevelEnd : MonoBehaviour
         {
 
             levelend = true;
+            StartCoroutine(EndLevelSequence());
             LevelEndParticles();
             playLoops.StopLevelMusic();
             SaveManager.instance.SaveBin();
@@ -184,11 +152,20 @@ public class LevelEnd : MonoBehaviour
             SecretManager.Instance.GetTotalFoundSecrets();
             //scoreCounter.scoreValue = 0;
             //Destroy(gameObject,3f);
-            Destroy(thisLevel, 0.3f);
-            Destroy(objectjoo, 0.4f);
+            //Destroy(thisLevel, 0.3f);
+            //Destroy(objectjoo, 0.4f);
 
             //allIsDone = true;
         }
+    }
+
+    IEnumerator EndLevelSequence()
+    {
+        yield return new WaitForSeconds(0.3f); // Ensure destruction completes
+        Destroy(thisLevel);
+        Destroy(objectjoo);
+        // Transition back to the map after ensuring all objects are gone
+        menuNav.FadeLevelEnd();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

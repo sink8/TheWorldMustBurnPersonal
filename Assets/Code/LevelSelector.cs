@@ -19,7 +19,7 @@ public class LevelSelector : MonoBehaviour
 
     void Start(){
         levels = GameObject.FindGameObjectsWithTag("Level");
-        
+
     }
 
     private void Update()
@@ -28,7 +28,7 @@ public class LevelSelector : MonoBehaviour
         {
             SecretManager.Instance.SaveSecrets();
         }
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             SecretManager.Instance.LoadSecrets();
         }
