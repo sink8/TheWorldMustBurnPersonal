@@ -64,15 +64,6 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""DashDown"",
-                    ""type"": ""Button"",
-                    ""id"": ""f07c4edc-290b-409a-9bc5-d3eae1a78462"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Aim"",
                     ""type"": ""PassThrough"",
                     ""id"": ""2caa7af1-0642-4c41-b3d8-63190055b0aa"",
@@ -107,27 +98,36 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DashDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""76eb4728-88e9-48f5-9ba7-b776c3eee0dc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""08f48439-2ac3-421a-a8cb-023b16f20ad6"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""c0049c34-8965-4b89-8b6a-bbf82c944a18"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyBoard"",
+                    ""groups"": ""GamePad"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c0049c34-8965-4b89-8b6a-bbf82c944a18"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""id"": ""77b98b3a-d919-418b-9f30-971a24caa724"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": """",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -366,44 +366,11 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8e17c24b-791f-4670-b726-9ba0ae398142"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GamePad"",
                     ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""883ceee3-9e14-42b4-9558-bdb75aad5494"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard"",
-                    ""action"": ""DashDown"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""24d687a3-83a6-48c3-a1e9-0771ec12c1d7"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard"",
-                    ""action"": ""DashDown"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""afeee3b6-ea7d-4e1a-9b29-7ea6a1643faf"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""DashDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -420,33 +387,11 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""db92af76-d731-4ee2-b11f-c03357a918aa"",
+                    ""id"": ""0169215a-7591-4bf1-b4ac-6d1f34c23dce"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GamePad"",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0169215a-7591-4bf1-b4ac-6d1f34c23dce"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""572ed59a-51d3-4a85-bb35-36903c90fff2"",
-                    ""path"": ""<Keyboard>/o"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard"",
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -593,6 +538,50 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
                     ""action"": ""Unlock"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""197731e0-25c2-4259-8fbd-2d0d15a91aaf"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard"",
+                    ""action"": ""DashDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65ea98e5-ba9f-4697-af98-935834d2b88b"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""DashDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d46f1b4-518a-4399-b1b4-7358e7bb72af"",
+                    ""path"": ""<Keyboard>/quote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DashDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a896451e-0b11-469e-b079-3d99fd81d9f2"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard"",
+                    ""action"": ""DashDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -628,11 +617,11 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
         m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
-        m_Gameplay_DashDown = m_Gameplay.FindAction("DashDown", throwIfNotFound: true);
         m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
         m_Gameplay_MenuOpenClose = m_Gameplay.FindAction("MenuOpenClose", throwIfNotFound: true);
         m_Gameplay_Continue = m_Gameplay.FindAction("Continue", throwIfNotFound: true);
         m_Gameplay_Unlock = m_Gameplay.FindAction("Unlock", throwIfNotFound: true);
+        m_Gameplay_DashDown = m_Gameplay.FindAction("DashDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -698,11 +687,11 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Dash;
     private readonly InputAction m_Gameplay_Shoot;
-    private readonly InputAction m_Gameplay_DashDown;
     private readonly InputAction m_Gameplay_Aim;
     private readonly InputAction m_Gameplay_MenuOpenClose;
     private readonly InputAction m_Gameplay_Continue;
     private readonly InputAction m_Gameplay_Unlock;
+    private readonly InputAction m_Gameplay_DashDown;
     public struct GameplayActions
     {
         private @gamact1 m_Wrapper;
@@ -711,11 +700,11 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
         public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
-        public InputAction @DashDown => m_Wrapper.m_Gameplay_DashDown;
         public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
         public InputAction @MenuOpenClose => m_Wrapper.m_Gameplay_MenuOpenClose;
         public InputAction @Continue => m_Wrapper.m_Gameplay_Continue;
         public InputAction @Unlock => m_Wrapper.m_Gameplay_Unlock;
+        public InputAction @DashDown => m_Wrapper.m_Gameplay_DashDown;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -737,9 +726,6 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
-            @DashDown.started += instance.OnDashDown;
-            @DashDown.performed += instance.OnDashDown;
-            @DashDown.canceled += instance.OnDashDown;
             @Aim.started += instance.OnAim;
             @Aim.performed += instance.OnAim;
             @Aim.canceled += instance.OnAim;
@@ -752,6 +738,9 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
             @Unlock.started += instance.OnUnlock;
             @Unlock.performed += instance.OnUnlock;
             @Unlock.canceled += instance.OnUnlock;
+            @DashDown.started += instance.OnDashDown;
+            @DashDown.performed += instance.OnDashDown;
+            @DashDown.canceled += instance.OnDashDown;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -768,9 +757,6 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
-            @DashDown.started -= instance.OnDashDown;
-            @DashDown.performed -= instance.OnDashDown;
-            @DashDown.canceled -= instance.OnDashDown;
             @Aim.started -= instance.OnAim;
             @Aim.performed -= instance.OnAim;
             @Aim.canceled -= instance.OnAim;
@@ -783,6 +769,9 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
             @Unlock.started -= instance.OnUnlock;
             @Unlock.performed -= instance.OnUnlock;
             @Unlock.canceled -= instance.OnUnlock;
+            @DashDown.started -= instance.OnDashDown;
+            @DashDown.performed -= instance.OnDashDown;
+            @DashDown.canceled -= instance.OnDashDown;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -824,10 +813,10 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
-        void OnDashDown(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnMenuOpenClose(InputAction.CallbackContext context);
         void OnContinue(InputAction.CallbackContext context);
         void OnUnlock(InputAction.CallbackContext context);
+        void OnDashDown(InputAction.CallbackContext context);
     }
 }
