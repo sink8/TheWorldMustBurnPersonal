@@ -157,11 +157,11 @@ public class InstructionsForPlayer : MonoBehaviour
                 
                 if (usingController == false)
                 {
-                    textCanv.text = "Press  " + dash + " after tree has burned";
+                    textCanv.text = "Press  " + dash + " after tree has burned to use Dash";
                 }
                 else
                 {
-                    textCanv.text = "Press " + dashPad + " after trees have burned";
+                    textCanv.text = "Press " + dashPad + " after trees have burned to use Dash";
                     
                 }
 
@@ -183,12 +183,12 @@ public class InstructionsForPlayer : MonoBehaviour
             case 1:
                 if (usingController == false)
                 {
-                    textCanv.text = "Press  " + jump;
+                    textCanv.text = "Press  " + jump + " To use Jump";
                     print("case 1");
                 }
                 else
                 {
-                    textCanv.text = "Press  " + jumpPad;
+                    textCanv.text = "Press  " + jumpPad + " To use Jump";
                 }
 
                     break;
