@@ -295,6 +295,11 @@ public class MenuNavigation : MonoBehaviour
     {
         yield return new WaitForSeconds(25);
         OpenMixedMenuStuff();
+        menuAudio.StopMenuMusic();
+        levelMenu.SetActive(true);
+        _inputActions.UI.Enable();
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(levelFirstButton);
         StopIntro();
     }
 
@@ -440,6 +445,10 @@ public class MenuNavigation : MonoBehaviour
     public void StopIntro()
     {
         intro.SetActive(false);
+        levelMenu.SetActive(true);
+        _inputActions.UI.Enable();
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(levelFirstButton);
     }
 
     public IEnumerator DoFade(CanvasGroup canvasGroup, float start, float end) {
