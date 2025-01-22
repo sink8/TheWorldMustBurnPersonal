@@ -31,13 +31,23 @@ public static SaveUI instance;
     public int saveNumber;
 
     public GameObject player;
+
+    public bool saveExists;
+    [SerializeField] GameObject cont;
+    [SerializeField] GameObject loads;
     void Start()
     {
         instance = this;
+
+        saveExists = SaveExists(); 
+        if(saveExists == false)
+        {
+            print("false");
+            cont.SetActive(false);
+            loads.SetActive(false);
+        }
         LoadBinInfo();
         UpdateSaveText();
-
-
     }
 
     // Update is called once per frame
@@ -231,8 +241,26 @@ public void DeleteInfoBin(){
             }
     }
 
-    
 
+    public bool SaveExists()
+    {
+        string path = Path.Combine("FireSaves", activeInfo.saveNameInfo + ".bin");
+
+        // Check if the file exists
+        if (File.Exists(path))
+        {
+            // Check if the file has any content
+            FileInfo fileInfo = new FileInfo(path);
+            if (fileInfo.Length > 0)
+            {
+                Debug.Log("Save file exists and contains data.");
+                return true;
+            }
+        }
+
+        Debug.LogWarning("Save file does not exist or is empty.");
+        return false;
+    }
 
     public void SaveOver1(){
         NewGamePlayerPosition();

@@ -53,7 +53,41 @@ public class LevelSelector : MonoBehaviour
         //}
     }
 
+    public void ReloadCurrentLevel()
+    {
+        if (currentLevel != null)
+        {
+            Debug.Log("Destroying current level...");
+            Destroy(currentLevel);
+            StartCoroutine(InstantiateLevelAfterDelay());
+        }
+        else
+        {
+            Debug.LogWarning("No current level to destroy. Loading level directly...");
+            InstantiateLevel();
+        }
+    }
 
+    private IEnumerator InstantiateLevelAfterDelay()
+    {
+        yield return new WaitForEndOfFrame(); // Ensure the level is fully destroyed
+        InstantiateLevel();
+    }
+
+    private void InstantiateLevel()
+    {
+        if (levelNum - 1 >= 0 && levelNum - 1 < levelsAvailable.Length)
+        {
+            Debug.Log("Loading current level: " + (levelNum - 1));
+            currentLevel = Instantiate(levelsAvailable[levelNum - 1], Vector3.zero, Quaternion.identity);
+            currentLevel.SetActive(true);
+            menuAudio.StopMenuMusic();
+        }
+        else
+        {
+            Debug.LogError("Invalid level number: " + levelNum);
+        }
+    }
     public void LoadLevels( int level) {
         //FindCurrentLevelNumber();
         print("leveli on " + level);
@@ -69,11 +103,12 @@ public class LevelSelector : MonoBehaviour
     public IEnumerator LoadLevelsDelay( int level, float delay) {
         yield return new WaitForSeconds(delay);
 
-        FindCurrentLevelNumber();
+        //FindCurrentLevelNumber();
         currentLevel = Instantiate(levelsAvailable[level-1]) as GameObject;
         currentLevel.transform.position = new Vector3(0, 0, 0);
             //Instantiate(levelsAvailable[level], new Vector3(0, 0, 0), Quaternion.identity);
             menuAudio.StopMenuMusic();
+        Debug.Log("load levels delay end ");
         //yield return new WaitForSeconds(delay);
     }
 
@@ -82,18 +117,20 @@ public class LevelSelector : MonoBehaviour
     }
 
     public void DestroyCurrentLevel(){
+        Debug.Log("destroy cur level level");
         Destroy(currentLevel);
         StartCoroutine(LoadLevelsDelay(levelNum, delay));
 
     }
     
     public void LoadCurrentLevel(){
-        
+        Debug.Log("load current level");
         currentLevel = Instantiate(levelsAvailable[levelNum-1]) as GameObject;
         currentLevel.transform.position = new Vector3(0, 0, 0);
     }
 
     public void DestroyLevel() {
+        Debug.Log("destroy level");
         Destroy(currentLevel);
     }
 
