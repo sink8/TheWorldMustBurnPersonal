@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float health = 2f;
     [SerializeField] bool canChange = true;
+    [SerializeField] bool cloudMoves = false;
     [SerializeField] GameObject piviHahmo;
 
     [SerializeField] ParticleSystem cryDrops;
@@ -31,6 +32,10 @@ public class EnemyHealth : MonoBehaviour
                 // instantiate höyry olio
                 var pilvi = Instantiate(piviHahmo, gameObject.transform.position, transform.rotation);
                 pilvi.transform.SetParent(allFires.transform);
+                if (cloudMoves)
+                {
+                    pilvi.GetComponentInChildren<MoveBetweenTwoPoints>().shouldMove = true;
+                }
                 
             }
 
