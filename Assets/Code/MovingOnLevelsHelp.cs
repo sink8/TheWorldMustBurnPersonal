@@ -10,7 +10,7 @@ public class MovingOnLevelsHelp : MonoBehaviour
     void Start()
     {
         moving = GetComponent<MovingOnLevelsMap>();
-        isAtDestination = false; // Initialize the flag
+
     }
 
     // Update is called once per frame
