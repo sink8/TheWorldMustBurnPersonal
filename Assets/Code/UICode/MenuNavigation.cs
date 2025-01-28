@@ -18,6 +18,8 @@ public class MenuNavigation : MonoBehaviour
     public bool fadeboolLevel, fadeboolDeath = false;
 
     public GameObject player;
+    public bool isPlayerMoving = false;
+    public Vector3 lastPosition;
 
     public GameObject[] levels;
     public GameObject[] locks;
@@ -71,7 +73,7 @@ public class MenuNavigation : MonoBehaviour
     private void Start() {
         //levels = GameObject.FindGameObjectsWithTag("Level");
         //locks = GameObject.FindGameObjectsWithTag("Locks");
-        
+        lastPosition = player.transform.position;
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(TitleFirstButton);
@@ -82,7 +84,7 @@ public class MenuNavigation : MonoBehaviour
 
     private void Update() {
 
-
+        IsPlayerMoving();
         /*if(player.transform.position == levels[0].transform.position) {
             lv1Score.SetActive(true);
             lv2Score.SetActive(false);
@@ -112,36 +114,39 @@ public class MenuNavigation : MonoBehaviour
         }
 
 
+        //if(isPlayerMoving == false)
+        //{
 
-        if (canYouOpenPauseMenu == true) {
-            if(pauseOpen == false)
-            {
-                if (Input.GetKeyDown(KeyCode.Escape))
+            if (canYouOpenPauseMenu == true) {
+                if(pauseOpen == false)
                 {
-                    OpenPauseMenu();
-                    pauseOpen = true;
-                    AudioFW.Play("MenuEnd");
+                    if (Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        OpenPauseMenu();
+                        pauseOpen = true;
+                        AudioFW.Play("MenuEnd");
+                    }
+
+                    //if (_pressed == true)
+                    //{
+                    //    OpenPauseMenu();
+                    //    pauseOpen = true;
+                    //    AudioFW.Play("MenuEnd");
+                    //}
+                }
+                else if (pauseOpen == true) {
+                    if (Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        ClosePauseMenu();
+                        PauseOpenFalse();
+                        AudioFW.Play("MenuEnd");
+
+                    }
+
                 }
 
-                //if (_pressed == true)
-                //{
-                //    OpenPauseMenu();
-                //    pauseOpen = true;
-                //    AudioFW.Play("MenuEnd");
-                //}
             }
-            else if (pauseOpen == true) {
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-                    ClosePauseMenu();
-                    PauseOpenFalse();
-                    AudioFW.Play("MenuEnd");
-
-                }
-
-            }
-
-        }
+       // }
 
         
         
@@ -163,6 +168,33 @@ public class MenuNavigation : MonoBehaviour
         //Debug.Log(EventSystem.current.currentSelectedGameObject.name);
     }*/
     }
+
+    public void IsPlayerMoving()
+    {
+        if (player == null) return;
+
+        // Check if the player's position has changed
+        if (player.transform.position != lastPosition)
+        {
+            if (!isPlayerMoving)
+            {
+                isPlayerMoving = true;
+                Debug.Log($"Player started moving from {lastPosition} to {player.transform.position}");
+            }
+        }
+        else
+        {
+            if (isPlayerMoving)
+            {
+                isPlayerMoving = false;
+                Debug.Log($"Player stopped moving at {player.transform.position}");
+            }
+        }
+
+        // Update last position for the next frame
+        lastPosition = player.transform.position;
+    }
+
 
     public void PauseOpenTrue()
     {
@@ -263,6 +295,7 @@ public class MenuNavigation : MonoBehaviour
         //pauseOpen = false;
         Time.timeScale = 1f;
         nodes.SetActive(true);
+        Debug.Log("Time.timeScale is now: " + Time.timeScale);
     }
 
 
@@ -444,6 +477,7 @@ public class MenuNavigation : MonoBehaviour
 
     public void StopIntro()
     {
+        StopAllCoroutines();
         intro.SetActive(false);
         levelMenu.SetActive(true);
         _inputActions.UI.Enable();

@@ -29,6 +29,7 @@ public class MovingOnLevelsMap : MonoBehaviour
     public GameObject player;
     private bool canMove;
     public bool locked;
+    
 
     [SerializeField] public bool currentLevel;
 
@@ -77,6 +78,7 @@ public class MovingOnLevelsMap : MonoBehaviour
         ver = movement.y;
 
         if (player.transform.position == transform.position) {
+            
             currentLevel = true;
         }
 
@@ -239,7 +241,8 @@ public class MovingOnLevelsMap : MonoBehaviour
     IEnumerator Move( GameObject direction ) {
         yield return new WaitForSeconds(1 / 60);
         while (player.transform.position != direction.transform.position) {
-            player.transform.position = Vector3.MoveTowards(player.transform.position, direction.transform.position, 3f * Time.deltaTime);
+            player.transform.position = Vector3.MoveTowards(player.transform.position, direction.transform.position, 4f * Time.deltaTime);
+            
             yield return null;
         }
     }
