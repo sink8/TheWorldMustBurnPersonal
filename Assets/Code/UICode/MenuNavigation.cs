@@ -320,7 +320,7 @@ public class MenuNavigation : MonoBehaviour
         mixMenuStuff.SetActive(true);
         gameStarted = true;
         player.transform.position = new Vector3( SaveManager.instance.activeSave.respawnPosition[0], SaveManager.instance.activeSave.respawnPosition[1], SaveManager.instance.activeSave.respawnPosition[2]);
-
+        canYouOpenPauseMenu = true;
 
     }
 
@@ -334,6 +334,7 @@ public class MenuNavigation : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(levelFirstButton);
         StopIntro();
+        
     }
 
     public void OpenMixedMenuStuffDelay()

@@ -45,6 +45,8 @@ public static SaveUI instance;
             print("false");
             cont.SetActive(false);
             loads.SetActive(false);
+            LoadBinInfo();
+            UpdateSaveText();
         }
         LoadBinInfo();
         UpdateSaveText();
@@ -109,6 +111,7 @@ public static SaveUI instance;
         savenameThis = SaveManager.instance.activeSave.saveName;
         SaveManager.instance.LoadBin();
         player.transform.position = new Vector3(SaveManager.instance.activeSave.respawnPosition[0], SaveManager.instance.activeSave.respawnPosition[1], SaveManager.instance.activeSave.respawnPosition[2]);
+        Debug.Log("continue" + SaveManager.instance.activeSave.respawnPosition[0] + " mmm ");
         if (savenameThis == "save1"){
             activeInfo.lastSaveNumb = 1;
             saveNumber = 1;
@@ -269,16 +272,22 @@ public void DeleteInfoBin(){
         SaveManager.instance.activeSave.saveName = "save1";
         activeInfo.lastSaveNumb = 1;
             SecretManager.Instance.ClearSecretsSave(1);
+            SaveBinInfo();
+            SaveManager.instance.SaveBin();
         }
         if(saveNumber == 2) {
         SaveManager.instance.activeSave.saveName = "save2";
         activeInfo.lastSaveNumb = 2;
-            SecretManager.Instance.ClearSecretsSave(2);
+        SecretManager.Instance.ClearSecretsSave(2);
+            SaveBinInfo();
+            SaveManager.instance.SaveBin();
         }
         if(saveNumber == 3) {
         SaveManager.instance.activeSave.saveName = "save3";
         activeInfo.lastSaveNumb = 3;
             SecretManager.Instance.ClearSecretsSave(3);
+            SaveBinInfo();
+            SaveManager.instance.SaveBin();
         }
     }
 
