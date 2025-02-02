@@ -72,7 +72,8 @@ public class FireManager : MonoBehaviour
     //public GameObject targetPosition; // The fixed target position
     public RectTransform uiTarget; // The UI element to move towards
     public Canvas canvas; // The Canvas containing the UI element
-    
+
+    public int secretsFound = 0;
 
     void Start() {
         //player = GameObject.FindGameObjectWithTag("Player");
@@ -448,6 +449,8 @@ public class FireManager : MonoBehaviour
         // käydään läpi secret efectit ja tuhotaan samassa kohdassa oleva samalla kun se poltetaan
 
         if(data.secret == true){
+            secretsFound = +1;
+
             foreach(var secr in secrets.ToArray()) {
                 scoreCounter.secretValue += 1;
                 if (secr.transform.position.x - 0.5f == position.x && secr.transform.position.y - 0.5f == position.y){
@@ -612,6 +615,8 @@ public class FireManager : MonoBehaviour
             }
         }
 
+
+
         foreach (Vector3Int pos in bounds2.allPositionsWithin) {
             TileData data2 = mapManager.GetTileDataMoving(pos);
             Tile tile = mapMoving.GetTile<Tile>(pos);
@@ -626,7 +631,44 @@ public class FireManager : MonoBehaviour
         return amount;
     }
 
-        public void SecretBurnableEffects() {
+    public int GetSecretAmountSprite()
+    {
+        int amount = 0;
+        // loop through all of the tiles        
+        BoundsInt bounds = map.cellBounds;
+        BoundsInt bounds2 = mapMoving.cellBounds;
+        foreach (Vector3Int pos in bounds.allPositionsWithin)
+        {
+            TileData data = mapManager.GetTileData(pos);
+            TileData data2 = mapManager.GetTileDataMoving(pos);
+            Tile tile = map.GetTile<Tile>(pos);
+            if (tile != null)
+            {
+                if (data.secret == true)
+                {
+                    amount += 1;
+                }
+            }
+        }
+
+        foreach (Vector3Int pos in bounds2.allPositionsWithin)
+        {
+            TileData data2 = mapManager.GetTileDataMoving(pos);
+            Tile tile = mapMoving.GetTile<Tile>(pos);
+            if (tile != null)
+            {
+                if ( data2.secret == true)
+                {
+                    amount += 1;
+                }
+            }
+        }
+
+        Debug.Log(amount);
+        return amount;
+    }
+
+    public void SecretBurnableEffects() {
 
         // loop through all of the tiles        
         BoundsInt bounds = map.cellBounds;

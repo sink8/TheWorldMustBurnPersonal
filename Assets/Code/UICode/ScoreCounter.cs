@@ -9,11 +9,13 @@ public class ScoreCounter : MonoBehaviour
     public float scoreValue = 0;
     public int secretValue = 0;
     Text score;
+    public Text flowers;
     public GameObject timer;
     public FireManager fm;
     GameTimer gameTimer;
     StoreScores storeScores;
     [SerializeField] int burnableTilesCount;
+    int secretsInThisLevel;
     public float runningScore;
     public float perScore;
     public Image scoreBar;
@@ -28,6 +30,7 @@ public class ScoreCounter : MonoBehaviour
         }
         fm = FindObjectOfType<FireManager>();
         burnableTilesCount = fm.GetComponent<FireManager>().GetTileAmountSprite();
+        secretsInThisLevel = fm.GetComponent<FireManager>().GetSecretAmountSprite();
         print(burnableTilesCount);
         score = GetComponent<Text>();
         gameTimer = FindObjectOfType<GameTimer>();
@@ -42,7 +45,10 @@ public class ScoreCounter : MonoBehaviour
         runningScore = Mathf.RoundToInt((scoreValue / burnableTilesCount) * 100);
         score.text = "Score: " + Mathf.RoundToInt((scoreValue / burnableTilesCount)*100) + " %";
 
-        if(runningScore < 50) {
+        var levelsecNum = SecretManager.Instance.GetTotalFoundSecretsLevel(levelNumber);
+        flowers.text =  levelsecNum +  "/" + SaveManager.instance.Maxsecrets[levelNumber - 1];
+
+        if (runningScore < 50) {
             silver.SetActive(false);
             bronce.SetActive(false);
             gold.SetActive(false);
@@ -59,6 +65,11 @@ public class ScoreCounter : MonoBehaviour
 
         scorebarFiller();
 
+    }
+
+    public void RegisterFlowers(int i)
+    {
+        SaveManager.instance.activeSave.flowersFound[i - 1] = fm.secretsFound;
     }
 
     public void RegisterScore() {

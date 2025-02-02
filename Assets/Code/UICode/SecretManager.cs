@@ -51,7 +51,8 @@ using Newtonsoft.Json;
 
         //secretsFound = GetTotalFoundSecrets();
         Secret1.text = secretsFound.ToString() + "/3";
-        
+        Secret2.text = secretsFound.ToString() + "/7";
+
 
     }
     // Method to add a found secret
@@ -176,7 +177,20 @@ using Newtonsoft.Json;
             return total;
         }
 
+    public int GetTotalFoundSecretsLevel(int level)
+    {
+        if (foundSecrets.ContainsKey(level))
+        {
+            return foundSecrets[level].Count;
+        }
+        return 0;
     }
+
+
+    }
+
+
+    
 
 [System.Serializable]
 public class SerializableDictionary<TKey, TValue> : ISerializationCallbackReceiver

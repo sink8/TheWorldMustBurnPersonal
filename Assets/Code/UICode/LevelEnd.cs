@@ -148,6 +148,7 @@ public class LevelEnd : MonoBehaviour
             EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
             LevelEndTextCommon();
             scoreCounter.RegisterNewScore(LevelNumber);
+            scoreCounter.RegisterFlowers(LevelNumber);
             SecretManager.Instance.SaveSecrets();
             SecretManager.Instance.GetTotalFoundSecrets();
             //scoreCounter.scoreValue = 0;

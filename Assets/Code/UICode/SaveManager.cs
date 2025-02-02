@@ -133,5 +133,6 @@ public class SaveData {
     public float[] goldHighSecondsSave = new float[20];
 
     public int[] secretsFound = new int[20];
+    public int[] flowersFound = new int[20];
     public string[] secretsFoundNames = new string[20];
 }
