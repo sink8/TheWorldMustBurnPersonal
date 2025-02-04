@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3a631a05482be674793f033c920678fc
+guid: d65752fc5a79d5d49b69ec8720f5e78a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,9 +69,9 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -108,9 +108,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -121,9 +121,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stones5_0
+      name: hiili_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 160
-        width: 81
-        height: 50
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a7745e37a9601e4e9a82788f7d9b955
-      internalID: 612498969
+      spriteID: b79fddd6afa76d542905ef11e700e1cf
+      internalID: 1499087753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stones5_1
+      name: hiili_1
       rect:
         serializedVersion: 2
-        x: 105
+        x: 64
         y: 160
-        width: 82
-        height: 53
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5280a2ac7e70e35458f8f9c8ee35f282
-      internalID: -1890439775
+      spriteID: e980ce31b84870646bfee2b57c0fe29c
+      internalID: 1216925908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stones5_2
+      name: hiili_2
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 96
-        width: 54
-        height: 55
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e4f1edd1c769794fbcb1f0cea2d092b
-      internalID: -1894065170
+      spriteID: 3f61ed5348508a242be26847b06572ad
+      internalID: 91380426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stones5_3
+      name: hiili_3
       rect:
         serializedVersion: 2
-        x: 104
-        y: 64
-        width: 82
-        height: 53
+        x: 0
+        y: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63918c64559981543bac54f1edbb2232
-      internalID: 653350898
+      spriteID: c8164dc15a53c4f4c8c871236cf57ad7
+      internalID: 2064685075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stones5_4
+      name: hiili_4
       rect:
         serializedVersion: 2
-        x: 4
+        x: 64
+        y: 32
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83018145a431db249b2b7aa8f893b14a
+      internalID: 937020856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiili_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb7240c57a4145e4eb27ab9f7d8fa38e
+      internalID: -1493125671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiili_6
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
-        width: 54
-        height: 55
+        width: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03897f5f315689645b11ab0c6e0d6237
-      internalID: 758554220
+      spriteID: 192a286a3d3d2104f830871c95db340c
+      internalID: 2037166140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stones5_5
+      name: hiili_7
       rect:
         serializedVersion: 2
-        x: 73
+        x: 64
         y: 0
-        width: 81
-        height: 50
+        width: 94
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,8 +297,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0e3263f34afe2142b7cc450dee65c18
-      internalID: -989412342
+      spriteID: d397c34612e3bb44a9a9be203356b86d
+      internalID: -1410003479
       vertices: []
       indices: 
       edges: []
@@ -272,12 +314,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      stones5_0: 612498969
-      stones5_1: -1890439775
-      stones5_2: -1894065170
-      stones5_3: 653350898
-      stones5_4: 758554220
-      stones5_5: -989412342
+      hiili_0: 1499087753
+      hiili_1: 1216925908
+      hiili_2: 91380426
+      hiili_3: 2064685075
+      hiili_4: 937020856
+      hiili_5: -1493125671
+      hiili_6: 2037166140
+      hiili_7: -1410003479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -64,15 +64,6 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Aim"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""2caa7af1-0642-4c41-b3d8-63190055b0aa"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""MenuOpenClose"",
                     ""type"": ""Button"",
                     ""id"": ""6d1f53f8-f99b-4744-9e4e-cf95acbd5c07"",
@@ -107,6 +98,24 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AimStick"",
+                    ""type"": ""Button"",
+                    ""id"": ""5058bc74-9574-4b28-be16-176004a34501"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""ca9c0ddf-948e-49d7-9b13-3c55ef2ca2dc"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -388,68 +397,13 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0169215a-7591-4bf1-b4ac-6d1f34c23dce"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GamePad"",
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""8744984c-2ed3-4ace-868c-c9a8ffa41be0"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""41761bd5-5964-4f4e-8494-8e7b168d9bd3"",
-                    ""path"": ""<Gamepad>/rightStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""f9f0cf12-879f-4002-bb1a-56eb61328b28"",
-                    ""path"": ""<Gamepad>/rightStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""ab361fc5-0e0e-4862-9cb2-ac3f220db4d7"",
-                    ""path"": ""<Gamepad>/rightStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""20ca6de9-3fe2-445c-98ee-e166db9c83f5"",
-                    ""path"": ""<Gamepad>/rightStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -582,6 +536,28 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
                     ""action"": ""DashDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4de0bd6a-3dc4-4ef0-97ff-b7283fde854f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimStick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e086b700-34a8-4429-863a-563c5780bb77"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -617,11 +593,12 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
         m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
-        m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
         m_Gameplay_MenuOpenClose = m_Gameplay.FindAction("MenuOpenClose", throwIfNotFound: true);
         m_Gameplay_Continue = m_Gameplay.FindAction("Continue", throwIfNotFound: true);
         m_Gameplay_Unlock = m_Gameplay.FindAction("Unlock", throwIfNotFound: true);
         m_Gameplay_DashDown = m_Gameplay.FindAction("DashDown", throwIfNotFound: true);
+        m_Gameplay_AimStick = m_Gameplay.FindAction("AimStick", throwIfNotFound: true);
+        m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -687,11 +664,12 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Dash;
     private readonly InputAction m_Gameplay_Shoot;
-    private readonly InputAction m_Gameplay_Aim;
     private readonly InputAction m_Gameplay_MenuOpenClose;
     private readonly InputAction m_Gameplay_Continue;
     private readonly InputAction m_Gameplay_Unlock;
     private readonly InputAction m_Gameplay_DashDown;
+    private readonly InputAction m_Gameplay_AimStick;
+    private readonly InputAction m_Gameplay_Aim;
     public struct GameplayActions
     {
         private @gamact1 m_Wrapper;
@@ -700,11 +678,12 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
         public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
-        public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
         public InputAction @MenuOpenClose => m_Wrapper.m_Gameplay_MenuOpenClose;
         public InputAction @Continue => m_Wrapper.m_Gameplay_Continue;
         public InputAction @Unlock => m_Wrapper.m_Gameplay_Unlock;
         public InputAction @DashDown => m_Wrapper.m_Gameplay_DashDown;
+        public InputAction @AimStick => m_Wrapper.m_Gameplay_AimStick;
+        public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -726,9 +705,6 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
-            @Aim.started += instance.OnAim;
-            @Aim.performed += instance.OnAim;
-            @Aim.canceled += instance.OnAim;
             @MenuOpenClose.started += instance.OnMenuOpenClose;
             @MenuOpenClose.performed += instance.OnMenuOpenClose;
             @MenuOpenClose.canceled += instance.OnMenuOpenClose;
@@ -741,6 +717,12 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
             @DashDown.started += instance.OnDashDown;
             @DashDown.performed += instance.OnDashDown;
             @DashDown.canceled += instance.OnDashDown;
+            @AimStick.started += instance.OnAimStick;
+            @AimStick.performed += instance.OnAimStick;
+            @AimStick.canceled += instance.OnAimStick;
+            @Aim.started += instance.OnAim;
+            @Aim.performed += instance.OnAim;
+            @Aim.canceled += instance.OnAim;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -757,9 +739,6 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
-            @Aim.started -= instance.OnAim;
-            @Aim.performed -= instance.OnAim;
-            @Aim.canceled -= instance.OnAim;
             @MenuOpenClose.started -= instance.OnMenuOpenClose;
             @MenuOpenClose.performed -= instance.OnMenuOpenClose;
             @MenuOpenClose.canceled -= instance.OnMenuOpenClose;
@@ -772,6 +751,12 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
             @DashDown.started -= instance.OnDashDown;
             @DashDown.performed -= instance.OnDashDown;
             @DashDown.canceled -= instance.OnDashDown;
+            @AimStick.started -= instance.OnAimStick;
+            @AimStick.performed -= instance.OnAimStick;
+            @AimStick.canceled -= instance.OnAimStick;
+            @Aim.started -= instance.OnAim;
+            @Aim.performed -= instance.OnAim;
+            @Aim.canceled -= instance.OnAim;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -813,10 +798,11 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
-        void OnAim(InputAction.CallbackContext context);
         void OnMenuOpenClose(InputAction.CallbackContext context);
         void OnContinue(InputAction.CallbackContext context);
         void OnUnlock(InputAction.CallbackContext context);
         void OnDashDown(InputAction.CallbackContext context);
+        void OnAimStick(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
     }
 }

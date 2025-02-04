@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 public class Sparks : MonoBehaviour {
@@ -29,6 +31,7 @@ public class Sparks : MonoBehaviour {
     }
 
     void Update() {
+
         mag = shootDirection.magnitude;
 
         float v = Input.GetAxisRaw("Vertical");
@@ -46,7 +49,8 @@ public class Sparks : MonoBehaviour {
         }
         else
         {
-            ShootWithGamePad();
+            AimWithGamePad();
+            ShootWithPadNew();
         }
         
         ProjectileKeys();
@@ -208,6 +212,40 @@ public class Sparks : MonoBehaviour {
         }
 
     }
+    void AimWithGamePad()
+    {
+        shootDirection = UserInput.instance.AimInput;
+
+        // Prevent small stick drift from affecting aim
+        if (shootDirection.sqrMagnitude > 0.01f)
+        {
+            float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+            shotPoint.rotation = Quaternion.Euler(0, 0, (angle - 90) / 2);
+        }
+    }
+
+
+    void ShootWithPadNew()
+    {
+        {
+            if (timeBtwShots <= 0 && UserInput.instance.ShootInput)
+            {
+                if (shootDirection.sqrMagnitude > 0.01f)  // Only shoot if aiming
+                {
+                    AudioFW.Play("Spark1");
+                    Instantiate(projectile, shotPoint.position, shotPoint.rotation);
+                    timeBtwShots = startTimeBtwShots;
+                    Debug.Log("Shot fired!");
+                }
+            }
+            else
+            {
+                timeBtwShots -= Time.deltaTime;
+            }
+        }
+
+    }
+
 
     void ShootWithGamePad()
     {
@@ -220,45 +258,50 @@ public class Sparks : MonoBehaviour {
             //{
             //    shootDirection = new Vector2(0, -1);
             //}
-            shootDirection = Vector2.right * Input.GetAxis(horizontalAxis2) + Vector2.up * Input.GetAxis(verticalAxis2);
+            //shootDirection = Vector2.right * Input.GetAxis(horizontalAxis2) + Vector2.up * Input.GetAxis(verticalAxis2);
+            shootDirection = UserInput.instance.AimInput;
 
             //shootDirection = Vector2.right * Input.GetAxis(horizontalAxis2) + Vector2.down * Input.GetAxis(verticalAxis2);
-            if (shootDirection.sqrMagnitude > 0.05f && ((shootDirection.x != 0) || shootDirection.y != 0))
+            //if (shootDirection.sqrMagnitude > 0.05f && ((shootDirection.x != 0) || shootDirection.y != 0))
+            if (shootDirection.sqrMagnitude > 0.05f)
             {
-                shootDirection = Vector2.right * Input.GetAxis(horizontalAxis2) + Vector2.up * Input.GetAxis(verticalAxis2);
-                if (UserInput.instance.ShootInput){ 
-                AudioFW.Play("Spark1");
-                transform.rotation = Quaternion.Euler(0, 0, shootDirection.x);
-                float angle = Mathf.Atan2(Input.GetAxis(verticalAxis2), Input.GetAxis(horizontalAxis2)) * Mathf.Rad2Deg;
-                Instantiate(projectile, shotPoint.position, Quaternion.Euler(0, 0, angle));
-                timeBtwShots = startTimeBtwShots;
-                print("shoot or something");
-                }
-            } else
-            {
-                if (player.transform.localScale.x == 1)
+                //shootDirection = Vector2.right * Input.GetAxis(horizontalAxis2) + Vector2.up * Input.GetAxis(verticalAxis2);
+                if (UserInput.instance.ShootInput)
                 {
-                    //shootDirection = new Vector2(0, 1);
-                    if (UserInput.instance.ShootInput)
-                    {
-                        AudioFW.Play("Spark1");
-                        Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, -45f));
-                        timeBtwShots = startTimeBtwShots;
-                        print("shoot or something");
-                    }
-                }
-                else if (player.transform.localScale.x == -1)
-                {
-                    if (UserInput.instance.ShootInput)
-                    {
-                        //shootDirection = new Vector2(0, -1);
-                        AudioFW.Play("Spark1");
-                        Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, 45f));
-                        timeBtwShots = startTimeBtwShots;
-                        print("shoot or something");
-                    }
+                    AudioFW.Play("Spark1");
+                    transform.rotation = Quaternion.Euler(0, 0, shootDirection.x);
+                    float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+                    //float angle = Mathf.Atan2(Input.GetAxis(verticalAxis2), Input.GetAxis(horizontalAxis2)) * Mathf.Rad2Deg;
+                    Instantiate(projectile, shotPoint.position, Quaternion.Euler(0, 0, angle));
+                    timeBtwShots = startTimeBtwShots;
+                    print("shoot or something gamapad");
                 }
             }
+            //} else
+            //{
+            //    if (player.transform.localScale.x == 1)
+            //    {
+            //        //shootDirection = new Vector2(0, 1);
+            //        if (UserInput.instance.ShootInput)
+            //        {
+            //            AudioFW.Play("Spark1");
+            //            Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, -45f));
+            //            timeBtwShots = startTimeBtwShots;
+            //            print("shoot or something");
+            //        }
+            //    }
+            //    else if (player.transform.localScale.x == -1)
+            //    {
+            //        if (UserInput.instance.ShootInput)
+            //        {
+            //            //shootDirection = new Vector2(0, -1);
+            //            AudioFW.Play("Spark1");
+            //            Instantiate(projectile, shotPoint.position, Quaternion.Euler(0f, 0f, 45f));
+            //            timeBtwShots = startTimeBtwShots;
+            //            print("shoot or something");
+            //        }
+            //    }
+            //}
         }
         else
         {
