@@ -28,6 +28,7 @@ public class ScoreCounter : MonoBehaviour
         {
             timer.SetActive(true);
         }
+
         fm = FindObjectOfType<FireManager>();
         burnableTilesCount = fm.GetComponent<FireManager>().GetTileAmountSprite();
         secretsInThisLevel = fm.GetComponent<FireManager>().GetSecretAmountSprite();
