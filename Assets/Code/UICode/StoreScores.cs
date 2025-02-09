@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StoreScores : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class StoreScores : MonoBehaviour
     public Text bronceText;
     public Text silverText;
     public Text goldText;
-    public Text LevelTitle;
+    //public Text LevelTitle;
+    public TMP_Text LevelTitle;
 
 
     public int tileamountlv1 = 1;
