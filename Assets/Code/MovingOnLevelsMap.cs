@@ -42,6 +42,7 @@ public class MovingOnLevelsMap : MonoBehaviour
     public SecretManager secretManager;
     CloudsSpawn spawn;
     [SerializeField] StoreScores storeScores;
+    [SerializeField] GameObject startlevelagain;
 
     public bool isSecretLevel;
 
@@ -251,6 +252,7 @@ public class MovingOnLevelsMap : MonoBehaviour
         if(currentLevel == true && levelNumber == level && locked == false) {
             menuNav.CloseLevelMenu();
             menuNav.CloseMixedMenuStuff();
+            startlevelagain.SetActive(true);
             
             for(int i = 0; i < levelSelector.levelsAvailable.Length; i++) {
                 if(level == i + 1) {

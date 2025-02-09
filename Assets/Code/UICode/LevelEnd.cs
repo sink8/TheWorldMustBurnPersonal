@@ -37,6 +37,7 @@ public class LevelEnd : MonoBehaviour
 
     public GameObject thisLevel;
     public GameObject objectjoo;
+    public GameObject tryAgainButton;
 
     //public Transform secret1Position, secret2Position;
 
@@ -131,13 +132,17 @@ public class LevelEnd : MonoBehaviour
 
     void ThisHappensWhenLevelEnds()
     {
+
+        if (allIsDone) return;
+
         playerIsonEndArea = true;
 
         endLevelQuestion.SetActive(true);
         Debug.Log(" trigger enter");
         if (Input.GetKeyDown(KeyCode.G) || (UserInput.instance.ContinueInput))
         {
-
+            allIsDone = true;
+            tryAgainButton.SetActive(false);
             levelend = true;
             StartCoroutine(EndLevelSequence());
             LevelEndParticles();

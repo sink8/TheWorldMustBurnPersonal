@@ -148,7 +148,7 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
                     ""path"": ""<DualShockGamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""New control scheme1"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -157,6 +157,17 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""d19dba74-e1fd-4d61-8595-f390c0db082f"",
                     ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""New control scheme1"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""866bd09c-c5d3-45ac-b5e8-a100a7ab2101"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

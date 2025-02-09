@@ -7,11 +7,13 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+
 public class SaveUI : MonoBehaviour
 {
 public static SaveUI instance;
     public SavesInfo activeInfo;
-    public GameObject SavesMenu, alreadyExists;
+    public GameObject SavesMenu, alreadyExists, alreadyExistsFitst;
 
     public TMP_Text Save1;
     public TMP_Text Save1x;
@@ -185,6 +187,9 @@ public void DeleteInfoBin(){
     public void OpenAlreadyExists() {
 
         alreadyExists.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(alreadyExistsFitst);
+        print("already e");
     }
 
     public void CloseAlreadyExists() {
