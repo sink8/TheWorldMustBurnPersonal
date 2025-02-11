@@ -144,11 +144,11 @@ public class InstructionsForPlayer : MonoBehaviour
                 if (usingController == false)
                 {
                     
-                    textCanv.text = "Press  " + " + direction to shoot fireballs";
+                    textCanv.text = "Press  " + shoot + " + direction or mouse to shoot fireballs";
                 }
                 else
                 {
-                    textCanv.text = "Press " + shootPad + " + direction to shoot fireballs";
+                    textCanv.text = "Press " + shootPad + " + right stick to shoot fireballs";
 
                 }
 
@@ -157,11 +157,11 @@ public class InstructionsForPlayer : MonoBehaviour
                 
                 if (usingController == false)
                 {
-                    textCanv.text = "Press  " + dash + " after tree has burned to use Dash";
+                    textCanv.text = "Press  " + dash + " to use Dash";
                 }
                 else
                 {
-                    textCanv.text = "Press " + dashPad + " after trees have burned to use Dash";
+                    textCanv.text = "Press " + dashPad + " to use Dash";
                     
                 }
 
@@ -183,12 +183,12 @@ public class InstructionsForPlayer : MonoBehaviour
             case 1:
                 if (usingController == false)
                 {
-                    textCanv.text = "Press  " + jump + " To use Jump";
+                    textCanv.text = "Press  " + jump + " To Jump";
                     print("case 1");
                 }
                 else
                 {
-                    textCanv.text = "Press  " + jumpPad + " To use Jump";
+                    textCanv.text = "Press  " + jumpPad + " To Jump";
                 }
 
                     break;

@@ -29,7 +29,7 @@ public class LevelEnd : MonoBehaviour
     bool levelend = false;
     public bool pauseOpen = false;
     bool playerIsonEndArea = false;
-    bool allIsDone = false;
+    [SerializeField]  bool allIsDone = false;
     float timer = 2f;
 
     public GameObject[] playerParticles;
@@ -134,28 +134,15 @@ public class LevelEnd : MonoBehaviour
     {
 
         if (allIsDone) return;
+        if (!playerIsonEndArea) return;
 
-        playerIsonEndArea = true;
+        
 
         endLevelQuestion.SetActive(true);
         Debug.Log(" trigger enter");
         if (Input.GetKeyDown(KeyCode.G) || (UserInput.instance.ContinueInput))
         {
-            allIsDone = true;
-            tryAgainButton.SetActive(false);
-            levelend = true;
-            StartCoroutine(EndLevelSequence());
-            LevelEndParticles();
-            playLoops.StopLevelMusic();
-            SaveManager.instance.SaveBin();
-            menuNav.OpenLevelEndMenu();
-            EndLevelScoreTextCommon = GameObject.Find("CommonEndText").GetComponent<Text>();
-            EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
-            LevelEndTextCommon();
-            scoreCounter.RegisterNewScore(LevelNumber);
-            scoreCounter.RegisterFlowers(LevelNumber);
-            SecretManager.Instance.SaveSecrets();
-            SecretManager.Instance.GetTotalFoundSecrets();
+            StartCoroutine(EndLevelSequence()); // Run the sequence properly
             //scoreCounter.scoreValue = 0;
             //Destroy(gameObject,3f);
             //Destroy(thisLevel, 0.3f);
@@ -165,14 +152,44 @@ public class LevelEnd : MonoBehaviour
         }
     }
 
+
     IEnumerator EndLevelSequence()
     {
-        yield return new WaitForSeconds(0.3f); // Ensure destruction completes
+        allIsDone = true; // Only mark as done when sequence starts
+
+        tryAgainButton.SetActive(false);
+        levelend = true;
+
+        LevelEndParticles();
+        playLoops.StopLevelMusic();
+        SaveManager.instance.SaveBin();
+        menuNav.OpenLevelEndMenu();
+
+        EndLevelScoreTextCommon = GameObject.Find("CommonEndText").GetComponent<Text>();
+        EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
+        LevelEndTextCommon();
+
+        scoreCounter.RegisterNewScore(LevelNumber);
+        scoreCounter.RegisterFlowers(LevelNumber);
+        SecretManager.Instance.SaveSecrets();
+        SecretManager.Instance.GetTotalFoundSecrets();
+
+        yield return new WaitForSeconds(0.3f); // Small delay before destroying objects
+
         Destroy(thisLevel);
         Destroy(objectjoo);
-        // Transition back to the map after ensuring all objects are gone
-        menuNav.FadeLevelEnd();
+
+        menuNav.FadeLevelEnd(); // Transition back to the map
     }
+
+    //IEnumerator EndLevelSequence()
+    //{
+    //    yield return new WaitForSeconds(0.3f); // Ensure destruction completes
+    //    Destroy(thisLevel);
+    //    Destroy(objectjoo);
+    //    // Transition back to the map after ensuring all objects are gone
+    //    menuNav.FadeLevelEnd();
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

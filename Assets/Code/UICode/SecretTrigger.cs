@@ -18,6 +18,7 @@ public class SecretTrigger : MonoBehaviour
     [SerializeField] bool secretLevelBool;
     [SerializeField] Transform secretLevelPoint;
     [SerializeField] AudioSource audioSource;
+    
 
     GameObject player;
 
@@ -76,6 +77,7 @@ public class SecretTrigger : MonoBehaviour
         {
             if (SecretManager.Instance.HasFoundSecret(levelNumberTämä, secretName) == false)
             {
+
                 //AudioFW.Play("Secret");
                 //print("joooo");
                 if (secretLevelBool) {
@@ -84,6 +86,7 @@ public class SecretTrigger : MonoBehaviour
                 
             }
             // Add the secret to the found secrets
+            AudioFW.Play("Secretpoimi");
             SecretManager.Instance.AddSecret(levelNumberTämä, secretName);
 
             

@@ -335,6 +335,11 @@ public class MenuNavigation : MonoBehaviour
 
     }
 
+    public void GameStartedFalse()
+    {
+        gameStarted = false;
+    }
+
     IEnumerator MixedMenuDelay()
     {
         yield return new WaitForSeconds(25);
@@ -414,7 +419,9 @@ public class MenuNavigation : MonoBehaviour
     public void CloseOptionsMenu() {
         if (gameStarted)
         {
-            OpenPauseMenu();    
+            OpenPauseMenu();
+            pauseOpen = true;
+            canYouOpenPauseMenu = true;
         }else
         {
             OpenTitleMenu();
