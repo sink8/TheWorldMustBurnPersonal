@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class AspectRatioScript : MonoBehaviour
 {
@@ -17,38 +18,42 @@ public class AspectRatioScript : MonoBehaviour
 		float windowaspect = (float)Screen.width / (float)Screen.height;
 
 		// current viewport height should be scaled by this amount
-		float scaleheight = windowaspect / targetaspect;
+		float scaleHeight = windowaspect / targetaspect;
 
 		// obtain camera component so we can modify its viewport
 		Camera camera = GetComponent<Camera>();
 
-		// if scaled height is less than current height, add letterbox
-		if (scaleheight < 1.0f) {
-			Rect rect = camera.rect;
+        // if scaled height is less than current height, add letterbox
+        Rect rect = new Rect(0, 0, 1, 1); // Default to full screen
 
-			rect.width = 1.0f;
-			rect.height = scaleheight;
-			rect.x = 0;
-			rect.y = (1.0f - scaleheight) / 2.0f;
 
-			camera.rect = rect;
-		} else { // add pillarbox
-			float scalewidth = 1.0f / scaleheight;
+        if (scaleHeight < 1.0f)
+        {
+            // Letterbox (black bars on top/bottom)
+            rect.height = scaleHeight;
+            rect.y = (1.0f - scaleHeight) / 2.0f;
+        }
+        else
+        {
+            // Pillarbox (black bars on left/right)
+            float scaleWidth = 1.0f / scaleHeight;
+            rect.width = scaleWidth;
+            rect.x = (1.0f - scaleWidth) / 2.0f;
+        }
 
-			Rect rect = camera.rect;
+        camera.rect = rect;
+        camera.clearFlags = CameraClearFlags.SolidColor;
 
-			rect.width = scalewidth;
-			rect.height = 1.0f;
-			rect.x = (1.0f - scalewidth) / 2.0f;
-			rect.y = 0;
-
-			camera.rect = rect;
-		}
-	}
+    }
 
 	// Use this for initialization
 	void Start() {
-		UpdateFixedAspectRatio();
+        Camera camera = GetComponent<Camera>();
+        camera.clearFlags = CameraClearFlags.SolidColor;
+        UniversalAdditionalCameraData camData = camera.GetUniversalAdditionalCameraData();
+        camData.renderType = CameraRenderType.Base; // Ensure it's a base camera
+        
+        UpdateFixedAspectRatio();
 	}
 
 	// Update is called once per frame

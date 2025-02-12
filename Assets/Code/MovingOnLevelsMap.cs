@@ -45,6 +45,7 @@ public class MovingOnLevelsMap : MonoBehaviour
     [SerializeField] GameObject startlevelagain;
 
     public bool isSecretLevel;
+    
 
     private void OnEnable()
     {
@@ -195,7 +196,7 @@ public class MovingOnLevelsMap : MonoBehaviour
             SaveManager.instance.activeSave.respawnPosition[0] = player.transform.position.x;
             SaveManager.instance.activeSave.respawnPosition[1] = player.transform.position.y;
             SaveManager.instance.activeSave.respawnPosition[2] = player.transform.position.z;
-
+            
             spawn.DeleteCloud();
 
             SelectLevel(levelNumber);
