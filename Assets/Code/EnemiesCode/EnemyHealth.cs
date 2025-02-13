@@ -17,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] float crytime = 4;
     [SerializeField] bool cryBool = true;
     [SerializeField] bool CancryBool = true;
+    [SerializeField] bool isCloudAlready = false;
     GameObject allFires;
     void Start()
     {
@@ -24,24 +25,28 @@ public class EnemyHealth : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Sparks") || collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Player")) {
-            health -= 1;
-            AudioFW.Play("HitEnemyWater");
-            if (canChange && health <= 0)
-            {
-                // instantiate höyry olio
-                var pilvi = Instantiate(piviHahmo, gameObject.transform.position, transform.rotation);
-                pilvi.transform.SetParent(allFires.transform);
-                if (cloudMoves)
+        if(isCloudAlready == false)
+        {
+            if (collision.gameObject.CompareTag("Sparks") || collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Player")) {
+                health -= 1;
+                AudioFW.Play("HitEnemyWater");
+                if (canChange && health <= 0)
                 {
-                    pilvi.GetComponentInChildren<MoveBetweenTwoPoints>().shouldMove = true;
-                }
+                    // instantiate höyry olio
+                    var pilvi = Instantiate(piviHahmo, gameObject.transform.position, transform.rotation);
+                    pilvi.transform.SetParent(allFires.transform);
+                    if (cloudMoves)
+                    {
+                        pilvi.GetComponentInChildren<MoveBetweenTwoPoints>().shouldMove = true;
+                    }
                 
-            }
+                }
 
-            Destroy(gameObject, 0.3f);
+                Destroy(gameObject, 0.3f);
+            }
         }
-    }
+
+        }
 
 
     private void OnTriggerEnter2D(Collider2D collision) {

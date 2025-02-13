@@ -75,10 +75,10 @@ public class LevelEnd : MonoBehaviour
             }
         }
 
-        if( playerIsonEndArea == true && allIsDone == false)
-        {
-            ThisHappensWhenLevelEnds();
-        }
+        //if( playerIsonEndArea == true && allIsDone == false)
+        //{
+        //    ThisHappensWhenLevelEnds();
+        //}
 
         //if (pauseOpen == false)
         //{
@@ -195,8 +195,12 @@ public class LevelEnd : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerIsonEndArea = true;
-            endLevelQuestion.SetActive(true);
+            if (!allIsDone) // Ensure it only runs once
+            {
+                StartCoroutine(EndLevelSequence());
+            }
+            //playerIsonEndArea = true;
+            //endLevelQuestion.SetActive(true);
         }
 
         //if (collision.gameObject.CompareTag("Player"))
@@ -235,7 +239,7 @@ public class LevelEnd : MonoBehaviour
         {
             objectjoo = collision.transform.parent.gameObject;
             playerIsonEndArea = false;
-            endLevelQuestion.SetActive(false);
+            //endLevelQuestion.SetActive(false);
         }
     }
 
