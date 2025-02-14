@@ -52,6 +52,10 @@ public static SaveUI instance;
         }
         LoadBinInfo();
         UpdateSaveText();
+
+        if(SaveManager.instance.activeSave.respawnPosition[0] == 0 && SaveManager.instance.activeSave.respawnPosition[1] == 0 && SaveManager.instance.activeSave.respawnPosition[0] == 0){
+            player.transform.position = new Vector3(-11.84f,39.05f,0f);
+        }
     }
 
     // Update is called once per frame

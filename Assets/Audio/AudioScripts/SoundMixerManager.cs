@@ -70,7 +70,7 @@ public class SoundMixerManager : MonoBehaviour
         //audioMixer.SetFloat("musicVolume", volume);
         ////audioMixer.SetFloat("musicVolume", Mathf.Log10(level) * 20f);
         //PlayerPrefs.SetFloat("musicVolume", volume);
-        //PlayerPrefs.Save();
+        PlayerPrefs.Save();
     }
 
 

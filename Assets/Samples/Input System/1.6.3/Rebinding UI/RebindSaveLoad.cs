@@ -7,8 +7,8 @@ public class RebindSaveLoad : MonoBehaviour
 
     public void OnEnable()
     {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
+        //PlayerPrefs.DeleteAll();
+        //PlayerPrefs.Save();
 
         var rebinds = PlayerPrefs.GetString("rebinds");
         if (!string.IsNullOrEmpty(rebinds))
