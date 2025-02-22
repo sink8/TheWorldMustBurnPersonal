@@ -79,6 +79,8 @@ public class RayCastPlayer : MonoBehaviour
 
 
     public GameObject playerBodyRed, playerBodyBlue, playerBodyPurple;
+    public ParticleSystem playerBodyRedParticle;
+    public Color color2, color3;
 
     public InputManager inputManager;
     Vector2 moveInput;
@@ -189,6 +191,23 @@ public class RayCastPlayer : MonoBehaviour
             hangTimeCounter = 0;
         }
 
+        if(jumps == 0)
+        {
+            playerBodyRedParticle.startColor = Color.white;
+
+        }
+
+        if (jumps == 1)
+        {
+            playerBodyRedParticle.startColor = color2;
+
+        }
+
+        if (jumps == maxJumps)
+        {
+            playerBodyRedParticle.startColor = color3;
+
+        }
 
         controller.Move(velocity * Time.deltaTime);
 

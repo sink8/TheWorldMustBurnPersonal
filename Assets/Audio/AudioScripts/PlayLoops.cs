@@ -39,11 +39,15 @@ public class PlayLoops : MonoBehaviour
         }
         if (levelNum == 6)
         {
-            AudioFW.PlayLoop("njilnjil_track_3");
+            AudioFW.PlayLoop("Level2Cave2");
         }
         if (levelNum == 7)
         {
-            AudioFW.PlayLoop("njilnjil_track_1");
+            AudioFW.PlayLoop("njilnjil_track_2");
+        }
+        if (levelNum == 20)
+        {
+            AudioFW.PlayLoop("Level2Cave3");
         }
     }
 
@@ -61,16 +65,21 @@ public class PlayLoops : MonoBehaviour
             AudioFW.StopLoop("njilnjil_track_1");
         }
         if (levelNum == 5) {
-            AudioFW.StopLoop("njilnjil_track_1");
+            AudioFW.StopLoop("njilnjil_track_3");
         }
         if (levelNum == 6)
         {
-            AudioFW.StopLoop("njilnjil_track_1");
+            AudioFW.StopLoop("Level2Cave2");
         }
         if (levelNum == 7)
         {
-            AudioFW.StopLoop("njilnjil_track_1");
+            AudioFW.StopLoop("njilnjil_track_2");
         }
+        if (levelNum == 7)
+        {
+            AudioFW.StopLoop("Level2Cave3");
+        }
+
     }
     public void StopAllLevelMusic() {
             AudioFW.StopLoop("Level1Forest");
@@ -82,6 +91,8 @@ public class PlayLoops : MonoBehaviour
             AudioFW.StopLoop("njilnjil_track_1");
             AudioFW.StopLoop("njilnjil_track_2");
             AudioFW.StopLoop("njilnjil_track_3");
+            AudioFW.StopLoop("Level2Cave3");
+            AudioFW.StopLoop("Level2Cave2");
     }
 
 

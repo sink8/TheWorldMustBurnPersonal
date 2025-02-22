@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class MenuNavigation : MonoBehaviour
 {
-    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas, AudioMenu, OptionsMenuGameplay, intro;
+    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas, AudioMenu, OptionsMenuGameplay, intro, intro2;
     public GameObject levelFirstButton, levelEndFirstButton, DeathFirstButton, PauseFirstButton, TitleFirstButton, SaveFirstButton, StartFirstButton, OptionsFirstButton,
                         CreditsFirstButton, OptionsFirstButtonGameplay, KeyPindingsFisrt, PadPindingsFirst, SaveExistsFirst, IntroFirst;
 
@@ -38,6 +39,8 @@ public class MenuNavigation : MonoBehaviour
     public GameObject nodes;
     InputAction cancelAction;
 
+    public bool isIntroActive = false;
+    GameObject intro1;
 
     private void OnEnable()
     {
@@ -119,43 +122,62 @@ public class MenuNavigation : MonoBehaviour
 
         }
 
+        if(isIntroActive == true)
+        {
+            if (Keyboard.current.anyKey.isPressed)
+            {
+                IntroFirst.SetActive(true);
+                Debug.Log("A key is pressed on the keyboard.");
+            }
+
+            // Check if any gamepad button is pressed
+            if (Gamepad.current != null && Gamepad.current.allControls.Any(control => control.IsPressed()))
+            {
+                Debug.Log("A button is pressed on the gamepad.");
+                IntroFirst.SetActive(true);
+            }
+
+        }else
+        {
+            IntroFirst.SetActive(false);
+        }
 
         //if(isPlayerMoving == false)
         //{
 
-            //if (canYouOpenPauseMenu == true) {
-            //    if(pauseOpen == false)
-            //    {
-            //        if (Input.GetKeyDown(KeyCode.Escape))
-            //        {
-            //            OpenPauseMenu();
-            //            pauseOpen = true;
-            //            AudioFW.Play("MenuEnd");
-            //        }
+        //if (canYouOpenPauseMenu == true) {
+        //    if(pauseOpen == false)
+        //    {
+        //        if (Input.GetKeyDown(KeyCode.Escape))
+        //        {
+        //            OpenPauseMenu();
+        //            pauseOpen = true;
+        //            AudioFW.Play("MenuEnd");
+        //        }
 
-            //        //if (_pressed == true)
-            //        //{
-            //        //    OpenPauseMenu();
-            //        //    pauseOpen = true;
-            //        //    AudioFW.Play("MenuEnd");
-            //        //}
-            //    }
-            //    else if (pauseOpen == true) {
-            //        if (Input.GetKeyDown(KeyCode.Escape))
-            //        {
-            //            ClosePauseMenu();
-            //            PauseOpenFalse();
-            //            AudioFW.Play("MenuEnd");
+        //        //if (_pressed == true)
+        //        //{
+        //        //    OpenPauseMenu();
+        //        //    pauseOpen = true;
+        //        //    AudioFW.Play("MenuEnd");
+        //        //}
+        //    }
+        //    else if (pauseOpen == true) {
+        //        if (Input.GetKeyDown(KeyCode.Escape))
+        //        {
+        //            ClosePauseMenu();
+        //            PauseOpenFalse();
+        //            AudioFW.Play("MenuEnd");
 
-            //        }
+        //        }
 
-            //    }
+        //    }
 
-            //}
-       // }
+        //}
+        // }
 
-        
-        
+
+
 
         /*if (EventSystem.current.currentSelectedGameObject != null) {
         if(EventSystem.current.currentSelectedGameObject.name == "Level1Button") {
@@ -174,6 +196,7 @@ public class MenuNavigation : MonoBehaviour
         //Debug.Log(EventSystem.current.currentSelectedGameObject.name);
     }*/
     }
+
 
     public void IsPlayerMoving()
     {
@@ -342,9 +365,10 @@ public class MenuNavigation : MonoBehaviour
 
     IEnumerator MixedMenuDelay()
     {
-        yield return new WaitForSeconds(25);
+        
+        yield return new WaitForSeconds(40);
         OpenMixedMenuStuff();
-        menuAudio.StopMenuMusic();
+        //menuAudio.StopMenuMusic();
         levelMenu.SetActive(true);
         _inputActions.UI.Enable();
         //EventSystem.current.SetSelectedGameObject(null);
@@ -491,7 +515,10 @@ public class MenuNavigation : MonoBehaviour
 
     public void PlayIntro()
     {
+        intro1 = Instantiate(intro2, gameObject.transform);
+        //intro1.transform.position = gameObject.transform.position;
         intro.SetActive(true);
+        isIntroActive = true;
         //EventSystem.current.SetSelectedGameObject(null);
         //EventSystem.current.SetSelectedGameObject(IntroFirst);
     }
@@ -499,11 +526,16 @@ public class MenuNavigation : MonoBehaviour
     public void StopIntro()
     {
         StopAllCoroutines();
+        isIntroActive = false;
+
         intro.SetActive(false);
         levelMenu.SetActive(true);
         _inputActions.UI.Enable();
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(levelFirstButton);
+        Destroy(intro1);
+        if (intro1 == null)
+            return;
     }
 
     public IEnumerator DoFade(CanvasGroup canvasGroup, float start, float end) {

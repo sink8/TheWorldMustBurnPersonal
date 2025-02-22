@@ -609,7 +609,7 @@ public class FireManager : MonoBehaviour
             TileData data2 = mapManager.GetTileDataMoving(pos);
             Tile tile = map.GetTile<Tile>(pos);
             if (tile != null) {
-                if (data.canBurn == true && data.secret == false) {
+                if (data.canBurn == true && data.secret == false && data.secretOther == false) {
                     amount += 1;
                 }
             }
@@ -621,7 +621,7 @@ public class FireManager : MonoBehaviour
             TileData data2 = mapManager.GetTileDataMoving(pos);
             Tile tile = mapMoving.GetTile<Tile>(pos);
             if (tile != null) {
-                if (data2.canBurn == true && data2.secret == false) {
+                if (data2.canBurn == true && data2.secret == false && data2.secretOther == false) {
                     amount += 1;
                 }
             }

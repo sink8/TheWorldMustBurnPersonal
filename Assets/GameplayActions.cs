@@ -136,7 +136,7 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyBoard"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -467,17 +467,6 @@ public partial class @gamact1: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard"",
-                    ""action"": ""Unlock"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fcd3ebaf-9ed4-4798-8522-ad87881087f9"",
-                    ""path"": ""<Keyboard>/u"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
                     ""action"": ""Unlock"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

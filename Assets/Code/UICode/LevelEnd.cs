@@ -155,7 +155,7 @@ public class LevelEnd : MonoBehaviour
 
     IEnumerator EndLevelSequence()
     {
-        allIsDone = true; // Only mark as done when sequence starts
+       
 
         tryAgainButton.SetActive(false);
         levelend = true;
@@ -175,7 +175,7 @@ public class LevelEnd : MonoBehaviour
         SecretManager.Instance.GetTotalFoundSecrets();
 
         yield return new WaitForSeconds(0.3f); // Small delay before destroying objects
-
+        allIsDone = true; // Only mark as done when sequence starts
         Destroy(thisLevel);
         Destroy(objectjoo);
 

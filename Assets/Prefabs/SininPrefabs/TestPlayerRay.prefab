@@ -468,6 +468,9 @@ MonoBehaviour:
   playerBodyRed: {fileID: 8357764843855703306}
   playerBodyBlue: {fileID: 2633412475315027610}
   playerBodyPurple: {fileID: 4880184542107393322}
+  playerBodyRedParticle: {fileID: 3564871941632585172}
+  color2: {r: 0.64857507, g: 0.19339621, b: 1, a: 1}
+  color3: {r: 0.4601589, g: 0.06132078, b: 1, a: 1}
   inputManager: {fileID: 0}
 --- !u!114 &2090468872533308927
 MonoBehaviour:
@@ -1102,6 +1105,11 @@ PrefabInstance:
 --- !u!4 &457078535455419381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 630284083590839315, guid: 8e28db61f7082e446baaaa824d1db30d, type: 3}
+  m_PrefabInstance: {fileID: 1074361988324595686}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3564871941632585172 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4580194553516096050, guid: 8e28db61f7082e446baaaa824d1db30d, type: 3}
   m_PrefabInstance: {fileID: 1074361988324595686}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8357764843855703306 stripped

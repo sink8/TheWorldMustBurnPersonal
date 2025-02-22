@@ -208,7 +208,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
             // Set on label (if any).
             if (m_BindingText != null)
-                m_BindingText.text = displayString;
+                m_BindingText.text = ConvertKeyNamesToEnglish(displayString);
 
             // Give listeners a chance to configure UI in response.
             m_UpdateBindingUIEvent?.Invoke(this, displayString, deviceLayoutName, controlPath);
@@ -235,6 +235,29 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
 
             UpdateBindingDisplay();
+        }
+
+        private string ConvertKeyNamesToEnglish(string keyName)
+        {
+            Dictionary<string, string> keyTranslations = new Dictionary<string, string>()
+    {
+        { "Väli", "Space" },
+        { "Vaihto", "Shift" },
+        { "Enter", "Enter" },
+        { "Poista", "Backspace" },
+        { "Nuoli ylös", "Arrow Up" },
+        { "Nuoli alas", "Arrow Down" },
+        { "Nuoli vasemmalle", "Arrow Left" },
+        { "Nuoli oikealle", "Arrow Right" }
+        // Add more translations as needed
+    };
+
+            if (keyTranslations.ContainsKey(keyName))
+            {
+                return keyTranslations[keyName];
+            }
+
+            return keyName; // Return original if no match is found
         }
 
         private void ResetBinding(InputAction action, int bindingIndex)

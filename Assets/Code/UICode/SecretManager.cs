@@ -50,8 +50,8 @@ using Newtonsoft.Json;
         activeSaveForThis = saveUI.saveNumber;
 
         //secretsFound = GetTotalFoundSecrets();
-        Secret1.text = secretsFound.ToString() + "/3";
-        Secret2.text = secretsFound.ToString() + "/7";
+        Secret1.text = secretsFound.ToString() + "/7";
+        Secret2.text = secretsFound.ToString() + "/13";
 
 
     }

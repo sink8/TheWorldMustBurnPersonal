@@ -101,16 +101,22 @@ public static SaveUI instance;
             activeInfo.lastSaveNumb = 1;
             saveNumber = 1;
             SaveManager.instance.SaveBin();
+            SecretManager.Instance.LoadSecrets();
+            SecretManager.Instance.GetTotalFoundSecrets();
         }
         if(saveName == "save2"){
             activeInfo.lastSaveNumb = 2;
             saveNumber = 2;
             SaveManager.instance.SaveBin();
+            SecretManager.Instance.LoadSecrets();
+            SecretManager.Instance.GetTotalFoundSecrets();
         }
         if(saveName == "save3"){
             activeInfo.lastSaveNumb = 3;
             saveNumber = 3;
             SaveManager.instance.SaveBin();
+            SecretManager.Instance.LoadSecrets();
+            SecretManager.Instance.GetTotalFoundSecrets();
         }
    }
     public void ContinueGame(){
@@ -122,16 +128,23 @@ public static SaveUI instance;
             activeInfo.lastSaveNumb = 1;
             saveNumber = 1;
             SaveManager.instance.SaveBin();
+            SecretManager.Instance.LoadSecrets();
+            SecretManager.Instance.GetTotalFoundSecrets();
+
         }
-        if(savenameThis == "save2"){
+        if (savenameThis == "save2"){
             activeInfo.lastSaveNumb = 2;
             saveNumber = 2;
             SaveManager.instance.SaveBin();
+            SecretManager.Instance.LoadSecrets();
+            SecretManager.Instance.GetTotalFoundSecrets();
         }
         if(savenameThis == "save3"){
             activeInfo.lastSaveNumb = 3;
             saveNumber = 3;
             SaveManager.instance.SaveBin();
+            SecretManager.Instance.LoadSecrets();
+            SecretManager.Instance.GetTotalFoundSecrets();
         }
 
         // if(activeInfo.lastSaveNumb == 1){
@@ -283,6 +296,8 @@ public void DeleteInfoBin(){
             SecretManager.Instance.ClearSecretsSave(1);
             SaveBinInfo();
             SaveManager.instance.SaveBin();
+            SecretManager.Instance.LoadSecrets();
+            SecretManager.Instance.GetTotalFoundSecrets();
         }
         if(saveNumber == 2) {
         SaveManager.instance.activeSave.saveName = "save2";
@@ -290,6 +305,8 @@ public void DeleteInfoBin(){
         SecretManager.Instance.ClearSecretsSave(2);
             SaveBinInfo();
             SaveManager.instance.SaveBin();
+            SecretManager.Instance.LoadSecrets();
+            SecretManager.Instance.GetTotalFoundSecrets();
         }
         if(saveNumber == 3) {
         SaveManager.instance.activeSave.saveName = "save3";
@@ -297,6 +314,8 @@ public void DeleteInfoBin(){
             SecretManager.Instance.ClearSecretsSave(3);
             SaveBinInfo();
             SaveManager.instance.SaveBin();
+            SecretManager.Instance.LoadSecrets();
+            SecretManager.Instance.GetTotalFoundSecrets();
         }
     }
 

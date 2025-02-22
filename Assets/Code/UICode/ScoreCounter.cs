@@ -10,6 +10,7 @@ public class ScoreCounter : MonoBehaviour
     public int secretValue = 0;
     Text score;
     public Text flowers;
+    public GameObject flowerso;
     public GameObject timer;
     public FireManager fm;
     GameTimer gameTimer;
@@ -22,13 +23,15 @@ public class ScoreCounter : MonoBehaviour
     [SerializeField] Gradient scorebarColor;
 
     public GameObject bronce, silver, gold;
+
+    public Material materialBar;
     void Start()
     {
         if(SaveManager.instance.activeSave.levelFinished[levelNumber - 1] == true)
         {
             timer.SetActive(true);
         }
-
+        materialBar.SetColor("_Color_1", new Color(191, 22, 0, 1));
         fm = FindObjectOfType<FireManager>();
         burnableTilesCount = fm.GetComponent<FireManager>().GetTileAmountSprite();
         secretsInThisLevel = fm.GetComponent<FireManager>().GetSecretAmountSprite();
@@ -44,24 +47,35 @@ public class ScoreCounter : MonoBehaviour
     void Update()
     {
         runningScore = Mathf.RoundToInt((scoreValue / burnableTilesCount) * 100);
-        score.text = "Score: " + Mathf.RoundToInt((scoreValue / burnableTilesCount)*100) + " %";
+        int percentage = Mathf.FloorToInt((scoreValue / burnableTilesCount) * 100);
+        score.text = (percentage == 100 ? 100 : Mathf.Min(percentage, 99)) + " %";
+        //score.text =   Mathf.RoundToInt((scoreValue / burnableTilesCount)*100) + " %";
 
         var levelsecNum = SecretManager.Instance.GetTotalFoundSecretsLevel(levelNumber);
         flowers.text =  levelsecNum +  "/" + SaveManager.instance.Maxsecrets[levelNumber - 1];
+        if(levelsecNum > 0)
+        {
+            flowerso.SetActive(true);
+        }
 
         if (runningScore < 50) {
-            silver.SetActive(false);
-            bronce.SetActive(false);
-            gold.SetActive(false);
-        }else if(runningScore >= 50 && runningScore < 75) {
-            bronce.SetActive(true);
+            //materialBar.SetFloat("_Color_1", -2);
+            
+            //silver.SetActive(false);
+            //bronce.SetActive(false);
+            //gold.SetActive(false);
+        }
+        else if(runningScore >= 50 && runningScore < 75) {
+            //bronce.SetActive(true);
         } else if (runningScore >= 75 && runningScore < 100) {
-            silver.SetActive(true);
-            bronce.SetActive(false);
+            //silver.SetActive(true);
+            //bronce.SetActive(false);
         } else if (runningScore >= 100) {
-            silver.SetActive(false);
-            bronce.SetActive(false);
-            gold.SetActive(true);
+            materialBar.SetColor("_Color_1", new Color(191, 0, 0, 1));
+            
+            //silver.SetActive(false);
+            //bronce.SetActive(false);
+            //gold.SetActive(true);
         }
 
         scorebarFiller();

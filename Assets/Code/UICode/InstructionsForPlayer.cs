@@ -171,11 +171,11 @@ public class InstructionsForPlayer : MonoBehaviour
                 
                 if (usingController == false)
                 {
-                    textCanv.text = "Press  " + jump + " 2 times";
+                    textCanv.text = "Press  " + jump + " in midair to doublejump";
                 }
                 else
                 {
-                    textCanv.text = "Press " + jumpPad + " 2 times ";
+                    textCanv.text = "Press " + jumpPad + " in midair to doublejump";
                     //print("case 2");
                 }
                 break;
@@ -183,12 +183,12 @@ public class InstructionsForPlayer : MonoBehaviour
             case 1:
                 if (usingController == false)
                 {
-                    textCanv.text = "Press  " + jump + " To Jump";
+                    textCanv.text = "Press  " + jump + " to Jump";
                     print("case 1");
                 }
                 else
                 {
-                    textCanv.text = "Press  " + jumpPad + " To Jump";
+                    textCanv.text = "Press  " + jumpPad + " to Jump";
                 }
 
                     break;

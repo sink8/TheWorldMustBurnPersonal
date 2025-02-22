@@ -108,7 +108,7 @@ public class StoreScores : MonoBehaviour
         }
 
         // secrets, how will those be opened. Shitty way but I'm in hurry
-        if(SecretManager.Instance.secretsFound >= 3)
+        if(SecretManager.Instance.secretsFound >= 7)
         {
             levels[20].GetComponent<MovingOnLevelsMap>().locked = false;
             locks[20].SetActive(false);

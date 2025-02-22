@@ -29,4 +29,13 @@ public class MenuAudio : MonoBehaviour
     public void StartburningSound() {
         AudioFW.PlayLoop("FireBurningLoop");
     }
+    private void OnEnable()
+    {
+        AudioFW.PlayLoop("MenuMusic");
+    }
+
+    private void OnDisable()
+    {
+        AudioFW.StopLoop("MenuMusic");
+    }
 }
