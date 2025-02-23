@@ -63,7 +63,7 @@ public class MenuNavigation : MonoBehaviour
 
     private void OnPause(InputAction.CallbackContext context)
     {
-        if (canYouOpenPauseMenu)
+        if (canYouOpenPauseMenu && isIntroActive == false)
         {
             if (pauseOpen)
             {
@@ -116,7 +116,7 @@ public class MenuNavigation : MonoBehaviour
             UnlockAllLevels();
         }
 
-        if (canYouOpenPauseMenu == false)
+        if (canYouOpenPauseMenu == false && isIntroActive == false)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -127,9 +127,12 @@ public class MenuNavigation : MonoBehaviour
 
         if(isIntroActive == true)
         {
+            EventSystem.current.SetSelectedGameObject(null);
+            canYouOpenPauseMenu = false;
             if (Keyboard.current.anyKey.isPressed)
             {
                 IntroFirst.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(IntroFirst);
                 Debug.Log("A key is pressed on the keyboard.");
             }
 
@@ -138,6 +141,7 @@ public class MenuNavigation : MonoBehaviour
             {
                 Debug.Log("A button is pressed on the gamepad.");
                 IntroFirst.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(IntroFirst);
             }
 
         }else

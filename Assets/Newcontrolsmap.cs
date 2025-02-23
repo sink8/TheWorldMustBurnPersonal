@@ -144,6 +144,17 @@ public partial class @Newcontrolsmap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""8dcb966c-21e0-4b42-b81f-ba1bba209bbf"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""bec2c1bd-c7b4-42a0-9ced-c898e482bbcd"",
                     ""path"": ""<DualShockGamepad>/start"",
                     ""interactions"": """",

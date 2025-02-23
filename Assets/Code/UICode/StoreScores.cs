@@ -46,6 +46,8 @@ public class StoreScores : MonoBehaviour
     public string levelNameX;
     public GameObject ScoreCanvas;
 
+    [SerializeField] int howManyFlowersNeedsToBeFound_1 = 7;
+
     private async void Start() {
         //levels = GameObject.FindGameObjectsWithTag("Level");
 

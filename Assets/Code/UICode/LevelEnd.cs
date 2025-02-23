@@ -37,7 +37,7 @@ public class LevelEnd : MonoBehaviour
 
     public GameObject thisLevel;
     public GameObject objectjoo;
-    public GameObject tryAgainButton;
+    
 
     //public Transform secret1Position, secret2Position;
 
@@ -234,15 +234,15 @@ public class LevelEnd : MonoBehaviour
         //}
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            objectjoo = collision.transform.parent.gameObject;
-            playerIsonEndArea = false;
-            //endLevelQuestion.SetActive(false);
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        objectjoo = collision.transform.parent.gameObject;
+    //        playerIsonEndArea = false;
+    //        //endLevelQuestion.SetActive(false);
+    //    }
+    //}
 
     void LevelEndTextCommon() {
         if(scoreCounter.runningScore < 50 && scoreCounter.runningScore > 0) {

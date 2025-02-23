@@ -8,7 +8,7 @@ public class MixedUICode : MonoBehaviour
 {
    // [SerializeField] Text credits;
     public float creditsSpeed = 1f;
-    public float creditsTime = 10f;
+    public float creditsTime = 20f;
     float timer;
     public TMP_Text credits; 
     [SerializeField] GameObject creditsObject;
@@ -50,7 +50,21 @@ public class MixedUICode : MonoBehaviour
     }
 
     void Credits(){
-        credits.text = "Developer Sini Karhunen  \n  \n  Audio: \n Audio lähteet tähän \n \n Special thanks \n Friends and family \n Laajasalon Opisto and teachers " ;
+        credits.text = "Developer Sini Karhunen  \n" +
+            " \n Audio: " +
+            "\n Sound Effects: freesound.org/people/YleArkisto/" +
+            " \n" +
+            " \n Music: " +
+            "\n Tracks of levels 4, 5 and 7 by NjilNjil / Jade" +
+            "\n  " +
+            "\n Other music by Eric Matyas  www.soundimage.org" + 
+            "\n Alley-Grunge, Fantasy Forest Battle, Forest Chase, Fantasy World Menu 2, A Flock of Bubbles Looping  " +
+            "\n " +
+            " \n Special thanks " +
+            "\n Friends and family" +
+            "\n Gametesters" +
+            "\n LGIN community, mentors and Suvi " +
+            "\n Laajasalon Opisto students and teachers " ;
 
     }
 
