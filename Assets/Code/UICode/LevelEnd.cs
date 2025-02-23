@@ -44,6 +44,7 @@ public class LevelEnd : MonoBehaviour
 
     void Start()
     {
+        //tryAgainButton.SetActive(true);
         inputManager = InputManager.instance;
         playLoops = FindObjectOfType<PlayLoops>();
         playLoops.StartLevelMusic(LevelNumber);
@@ -157,7 +158,7 @@ public class LevelEnd : MonoBehaviour
     {
        
 
-        tryAgainButton.SetActive(false);
+        //tryAgainButton.SetActive(false);
         levelend = true;
 
         LevelEndParticles();
@@ -174,12 +175,12 @@ public class LevelEnd : MonoBehaviour
         SecretManager.Instance.SaveSecrets();
         SecretManager.Instance.GetTotalFoundSecrets();
 
-        yield return new WaitForSeconds(0.3f); // Small delay before destroying objects
+        yield return new WaitForSeconds(0.2f); // Small delay before destroying objects
         allIsDone = true; // Only mark as done when sequence starts
         Destroy(thisLevel);
         Destroy(objectjoo);
 
-        menuNav.FadeLevelEnd(); // Transition back to the map
+        //menuNav.FadeLevelEnd(); // Transition back to the map
     }
 
     //IEnumerator EndLevelSequence()
@@ -195,10 +196,10 @@ public class LevelEnd : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (!allIsDone) // Ensure it only runs once
-            {
+            //if (!allIsDone) // Ensure it only runs once
+            //{
                 StartCoroutine(EndLevelSequence());
-            }
+            //}
             //playerIsonEndArea = true;
             //endLevelQuestion.SetActive(true);
         }

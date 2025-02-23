@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MixedMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject tryAgainB;
     void Start()
     {
         SecretManager.Instance.LoadSecrets();
@@ -15,5 +15,15 @@ public class MixedMenu : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        tryAgainB.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        tryAgainB.SetActive(true);
     }
 }

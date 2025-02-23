@@ -44,6 +44,7 @@ public class StoreScores : MonoBehaviour
     public GameObject player;
     bool movePlayer = false;
     public string levelNameX;
+    public GameObject ScoreCanvas;
 
     private async void Start() {
         //levels = GameObject.FindGameObjectsWithTag("Level");
@@ -129,6 +130,12 @@ public class StoreScores : MonoBehaviour
     public void UpdateScores() {
         for(int i = 0; i < levels.Length; i++) {
             if (player.transform.position == levels[i].transform.position) {
+                if (bronceHighScores[i] == 0 && silverHighScores[i] == 0 && goldHighScores[i] == 0)
+                {
+                    ScoreCanvas.SetActive(false);
+                }else ScoreCanvas.SetActive(true);
+
+
                 bronceText.text = Mathf.RoundToInt((bronceHighScores[i]) * 100) + " % " + Mathf.FloorToInt(bronceHighSeconds[i] / 60) + " min " + Mathf.RoundToInt(bronceHighSeconds[i] % 60) + " s ";
                 silverText.text = Mathf.RoundToInt((silverHighScores[i]) * 100) + " % " + Mathf.FloorToInt(silverHighSeconds[i] / 60) + " min " + Mathf.RoundToInt(silverHighSeconds[i] % 60) + " s ";
                 goldText.text = Mathf.RoundToInt((goldHighScores[i]) * 100) + " % " + Mathf.RoundToInt(goldHighSeconds[i] / 60) + " min " + Mathf.RoundToInt(goldHighSeconds[i] % 60) + " s ";

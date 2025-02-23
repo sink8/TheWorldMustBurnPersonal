@@ -69,9 +69,12 @@ public class MenuNavigation : MonoBehaviour
             {
                 ClosePauseMenu();
                 PauseOpenFalse();
+                levelMenu.SetActive(true);
+
             }
             else
             {
+                levelMenu.SetActive(false);
                 OpenPauseMenu();
                 pauseOpen = true;
             }

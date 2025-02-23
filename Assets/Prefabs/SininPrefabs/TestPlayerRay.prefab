@@ -469,6 +469,7 @@ MonoBehaviour:
   playerBodyBlue: {fileID: 2633412475315027610}
   playerBodyPurple: {fileID: 4880184542107393322}
   playerBodyRedParticle: {fileID: 3564871941632585172}
+  playerBodyyellowParticle: {fileID: 2100056395173720753}
   color2: {r: 0.64857507, g: 0.19339621, b: 1, a: 1}
   color3: {r: 0.4601589, g: 0.06132078, b: 1, a: 1}
   inputManager: {fileID: 0}
@@ -1566,6 +1567,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5348439951576324963}
     m_Modifications:
+    - target: {fileID: 2736292654081365493, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736292654081365493, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736292654081365493, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736292654081365493, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736292654081365493, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.21655278
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736292654081365493, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3843319427344013553, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1618,11 +1643,44 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6878220410809602742, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878220410809602742, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878220410809602742, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878220410809602742, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878220410809602742, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.22741422
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878220410809602742, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455063735974684658, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+--- !u!198 &2100056395173720753 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7455063735974684653, guid: bf18248e0705141458c3601a362b9e4a, type: 3}
+  m_PrefabInstance: {fileID: 8813917007942980956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2633412475315027610 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6834934142317947846, guid: bf18248e0705141458c3601a362b9e4a, type: 3}

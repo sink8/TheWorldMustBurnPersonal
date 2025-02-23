@@ -16,7 +16,7 @@ public class RayCastPlayer : MonoBehaviour
     public float moveSpeed = 8;
     [SerializeField] float gravity = -8f;
     public float jumpVelocity = 10;
-    float jumpVelocityDown = -230;
+    float jumpVelocityDown = -250;
 
     float accelerationTimeGrounded = 0.15f;
     float accelerationTimeAirborne = 0.1f;
@@ -79,7 +79,7 @@ public class RayCastPlayer : MonoBehaviour
 
 
     public GameObject playerBodyRed, playerBodyBlue, playerBodyPurple;
-    public ParticleSystem playerBodyRedParticle;
+    public ParticleSystem playerBodyRedParticle, playerBodyyellowParticle;
     public Color color2, color3;
 
     public InputManager inputManager;
@@ -194,18 +194,22 @@ public class RayCastPlayer : MonoBehaviour
         if(jumps == 0)
         {
             playerBodyRedParticle.startColor = Color.white;
+            playerBodyyellowParticle.startColor = Color.white;
 
         }
 
         if (jumps == 1)
         {
             playerBodyRedParticle.startColor = color2;
+            playerBodyyellowParticle.startColor = color2;
+
 
         }
 
         if (jumps == maxJumps)
         {
             playerBodyRedParticle.startColor = color3;
+            playerBodyyellowParticle.startColor = color3;
 
         }
 

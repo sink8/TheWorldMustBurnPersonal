@@ -31,6 +31,8 @@ public class MenuAudio : MonoBehaviour
     }
     private void OnEnable()
     {
+        AudioFW.StopLoop("FireBurningLoop");
+        print("on enable menu");
         AudioFW.PlayLoop("MenuMusic");
     }
 
