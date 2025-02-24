@@ -22,7 +22,7 @@ public class LevelEnd : MonoBehaviour
     GameManager gm;
 
     public MenuNavigation menuNav;
-    public GameObject pause;
+    //public GameObject pause;
     public PlayLoops playLoops;
     public Animator anim;
     public Image imag;
@@ -36,8 +36,9 @@ public class LevelEnd : MonoBehaviour
     public InputManager inputManager;
 
     public GameObject thisLevel;
-    public GameObject objectjoo;
     
+    public GameObject LevelEndMenu;
+    public GameObject levelEndFirstButton2;
 
     //public Transform secret1Position, secret2Position;
 
@@ -66,15 +67,15 @@ public class LevelEnd : MonoBehaviour
     }
 
     private void Update() {
-        if (levelend == true) {
-            if (timer > 0) {
-                timer -= Time.deltaTime;
-                if (timer <= 0) {
-                    timer = 0;
-                    menuNav.FadeLevelEnd();
-                }
-            }
-        }
+        //if (levelend == true) {
+        //    if (timer > 0) {
+        //        timer -= Time.deltaTime;
+        //        if (timer <= 0) {
+        //            timer = 0;
+        //            menuNav.FadeLevelEnd();
+        //        }
+        //    }
+        //}
 
         //if( playerIsonEndArea == true && allIsDone == false)
         //{
@@ -153,18 +154,26 @@ public class LevelEnd : MonoBehaviour
         }
     }
 
+    IEnumerator ShowLevelEndMenu()
+    {
+        yield return new WaitForSeconds(0.2f); // short delay
+        menuNav.OpenLevelEndMenu();
+    }
 
     IEnumerator EndLevelSequence()
     {
-       
-
+      
         //tryAgainButton.SetActive(false);
         levelend = true;
 
         LevelEndParticles();
         playLoops.StopLevelMusic();
         SaveManager.instance.SaveBin();
-        menuNav.OpenLevelEndMenu();
+        //menuNav.OpenLevelEndMenu();
+        StartCoroutine(ShowLevelEndMenu());
+        LevelEndMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(levelEndFirstButton2);
 
         EndLevelScoreTextCommon = GameObject.Find("CommonEndText").GetComponent<Text>();
         EndLevelScoreTextHighScore = GameObject.Find("HighScoreEndText").GetComponent<Text>();
@@ -175,10 +184,10 @@ public class LevelEnd : MonoBehaviour
         SecretManager.Instance.SaveSecrets();
         SecretManager.Instance.GetTotalFoundSecrets();
 
-        yield return new WaitForSeconds(0.2f); // Small delay before destroying objects
+        yield return new WaitForSeconds(0.1f); // Small delay before destroying objects
         allIsDone = true; // Only mark as done when sequence starts
         Destroy(thisLevel);
-        Destroy(objectjoo);
+        //Destroy(objectjoo);
 
         //menuNav.FadeLevelEnd(); // Transition back to the map
     }

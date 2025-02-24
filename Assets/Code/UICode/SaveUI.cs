@@ -130,7 +130,10 @@ public static SaveUI instance;
             SaveManager.instance.SaveBin();
             SecretManager.Instance.LoadSecrets();
             SecretManager.Instance.GetTotalFoundSecrets();
-
+            if (SaveManager.instance.activeSave.respawnPosition[0] == 0 && SaveManager.instance.activeSave.respawnPosition[1] == 0 && SaveManager.instance.activeSave.respawnPosition[0] == 0)
+            {
+                player.transform.position = new Vector3(-11.84f, 39.05f, 0f);
+            }
         }
         if (savenameThis == "save2"){
             activeInfo.lastSaveNumb = 2;
@@ -138,6 +141,10 @@ public static SaveUI instance;
             SaveManager.instance.SaveBin();
             SecretManager.Instance.LoadSecrets();
             SecretManager.Instance.GetTotalFoundSecrets();
+            if (SaveManager.instance.activeSave.respawnPosition[0] == 0 && SaveManager.instance.activeSave.respawnPosition[1] == 0 && SaveManager.instance.activeSave.respawnPosition[0] == 0)
+            {
+                player.transform.position = new Vector3(-11.84f, 39.05f, 0f);
+            }
         }
         if(savenameThis == "save3"){
             activeInfo.lastSaveNumb = 3;
@@ -145,6 +152,10 @@ public static SaveUI instance;
             SaveManager.instance.SaveBin();
             SecretManager.Instance.LoadSecrets();
             SecretManager.Instance.GetTotalFoundSecrets();
+            if (SaveManager.instance.activeSave.respawnPosition[0] == 0 && SaveManager.instance.activeSave.respawnPosition[1] == 0 && SaveManager.instance.activeSave.respawnPosition[0] == 0)
+            {
+                player.transform.position = new Vector3(-11.84f, 39.05f, 0f);
+            }
         }
 
         // if(activeInfo.lastSaveNumb == 1){

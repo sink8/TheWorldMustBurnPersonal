@@ -41,6 +41,7 @@ public class MenuNavigation : MonoBehaviour
 
     public bool isIntroActive = false;
     GameObject intro1;
+    private GameObject lastSelected;
 
     private void OnEnable()
     {
@@ -63,7 +64,7 @@ public class MenuNavigation : MonoBehaviour
 
     private void OnPause(InputAction.CallbackContext context)
     {
-        if (canYouOpenPauseMenu && isIntroActive == false)
+        if (canYouOpenPauseMenu && !isPlayerMoving && isIntroActive == false)
         {
             if (pauseOpen)
             {
@@ -124,8 +125,22 @@ public class MenuNavigation : MonoBehaviour
             }
 
         }
+        if (EventSystem.current.currentSelectedGameObject != null)
+        {
+            lastSelected = EventSystem.current.currentSelectedGameObject;
+        }
 
-        if(isIntroActive == true)
+        // Detect mouse click
+        if (Input.GetMouseButtonDown(0))
+        {
+            // If the click didn't hit a selectable UI element, reselect the last selected one
+            if (!IsPointerOverSelectableUI())
+            {
+                EventSystem.current.SetSelectedGameObject(lastSelected);
+            }
+        }
+
+        if (isIntroActive == true)
         {
             EventSystem.current.SetSelectedGameObject(null);
             canYouOpenPauseMenu = false;
@@ -144,7 +159,14 @@ public class MenuNavigation : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(IntroFirst);
             }
 
-        }else
+            if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
+            {
+                IntroFirst.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(IntroFirst);
+            }
+
+        }
+        else
         {
             IntroFirst.SetActive(false);
         }
@@ -204,6 +226,24 @@ public class MenuNavigation : MonoBehaviour
     }*/
     }
 
+    private bool IsPointerOverSelectableUI()
+    {
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        pointerEventData.position = Input.mousePosition;
+
+        var results = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerEventData, results);
+
+        foreach (var result in results)
+        {
+            if (result.gameObject.GetComponent<UnityEngine.UI.Selectable>() != null)
+            {
+                return true; // Pointer is over a selectable UI element
+            }
+        }
+
+        return false; // Clicked on empty space
+    }
 
     public void IsPlayerMoving()
     {

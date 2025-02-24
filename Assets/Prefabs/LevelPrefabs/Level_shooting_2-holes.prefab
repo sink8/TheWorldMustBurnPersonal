@@ -14104,7 +14104,6 @@ MonoBehaviour:
   EndLevelScoreTextHighScore: {fileID: 0}
   endLevelQuestion: {fileID: 4714067088043911586}
   menuNav: {fileID: 0}
-  pause: {fileID: 0}
   playLoops: {fileID: 0}
   anim: {fileID: 0}
   imag: {fileID: 0}
@@ -14113,7 +14112,8 @@ MonoBehaviour:
   playerParticles: []
   inputManager: {fileID: 0}
   thisLevel: {fileID: 490634867156473217}
-  objectjoo: {fileID: 490634867156473217}
+  LevelEndMenu: {fileID: 0}
+  levelEndFirstButton2: {fileID: 0}
 --- !u!1 &4685104349049353606
 GameObject:
   m_ObjectHideFlags: 0
@@ -25886,7 +25886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: jumpHeight
-      value: 3.7
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: "dashKipin\xE4"

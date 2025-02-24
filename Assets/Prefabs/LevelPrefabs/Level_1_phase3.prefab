@@ -1825,7 +1825,6 @@ MonoBehaviour:
   EndLevelScoreTextHighScore: {fileID: 0}
   endLevelQuestion: {fileID: 5103119034906263114}
   menuNav: {fileID: 0}
-  pause: {fileID: 0}
   playLoops: {fileID: 0}
   anim: {fileID: 0}
   imag: {fileID: 0}
@@ -1834,7 +1833,8 @@ MonoBehaviour:
   playerParticles: []
   inputManager: {fileID: 0}
   thisLevel: {fileID: 1941010651625693460}
-  objectjoo: {fileID: 1941010651625693460}
+  LevelEndMenu: {fileID: 0}
+  levelEndFirstButton2: {fileID: 0}
 --- !u!114 &2377556950488748130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3267,7 +3267,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4790064180112071283}
   - {fileID: 5318934281696278468}
   - {fileID: 5272461493922315390}
   - {fileID: 3695979954997429632}
@@ -11039,7 +11038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueLines:
-  - Go to your own bond
+  - Go to your own pond
   enemyHealth: {fileID: 0}
   isCloud: 0
   trigger: {fileID: 3093843984176018214}
@@ -12911,76 +12910,6 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 4653955245123474386}
   m_ConfineScreenEdges: 1
   m_Damping: 0.37
---- !u!1001 &226368029528392955
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1155765658938826484}
-    m_Modifications:
-    - target: {fileID: 4710063138608553608, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710063138608553608, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710063138608553608, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710063138608553608, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710063138608553608, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710063138608553608, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710063138608553608, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710063138608553608, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710063138608553608, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710063138608553608, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710063138608553608, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710063138608553609, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_Name
-      value: PlayerParticlesRed
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710063138608553609, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
---- !u!4 &4790064180112071283 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4710063138608553608, guid: 2a37625eac44e2d43b2cf8239d716f36, type: 3}
-  m_PrefabInstance: {fileID: 226368029528392955}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &370503162232718510
 PrefabInstance:
   m_ObjectHideFlags: 0

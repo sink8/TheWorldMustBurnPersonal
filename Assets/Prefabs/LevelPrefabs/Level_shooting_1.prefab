@@ -6904,13 +6904,13 @@ Tilemap:
   - m_RefCount: 13
     m_Data: {fileID: 11400000, guid: cf3ebc2e95f966c4ea6283ddb093a4d8, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: f20ac6ab69cbc0747b1c801f2ee8f2cf, type: 2}
+    m_Data: {fileID: 11400000, guid: 16f72fc9b54a6ba4388d3985ac4cba24, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: fd70b7875de23af468e9a56311802d46, type: 2}
+    m_Data: {fileID: 11400000, guid: 548fabe48ab02d546a826db56a31aae8, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: c4c5993a35612404ea5f30e9e4a8e7e2, type: 2}
+    m_Data: {fileID: 11400000, guid: 73d23cca8aa3ac548b96b5f6e10d23b6, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: d0939b2d3137d114ba106c66b050dd2b, type: 2}
+    m_Data: {fileID: 11400000, guid: f35fed67d0df54e43bd5b560b876c89c, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: a794f37fd8e211e428a27db5568ad468, type: 2}
   - m_RefCount: 2
@@ -7039,13 +7039,13 @@ Tilemap:
   - m_RefCount: 13
     m_Data: {fileID: 475720406, guid: 5471646192852d84686e4295d9e4e7eb, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 1662193960, guid: 6ca7ef2c81500a049a619a5e8c3f7aee, type: 3}
+    m_Data: {fileID: 1487459386, guid: 99a9e1200babc3c4eb8b1754790d9a39, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 1584970948, guid: 6ca7ef2c81500a049a619a5e8c3f7aee, type: 3}
+    m_Data: {fileID: 1786210427, guid: 99a9e1200babc3c4eb8b1754790d9a39, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -1443735720, guid: 6ca7ef2c81500a049a619a5e8c3f7aee, type: 3}
+    m_Data: {fileID: 1183054355, guid: 99a9e1200babc3c4eb8b1754790d9a39, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -201319883, guid: 6ca7ef2c81500a049a619a5e8c3f7aee, type: 3}
+    m_Data: {fileID: -866931327, guid: 99a9e1200babc3c4eb8b1754790d9a39, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1550393396, guid: 99a9e1200babc3c4eb8b1754790d9a39, type: 3}
   - m_RefCount: 2
@@ -9310,7 +9310,6 @@ MonoBehaviour:
   EndLevelScoreTextHighScore: {fileID: 0}
   endLevelQuestion: {fileID: 7328926440349655761}
   menuNav: {fileID: 0}
-  pause: {fileID: 0}
   playLoops: {fileID: 0}
   anim: {fileID: 0}
   imag: {fileID: 0}
@@ -9319,7 +9318,8 @@ MonoBehaviour:
   playerParticles: []
   inputManager: {fileID: 0}
   thisLevel: {fileID: 1932775129527976775}
-  objectjoo: {fileID: 1932775129527976775}
+  LevelEndMenu: {fileID: 0}
+  levelEndFirstButton2: {fileID: 0}
 --- !u!1 &1378948880569524427
 GameObject:
   m_ObjectHideFlags: 0
@@ -11594,7 +11594,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a056c53ce35ecb04bafb8aa7f89c128e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 365fb8d04e274124e9d961ac5f2fdf23, type: 2}
   m_sharedMaterial: {fileID: 7905345324903770091, guid: a056c53ce35ecb04bafb8aa7f89c128e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11619,8 +11619,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 26.3
+  m_fontSizeBase: 26.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11658,7 +11658,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4648683224974322772
@@ -14057,7 +14057,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.46298456, y: 0.77176845}
+  m_Offset: {x: -0.85671544, y: 1.3105377}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -14068,7 +14068,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.0063734, y: 3.573374}
+  m_Size: {x: 4.7938337, y: 4.6509113}
   m_EdgeRadius: 0
 --- !u!50 &7510936524971581511
 Rigidbody2D:

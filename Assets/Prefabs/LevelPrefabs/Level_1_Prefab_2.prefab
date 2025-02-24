@@ -650,7 +650,6 @@ MonoBehaviour:
   EndLevelScoreTextHighScore: {fileID: 0}
   endLevelQuestion: {fileID: 97448142655752991}
   menuNav: {fileID: 0}
-  pause: {fileID: 0}
   playLoops: {fileID: 0}
   anim: {fileID: 0}
   imag: {fileID: 0}
@@ -659,8 +658,9 @@ MonoBehaviour:
   playerParticles: []
   inputManager: {fileID: 0}
   thisLevel: {fileID: 744450548671310808}
-  objectjoo: {fileID: 0}
-  tryAgainButton: {fileID: 0}
+  objectjoo: {fileID: 744450548671310808}
+  LevelEndMenu: {fileID: 0}
+  levelEndFirstButton2: {fileID: 0}
 --- !u!114 &6637373040546516103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11380,7 +11380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487036440544913584, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5487036440544913584, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_fontAsset
@@ -11388,7 +11388,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 365fb8d04e274124e9d961ac5f2fdf23, type: 2}
     - target: {fileID: 5487036440544913584, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_fontSizeBase
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5487036440544913584, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_sharedMaterial
@@ -11409,6 +11409,10 @@ PrefabInstance:
     - target: {fileID: 6763246714478815745, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087352402968310371, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.300003
       objectReference: {fileID: 0}
     - target: {fileID: 7228916661027812365, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_Enabled
@@ -16750,7 +16754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487036440544913584, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5487036440544913584, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_fontAsset
@@ -16758,7 +16762,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 365fb8d04e274124e9d961ac5f2fdf23, type: 2}
     - target: {fileID: 5487036440544913584, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_fontSizeBase
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5487036440544913584, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_sharedMaterial
@@ -126141,7 +126145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5487036440544913584, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5487036440544913584, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_fontAsset
@@ -126149,7 +126153,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 365fb8d04e274124e9d961ac5f2fdf23, type: 2}
     - target: {fileID: 5487036440544913584, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_fontSizeBase
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5487036440544913584, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
       propertyPath: m_sharedMaterial
