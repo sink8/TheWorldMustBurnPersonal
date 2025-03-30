@@ -398,6 +398,7 @@ public class MenuNavigation : MonoBehaviour
     }
 
     public void OpenMixedMenuStuff() {
+        Time.timeScale = 1f;
         mixMenuStuff.SetActive(true);
         gameStarted = true;
         player.transform.position = new Vector3( SaveManager.instance.activeSave.respawnPosition[0], SaveManager.instance.activeSave.respawnPosition[1], SaveManager.instance.activeSave.respawnPosition[2]);

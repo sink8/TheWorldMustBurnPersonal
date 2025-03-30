@@ -55,6 +55,7 @@ public class LevelSelector : MonoBehaviour
 
     public void ReloadCurrentLevel()
     {
+        Time.timeScale = 1f;
         if (currentLevel != null)
         {
             Debug.Log("Destroying current level...");

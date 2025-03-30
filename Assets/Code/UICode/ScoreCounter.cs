@@ -155,6 +155,11 @@ public class ScoreCounter : MonoBehaviour
         scoreBar.color = scorebarColor.Evaluate(runningScore / 100);
     }
 
+    public void TimeScaleIsOne()
+    {
+        Time.timeScale = 1f;
+    }
+
 
 
 }// class
