@@ -11,6 +11,7 @@ public class FallingWater : MonoBehaviour
     [SerializeField] GameObject vesi_2;
     [SerializeField] GameObject block;
     [SerializeField] Animator animator_1;
+    [SerializeField] Animator animator_2;
     [SerializeField] Animator animator_fire;
 
     [SerializeField] Collider2D col;
@@ -52,7 +53,8 @@ public class FallingWater : MonoBehaviour
             fallingWater.Play();
 
             //animator_1.Play("WaterLevelDown");
-            animator_1.Play("wawywater2");
+            animator_2.Play("wateranimatioUp");
+            animator_1.Play("wateranimatioDown");
             animator_fire.Play("FireUpNewAnimation");
             col2.enabled = true;
             StartCoroutine(later());

@@ -22954,7 +22954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2824061897947788927
 Transform:
   m_ObjectHideFlags: 0
@@ -38045,15 +38045,16 @@ MonoBehaviour:
   EndLevelScoreTextHighScore: {fileID: 0}
   endLevelQuestion: {fileID: 1954633815419409165}
   menuNav: {fileID: 0}
-  pause: {fileID: 0}
   playLoops: {fileID: 0}
   anim: {fileID: 0}
   imag: {fileID: 0}
   pauseOpen: 0
+  allIsDone: 0
   playerParticles: []
   inputManager: {fileID: 0}
   thisLevel: {fileID: 0}
-  objectjoo: {fileID: 0}
+  LevelEndMenu: {fileID: 0}
+  levelEndFirstButton2: {fileID: 0}
 --- !u!1 &5133787370511926744
 GameObject:
   m_ObjectHideFlags: 0
@@ -52243,7 +52244,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 140, y: 14.08}
+  m_SizeDelta: {x: 140, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1010319817039127229
 CanvasRenderer:
@@ -179274,6 +179275,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6079924113286301198, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207652197267619424, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7763195339139239139, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
