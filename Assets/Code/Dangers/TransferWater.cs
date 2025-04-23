@@ -32,7 +32,7 @@ public class TransferWater : MonoBehaviour
         if (isTransferring)
         {
             float delta = transferSpeed * Time.deltaTime;
-print("is 1");
+        print("is 1");
     // Transfer from top (A) to bottom (B)
     if (heightTop > minHeight && heightBottom < maxHeight)
         {
@@ -62,7 +62,7 @@ print("is 1");
         if (collision.gameObject.CompareTag("Palo"))
         {
             AudioFW.Play("HitEnemyWater");
-            isTransferring = !isTransferring;
+            isTransferring = true;
             animator_fire.Play("FireUpNewAnimation");
             col2.enabled = true;
             col.enabled = false;
