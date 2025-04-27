@@ -12,7 +12,7 @@ public class TransferWater : MonoBehaviour
     [SerializeField] Collider2D col;
     [SerializeField] Collider2D col2;
 
-    public float minHeight = 0.5f;
+     float minHeight = 0.0f;
     public float maxHeight = 3f;
     public float transferSpeed = 1f;
 

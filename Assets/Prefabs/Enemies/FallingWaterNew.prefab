@@ -120,7 +120,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599441342546084279}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -315,8 +315,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1052410689
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -7971217001462765160, guid: f98c14e50fce1cd40ab75ceedd1596f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -391,7 +391,6 @@ MonoBehaviour:
   animator_fire: {fileID: 3584163605663415054}
   col: {fileID: 4089249370049240461}
   col2: {fileID: 1839438800074171231}
-  minHeight: 0.17
   maxHeight: 7.22
   transferSpeed: 1.9
   heightTop: 0

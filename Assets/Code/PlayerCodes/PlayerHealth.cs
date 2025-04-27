@@ -187,56 +187,14 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collider2D collision) {
+    private void OnCollisionEnter2D(Collision2D collision) {
+
         if (collision.gameObject.CompareTag("Water")){
+            
             AudioFW.Play("Death");
             Damaged(1);
         }
 
-        //print("osui");
-        if (collision.gameObject.CompareTag("Respawn"))
-        {
-            print("player osui");
-
-            Transform savedChild = collision.transform.Find("saved");
-            Transform preChild = collision.transform.Find("pre");
-
-            if (savedChild != null)
-            {
-                ParticleSystem particsaved = savedChild.GetComponent<ParticleSystem>();
-                if (particsaved != null)
-                {
-                    savedCheckPoint = particsaved;
-                }
-                else
-                {
-                    Debug.Log("No particle system found on the 'saved' object in Respawn");
-                }
-            }
-            else
-            {
-                Debug.Log("No 'saved' child object found in Respawn");
-            }
-
-            if (savedChild != null)
-            {
-                ParticleSystem particpre = preChild.GetComponent<ParticleSystem>();
-                if (particpre != null)
-                {
-                    preCheckPoint = particpre;
-                }
-                else
-                {
-                    Debug.Log("No particle system found on the 'saved' object in Respawn");
-                }
-            }
-
-
-            ReSpawnPoint();
-            reSpawnpoint = collision.ClosestPoint(transform.position);
-
-
-        }
 
     }
 
