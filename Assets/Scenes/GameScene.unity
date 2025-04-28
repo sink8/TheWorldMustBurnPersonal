@@ -28765,7 +28765,7 @@ MonoBehaviour:
     - 
     - 
   hasLoaded: 0
-  Maxsecrets: 0200000003000000020000000400000002000000010000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  Maxsecrets: 0200000003000000020000000400000002000000010000000100000002000000010000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!4 &997137784
 Transform:
   m_ObjectHideFlags: 0
@@ -33337,6 +33337,18 @@ PrefabInstance:
     - target: {fileID: 6899490032547032992, guid: c7ee9472ecaf5194f81d957611d1ec0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960697607949730217, guid: c7ee9472ecaf5194f81d957611d1ec0b, type: 3}
+      propertyPath: m_Tiles.Array.data[758].second.m_AllTileFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960697607949730217, guid: c7ee9472ecaf5194f81d957611d1ec0b, type: 3}
+      propertyPath: m_Tiles.Array.data[789].second.m_AllTileFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960697607949730217, guid: c7ee9472ecaf5194f81d957611d1ec0b, type: 3}
+      propertyPath: m_Tiles.Array.data[818].second.m_AllTileFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49572,7 +49584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2952213431442182557, guid: c888d0707ed667c46a33b6c50aad39b0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51954,7 +51966,7 @@ PrefabInstance:
       objectReference: {fileID: 1557770246}
     - target: {fileID: 5680549280684719714, guid: 7e8cd9b28d83c9e47bbb438a924710dc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5711713375940231944, guid: 7e8cd9b28d83c9e47bbb438a924710dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -52006,7 +52018,7 @@ PrefabInstance:
       objectReference: {fileID: 1508667546}
     - target: {fileID: 6430597660229529851, guid: 7e8cd9b28d83c9e47bbb438a924710dc, type: 3}
       propertyPath: m_text
-      value: 'Versio: 0.16'
+      value: 'Versio: 0.20'
       objectReference: {fileID: 0}
     - target: {fileID: 6716549428005230544, guid: 7e8cd9b28d83c9e47bbb438a924710dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
