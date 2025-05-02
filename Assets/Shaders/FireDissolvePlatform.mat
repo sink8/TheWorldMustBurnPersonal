@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2339339400650988990
+--- !u!114 &-5887192637432884087
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_FireDissolve 3
-  m_Shader: {fileID: -6465566751694194690, guid: 902c76b3bf23b57468a990f561f8ebe7, type: 3}
+  m_Name: FireDissolvePlatform
+  m_Shader: {fileID: -6465566751694194690, guid: 86e783d40d1c05744a988f97625e2bc6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -54,14 +54,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CutOff: 2.5
-    - _Dissolve: 0.85
-    - _EdgeWidth: 0.21
-    - _Speed: 0.41
-    - _Strength: 0.96
-    - _alphaStrenght: 1
+    - _CutOff: 7.3
+    - _Dissolve: 0.82
+    - _EdgeWidth: 0.18
+    - _Speed: 0.48
+    - _Strength: -0.8
+    - _noiseSize: 32.92
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0}
-    - _Edge_Color: {r: 9.57226, g: 1.4032633, b: 0, a: 0}
+    - _Color: {r: 8, g: 0, b: 0, a: 0}
+    - _Edge_Color: {r: 1.3176471, g: 0.30368805, b: 0, a: 0}
     - _Vector2: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
