@@ -30,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
 
     public ParticleSystem preCheckPoint;
     public ParticleSystem savedCheckPoint;
+    
 
     public Animator animat;
 
@@ -57,7 +58,7 @@ public class PlayerHealth : MonoBehaviour
                 timer -= Time.deltaTime;
                 if (timer <= 0) {
                     timer = 0;
-                    menuNav.FadeDeathPanel();
+                    //menuNav.FadeDeathPanel();
                 }
             }
         }
@@ -68,9 +69,10 @@ public class PlayerHealth : MonoBehaviour
 
         if (health >= 1)
         {
-            animat.Play("dissolve_fade");
+            //animat.Play("dissolve_fade");
             AudioFW.Play("Death");
             DestroySpark();
+            StopAllParticlesInFireParent(playerParticles);
             StartCoroutine(WaitTillRespawn());
         } else
         {
@@ -86,7 +88,7 @@ public class PlayerHealth : MonoBehaviour
             //playerController.DeathAnim();
             //anim.Play("FadeIn");
             //anim.Play("FadeOut");
-            Destroy(transform.parent.gameObject, 0.3f);
+            Destroy(transform.parent.gameObject, 1.5f);
             menuNav.OpenDeathMenu();
 
         }
@@ -94,13 +96,35 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator WaitTillRespawn()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1.5f);
         player.transform.position = reSpawnpoint;
+        StartAllParticlesInFireParent(playerParticles);
+        
     }
 
     public void DestroyLevel() {
         Destroy(transform.parent.gameObject);
     }
+
+    public void StopAllParticlesInFireParent(GameObject fireParent)
+        {
+            ParticleSystem[] particleSystems = fireParent.GetComponentsInChildren<ParticleSystem>();
+
+            foreach (var ps in particleSystems)
+            {
+                ps.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
+        }
+
+     public void StartAllParticlesInFireParent(GameObject fireParent)
+        {
+            ParticleSystem[] particleSystems = fireParent.GetComponentsInChildren<ParticleSystem>();
+
+            foreach (var ps in particleSystems)
+            {
+                ps.Play(true);
+            }
+        }
 
     // damege tarvii my�s timerin jos voi ottaa enemm�n kuin yhden damagen
     void TouchWaterY(int damage) {
@@ -203,7 +227,7 @@ public class PlayerHealth : MonoBehaviour
 
     void DestroySpark() {
         var projectileEndParticleclone = Instantiate(DeathParticle, transform.position, transform.rotation);
-        Destroy(projectileEndParticleclone.gameObject, 1);
+        Destroy(projectileEndParticleclone.gameObject, 2);
         //Destroy(projectileEndParticleclone);
     }
 

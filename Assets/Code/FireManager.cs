@@ -612,6 +612,9 @@ public class FireManager : MonoBehaviour
                 if (data.canBurn == true && data.secret == false && data.secretOther == false) {
                     amount += 1;
                 }
+                if(data.softGround == true || data.ice == true){
+                    amount += 1;
+                }
             }
         }
 
@@ -622,6 +625,9 @@ public class FireManager : MonoBehaviour
             Tile tile = mapMoving.GetTile<Tile>(pos);
             if (tile != null) {
                 if (data2.canBurn == true && data2.secret == false && data2.secretOther == false) {
+                    amount += 1;
+                }
+                if(data2.softGround == true || data2.ice == true){
                     amount += 1;
                 }
             }

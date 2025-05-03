@@ -14,13 +14,14 @@ public class BreakingPlatforms : MonoBehaviour
     public float timerBreaking = 0f;
     public float dissolveTimer = 0f;
     public float reformTimer = 0f;
-    
+    public ParticleSystem fallingAsh;
 
 
     private Renderer platformRenderer;
     private Collider2D platformCollider;
     private Material platformMaterial;
     Animator anim;
+    bool ashEnabled = true;
 
     void Start()
     {
@@ -58,6 +59,21 @@ public class BreakingPlatforms : MonoBehaviour
     {
         platformRenderer.enabled = state;
         platformCollider.enabled = state;
+        AshEnabler();
+
+    }
+
+    private void AshEnabler(){
+        if (ashEnabled == true)
+        {
+            fallingAsh.Stop();
+            ashEnabled = false;
+        }else
+        {
+            fallingAsh.Play();
+            ashEnabled = true;
+        }
+
     }
 
 
