@@ -6947,7 +6947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005915fff67bf974e9d7a6c79a4da977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelNumber: 3
+  LevelNumber: 10
   tileAmount: 0
   fm: {fileID: 3336572571949405731}
   storeScores: {fileID: 0}
@@ -6958,13 +6958,16 @@ MonoBehaviour:
   EndLevelScoreTextHighScore: {fileID: 0}
   endLevelQuestion: {fileID: 4302679650562669419}
   menuNav: {fileID: 0}
-  pause: {fileID: 0}
   playLoops: {fileID: 0}
   anim: {fileID: 7351000799002297237}
   imag: {fileID: 3403443012197069140}
   pauseOpen: 0
+  allIsDone: 0
   playerParticles: []
   inputManager: {fileID: 0}
+  thisLevel: {fileID: 0}
+  LevelEndMenu: {fileID: 0}
+  levelEndFirstButton2: {fileID: 0}
 --- !u!114 &4622598010671137530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7077,6 +7080,8 @@ MonoBehaviour:
   levelNumber: 1
   scoreValue: 0
   secretValue: 0
+  flowers: {fileID: 0}
+  flowerso: {fileID: 0}
   timer: {fileID: 0}
   fm: {fileID: 3336572571949405731}
   burnableTilesCount: 0
@@ -7116,6 +7121,7 @@ MonoBehaviour:
   bronce: {fileID: 1630007754213683182}
   silver: {fileID: 3093043147527921600}
   gold: {fileID: 6671610244251983928}
+  materialBar: {fileID: 0}
 --- !u!1 &6518599659641934330
 GameObject:
   m_ObjectHideFlags: 0
@@ -7559,7 +7565,7 @@ Transform:
   - {fileID: 3431192666964147018}
   - {fileID: 6451642969668483002}
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6861132313676572069
 GameObject:
@@ -14381,6 +14387,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1962295515380086222, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -64.64499
+      objectReference: {fileID: 0}
     - target: {fileID: 2414463419339060197, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -28.25
@@ -14399,6 +14409,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6079924113286301198, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207652197267619424, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7763195339139239139, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
@@ -76057,7 +76071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1193406780814975697, guid: 68475d0edbec5874bbfb0362e72e1bee, type: 3}
       propertyPath: m_Tiles.Array.data[758].second.m_AllTileFlags
-      value: 1073741825
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1193406780814975697, guid: 68475d0edbec5874bbfb0362e72e1bee, type: 3}
       propertyPath: m_Tiles.Array.data[759].second.m_AllTileFlags
@@ -76181,7 +76195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1193406780814975697, guid: 68475d0edbec5874bbfb0362e72e1bee, type: 3}
       propertyPath: m_Tiles.Array.data[789].second.m_AllTileFlags
-      value: 1073741825
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1193406780814975697, guid: 68475d0edbec5874bbfb0362e72e1bee, type: 3}
       propertyPath: m_Tiles.Array.data[790].second.m_AllTileFlags
@@ -76297,7 +76311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1193406780814975697, guid: 68475d0edbec5874bbfb0362e72e1bee, type: 3}
       propertyPath: m_Tiles.Array.data[818].second.m_AllTileFlags
-      value: 1073741825
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1193406780814975697, guid: 68475d0edbec5874bbfb0362e72e1bee, type: 3}
       propertyPath: m_Tiles.Array.data[819].second.m_AllTileFlags

@@ -33279,14 +33279,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4275325915454363597, guid: c7ee9472ecaf5194f81d957611d1ec0b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4929403539954637923, guid: c7ee9472ecaf5194f81d957611d1ec0b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -64.64499
-      objectReference: {fileID: 0}
     - target: {fileID: 6808249873047132721, guid: c7ee9472ecaf5194f81d957611d1ec0b, type: 3}
       propertyPath: m_Name
       value: Level_fallingStuff_2
@@ -33338,18 +33330,6 @@ PrefabInstance:
     - target: {fileID: 6899490032547032992, guid: c7ee9472ecaf5194f81d957611d1ec0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960697607949730217, guid: c7ee9472ecaf5194f81d957611d1ec0b, type: 3}
-      propertyPath: m_Tiles.Array.data[758].second.m_AllTileFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960697607949730217, guid: c7ee9472ecaf5194f81d957611d1ec0b, type: 3}
-      propertyPath: m_Tiles.Array.data[789].second.m_AllTileFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960697607949730217, guid: c7ee9472ecaf5194f81d957611d1ec0b, type: 3}
-      propertyPath: m_Tiles.Array.data[818].second.m_AllTileFlags
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38290,8 +38270,8 @@ MonoBehaviour:
   - {fileID: 963831637}
   - {fileID: 2011625743}
   - {fileID: 6731653448399695298, guid: 2d4f32ef733bec349b9aa413a1a415ea, type: 3}
-  - {fileID: 6454097123085048788, guid: a93577b39f2af2f43a016b8c572bf3ea, type: 3}
-  - {fileID: 1076654735329519655, guid: 7a6be3e6d8eb56d4ea8fdab2ac35c4d4, type: 3}
+  - {fileID: 6734345717740689223}
+  - {fileID: 2122311533}
   - {fileID: 4471839010202833880, guid: 3cfe9cb9507683c4a8694e93ea500421, type: 3}
   - {fileID: 6579436803211642233, guid: bbfdcc8ea9e8602499c6d588af4cb4ad, type: 3}
   - {fileID: 2031301725600467387, guid: c1f9d6fe1b94db64da19a21be42bb252, type: 3}
@@ -47509,6 +47489,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45af38a02b2e99e46a75f004c4a33925, type: 3}
+--- !u!1 &2122311533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2498500614147108467, guid: 45af38a02b2e99e46a75f004c4a33925, type: 3}
+  m_PrefabInstance: {fileID: 2122311532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2122957893
 GameObject:
   m_ObjectHideFlags: 0
@@ -49562,6 +49547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level_WaterCubes
       objectReference: {fileID: 0}
+    - target: {fileID: 6151724121484710869, guid: 6d3ad38cf5e649c4ca7419ec113a6422, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8071501759304039636, guid: 6d3ad38cf5e649c4ca7419ec113a6422, type: 3}
       propertyPath: menuNav
       value: 
@@ -50234,6 +50223,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39a1c72e85f2e3d468e271c4bf05d448, type: 3}
+--- !u!1 &6734345717740689223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 595535329445303659, guid: 39a1c72e85f2e3d468e271c4bf05d448, type: 3}
+  m_PrefabInstance: {fileID: 6734345717740689222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6950855265196579935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52104,7 +52098,7 @@ PrefabInstance:
       objectReference: {fileID: 1557770246}
     - target: {fileID: 5680549280684719714, guid: 7e8cd9b28d83c9e47bbb438a924710dc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5711713375940231944, guid: 7e8cd9b28d83c9e47bbb438a924710dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
