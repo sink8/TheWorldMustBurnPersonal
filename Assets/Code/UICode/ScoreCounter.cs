@@ -46,10 +46,15 @@ public class ScoreCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        runningScore = Mathf.RoundToInt((scoreValue / burnableTilesCount) * 100);
-        int percentage = Mathf.FloorToInt((scoreValue / burnableTilesCount) * 100);
-        score.text = (percentage == 100 ? 100 : Mathf.Min(percentage, 99)) + " %";
+        // runningScore = Mathf.RoundToInt((scoreValue / burnableTilesCount) * 100);
+        // int percentage = Mathf.FloorToInt((scoreValue / burnableTilesCount) * 100);
+        // score.text = (percentage == 100 ? 100 : Mathf.Min(percentage, 99)) + " %";
         //score.text =   Mathf.RoundToInt((scoreValue / burnableTilesCount)*100) + " %";
+
+        float rawPercent = (scoreValue / burnableTilesCount) * 100f;
+        int percentage = Mathf.FloorToInt(rawPercent);
+        runningScore = percentage;  
+        score.text = percentage + " %";
 
         var levelsecNum = SecretManager.Instance.GetTotalFoundSecretsLevel(levelNumber);
         flowers.text =  levelsecNum +  "/" + SaveManager.instance.Maxsecrets[levelNumber - 1];
