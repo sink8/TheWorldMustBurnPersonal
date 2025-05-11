@@ -43,7 +43,7 @@ public class LevelEnd : MonoBehaviour
     public GameObject levelEndFirstButton2;
 
     //public Transform secret1Position, secret2Position;
-
+    public RayCastPlayer castPlayer;
 
     void Start()
     {
@@ -51,7 +51,7 @@ public class LevelEnd : MonoBehaviour
         inputManager = InputManager.instance;
         playLoops = FindObjectOfType<PlayLoops>();
         playLoops.StartLevelMusic(LevelNumber);
-        
+        castPlayer = FindObjectOfType<RayCastPlayer>();
 
         tileAmount = fm.GetComponent<FireManager>().GetTileAmountSprite();
 
@@ -167,7 +167,7 @@ public class LevelEnd : MonoBehaviour
       
         //tryAgainButton.SetActive(false);
         levelend = true;
-
+        castPlayer.enabled = false;
         LevelEndParticles();
         playLoops.StopLevelMusic();
         SaveManager.instance.SaveBin();

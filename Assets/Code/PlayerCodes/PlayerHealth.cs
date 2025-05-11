@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]
     private MapManager mapManager;
+    RayCastPlayer castPlayer;
 
     public Tilemap map;
     public Tilemap mapMoving;
@@ -38,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
         //DeathUI = GameObject.Find("Menu");
         map = GameObject.FindGameObjectWithTag("Map").GetComponent<Tilemap>();
         mapMoving = GameObject.FindGameObjectWithTag("MovingMap").GetComponent<Tilemap>();
+        castPlayer = gameObject.GetComponent<RayCastPlayer>();
 
 
         menuNav = FindObjectOfType<MenuNavigation>();
@@ -66,7 +68,7 @@ public class PlayerHealth : MonoBehaviour
     public void Damaged(int damage) {
         
         health -= damage;
-
+        castPlayer.enabled = false;
         if (health >= 1)
         {
             //animat.Play("dissolve_fade");
@@ -97,6 +99,7 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator WaitTillRespawn()
     {
         yield return new WaitForSeconds(1.5f);
+        castPlayer.enabled = true;
         player.transform.position = reSpawnpoint;
         StartAllParticlesInFireParent(playerParticles);
         

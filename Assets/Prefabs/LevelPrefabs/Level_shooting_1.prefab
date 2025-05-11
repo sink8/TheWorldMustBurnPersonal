@@ -9320,6 +9320,7 @@ MonoBehaviour:
   thisLevel: {fileID: 1932775129527976775}
   LevelEndMenu: {fileID: 6059392901430052839}
   levelEndFirstButton2: {fileID: 4006686547286895541}
+  castPlayer: {fileID: 0}
 --- !u!1 &1378948880569524427
 GameObject:
   m_ObjectHideFlags: 0
@@ -18330,6 +18331,10 @@ PrefabInstance:
     - target: {fileID: 4872086885087898883, guid: 96fb7a1995b100349a033a4b76e6f1ef, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673751555563949774, guid: 96fb7a1995b100349a033a4b76e6f1ef, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: -1.2296989
       objectReference: {fileID: 0}
     - target: {fileID: 5673751555563949774, guid: 96fb7a1995b100349a033a4b76e6f1ef, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
