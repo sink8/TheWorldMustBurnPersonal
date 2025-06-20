@@ -1,7 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+//using static UnityEditor.PlayerSettings;
 
 public class SparksMoving : MonoBehaviour
 {
@@ -30,6 +31,11 @@ public class SparksMoving : MonoBehaviour
     public Vector3 hitPosition;
 
     public float burnRadius = 1.5f;
+
+    public BoundsInt bounds;
+    public Vector2 pos;
+    public GameObject dashboxPos;
+
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
         var scalepar = player.transform.localScale.x;
@@ -57,6 +63,9 @@ public class SparksMoving : MonoBehaviour
     {
         BurnFromObjectPosition();
         transform.Translate(transform.up * speed * Time.deltaTime);
+
+        
+        BurnFromPlayerPositionDashO(dashboxPos.transform);
     }
 
     void DestroySpark() {
@@ -92,7 +101,7 @@ public class SparksMoving : MonoBehaviour
 
                 Debug.DrawLine(playerPosition, pos, Color.white);
                 if (map.HasTile(gpos) && data.canBurn == true) {
-                    if (fireManager.activeFires.Contains(gpos)) return; // ei sytytet� palavaa uudestaan
+                    if (fireManager.activeFires.Contains(gpos)) return; // ei sytytetä palavaa uudestaan
                     fireManager.SetTileOnFire(gpos, data);
                 }
             } else Debug.DrawLine(playerPosition, pos, Color.red);
@@ -105,10 +114,57 @@ public class SparksMoving : MonoBehaviour
 
                 Debug.DrawLine(playerPosition, pos, Color.white);
                 if (mapMoving.HasTile(gpos) && data.canBurn == true) {
-                    if (fireManager.activeFires.Contains(gpos)) return; // ei sytytet� palavaa uudestaan
+                    if (fireManager.activeFires.Contains(gpos)) return; // ei sytytetä palavaa uudestaan
                     fireManager.SetTileOnFireMoving(gpos, data);
                 }
             } //else Debug.DrawLine(playerPosition, pos, Color.red);
         }
     }
+
+    public void BurnFromPlayerPositionDashO(Transform dashpos)
+    {
+        //playerPosition2 = player.transform.position;
+        //Vector3Int playergridPos = map.WorldToCell(playerPosition2);
+        Vector2 dashPositionO = dashpos.transform.position;
+        Vector3Int playergridPos = map.WorldToCell(dashPositionO);
+
+        int gr = Mathf.FloorToInt(burnRadius + 0.5f);
+        //var bounds = new BoundsInt(playergridPos, new Vector3Int(gr * 2 + 1, gr * 2 + 1, 1));
+        bounds = new BoundsInt(playergridPos.x - gr, playergridPos.y - gr, 0, gr * 2 + 1, gr * 2 + 1, 1);
+
+        var rsq = burnRadius * burnRadius;
+
+        foreach (var gpos in bounds.allPositionsWithin)
+        {
+            pos = (Vector2)map.CellToWorld(gpos) + Vector2.one * 0.5f;
+            TileData data = mapManager.GetTileData(gpos);
+            if (rsq >= (dashPositionO - pos).sqrMagnitude)
+            {
+
+                Debug.DrawLine(dashPositionO, pos, Color.white);
+                if (map.HasTile(gpos) && data.softGround)
+                {
+                    print("tekeekö tää mitään");
+                    if (fireManager.activeFires.Contains(gpos)) return; // ei sytytet� palavaa uudestaan
+                    fireManager.StartDestroyingSoftGround(gpos, data);
+                    //SetTileOnFire(gpos, data);
+                }
+            }
+            else Debug.DrawLine(dashPositionO, pos, Color.red);
+        }
+    }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+
+    //    if (collision.gameObject.CompareTag("DashBox"))
+    //    {
+    //        Debug.Log("dashbox");
+    //        BurnFromDashPosition();
+    //    }
+
+    //}
+
+
+
 }

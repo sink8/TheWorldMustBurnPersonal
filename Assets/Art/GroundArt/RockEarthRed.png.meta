@@ -106,6 +106,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -113,7 +139,7 @@ TextureImporter:
       name: RockEarthRed_0
       rect:
         serializedVersion: 2
-        x: 32
+        x: 48
         y: 128
         width: 32
         height: 32
@@ -134,7 +160,7 @@ TextureImporter:
       name: RockEarthRed_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 80
         y: 128
         width: 32
         height: 32
@@ -155,7 +181,7 @@ TextureImporter:
       name: RockEarthRed_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 112
         y: 128
         width: 32
         height: 32
@@ -176,8 +202,8 @@ TextureImporter:
       name: RockEarthRed_3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 48
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -197,7 +223,7 @@ TextureImporter:
       name: RockEarthRed_4
       rect:
         serializedVersion: 2
-        x: 32
+        x: 80
         y: 96
         width: 32
         height: 32
@@ -218,7 +244,7 @@ TextureImporter:
       name: RockEarthRed_5
       rect:
         serializedVersion: 2
-        x: 64
+        x: 112
         y: 96
         width: 32
         height: 32
@@ -239,8 +265,8 @@ TextureImporter:
       name: RockEarthRed_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
+        x: 48
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -260,8 +286,8 @@ TextureImporter:
       name: RockEarthRed_7
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
+        x: 80
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -281,7 +307,7 @@ TextureImporter:
       name: RockEarthRed_8
       rect:
         serializedVersion: 2
-        x: 32
+        x: 112
         y: 64
         width: 32
         height: 32
@@ -294,69 +320,6 @@ TextureImporter:
       bones: []
       spriteID: 0506ba2a279577a4884d5c93dec23c5d
       internalID: 1990778919
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RockEarthRed_9
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 37f368cbac9f0944abf4f7299f6a8c92
-      internalID: 1495390366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RockEarthRed_10
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 810b5ac8ed3b112419b4b2512309b3ef
-      internalID: 1100756609
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RockEarthRed_11
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23a403793ec62be4885e74c5936f6c40
-      internalID: 1596594688
       vertices: []
       indices: 
       edges: []
@@ -374,8 +337,6 @@ TextureImporter:
     nameFileIdTable:
       RockEarthRed_0: 398929683
       RockEarthRed_1: 1981192516
-      RockEarthRed_10: 1100756609
-      RockEarthRed_11: 1596594688
       RockEarthRed_2: 51211941
       RockEarthRed_3: -1142399810
       RockEarthRed_4: -1758446684
@@ -383,7 +344,6 @@ TextureImporter:
       RockEarthRed_6: 712638242
       RockEarthRed_7: 395969856
       RockEarthRed_8: 1990778919
-      RockEarthRed_9: 1495390366
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -106,6 +106,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -113,7 +139,7 @@ TextureImporter:
       name: RockEarthIce_0
       rect:
         serializedVersion: 2
-        x: 32
+        x: 48
         y: 128
         width: 32
         height: 32
@@ -134,7 +160,7 @@ TextureImporter:
       name: RockEarthIce_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 80
         y: 128
         width: 32
         height: 32
@@ -155,7 +181,7 @@ TextureImporter:
       name: RockEarthIce_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 112
         y: 128
         width: 32
         height: 32
@@ -176,8 +202,8 @@ TextureImporter:
       name: RockEarthIce_3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 48
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -197,7 +223,7 @@ TextureImporter:
       name: RockEarthIce_4
       rect:
         serializedVersion: 2
-        x: 32
+        x: 80
         y: 96
         width: 32
         height: 32
@@ -218,7 +244,7 @@ TextureImporter:
       name: RockEarthIce_5
       rect:
         serializedVersion: 2
-        x: 64
+        x: 112
         y: 96
         width: 32
         height: 32
@@ -239,8 +265,8 @@ TextureImporter:
       name: RockEarthIce_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
+        x: 48
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -260,8 +286,8 @@ TextureImporter:
       name: RockEarthIce_7
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
+        x: 80
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -281,7 +307,7 @@ TextureImporter:
       name: RockEarthIce_8
       rect:
         serializedVersion: 2
-        x: 32
+        x: 112
         y: 64
         width: 32
         height: 32
@@ -294,69 +320,6 @@ TextureImporter:
       bones: []
       spriteID: 5d80ebe4dc3f5394ba33ecea91815e98
       internalID: 1171328770
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RockEarthIce_9
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8ba2392686706a48b6464cdaa4e658c
-      internalID: -1179044350
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RockEarthIce_10
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1a95ad73bcbc654c977a579bec8b836
-      internalID: 2082872365
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RockEarthIce_11
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e6a3138cbb170141a71be217d895451
-      internalID: 1590693826
       vertices: []
       indices: 
       edges: []
@@ -374,8 +337,6 @@ TextureImporter:
     nameFileIdTable:
       RockEarthIce_0: 1842612005
       RockEarthIce_1: -1809363078
-      RockEarthIce_10: 2082872365
-      RockEarthIce_11: 1590693826
       RockEarthIce_2: -693931922
       RockEarthIce_3: 897041597
       RockEarthIce_4: -978223669
@@ -383,7 +344,6 @@ TextureImporter:
       RockEarthIce_6: -269701780
       RockEarthIce_7: 982766590
       RockEarthIce_8: 1171328770
-      RockEarthIce_9: -1179044350
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

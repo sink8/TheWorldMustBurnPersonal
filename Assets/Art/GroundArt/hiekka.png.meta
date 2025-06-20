@@ -106,6 +106,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -113,7 +139,7 @@ TextureImporter:
       name: hiekka_0
       rect:
         serializedVersion: 2
-        x: 32
+        x: 48
         y: 128
         width: 32
         height: 32
@@ -134,7 +160,7 @@ TextureImporter:
       name: hiekka_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 80
         y: 128
         width: 32
         height: 32
@@ -155,7 +181,7 @@ TextureImporter:
       name: hiekka_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 112
         y: 128
         width: 32
         height: 32
@@ -176,8 +202,8 @@ TextureImporter:
       name: hiekka_3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 48
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -197,7 +223,7 @@ TextureImporter:
       name: hiekka_4
       rect:
         serializedVersion: 2
-        x: 32
+        x: 80
         y: 96
         width: 32
         height: 32
@@ -218,7 +244,7 @@ TextureImporter:
       name: hiekka_5
       rect:
         serializedVersion: 2
-        x: 64
+        x: 112
         y: 96
         width: 32
         height: 32
@@ -239,8 +265,8 @@ TextureImporter:
       name: hiekka_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
+        x: 48
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -260,8 +286,8 @@ TextureImporter:
       name: hiekka_7
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
+        x: 80
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -281,7 +307,7 @@ TextureImporter:
       name: hiekka_8
       rect:
         serializedVersion: 2
-        x: 32
+        x: 112
         y: 64
         width: 32
         height: 32
@@ -294,69 +320,6 @@ TextureImporter:
       bones: []
       spriteID: bed37766ef011ca4cb2076f874b824fb
       internalID: -1111202262
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hiekka_9
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66adcd5e250428942ab79b9ad4a436df
-      internalID: -1600304549
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hiekka_10
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a05d16bbe7464d4096610b1cee2fd22
-      internalID: -459265807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hiekka_11
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9bbb73d4b600cf45a03ced3d77ce434
-      internalID: -938231822
       vertices: []
       indices: 
       edges: []
@@ -374,8 +337,6 @@ TextureImporter:
     nameFileIdTable:
       hiekka_0: 1161372752
       hiekka_1: 930647713
-      hiekka_10: -459265807
-      hiekka_11: -938231822
       hiekka_2: -1249101370
       hiekka_3: 782631128
       hiekka_4: 713427990
@@ -383,7 +344,6 @@ TextureImporter:
       hiekka_6: 1022200123
       hiekka_7: 810098319
       hiekka_8: -1111202262
-      hiekka_9: -1600304549
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

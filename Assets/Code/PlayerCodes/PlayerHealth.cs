@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public Tilemap mapMoving;
 
     public GameObject player;
-    GameObject playerParticles;
+    public GameObject playerParticles;
     public int health = 1;
     public float timer = 1f;
 
@@ -31,6 +31,8 @@ public class PlayerHealth : MonoBehaviour
 
     public ParticleSystem preCheckPoint;
     public ParticleSystem savedCheckPoint;
+    PlayerHealth playerHealth;
+    BoxCollider2D collider2D;
     
 
     public Animator animat;
@@ -45,7 +47,9 @@ public class PlayerHealth : MonoBehaviour
         menuNav = FindObjectOfType<MenuNavigation>();
         playerController = FindObjectOfType<RayCastPlayer>();
         playLoops = FindObjectOfType<PlayLoops>();
-        playerParticles = GameObject.Find("AllPlayerParticles");
+        playerHealth = gameObject.GetComponent<PlayerHealth>();
+        collider2D = gameObject.GetComponent<BoxCollider2D>();
+        //playerParticles = GameObject.Find("AllPlayerParticles");
 
         //fade = FindObjectOfType<FadePanel>();
     }
@@ -69,30 +73,34 @@ public class PlayerHealth : MonoBehaviour
         
         health -= damage;
         castPlayer.enabled = false;
-        if (health >= 1)
+        if (health >= 1 && fadebool == false)
         {
             //animat.Play("dissolve_fade");
             AudioFW.Play("Death");
             DestroySpark();
             StopAllParticlesInFireParent(playerParticles);
+            playerHealth.enabled = false;
+            collider2D.enabled = false;
+            fadebool = true;
             StartCoroutine(WaitTillRespawn());
-        } else
-        {
-            playLoops.StopLevelMusic();
-            health = 0;
-            // kuolema animaatio
-            if (fadebool == false) {
-                DestroySpark();
-                fadebool = true;
-                AudioFW.Play("Death");
-            }
-            player.GetComponent<RayCastPlayer>().enabled = false;
-            //playerController.DeathAnim();
-            //anim.Play("FadeIn");
-            //anim.Play("FadeOut");
-            Destroy(transform.parent.gameObject, 1.5f);
-            menuNav.OpenDeathMenu();
+            //} else
+            //{
+            //    playLoops.StopLevelMusic();
+            //    health = 0;
+            //    // kuolema animaatio
+            //    if (fadebool == false) {
+            //        DestroySpark();
+            //        fadebool = true;
+            //        AudioFW.Play("Death");
+            //    }
+            //    player.GetComponent<RayCastPlayer>().enabled = false;
+            //    //playerController.DeathAnim();
+            //    //anim.Play("FadeIn");
+            //    //anim.Play("FadeOut");
+            //    Destroy(transform.parent.gameObject, 1.5f);
+            //    menuNav.OpenDeathMenu();
 
+            //}
         }
     }
 
@@ -102,7 +110,10 @@ public class PlayerHealth : MonoBehaviour
         castPlayer.enabled = true;
         player.transform.position = reSpawnpoint;
         StartAllParticlesInFireParent(playerParticles);
-        
+        playerHealth.enabled = true;
+        collider2D.enabled = true;
+        fadebool = false;
+
     }
 
     public void DestroyLevel() {

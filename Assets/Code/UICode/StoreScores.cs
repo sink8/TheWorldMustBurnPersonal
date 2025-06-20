@@ -48,6 +48,10 @@ public class StoreScores : MonoBehaviour
 
     [SerializeField] int howManyFlowersNeedsToBeFound_1 = 7;
 
+    [SerializeField] int howManyForBurnEnd = 10;
+    int countForTheEnd = 0;
+
+
     private async void Start() {
         //levels = GameObject.FindGameObjectsWithTag("Level");
 
@@ -100,7 +104,7 @@ public class StoreScores : MonoBehaviour
             }
         }
 
-        for (int j = 0; j < 20; j++) {
+        for (int j = 0; j < levelAmount; j++) {
 
 
             if (bronceHighScores[j] >= 0.1 || silverHighScores[j] >= 0.1 || goldHighScores[j] >= 0.1) {
@@ -110,8 +114,17 @@ public class StoreScores : MonoBehaviour
             }
         }
 
+        for (int K = 0; K < levelAmount; K++)
+        {
+
+            if ( goldHighScores[K] >= 0.1)
+            {
+                countForTheEnd++;
+            }
+        }
+
         // secrets, how will those be opened. Shitty way but I'm in hurry
-        if(SecretManager.Instance.secretsFound >= 7)
+        if (SecretManager.Instance.secretsFound >= 7)
         {
             levels[20].GetComponent<MovingOnLevelsMap>().locked = false;
             locks[20].SetActive(false);

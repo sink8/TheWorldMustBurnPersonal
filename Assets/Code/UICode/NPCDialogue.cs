@@ -23,6 +23,7 @@ public class NPCDialogue : MonoBehaviour
 
     public bool isPlant, isWater, isPilvi, isRock;
     public Animator anim;
+    public bool hasHealth = true;
 
     void Start()
     {
@@ -106,6 +107,14 @@ public class NPCDialogue : MonoBehaviour
             }
 
 
+        if(enemyHealth == null)
+        {
+            return;
+        } else
+
+        {
+
+
             if (enemyHealth.health == 0)
             {
                 lineIndex = 1;
@@ -113,7 +122,10 @@ public class NPCDialogue : MonoBehaviour
                 group.alpha = 1;
                 dialogueStarted = true;
             }
+        
+
         }
+    }
 
     
 }

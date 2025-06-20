@@ -6,14 +6,21 @@ public class TriggerLongFire : MonoBehaviour
     public List<Animator> animList;
     public GameObject airUp;
     public Animator smoke1, smoke2;
-    public string smokeName = "Smoke2_anim"; 
+    public string smokeName = "Smoke2_anim";
+    [SerializeField] bool activateByHand = false;
 
     void Start()
     {
 
     }
 
-
+    private void Update()
+    {
+        if(activateByHand == true)
+        {
+            StartAnimations(smokeName);
+        } 
+    }
 
     void StartAnimations(string animation_)
     {

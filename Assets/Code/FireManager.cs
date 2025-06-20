@@ -612,6 +612,7 @@ public class FireManager : MonoBehaviour
                 if (data.canBurn == true && data.secret == false && data.secretOther == false) {
                     amount += 1;
                 }
+
                 if(data.softGround == true || data.ice == true){
                     amount += 1;
                 }
@@ -811,7 +812,7 @@ public class FireManager : MonoBehaviour
 
     }
 
-    void StartDestroyingSoftGround(Vector3Int tilePosition, TileData data)
+    public void StartDestroyingSoftGround(Vector3Int tilePosition, TileData data)
     {
         //map.SetColliderType(tilePosition, Tile.ColliderType.None);
         BurnedParticleKpinäts(tilePosition);
