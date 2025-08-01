@@ -9,6 +9,7 @@ public class LehtiOlio : MonoBehaviour
     [SerializeField] GameObject dialogue;
     [SerializeField] ParticleSystem ash;
     [SerializeField] float delayBeforeBurned = 2f; // Delay in seconds
+    EnemyAttack enemyAttack;
     SpriteRenderer sprite;
 
     private bool hasBurned = false;
@@ -17,6 +18,7 @@ public class LehtiOlio : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        enemyAttack = GetComponent<EnemyAttack>();
     }
 
 
@@ -29,8 +31,9 @@ public class LehtiOlio : MonoBehaviour
             animator.Play("LEHTIOLIO_BURN");
             //AudioFW.Play("HitEnemyWater");
 
-            ash.Play();
-        dialogue.SetActive(false);
+            //ash.Play();
+            //dialogue.SetActive(false);
+            enemyAttack.StopShooting();
             StartCoroutine(SwitchToBurned());
 
         }
@@ -39,8 +42,10 @@ public class LehtiOlio : MonoBehaviour
     }
     IEnumerator SwitchToBurned()
     {
+        enemyAttack.enabled = false;
         yield return new WaitForSeconds(delayBeforeBurned);
         LehtiBurned.SetActive(true);
         sprite.enabled = false;
+
     }
 }

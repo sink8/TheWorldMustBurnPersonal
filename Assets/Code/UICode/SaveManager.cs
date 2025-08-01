@@ -14,7 +14,7 @@ public class SaveManager : MonoBehaviour
     public bool hasLoaded;
     StoreScores storeScores;
 
-    public int[] Maxsecrets = new int[20];
+    public int[] Maxsecrets = new int[35];
     //public int numberOfLevels = 20;
 
     private void Awake() {
@@ -121,18 +121,18 @@ public class SaveData {
 
 
     public string saveName;
-    public bool[] levelFinished = new bool[20];
+    public bool[] levelFinished = new bool[35];
     public float[] respawnPosition = new float[3];
     public int test;
-    public float[] bronceHighScoresSave = new float[20];
-    public float[] silverHighScoresSave = new float[20];
-    public float[] goldHighScoresSave = new float[20];
+    public float[] bronceHighScoresSave = new float[35];
+    public float[] silverHighScoresSave = new float[35];
+    public float[] goldHighScoresSave = new float[35];
 
-    public float[] bronceHighSecondsSave = new float[20];
-    public float[] silverHighSecondsSave = new float[20];
-    public float[] goldHighSecondsSave = new float[20];
+    public float[] bronceHighSecondsSave = new float[35];
+    public float[] silverHighSecondsSave = new float[35];
+    public float[] goldHighSecondsSave = new float[35];
 
-    public int[] secretsFound = new int[20];
-    public int[] flowersFound = new int[20];
-    public string[] secretsFoundNames = new string[20];
+    public int[] secretsFound = new int[35];
+    public int[] flowersFound = new int[35];
+    public string[] secretsFoundNames = new string[35];
 }

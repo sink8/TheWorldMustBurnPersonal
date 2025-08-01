@@ -19,11 +19,13 @@ public class TransferWater : MonoBehaviour
     public float heightTop;
     public float heightBottom;
     public bool isTransferring = false;
-
+    public ParticleSystem particless;
+    private SpriteRenderer spriteRenderer;
     void Start()
     {
         heightTop = waterBoxA.localScale.y;
         heightBottom = waterBoxB.localScale.y;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -61,13 +63,14 @@ public class TransferWater : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Palo"))
         {
+            particless.Play();
             AudioFW.Play("HitEnemyWater");
             isTransferring = true;
             animator_fire.Play("FireUpNewAnimation");
             col2.enabled = true;
             col.enabled = false;
-            
-            //Destroy(gameObject, 0.7f);
+            spriteRenderer.enabled = false;
+            Destroy(particless, 2);
         }
     }
 }
