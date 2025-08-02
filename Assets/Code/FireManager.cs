@@ -499,6 +499,7 @@ public class FireManager : MonoBehaviour
         TileData data = mapManager.GetTileDataMoving(position);
 
         if(data.secret == true){
+            secretsFound = +1;
             foreach(var secr in secrets.ToArray()){
                 if(secr.transform.position.x - 0.5f == position.x && secr.transform.position.y - 0.5f == position.y){
                     scoreCounter.secretValue += 1;
@@ -604,16 +605,37 @@ public class FireManager : MonoBehaviour
         // loop through all of the tiles        
         BoundsInt bounds = map.cellBounds;
         BoundsInt bounds2 = mapMoving.cellBounds;
-        foreach (Vector3Int pos in bounds.allPositionsWithin) {
+        
+        foreach (Vector3Int pos in bounds.allPositionsWithin)
+        {
             TileData data = mapManager.GetTileData(pos);
-            TileData data2 = mapManager.GetTileDataMoving(pos);
+
             Tile tile = map.GetTile<Tile>(pos);
-            if (tile != null) {
-                if (data.canBurn == true && data.secret == false && data.secretOther == false) {
+
+            if (tile == null && data != null && data.ice)
+            {
+                //Debug.Log("Ice tile at " + pos + " but tile is null!");
+                // en tiedä mikksi nää nulleja
+                amount += 1;
+            }
+
+
+            if (tile != null)
+            {
+
+
+                if ((data.canBurn == true && data.secret == false && data.secretOther == false))
+                {
                     amount += 1;
                 }
 
-                if(data.softGround == true || data.ice == true){
+                if (data.softGround == true)
+                {
+                    amount += 1;
+                }
+
+                if (data.ice == true)
+                {
                     amount += 1;
                 }
             }
@@ -628,7 +650,7 @@ public class FireManager : MonoBehaviour
                 if (data2.canBurn == true && data2.secret == false && data2.secretOther == false) {
                     amount += 1;
                 }
-                if(data2.softGround == true || data2.ice == true){
+                if(data2.softGround == true ){
                     amount += 1;
                 }
             }
