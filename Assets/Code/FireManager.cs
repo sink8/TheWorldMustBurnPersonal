@@ -612,7 +612,7 @@ public class FireManager : MonoBehaviour
 
             Tile tile = map.GetTile<Tile>(pos);
 
-            if (tile == null && data != null && data.ice)
+            if (tile == null && data != null && data.softGround)
             {
                 //Debug.Log("Ice tile at " + pos + " but tile is null!");
                 // en tiedä mikksi nää nulleja
