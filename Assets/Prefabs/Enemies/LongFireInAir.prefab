@@ -96,7 +96,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5058824, g: 1, b: 0.6431373, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -658,7 +658,7 @@ Animator:
   m_GameObject: {fileID: 4794129111817759532}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3a444e826822f6743a57aca603e39132, type: 2}
+  m_Controller: {fileID: 9100000, guid: b9dd695ff76faa147acf91ea6afecdb7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -711,7 +711,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.504717, g: 1, b: 0.64112324, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -946,7 +946,7 @@ MonoBehaviour:
   airUp: {fileID: 3442754339926707065}
   smoke1: {fileID: 3380848168152024065}
   smoke2: {fileID: 3658897128502084248}
-  smokeName: Smoke2_anim
+  smokeName: Smoke_light
   activateByHand: 0
 --- !u!61 &4523371020582276096
 BoxCollider2D:
@@ -6431,6 +6431,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5044021916860438794, guid: 5a427f6277c61c4438676079a9820043, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044021916860438794, guid: 5a427f6277c61c4438676079a9820043, type: 3}
       propertyPath: VelocityModule.orbitalX.scalar
       value: 0.04
       objectReference: {fileID: 0}
@@ -6476,15 +6480,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5044021916860438794, guid: 5a427f6277c61c4438676079a9820043, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0.6101276
+      value: 0.53456455
       objectReference: {fileID: 0}
     - target: {fileID: 5044021916860438794, guid: 5a427f6277c61c4438676079a9820043, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 1
+      value: 0.745283
       objectReference: {fileID: 0}
     - target: {fileID: 5044021916860438794, guid: 5a427f6277c61c4438676079a9820043, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.5058824
+      value: 0.094918124
       objectReference: {fileID: 0}
     - target: {fileID: 5044021916860438794, guid: 5a427f6277c61c4438676079a9820043, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.b

@@ -13,7 +13,7 @@ public class ScoreCounter : MonoBehaviour
     public GameObject flowerso;
     public GameObject timer;
     public FireManager fm;
-    GameTimer gameTimer;
+    [SerializeField] GameTimer gameTimer;
     StoreScores storeScores;
     [SerializeField] int burnableTilesCount;
     int secretsInThisLevel;
@@ -29,7 +29,10 @@ public class ScoreCounter : MonoBehaviour
     {
         if(SaveManager.instance.activeSave.levelFinished[levelNumber - 1] == true)
         {
+            Text uiText = timer.GetComponent<Text>();
+            uiText.enabled = true;
             timer.SetActive(true);
+
         }
         materialBar.SetColor("_Color_1", new Color(191, 22, 0, 1));
         fm = FindObjectOfType<FireManager>();

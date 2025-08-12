@@ -53,7 +53,16 @@ public static SaveUI instance;
         LoadBinInfo();
         UpdateSaveText();
 
-        if(SaveManager.instance.activeSave.respawnPosition[0] == 0 && SaveManager.instance.activeSave.respawnPosition[1] == 0 && SaveManager.instance.activeSave.respawnPosition[0] == 0){
+        if (activeInfo.lastSaveNumb == 1)
+            SaveManager.instance.activeSave.saveName = "save1";
+        else if (activeInfo.lastSaveNumb == 2)
+            SaveManager.instance.activeSave.saveName = "save2";
+        else if (activeInfo.lastSaveNumb == 3)
+            SaveManager.instance.activeSave.saveName = "save3";
+
+        SaveManager.instance.LoadBin();
+
+        if (SaveManager.instance.activeSave.respawnPosition[0] == 0 && SaveManager.instance.activeSave.respawnPosition[1] == 0 && SaveManager.instance.activeSave.respawnPosition[0] == 0){
             player.transform.position = new Vector3(-11.84f,39.05f,0f);
         }
     }
