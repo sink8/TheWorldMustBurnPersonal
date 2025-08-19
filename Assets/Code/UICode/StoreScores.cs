@@ -49,7 +49,7 @@ public class StoreScores : MonoBehaviour
     [SerializeField] int howManyFlowersNeedsToBeFound_1 = 7;
 
     [SerializeField] int howManyForBurnEnd = 10;
-    int countForTheEnd = 0;
+    public int countForTheEnd = 0;
 
 
     private async void Start() {

@@ -14,6 +14,7 @@ public class ParallaxLayer : MonoBehaviour
     bool previousMoveParallaxLayers;
     ParallaxOptions po;
     public Camera cam;
+    
 
     void OnEnable() {
         //cam = Camera.main;
