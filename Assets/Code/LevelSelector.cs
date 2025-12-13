@@ -32,14 +32,14 @@ public class LevelSelector : MonoBehaviour
         {
             SecretManager.Instance.LoadSecrets();
         }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Debug.Log("added secrets d: ");
-            //SecretManager.Instance.AddSecret(levelNum, "secret1");
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    Debug.Log("added secrets d: ");
+        //    //SecretManager.Instance.AddSecret(levelNum, "secret1");
 
-            SecretManager.Instance.AddSecret(2, "secret1");
-            SecretManager.Instance.AddSecret(1, "secret3");
-        }
+        //    SecretManager.Instance.AddSecret(2, "secret1");
+        //    SecretManager.Instance.AddSecret(1, "secret3");
+        //}
         if (Input.GetKeyDown(KeyCode.T))
         {
             Debug.Log("Total secrets found: " + SecretManager.Instance.GetTotalFoundSecrets());

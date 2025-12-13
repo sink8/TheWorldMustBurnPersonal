@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
@@ -11,30 +11,30 @@ using Newtonsoft.Json;
 
     public static SecretManager Instance;
     public int totalAmountSecrets;
-    public int secretdoor1 = 5;
-    public int secretdoor2 = 10;
+    public int secretdoor1 = 7;
+    public int secretdoor2 = 17;
+    public int secretdoor3 = 25;
 
     public int secretsFound = 0;
 
     public Dictionary<int, HashSet<string>> foundSecrets;
 
-    public TMPro.TextMeshProUGUI Secret1, Secret2;
+    public TMPro.TextMeshProUGUI Secret1, Secret2, Secret3, allFlowers;
 
     public int activeSaveForThis;
     [SerializeField] SaveUI saveUI;
 
+    private int lastLoadedSave = -1;
+
     void Awake()
     {
-        // // Implement Singleton pattern to ensure only one instance of SecretManager exists
-        if (Instance == null)
-        {
+        if (Instance == null) {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Persist across scenes
-            foundSecrets = new Dictionary<int, HashSet<string>>(); // Initialize the dictionary
-        }
-        else
-        {
+            DontDestroyOnLoad(gameObject);
+            foundSecrets = new Dictionary<int, HashSet<string>>();
+        } else {
             Destroy(gameObject);
+            return;
         }
 
         activeSaveForThis =  saveUI.saveNumber ;
@@ -49,9 +49,19 @@ using Newtonsoft.Json;
     {
         activeSaveForThis = saveUI.saveNumber;
 
-        //secretsFound = GetTotalFoundSecrets();
-        Secret1.text = secretsFound.ToString() + "/7";
-        Secret2.text = secretsFound.ToString() + "/13";
+        // ✅ Detect if the player switched saves
+        if (activeSaveForThis != lastLoadedSave) {
+            LoadSecrets();                // reload secrets from correct file
+            GetTotalFoundSecrets();       // update count
+            lastLoadedSave = activeSaveForThis;
+            Debug.Log($"Secrets reloaded for save slot {activeSaveForThis}");
+        }
+
+        // ✅ Update UI
+        Secret1.text = $"{secretsFound}/7";
+        Secret2.text = $"{secretsFound}/17";
+        Secret3.text = $"{secretsFound}/27";
+        allFlowers.text = secretsFound.ToString();
 
 
     }
@@ -110,34 +120,58 @@ using Newtonsoft.Json;
     public void SaveSecrets()
         {
         //Example implementation for saving secrets using JSON
-            string json = JsonConvert.SerializeObject(new SerializableDictionary<int, HashSet<string>>(foundSecrets));
-        File.WriteAllText(Application.dataPath + "/save" + activeSaveForThis.ToString() + "secrets.json", json);
+        string path = Path.Combine(Application.persistentDataPath, $"save{activeSaveForThis}secrets.json");
+
+        string json = JsonConvert.SerializeObject(new SerializableDictionary<int, HashSet<string>>(foundSecrets));
+        // Write the file
+        File.WriteAllText(path, json);
         Debug.Log("save stuff " + json + Application.dataPath);
 
         //var json = JsonConvert.SerializeObject(new SerializedData());
         //File.WriteAllText(Application.dataPath + "savedata.json", json);
     }
 
-        // Method to load secrets
-        public void LoadSecrets()
-        {
-            // Example implementation for loading secrets using JSON
-            string path = Application.dataPath + "/save" + activeSaveForThis.ToString() + "secrets.json";
-            if (File.Exists(path))
-            {
-            string json = File.ReadAllText(path);
-            SerializableDictionary<int, HashSet<string>> data = JsonConvert.DeserializeObject<SerializableDictionary<int, HashSet<string>>>(json);
-            var ser = JsonConvert.DeserializeObject<SerializableDictionary<int, HashSet<string>>>(json);
-            foundSecrets = data.ToDictionary();
+    public void ResetSecretsForSave(int saveSlot) {
+        string path = Path.Combine(Application.persistentDataPath, $"save{saveSlot}secrets.json");
+        if (File.Exists(path)) File.Delete(path);
+    }
 
-            print("secrets loaded");
-            Debug.Log(json);
-            Debug.Log(ser);
+    // Method to load secrets
+    public void LoadSecrets()
+        {
+
+        string path = Path.Combine(Application.persistentDataPath, $"save{activeSaveForThis}secrets.json");
+
+        if (File.Exists(path)) {
+            string json = File.ReadAllText(path);
+            SerializableDictionary<int, HashSet<string>> data =
+                JsonConvert.DeserializeObject<SerializableDictionary<int, HashSet<string>>>(json);
+            foundSecrets = data.ToDictionary();
+            Debug.Log($"Secrets loaded for save {activeSaveForThis}");
+        } else {
+            foundSecrets = new Dictionary<int, HashSet<string>>(); // ✅ fresh empty dict
+            Debug.Log($"No secrets file found for save {activeSaveForThis}, starting clean.");
         }
+        // Example implementation for loading secrets using JSON
+        //string path = Application.dataPath + "/save" + activeSaveForThis.ToString() + "secrets.json";
+        //    if (File.Exists(path))
+        //    {
+        //    string json = File.ReadAllText(path);
+        //    SerializableDictionary<int, HashSet<string>> data = JsonConvert.DeserializeObject<SerializableDictionary<int, HashSet<string>>>(json);
+        //    var ser = JsonConvert.DeserializeObject<SerializableDictionary<int, HashSet<string>>>(json);
+        //    foundSecrets = data.ToDictionary();
+
+        //    print("secrets loaded");
+        //    Debug.Log(json);
+        //    Debug.Log(ser);
+        //}
         }
+
+
     public void ClearSecrets()
     {
-        string path = Application.dataPath + "/save" + activeSaveForThis.ToString() + "secrets.json";
+        string path = Path.Combine(Application.persistentDataPath, $"save{activeSaveForThis}secrets.json");
+        //string path = Application.dataPath + "/save" + activeSaveForThis.ToString() + "secrets.json";
 
         if (File.Exists(path))
         {
@@ -152,8 +186,8 @@ using Newtonsoft.Json;
 
     public void ClearSecretsSave(int i)
     {
-        string path = Application.dataPath + "/save" + i.ToString() + "secrets.json";
-
+        //string path = Application.dataPath + "/save" + i.ToString() + "secrets.json";
+        string path = Path.Combine(Application.persistentDataPath, $"save{i}secrets.json");
         if (File.Exists(path))
         {
             File.Delete(path);
@@ -186,8 +220,14 @@ using Newtonsoft.Json;
         return 0;
     }
 
-
+    public void RefreshSecretsForActiveSave() {
+        activeSaveForThis = saveUI.saveNumber;
+        LoadSecrets();
+        GetTotalFoundSecrets();
     }
+
+
+}
 
 
     
@@ -224,6 +264,8 @@ public class SerializableDictionary<TKey, TValue> : ISerializationCallbackReceiv
             dictionary.Add(keys[i], values[i]);
         }
     }
+
+
 
     public Dictionary<TKey, TValue> ToDictionary()
     {

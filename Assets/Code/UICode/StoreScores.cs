@@ -6,7 +6,7 @@ using TMPro;
 
 public class StoreScores : MonoBehaviour
 {
-    public int levelAmount = 20;
+    public int levelAmount = 33;
 
 
 
@@ -126,9 +126,23 @@ public class StoreScores : MonoBehaviour
         // secrets, how will those be opened. Shitty way but I'm in hurry
         if (SecretManager.Instance.secretsFound >= 7)
         {
-            levels[20].GetComponent<MovingOnLevelsMap>().locked = false;
-            locks[20].SetActive(false);
-            finished[20].GetComponent<Renderer>().sortingOrder = 40;
+            levels[30].GetComponent<MovingOnLevelsMap>().locked = false;
+            locks[30].SetActive(false);
+            finished[30].GetComponent<Renderer>().sortingOrder = 40;
+        }
+
+        if (SecretManager.Instance.secretsFound >= 17)
+        {
+            levels[31].GetComponent<MovingOnLevelsMap>().locked = false;
+            locks[31].SetActive(false);
+            finished[31].GetComponent<Renderer>().sortingOrder = 40;
+        }
+
+        if (SecretManager.Instance.secretsFound >= 30)
+        {
+            levels[32].GetComponent<MovingOnLevelsMap>().locked = false;
+            locks[32].SetActive(false);
+            finished[32].GetComponent<Renderer>().sortingOrder = 40;
         }
 
         //if (bronceHighScores[0] >= 0.5 || silverHighScores[0] >= 0.5 || goldHighScores[0] >= 0.5) {
@@ -145,11 +159,12 @@ public class StoreScores : MonoBehaviour
     public void UpdateScores() {
         for(int i = 0; i < levels.Length; i++) {
             if (player.transform.position == levels[i].transform.position) {
-                if (bronceHighScores[i] == 0 && silverHighScores[i] == 0 && goldHighScores[i] == 0)
-                {
+                if (bronceHighScores[i] == 0 && silverHighScores[i] == 0 && goldHighScores[i] == 0) {
+                    print("scores");
                     ScoreCanvas.SetActive(false);
-                }else ScoreCanvas.SetActive(true);
+                } else { ScoreCanvas.SetActive(true); }
 
+                print("same area");
 
                 bronceText.text = Mathf.RoundToInt((bronceHighScores[i]) * 100) + " % " + Mathf.FloorToInt(bronceHighSeconds[i] / 60) + " min " + Mathf.RoundToInt(bronceHighSeconds[i] % 60) + " s ";
                 silverText.text = Mathf.RoundToInt((silverHighScores[i]) * 100) + " % " + Mathf.FloorToInt(silverHighSeconds[i] / 60) + " min " + Mathf.RoundToInt(silverHighSeconds[i] % 60) + " s ";

@@ -16,6 +16,7 @@ public class SaveManager : MonoBehaviour
 
     public int[] Maxsecrets = new int[35];
     //public int numberOfLevels = 20;
+    
 
     private void Awake() {
         storeScores = FindObjectOfType<StoreScores>();
@@ -110,6 +111,8 @@ public void DeleteSavedDataBin(){
         File.Delete(Directory.GetCurrentDirectory().ToString() + "FireSaves/" + activeSave.saveName + ".bin");
     }
 }
+
+
 
     
 } // class

@@ -60,11 +60,23 @@ public class MixedUICode : MonoBehaviour
             "\n Other music by Eric Matyas  www.soundimage.org" + 
             "\n Alley-Grunge, Fantasy Forest Battle, Forest Chase, Fantasy World Menu 2, A Flock of Bubbles Looping  " +
             "\n " +
-            " \n Special thanks " +
+            "\n Special thanks " +
             "\n Friends and family" +
-            "\n Gametesters" +
-            "\n LGIN community, mentors and Suvi " +
-            "\n Laajasalon Opisto students and teachers " ;
+            "\n Aunt Ippa" +
+            "\n Sade ja Viima" +
+            "\n Gametesters, especially" +
+            "\n Borb" +
+            "\n Tiine Yrjönsalo" +
+            "\n Ida Pihlajamaa" +
+            "\n Aleksi (RiceMunk) Suutarinen" +
+            "\n Mansku" +
+            "\n Minna and Sami"+
+            "\n Aki Kanerva" +
+            "\n All LGIN Finland testesrs" +
+            "\n IGDA Finland Helsinki testers" +
+            "\n" +
+            "\n LGIN community, mentors and Suvi Kiviniemi" +
+            "\n ANd last but not least, Laajasalon Opisto. Year 2020-2021 and teachers Yrjö Peussa and Andrei Rodriguez and all the students who tested" ;
 
     }
 

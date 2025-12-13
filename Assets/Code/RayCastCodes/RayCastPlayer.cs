@@ -16,7 +16,7 @@ public class RayCastPlayer : MonoBehaviour
     public float moveSpeed = 8;
     [SerializeField] float gravity = -8f;
     public float jumpVelocity = 10;
-    float jumpVelocityDown = -250;
+    float jumpVelocityDown = -310;
 
     float accelerationTimeGrounded = 0.15f;
     float accelerationTimeAirborne = 0.1f;
@@ -78,7 +78,7 @@ public class RayCastPlayer : MonoBehaviour
     // animation states
 
 
-    public GameObject playerBodyRed, playerBodyBlue, playerBodyPurple;
+    public GameObject playerBodyRed, playerBodyBlue, playerBodyPurple, playerBodyBlack, playerBodyGreen, playerBodyWhite;
     public ParticleSystem playerBodyRedParticle, playerBodyyellowParticle;
     public Color color2, color3;
 
@@ -86,6 +86,8 @@ public class RayCastPlayer : MonoBehaviour
     Vector2 moveInput;
 
     gamact1 _inputActions;
+
+    SaveUI saveUI;
     private void OnEnable()
     {
         _inputActions = new gamact1();
@@ -110,6 +112,7 @@ public class RayCastPlayer : MonoBehaviour
         inputManager = InputManager.instance;
 
         gm = FindObjectOfType<GameManager>();
+        saveUI = FindObjectOfType<SaveUI>();
 
         controller = GetComponent<RayCast2DController>();
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -120,6 +123,31 @@ public class RayCastPlayer : MonoBehaviour
         dashTime = startDashTime;
         playerHealth = FindObjectOfType<PlayerHealth>();
         gameStart = FindObjectOfType<GameStart>();
+
+        if (saveUI.isPurple) {
+            playerBodyRed.SetActive(false);
+            playerBodyBlue.SetActive(false);
+            playerBodyPurple.SetActive(true);
+            playerBodyBlack.SetActive(false);
+            playerBodyGreen.SetActive(false);
+
+        }
+        if (saveUI.isBlack) {
+            playerBodyRed.SetActive(false);
+            playerBodyBlue.SetActive(false);
+            playerBodyPurple.SetActive(false);
+            playerBodyBlack.SetActive(true);
+            playerBodyGreen.SetActive(false);
+
+        }
+        if (saveUI.isGreen) {
+            playerBodyRed.SetActive(false);
+            playerBodyBlue.SetActive(false);
+            playerBodyPurple.SetActive(false);
+            playerBodyBlack.SetActive(false);
+            playerBodyGreen.SetActive(true);
+
+        }
 
     }
 
@@ -144,21 +172,23 @@ public class RayCastPlayer : MonoBehaviour
             lookingLeft = false;
         }
         transform.localScale = characterScale;
+        if(saveUI.colorChanged == false) {
 
-        if (gm.State == PowerupType.None) {
-            playerBodyRed.SetActive(true);
-            playerBodyBlue.SetActive(false);
-            playerBodyPurple.SetActive(false);
-        } else if (gm.State == PowerupType.Projectile) {
-            playerBodyRed.SetActive(false);
-            playerBodyBlue.SetActive(true);
-            playerBodyPurple.SetActive(false);
-        } else if (gm.State == PowerupType.NoFire) {
-            playerBodyRed.SetActive(false);
-            playerBodyBlue.SetActive(false);
-            playerBodyPurple.SetActive(true);
+            if (gm.State == PowerupType.None) {
+                playerBodyRed.SetActive(true);
+                playerBodyBlue.SetActive(false);
+                playerBodyPurple.SetActive(false);
+            } else if (gm.State == PowerupType.Projectile) {
+                playerBodyRed.SetActive(false);
+                playerBodyBlue.SetActive(true);
+                playerBodyPurple.SetActive(false);
+            } else if (gm.State == PowerupType.NoFire) {
+                playerBodyRed.SetActive(false);
+                playerBodyBlue.SetActive(false);
+                playerBodyPurple.SetActive(true);
+            }
+
         }
-
 
         //Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         
@@ -439,6 +469,59 @@ public class RayCastPlayer : MonoBehaviour
         canDash = true;
         dashTime = startDashTime;
         dashTimeDown = startDashTimeDown;
+    }
+
+    public void SwitchColorTo(string color) {
+
+    }
+
+    public void ToggleColorToBlue() {
+        playerBodyRed.SetActive(false);
+        playerBodyBlue.SetActive(true);
+        playerBodyPurple.SetActive(false);
+        playerBodyBlack.SetActive(false);
+        playerBodyGreen.SetActive(false);
+        playerBodyWhite.SetActive(false);
+    }
+    public void ToggleColorToPurple() {
+        playerBodyRed.SetActive(false);
+        playerBodyBlue.SetActive(false);
+        playerBodyPurple.SetActive(true);
+        playerBodyBlack.SetActive(false);
+        playerBodyGreen.SetActive(false);
+        playerBodyWhite.SetActive(false);
+    }
+    public void ToggleColorToBlack() {
+        playerBodyRed.SetActive(false);
+        playerBodyBlue.SetActive(false);
+        playerBodyPurple.SetActive(false);
+        playerBodyBlack.SetActive(true);
+        playerBodyGreen.SetActive(false);
+        playerBodyWhite.SetActive(false);
+    }
+    public void ToggleColorToGreen() {
+        playerBodyRed.SetActive(false);
+        playerBodyBlue.SetActive(false);
+        playerBodyPurple.SetActive(false);
+        playerBodyBlack.SetActive(false);
+        playerBodyGreen.SetActive(true);
+        playerBodyWhite.SetActive(false);
+    }
+    public void ToggleColorToWhite() {
+        playerBodyRed.SetActive(false);
+        playerBodyBlue.SetActive(false);
+        playerBodyPurple.SetActive(false);
+        playerBodyBlack.SetActive(false);
+        playerBodyGreen.SetActive(false);
+        playerBodyWhite.SetActive(true);
+    }
+    public void ToggleColorToRed() {
+        playerBodyRed.SetActive(true);
+        playerBodyBlue.SetActive(false);
+        playerBodyPurple.SetActive(false);
+        playerBodyBlack.SetActive(false);
+        playerBodyGreen.SetActive(false);
+        playerBodyWhite.SetActive(false);
     }
 
 } // class

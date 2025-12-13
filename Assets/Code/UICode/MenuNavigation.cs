@@ -10,7 +10,7 @@ public class MenuNavigation : MonoBehaviour
 {
     public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas, AudioMenu, OptionsMenuGameplay, intro, intro2;
     public GameObject levelFirstButton, levelEndFirstButton, DeathFirstButton, PauseFirstButton, TitleFirstButton, SaveFirstButton, StartFirstButton, OptionsFirstButton,
-                        CreditsFirstButton, OptionsFirstButtonGameplay, KeyPindingsFisrt, PadPindingsFirst, SaveExistsFirst, IntroFirst;
+                        CreditsFirstButton, OptionsFirstButtonGameplay, KeyPindingsFisrt, PadPindingsFirst, SaveExistsFirst, IntroFirst, continueButton;
 
     public GameObject lv1Score, lv2Score, lv3Score;
 
@@ -42,7 +42,7 @@ public class MenuNavigation : MonoBehaviour
     public bool isIntroActive = false;
     GameObject intro1;
     private GameObject lastSelected;
-
+    [SerializeField] SaveUI saveUI;
     private void OnEnable()
     {
         _inputActions = new Newcontrolsmap();
@@ -88,9 +88,14 @@ public class MenuNavigation : MonoBehaviour
         //locks = GameObject.FindGameObjectsWithTag("Locks");
         lastPosition = player.transform.position;
 
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(TitleFirstButton);
-
+        // Automatically select the Continue button if a save exists
+        if (saveUI != null && saveUI.saveExists && continueButton != null) {
+            EventSystem.current.SetSelectedGameObject(continueButton);
+            Debug.Log("Selected Continue button (save exists)");
+        } else {
+            EventSystem.current.SetSelectedGameObject(TitleFirstButton);
+            Debug.Log("Selected TitleFirstButton (no save found)");
+        }
         //_menuActions = _playerInput.actions["Pause"];
 
     }

@@ -23,6 +23,7 @@ public class EnemyAttack : MonoBehaviour
     private bool chasingPlayer = false;
     float hahmonscale;
     public bool canMove = true;
+    public bool partrolling = false;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -65,6 +66,7 @@ public class EnemyAttack : MonoBehaviour
 
      void Patrol()
     {
+        partrolling= true;
         transform.position = Vector2.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, targetPoint) < 0.1f)

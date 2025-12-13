@@ -28,6 +28,7 @@ public class LehtiOlio : MonoBehaviour
 
             if (collision.gameObject.CompareTag("Sparks") || collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Player"))
             {
+            hasBurned = true;   
             animator.Play("LEHTIOLIO_BURN");
             //AudioFW.Play("HitEnemyWater");
 
@@ -37,14 +38,20 @@ public class LehtiOlio : MonoBehaviour
             StartCoroutine(SwitchToBurned());
 
         }
-        
 
+    }
+
+    private void Update() {
+        if(enemyAttack.partrolling && hasBurned == false) {
+            animator.Play("Lehti_walk_New_1");
+        }
     }
     IEnumerator SwitchToBurned()
     {
         enemyAttack.enabled = false;
         yield return new WaitForSeconds(delayBeforeBurned);
         LehtiBurned.SetActive(true);
+        dialogue.SetActive(false);
         sprite.enabled = false;
 
     }
