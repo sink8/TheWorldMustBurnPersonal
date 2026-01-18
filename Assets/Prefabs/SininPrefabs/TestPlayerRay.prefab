@@ -784,6 +784,7 @@ MonoBehaviour:
   moveInputY: 0
   playerBodyRed: {fileID: 8357764843855703306}
   playerBodyBlue: {fileID: 2633412475315027610}
+  playerBodyBlueReal: {fileID: 4880184542107393322}
   playerBodyPurple: {fileID: 2494841135585341007}
   playerBodyBlack: {fileID: 4690325295077294479}
   playerBodyGreen: {fileID: 4981473559714686659}
@@ -2146,6 +2147,11 @@ PrefabInstance:
       addedObject: {fileID: 5694630729435418029}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df06ca55623b08447899128d87c1e1f8, type: 3}
+--- !u!1 &4880184542107393322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6761189105993309437, guid: df06ca55623b08447899128d87c1e1f8, type: 3}
+  m_PrefabInstance: {fileID: 2192536512746291671}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5348439951576324963 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6076496756724980404, guid: df06ca55623b08447899128d87c1e1f8, type: 3}
@@ -2439,7 +2445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7734205234146725207, guid: 0c31aeb5e6432b04ab62bc9838f48640, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

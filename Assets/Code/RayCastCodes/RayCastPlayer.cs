@@ -78,7 +78,7 @@ public class RayCastPlayer : MonoBehaviour
     // animation states
 
 
-    public GameObject playerBodyRed, playerBodyBlue, playerBodyPurple, playerBodyBlack, playerBodyGreen, playerBodyWhite;
+    public GameObject playerBodyRed, playerBodyBlue, playerBodyBlueReal, playerBodyPurple, playerBodyBlack, playerBodyGreen, playerBodyWhite;
     public ParticleSystem playerBodyRedParticle, playerBodyyellowParticle;
     public Color color2, color3;
 
@@ -146,6 +146,14 @@ public class RayCastPlayer : MonoBehaviour
             playerBodyPurple.SetActive(false);
             playerBodyBlack.SetActive(false);
             playerBodyGreen.SetActive(true);
+
+        }
+        if (saveUI.isBlue) {
+            playerBodyRed.SetActive(false);
+            playerBodyBlueReal.SetActive(true);
+            playerBodyPurple.SetActive(false);
+            playerBodyBlack.SetActive(false);
+            playerBodyGreen.SetActive(false);
 
         }
 
@@ -478,6 +486,15 @@ public class RayCastPlayer : MonoBehaviour
     public void ToggleColorToBlue() {
         playerBodyRed.SetActive(false);
         playerBodyBlue.SetActive(true);
+        playerBodyPurple.SetActive(false);
+        playerBodyBlack.SetActive(false);
+        playerBodyGreen.SetActive(false);
+        playerBodyWhite.SetActive(false);
+    }
+    public void ToggleColorToBlueReal() {
+        playerBodyRed.SetActive(false);
+        playerBodyBlue.SetActive(false);
+        playerBodyBlueReal.SetActive(true);
         playerBodyPurple.SetActive(false);
         playerBodyBlack.SetActive(false);
         playerBodyGreen.SetActive(false);
