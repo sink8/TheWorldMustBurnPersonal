@@ -13,6 +13,7 @@ public class LehtiOlio : MonoBehaviour
     SpriteRenderer sprite;
 
     private bool hasBurned = false;
+    private bool willAttack = false;
 
     void Start()
     {
@@ -42,8 +43,12 @@ public class LehtiOlio : MonoBehaviour
     }
 
     private void Update() {
-        if(enemyAttack.partrolling && hasBurned == false) {
-            animator.Play("Lehti_walk_New_1");
+        if (willAttack)
+        {
+            if(enemyAttack.partrolling && hasBurned == false) {
+                animator.Play("Lehti_walk_New_1");
+            }
+
         }
     }
     IEnumerator SwitchToBurned()
