@@ -134,7 +134,7 @@ public class PlayLoops : MonoBehaviour
         }
         if (levelNum == 8)
         {
-            AudioFW.StopLoop("Level2Cave3");
+            AudioFW.StopLoop("Level2Night");
         }
         if (levelNum == 9) {
             AudioFW.StopLoop("Bleeping");
