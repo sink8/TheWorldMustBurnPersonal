@@ -114,14 +114,6 @@ public class StoreScores : MonoBehaviour
             }
         }
 
-        for (int K = 0; K < levelAmount; K++)
-        {
-
-            if ( goldHighScores[K] >= 0.1)
-            {
-                countForTheEnd++;
-            }
-        }
 
         // secrets, how will those be opened. Shitty way but I'm in hurry
         if (SecretManager.Instance.secretsFound >= 7)
@@ -156,6 +148,16 @@ public class StoreScores : MonoBehaviour
         //}
     }
 
+    public void CalculateScoreForEnd() {
+        countForTheEnd = 0;
+        for (int K = 0; K < levelAmount; K++) {
+
+            if (goldHighScores[K] >= 0.1) {
+                countForTheEnd++;
+            }
+        }
+    }
+
     public void UpdateScores() {
         for(int i = 0; i < levels.Length; i++) {
             if (player.transform.position == levels[i].transform.position) {
@@ -164,7 +166,7 @@ public class StoreScores : MonoBehaviour
                     ScoreCanvas.SetActive(false);
                 } else { ScoreCanvas.SetActive(true); }
 
-                print("same area");
+                //print("same area");
 
                 bronceText.text = Mathf.RoundToInt((bronceHighScores[i]) * 100) + " % " + Mathf.FloorToInt(bronceHighSeconds[i] / 60) + " min " + Mathf.RoundToInt(bronceHighSeconds[i] % 60) + " s ";
                 silverText.text = Mathf.RoundToInt((silverHighScores[i]) * 100) + " % " + Mathf.FloorToInt(silverHighSeconds[i] / 60) + " min " + Mathf.RoundToInt(silverHighSeconds[i] % 60) + " s ";

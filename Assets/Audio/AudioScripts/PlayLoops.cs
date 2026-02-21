@@ -126,7 +126,7 @@ public class PlayLoops : MonoBehaviour
         }
         if (levelNum == 6)
         {
-            AudioFW.StopLoop("Level2Cave2");
+            AudioFW.StopLoop("Level2Cave3");
         }
         if (levelNum == 7)
         {
@@ -210,6 +210,7 @@ public class PlayLoops : MonoBehaviour
             AudioFW.StopLoop("njilnjil_track_3");
             AudioFW.StopLoop("Level2Cave3");
             AudioFW.StopLoop("Level2Cave2");
+            AudioFW.StopLoop("Level2Night");
             AudioFW.StopLoop("Bleeping");
             AudioFW.StopLoop("DarkLands");
             AudioFW.StopLoop("Etheral");

@@ -28,26 +28,27 @@ public class TransferWater : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
-    {
+    void Update() {
         // Trigger example
-        if (isTransferring)
-        {
+        if (isTransferring) {
             float delta = transferSpeed * Time.deltaTime;
-        print("is 1");
-    // Transfer from top (A) to bottom (B)
-    if (heightTop > minHeight && heightBottom < maxHeight)
-        {
-            heightTop -= delta;
-            heightBottom += delta;
+            print("is 1");
+            // Transfer from top (A) to bottom (B)
+            if (heightTop > minHeight && heightBottom < maxHeight) {
+                heightTop -= delta;
+                heightBottom += delta;
 
-            ApplyHeight(waterBoxA, heightTop);   // Top goes down
-            ApplyHeight(waterBoxB, heightBottom); // Bottom goes up
+                ApplyHeight(waterBoxA, heightTop);   // Top goes down
+                ApplyHeight(waterBoxB, heightBottom); // Bottom goes up
 
-            // Update values
-            heightTop = waterBoxA.localScale.y;
-            heightBottom = waterBoxB.localScale.y;
-        }
+                // Update values
+                heightTop = waterBoxA.localScale.y;
+                heightBottom = waterBoxB.localScale.y;
+            } else {
+                // The transfer is finished: hide the box and stop transferring
+                waterBoxA.gameObject.SetActive(false);
+                isTransferring = false;
+            }
         }
     }
 

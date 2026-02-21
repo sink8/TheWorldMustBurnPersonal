@@ -12,6 +12,7 @@ public class lopputrigger : MonoBehaviour
     void Start()
     {
         scores = FindObjectOfType<StoreScores>();
+        scores.CalculateScoreForEnd();
     }
 
     
