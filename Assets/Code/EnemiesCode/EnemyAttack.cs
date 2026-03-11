@@ -55,12 +55,15 @@ public class EnemyAttack : MonoBehaviour
 
             // Update the bool
             isFacingRight = playerIsToRight;
-
+            if (canMove)
+            {
             transform.localScale = new Vector3(
                 player.transform.position.x > transform.position.x ? -hahmonscale : hahmonscale,
                 transform.localScale.y,
                 transform.localScale.z
             );
+
+            }
             // Attack logic
             if (!IsInvoking(nameof(Shoot)))
                 InvokeRepeating(nameof(Shoot), 0f, 2f); // fire every 2 seconds

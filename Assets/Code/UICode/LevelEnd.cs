@@ -164,8 +164,9 @@ public class LevelEnd : MonoBehaviour
 
      void EndLevelSequence()
     {
-      
+
         //tryAgainButton.SetActive(false);
+        AudioFW.StopLoop("Rain");
         levelend = true;
         castPlayer.enabled = false;
         LevelEndParticles();
