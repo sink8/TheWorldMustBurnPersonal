@@ -162,7 +162,7 @@ public class StoreScores : MonoBehaviour
         for(int i = 0; i < levels.Length; i++) {
             if (player.transform.position == levels[i].transform.position) {
                 if (bronceHighScores[i] == 0 && silverHighScores[i] == 0 && goldHighScores[i] == 0) {
-                    print("scores");
+                    //print("scores");
                     ScoreCanvas.SetActive(false);
                 } else { ScoreCanvas.SetActive(true); }
 

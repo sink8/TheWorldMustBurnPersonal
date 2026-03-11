@@ -184,7 +184,7 @@ public class InstructionsForPlayer : MonoBehaviour
                 if (usingController == false)
                 {
                     textCanv.text = "Press  " + jump + " to Jump";
-                    print("case 1");
+                    //print("case 1");
                 }
                 else
                 {

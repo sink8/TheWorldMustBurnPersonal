@@ -66,14 +66,18 @@ public class LehtiOlio : MonoBehaviour
             StartCoroutine(SwitchToBurned());
 
         }
-
+             
     }
 
     private void Update() {
-            if(enemyAttack.partrolling && hasBurned == false) {
+        if (enemyAttack != null)
+        {
+            if (enemyAttack.partrolling && hasBurned == false) {
                 animator.Play("Lehti_walk_New_1");
                 
             }
+
+        }
         if (willAttack)
         {
             animator.Play("Lehti_idle_New_2");
