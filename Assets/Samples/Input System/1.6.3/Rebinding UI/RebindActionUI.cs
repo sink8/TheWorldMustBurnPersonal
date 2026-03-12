@@ -310,54 +310,53 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
         private void PerformInteractiveRebind(InputAction action, int bindingIndex, bool allCompositeParts = false)
         {
-            m_RebindOperation?.Cancel(); // Will null out m_RebindOperation.
+            m_RebindOperation?.Cancel();
 
             void CleanUp()
             {
                 m_RebindOperation?.Dispose();
                 m_RebindOperation = null;
-                
             }
 
+            // IMPORTANT: Disable the action map so the rebind can be written to memory
             action.Disable();
 
-            // Configure the rebind.
             m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex)
                 .WithControlsExcluding("<Mouse>")
                 .WithCancelingThrough("<Keyboard>/escape")
+                // This ensures the override is formatted correctly for the specific binding
+                .OnApplyBinding((operation, path) => action.ApplyBindingOverride(bindingIndex, path))
                 .OnCancel(
                     operation =>
                     {
                         action.Enable();
                         m_RebindStopEvent?.Invoke(this, operation);
-                        
                         m_RebindOverlay?.SetActive(false);
                         UpdateBindingDisplay();
                         CleanUp();
-
                     })
                 .OnComplete(
                     operation =>
                     {
-                        action.Enable();
+                        // Move Enable AFTER we are sure we are done with this specific index
                         m_RebindOverlay?.SetActive(false);
                         m_RebindStopEvent?.Invoke(this, operation);
 
-                        if(CheckDublicateBindings(action, bindingIndex, allCompositeParts))
+                        // Check for duplicates
+                        if (CheckDublicateBindings(action, bindingIndex, allCompositeParts))
                         {
+                            Debug.LogWarning("Duplicate detected. Removing and restarting.");
                             action.RemoveBindingOverride(bindingIndex);
-                            
                             CleanUp();
                             PerformInteractiveRebind(action, bindingIndex, allCompositeParts);
                             return;
                         }
 
-
+                        // If successful, enable and refresh
+                        action.Enable();
                         UpdateBindingDisplay();
                         CleanUp();
 
-                        // If there's more composite parts we should bind, initiate a rebind
-                        // for the next part.
                         if (allCompositeParts)
                         {
                             var nextBindingIndex = bindingIndex + 1;

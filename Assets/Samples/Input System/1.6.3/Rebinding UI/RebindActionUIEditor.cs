@@ -61,7 +61,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 if (optionsOld != optionsNew)
                     m_DisplayStringOptionsProperty.intValue = (int)optionsNew;
             }
-
+            
             // UI section.
             EditorGUILayout.Space();
             EditorGUILayout.LabelField(m_UILabel, Styles.boldLabel);

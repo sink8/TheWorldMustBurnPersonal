@@ -383,13 +383,21 @@ public class MenuNavigation : MonoBehaviour
         nodes.SetActive(true);
         Debug.Log("Time.timeScale is now: " + Time.timeScale);
     }
+    public void TIMESCALE0()
+    {
+        Time.timeScale = 0f;
+    }
+    public void TIMESCALE1()
+    {
+        Time.timeScale = 1f;
+    }
 
 
     public void FadeDeathPanel() {
         //var CanvasGroup = GetComponent<CanvasGroup>();
         StartCoroutine(DoFade(deathC, deathC.alpha, fadeboolDeath ? 1 : 0));
         fadeboolDeath = !fadeboolDeath;
-
+        
     }
 
     public void FadeLevelEnd() {
