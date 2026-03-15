@@ -15,9 +15,6 @@ public class PlayLoops : MonoBehaviour
 
     }
 
-    private void Update() {
-        
-    }
 
     public void StartLevelMusic(int levelNum) {
 
@@ -105,6 +102,9 @@ public class PlayLoops : MonoBehaviour
         }
         if (levelNum == 26) {
             AudioFW.PlayLoop("porrige");
+        }
+        if (levelNum == 27) {
+            AudioFW.PlayLoop("Level1Forest");
         }
     }
 

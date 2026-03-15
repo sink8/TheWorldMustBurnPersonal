@@ -26,6 +26,10 @@ public class RayCastPlayer : MonoBehaviour
     [SerializeField] int jumps = 0;
     Vector3 velocity;
 
+    [Header("Dash Breaking")]
+    [SerializeField] private LayerMask breakableLayer; 
+    [SerializeField] private Vector2 dashCheckSize = new Vector2(1.2f, 1.2f); // Slightly larger than player
+
     [SerializeField]
     [Range(1f, 60f)] float dashSpeed;
     [SerializeField]
@@ -80,7 +84,8 @@ public class RayCastPlayer : MonoBehaviour
 
     public GameObject playerBodyRed, playerBodyBlue, playerBodyBlueReal, playerBodyPurple, playerBodyBlack, playerBodyGreen, playerBodyWhite;
     public ParticleSystem playerBodyRedParticle, playerBodyyellowParticle;
-    public Color color2, color3;
+    public ParticleSystem eye1, eye2;
+    public Color color2, color3, eyeColor;
 
     public InputManager inputManager;
     Vector2 moveInput;
@@ -355,7 +360,7 @@ public class RayCastPlayer : MonoBehaviour
                     CreateDashKipinä();
                     direction = 1;
                     dash = true;
-                    //dashBlock.SetActive(true);
+                    dashBlock.SetActive(true);
                 }
                 //else if (moveInputX > 0)
                 else if (lookingRight == true)
@@ -363,9 +368,14 @@ public class RayCastPlayer : MonoBehaviour
                     CreateDashKipinä();
                     direction = 2;
                     dash = true;
-                    //dashBlock.SetActive(true);
+                    dashBlock.SetActive(true);
                 }
                 canDash = false;
+                ParticleSystem.MainModule psmaineye1 = eye1.main;
+                ParticleSystem.MainModule psmaineye2 = eye2.main;
+
+                psmaineye1.startColor = eyeColor;
+                psmaineye2.startColor = eyeColor;
                 StartCoroutine(DashTimer());
             }
         }
@@ -383,18 +393,10 @@ public class RayCastPlayer : MonoBehaviour
             {
                 dashTime -= Time.deltaTime;
 
-                if (direction == 1)
-                {
-                    dashBlock.SetActive(true);
-                    velocity = Vector2.left * dashSpeed;
-                    
-                }
-                else if (direction == 2)
-                {
-                    dashBlock.SetActive(true);
-                    velocity = Vector2.right * dashSpeed;
-                    
-                }
+                // Perform the break check every frame while dashing
+                CheckForBreakables();
+
+                if (direction == 1) { velocity = Vector2.left * dashSpeed; } else if (direction == 2) { velocity = Vector2.right * dashSpeed; }
             }
         }
         if (dash == false)
@@ -437,6 +439,9 @@ public class RayCastPlayer : MonoBehaviour
                 if (direction == 3)
                 {
                     dashBlockDown.SetActive(true);
+                    //velocity = Vector2.down * dashDownSpeed;
+                    //dashDownVelocity = true;
+                    CheckForBreakables();
                     velocity = Vector2.down * dashDownSpeed;
                     dashDownVelocity = true;
                 }
@@ -447,6 +452,20 @@ public class RayCastPlayer : MonoBehaviour
         if (dash == false)
         {
             dashBlockDown.SetActive(false);
+        }
+    }
+
+    void CheckForBreakables() {
+        // Use the player's position and dash size
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, dashCheckSize, 0, breakableLayer);
+
+        foreach (Collider2D hit in hits) {
+            // IMPORTANT: Use the tag you've assigned to your tiles
+            if (hit.CompareTag("Ash")) {
+                if (hit.TryGetComponent<AshTilesColliding>(out var ash)) {
+                    ash.BreakTile(); // This starts the chain reaction
+                }
+            }
         }
     }
 
@@ -474,6 +493,11 @@ public class RayCastPlayer : MonoBehaviour
 
     private IEnumerator DashTimer() {
         yield return new WaitForSeconds(1f);
+        ParticleSystem.MainModule psmaineye1 = eye1.main;
+        ParticleSystem.MainModule psmaineye2 = eye2.main;
+
+        psmaineye1.startColor = Color.white;
+        psmaineye2.startColor = Color.white;
         canDash = true;
         dashTime = startDashTime;
         dashTimeDown = startDashTimeDown;

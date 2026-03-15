@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 5613805014999951200}
   - component: {fileID: 5317459428043096757}
   - component: {fileID: 1414446720274081440}
+  - component: {fileID: 7440711526073341689}
   m_Layer: 0
   m_Name: LevelEndTrigger
   m_TagString: Untagged
@@ -455,6 +456,19 @@ MonoBehaviour:
   LevelEndMenu: {fileID: 5574486069189912449}
   levelEndFirstButton2: {fileID: 3373574461792029651}
   castPlayer: {fileID: 2304163255009127879}
+--- !u!114 &7440711526073341689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401909612931234070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa705eefaea55c44bb9117a44c6e9f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNum: 26
 --- !u!1 &429704272231847474
 GameObject:
   m_ObjectHideFlags: 0
