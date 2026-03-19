@@ -11,7 +11,7 @@ using UnityEngine.EventSystems;
 
 public class SaveUI : MonoBehaviour
 {
-public static SaveUI instance;
+    public static SaveUI instance;
     public SavesInfo activeInfo;
     [SerializeField] MenuNavigation menu;
     public GameObject SavesMenu, alreadyExists, alreadyExistsFitst;
@@ -42,11 +42,11 @@ public static SaveUI instance;
     public bool colorChanged = false;
 
     private void Awake() {
-        
+
         instance = this;
 
-        saveExists = SaveExists(); 
-        if(saveExists == false)
+        saveExists = SaveExists();
+        if (saveExists == false)
         {
             print("false");
             cont.SetActive(false);
@@ -69,27 +69,27 @@ public static SaveUI instance;
 
         //SaveManager.instance.LoadBin();
 
-        if (SaveManager.instance.activeSave.respawnPosition[0] == 0 && SaveManager.instance.activeSave.respawnPosition[1] == 0 && SaveManager.instance.activeSave.respawnPosition[2] == 0){
-            player.transform.position = new Vector3(-11.84f,39.05f,0f);
+        if (SaveManager.instance.activeSave.respawnPosition[0] == 0 && SaveManager.instance.activeSave.respawnPosition[1] == 0 && SaveManager.instance.activeSave.respawnPosition[2] == 0) {
+            player.transform.position = new Vector3(-11.84f, 39.05f, 0f);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayerPositionToFirstLevel()
     {
-
-        //if(Input.GetKeyDown(KeyCode.Y)){
-        //SaveBinInfo();
-        //}
-
-        //if(Input.GetKeyDown(KeyCode.P)){
-        //LoadBinInfo();
-        //}
-
-        //if(Input.GetKeyDown(KeyCode.H)){
-        //DeleteInfoBin();
-        //}
+        player.transform.position = new Vector3(-11.84f, 39.05f, 0f);
     }
+
+
+    public void SwitchColorBackToRed()
+        {
+        isRed = true;
+        isBlue = false;
+        isGreen = false;
+        isPurple = false;
+        isBlack = false;
+        isWhite = false;
+        }
+
    public void UpdateSaveText(){
        if(activeInfo.testbool1 == true){
            Save1.text = "Save1";

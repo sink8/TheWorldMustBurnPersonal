@@ -148,6 +148,41 @@ public class StoreScores : MonoBehaviour
         //}
     }
 
+    public void LockAllLocks()
+    {
+        for (int j = 0; j < levelAmount; j++)
+        {
+
+                levels[j + 1].GetComponent<MovingOnLevelsMap>().locked = true;
+                locks[j + 1].SetActive(true);
+                finished[j].GetComponent<Renderer>().sortingOrder = 5;
+            
+        }
+    }
+
+    public void LockLevelsThatAreneeded()
+    {
+        print("lock levels");
+        for (int i = 1; i < levels.Length; i++)
+        {
+            levels[i].GetComponent<MovingOnLevelsMap>().locked = true;
+            locks[i].SetActive(true);
+            finished[i].GetComponent<Renderer>().sortingOrder = 5;
+        }
+
+
+        for (int j = 0; j < levelAmount; j++)
+        {
+
+            if (bronceHighScores[j] == 0 && silverHighScores[j] == 0 && goldHighScores[j] == 0)
+            {
+                levels[j + 1].GetComponent<MovingOnLevelsMap>().locked = true;
+                locks[j + 1].SetActive(true);
+                finished[j].GetComponent<Renderer>().sortingOrder = 5;
+            }
+        }
+    }
+
     public void CalculateScoreForEnd() {
         countForTheEnd = 0;
         for (int K = 0; K < levelAmount; K++) {

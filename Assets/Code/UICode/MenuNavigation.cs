@@ -462,6 +462,7 @@ public class MenuNavigation : MonoBehaviour
     {
 
             TitleMunu.SetActive(true);
+        saveUI.SwitchColorBackToRed();
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(TitleFirstButton);
 

@@ -93,6 +93,7 @@ public class RayCastPlayer : MonoBehaviour
     gamact1 _inputActions;
 
     SaveUI saveUI;
+    public GameObject FireUI;
     private void OnEnable()
     {
         _inputActions = new gamact1();
@@ -188,10 +189,12 @@ public class RayCastPlayer : MonoBehaviour
         if(saveUI.colorChanged == false) {
 
             if (gm.State == PowerupType.None) {
+                FireUI.SetActive(false);
                 playerBodyRed.SetActive(true);
                 playerBodyBlue.SetActive(false);
                 playerBodyPurple.SetActive(false);
             } else if (gm.State == PowerupType.Projectile) {
+                FireUI.SetActive(true);
                 playerBodyRed.SetActive(false);
                 playerBodyBlue.SetActive(true);
                 playerBodyPurple.SetActive(false);
