@@ -50,19 +50,26 @@ public class MixedUICode : MonoBehaviour
     }
 
     void Credits(){
-        credits.text = "Developer Sini Karhunen  \n" +
-            " \n Audio: " +
+        credits.text = "Developer / Art, Code and Desing Sini Karhunen  \n" +
+            "\n Audio: " +
             "\n Sound Effects: freesound.org/people/YleArkisto/" +
+            "\n Sound Effects: pixabay.com/" +
             " \n" +
-            " \n Music: " +
+            "\n Music: " +
             "\n Tracks of levels 4, 5 and 7 by NjilNjil / Jade" +
             "\n  " +
             "\n Other music by Eric Matyas  www.soundimage.org" + 
             "\n Alley-Grunge, Fantasy Forest Battle, Forest Chase, Fantasy World Menu 2, A Flock of Bubbles Looping  " +
+            "\n Battle of the Ancients, Dark lands,Night Things,Exotinc Dreaming, Ice in the Sky, Magical Gateway Looping, Mystical Journey Looping  " +
+            "\n Night Flight, Over Ancient Waters, Skies Are Clearing, Stratosphere Looping, Windle Pixel Seaside  Adventure " +
+            "\n " +
+            "\n Kewin MacLeod incompetech.com/music/royalty-free/music.html " +
+            "\n Ancient Winds, Aquarium, Bleeping Demo, Ethearal Relaxation, Ethearal Club, Journey To Ascend, Magic Escape Room, Mesmerizing Galazy" +
+            "\n Pleasant Porridge, Voxel Revolution, Wholesome" +
             "\n " +
             "\n Special thanks " +
             "\n Friends and family" +
-            "\n Aunt Ippa" +
+            "\n Ippa" +
             "\n Sade ja Viima" +
             "\n Gametesters, especially" +
             "\n Borb" +
@@ -76,7 +83,8 @@ public class MixedUICode : MonoBehaviour
             "\n IGDA Finland Helsinki testers" +
             "\n" +
             "\n LGIN community, mentors and Suvi Kiviniemi" +
-            "\n ANd last but not least, Laajasalon Opisto. Year 2020-2021 and teachers Yrjö Peussa and Andrei Rodriguez and all the students who tested" ;
+            "\n ANd last but not least, Laajasalon Opisto Game Design. Year 2020-2021 and teachers Yrjö Peussa and Andrei Rodriguez and all the students who tested over the years" +
+            "\n and all those that I forgot";
 
     }
 
