@@ -8,7 +8,7 @@ using System.Linq;
 
 public class MenuNavigation : MonoBehaviour
 {
-    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas, AudioMenu, OptionsMenuGameplay, intro, intro2;
+    public GameObject levelMenu, deathMenu, levelEndMenu, pauseMenu, mixMenuStuff, TitleMunu, SavesMenu, StartSavesMenu, CreditsMenu, OptionsMenu, FirstCanvas, AudioMenu, OptionsMenuGameplay, intro, intro2, keybindings, padpindings;
     public GameObject levelFirstButton, levelEndFirstButton, DeathFirstButton, PauseFirstButton, TitleFirstButton, SaveFirstButton, StartFirstButton, OptionsFirstButton,
                         CreditsFirstButton, OptionsFirstButtonGameplay, KeyPindingsFisrt, PadPindingsFirst, SaveExistsFirst, IntroFirst, continueButton;
 
@@ -147,29 +147,38 @@ public class MenuNavigation : MonoBehaviour
 
         if (isIntroActive == true)
         {
-            EventSystem.current.SetSelectedGameObject(null);
+            bool inputDetected = false;
+
+            if(inputDetected == false) EventSystem.current.SetSelectedGameObject(null);
+
             canYouOpenPauseMenu = false;
-            if (Keyboard.current.anyKey.isPressed)
+            if (EventSystem.current.currentSelectedGameObject == null)
             {
-                IntroFirst.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(IntroFirst);
-                Debug.Log("A key is pressed on the keyboard.");
-            }
+                if (Keyboard.current.anyKey.isPressed)
+                {
+                    inputDetected = true;
+                    IntroFirst.SetActive(true);
+                    EventSystem.current.SetSelectedGameObject(IntroFirst);
+                    Debug.Log("A key is pressed on the keyboard.");
+                }
 
-            // Check if any gamepad button is pressed
-            if (Gamepad.current != null && Gamepad.current.allControls.Any(control => control.IsPressed()))
-            {
-                Debug.Log("A button is pressed on the gamepad.");
-                IntroFirst.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(IntroFirst);
-            }
+                // Check if any gamepad button is pressed
+                if (Gamepad.current != null && Gamepad.current.allControls.Any(control => control.IsPressed()))
+                {
+                    inputDetected = true;
+                    Debug.Log("A button is pressed on the gamepad.");
+                    IntroFirst.SetActive(true);
+                    EventSystem.current.SetSelectedGameObject(IntroFirst);
+                }
 
-            if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
-            {
-                IntroFirst.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(IntroFirst);
-            }
+                if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
+                {
+                    inputDetected = true;
+                    IntroFirst.SetActive(true);
+                    EventSystem.current.SetSelectedGameObject(IntroFirst);
+                }
 
+            }
         }
         else
         {

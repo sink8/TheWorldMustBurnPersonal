@@ -407,8 +407,13 @@ public class FireManager : MonoBehaviour
     }
 
     public void PlayFireSound() {
-        
-        AudioFW.AdjustVolume("FireBurningLoop", (float)activeFires.Count/30);
+
+        float count = activeFires.Count;
+        // Square root makes the initial increase much faster
+        float volume = Mathf.Sqrt(count / 35f);
+
+        AudioFW.AdjustVolume("FireBurningLoop", Mathf.Clamp01(volume));
+        //AudioFW.AdjustVolume("FireBurningLoop", (float)activeFires.Count/25);
     }
 
     public void InstantiateBurnedPrefab(Vector3Int position) {
@@ -521,6 +526,7 @@ public class FireManager : MonoBehaviour
             }
         }
         if (data.snowTile == true){
+
             //MeltedParticles(position);
         }
         else {
@@ -637,6 +643,8 @@ public class FireManager : MonoBehaviour
                 if (data.ice == true)
                 {
                     amount += 1;
+                    
+                
                 }
             }
         }
@@ -836,6 +844,7 @@ public class FireManager : MonoBehaviour
 
     public void StartDestroyingSoftGround(Vector3Int tilePosition, TileData data)
     {
+        IceNoise();
         //map.SetColliderType(tilePosition, Tile.ColliderType.None);
         BurnedParticleKpinäts(tilePosition);
 
@@ -850,11 +859,35 @@ public class FireManager : MonoBehaviour
         if (data.snowTile == true)
         {
             MeltedParticles(tilePosition);
+            IceNoise();
+            
         }
 
     }
 
+    public void IceNoise()
+    {
+        int randomNoise = Random.Range(1, 5);
+        switch (randomNoise)
+        {
+            case 1:
+                AudioFW.Play("Ice");
+                break;
+            case 2:
+                AudioFW.Play("Ice2");
+                break;
+            case 3:
+                AudioFW.Play("Ice3");
+                break;
+            case 4:
+                AudioFW.Play("Ice4");
+                break;
+            case 5:
+                AudioFW.Play("Ice5");
+                break;
+        }
 
+    }
 
     public void SpawnSprite(Vector3Int pos)
     {

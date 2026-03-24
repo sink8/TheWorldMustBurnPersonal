@@ -8,18 +8,16 @@ public class lopputrigger : MonoBehaviour
     public bool loppuNRO_1 = true;
     public GameObject loppu1;
     public GameObject loppu2;
+    public SaveUI saveUI;
 
     void Start()
     {
         scores = FindObjectOfType<StoreScores>();
         scores.CalculateScoreForEnd();
+        saveUI.SwitchColorBackToRed();
     }
 
-    
-    void Update()
-    {
-        
-    }
+
 
     public void kumpiLoppu()
     {

@@ -58,9 +58,9 @@ using Newtonsoft.Json;
         }
 
         // ✅ Update UI
-        Secret1.text = $"{secretsFound}/7";
-        Secret2.text = $"{secretsFound}/17";
-        Secret3.text = $"{secretsFound}/27";
+        Secret1.text = $"{secretsFound}/10";
+        Secret2.text = $"{secretsFound}/21";
+        Secret3.text = $"{secretsFound}/33";
         allFlowers.text = secretsFound.ToString();
 
 

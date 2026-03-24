@@ -9328,6 +9328,7 @@ GameObject:
   - component: {fileID: 1237170149426337564}
   - component: {fileID: 5782524295167782519}
   - component: {fileID: 4595562713605749507}
+  - component: {fileID: 5368690079466772151}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -9407,6 +9408,20 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 3686066200319954290}
   m_ConfineScreenEdges: 1
   m_Damping: 0.37
+--- !u!114 &5368690079466772151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2349188847647499835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c6b401604cc26448816319a143dfbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peekDistance: 4
+  smoothing: 5
 --- !u!1 &2438378687031929333
 GameObject:
   m_ObjectHideFlags: 0

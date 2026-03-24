@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "GameplayActions",
     "maps": [
         {
@@ -9,7 +10,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "739eccfe-5bb4-4f0b-826a-b3ca2ef18b9f",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -525,6 +526,116 @@
                     "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "KeyboardAim",
+                    "id": "7b8ed919-53e6-437f-84d9-72758b12876c",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "23340280-b3b3-4125-b592-b28222a0d102",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyBoard",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "574065c5-f0cb-40a0-a992-b89555003fda",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyBoard",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "be5d5e4d-eedd-4c62-939a-9dcde806b126",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyBoard",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "c6ed85b7-8b55-45bc-9026-30a499fc60d7",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyBoard",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "c191bfff-e6ab-4b0c-9cab-410afbb3ce09",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "e2a0c7c4-c069-4e9e-bde3-4b138b1fc9b2",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyBoard",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "516fa25f-999d-47c1-b46a-57af7b5ff7f1",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyBoard",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "d84b522c-5065-4b0d-a4af-7636db870469",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyBoard",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "e62cf25f-61f4-4733-ad87-f865e87da37b",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyBoard",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

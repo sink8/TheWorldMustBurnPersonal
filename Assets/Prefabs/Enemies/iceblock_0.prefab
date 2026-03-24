@@ -28,6 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4026388970519863525}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 43.54, y: 1.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -36,7 +37,6 @@ Transform:
   - {fileID: 7675554660110762640}
   - {fileID: 4026388971119780735}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4026388970519863523
 SpriteRenderer:
@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   canChange: 1
+  cloudMoves: 0
   piviHahmo: {fileID: 8846113418536079356, guid: 2ceec673b911f2c48b8595c040b4303d, type: 3}
   cryDrops: {fileID: 7675554660110762638}
   deathZone: {fileID: 4026388971119780720}
@@ -133,6 +134,7 @@ MonoBehaviour:
   crytime: 4
   cryBool: 1
   CancryBool: 0
+  isCloudAlready: 0
 --- !u!61 &5325559082210403566
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -230,13 +232,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4026388971119780720}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.15, z: 0}
   m_LocalScale: {x: 0.99764, y: 3.15036, z: 0.99764}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4026388970519863522}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4026388971119780733
 BoxCollider2D:
@@ -270,7 +272,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.017439008, y: -0.04339546}
+  m_Offset: {x: -0.008898795, y: -0.04339546}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -281,7 +283,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6635673, y: 1.1446518}
+  m_Size: {x: 1.2948536, y: 1.1446518}
   m_EdgeRadius: 0
 --- !u!50 &4026388971119780734
 Rigidbody2D:

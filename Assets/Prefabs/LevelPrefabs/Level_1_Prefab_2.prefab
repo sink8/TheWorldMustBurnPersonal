@@ -2624,7 +2624,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 19.468702, y: 0.50118184}
+  m_Offset: {x: 21.16476, y: 0.50118184}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2635,7 +2635,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 46.70191, y: 2.0023625}
+  m_Size: {x: 43.30979, y: 2.0023625}
   m_EdgeRadius: 0
 --- !u!114 &6529735266402552469
 MonoBehaviour:
@@ -3279,6 +3279,7 @@ GameObject:
   - component: {fileID: 5031938691643774849}
   - component: {fileID: 157687352613258793}
   - component: {fileID: 176255609356885424}
+  - component: {fileID: 1268276746204788472}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -3358,6 +3359,20 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 108444993502813451}
   m_ConfineScreenEdges: 1
   m_Damping: 0.37
+--- !u!114 &1268276746204788472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833797958811856922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c6b401604cc26448816319a143dfbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peekDistance: 4
+  smoothing: 5
 --- !u!1 &5987001868518470546
 GameObject:
   m_ObjectHideFlags: 0
@@ -11863,12 +11878,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
+      propertyPath: eyeColor.b
+      value: 0.038180865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: eyeColor.g
-      value: 0
+      value: 0.038180865
       objectReference: {fileID: 0}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: eyeColor.r
-      value: 0
+      value: 0.6226415
       objectReference: {fileID: 0}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: jumpHeight

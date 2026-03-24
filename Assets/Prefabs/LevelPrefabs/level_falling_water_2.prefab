@@ -2421,6 +2421,7 @@ GameObject:
   - component: {fileID: 2512714282914643161}
   - component: {fileID: 742839884378905292}
   - component: {fileID: 2341899412849691737}
+  - component: {fileID: 7512483865055755198}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -2500,6 +2501,20 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 7697863895257813872}
   m_ConfineScreenEdges: 1
   m_Damping: 0.37
+--- !u!114 &7512483865055755198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496336798287821982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c6b401604cc26448816319a143dfbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peekDistance: 4
+  smoothing: 5
 --- !u!1 &2630764722223116127
 GameObject:
   m_ObjectHideFlags: 0
@@ -25143,7 +25158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3763835426249463241, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -45
+      value: -36
       objectReference: {fileID: 0}
     - target: {fileID: 5103186080317106226, guid: f8f12f1c9082ca54c84b95ba7080883b, type: 3}
       propertyPath: m_AnchoredPosition.y

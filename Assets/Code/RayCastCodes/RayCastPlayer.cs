@@ -162,6 +162,11 @@ public class RayCastPlayer : MonoBehaviour
             playerBodyGreen.SetActive(false);
 
         }
+        if (saveUI.isWhite)
+        {
+            ToggleColorToWhite();
+
+        }
 
     }
 
@@ -466,6 +471,7 @@ public class RayCastPlayer : MonoBehaviour
             // IMPORTANT: Use the tag you've assigned to your tiles
             if (hit.CompareTag("Ash")) {
                 if (hit.TryGetComponent<AshTilesColliding>(out var ash)) {
+                    AudioFW.Play("HitWood");
                     ash.BreakTile(); // This starts the chain reaction
                 }
             }

@@ -150,6 +150,7 @@ public class PlayLoops : MonoBehaviour
         }
         if (levelNum == 13) {
             AudioFW.StopLoop("ForestDrama");
+            AudioFW.StopLoop("WeirdBattle");
         }
         if (levelNum == 14) {
             AudioFW.StopLoop("IceSky");
@@ -231,7 +232,8 @@ public class PlayLoops : MonoBehaviour
             AudioFW.StopLoop("porrige");
             AudioFW.StopLoop("njilnjil_track_2");
             AudioFW.StopLoop("Level2Cave3");
-        
+            AudioFW.StopLoop("WeirdBattle");
+
     }
 
 

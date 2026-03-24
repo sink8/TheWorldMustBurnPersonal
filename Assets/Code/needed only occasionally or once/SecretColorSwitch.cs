@@ -81,6 +81,7 @@ public class SecretColorSwitch : MonoBehaviour
                 saveUI.colorChanged = true;
                 player.ToggleColorToBlack();
             }
+
             if (colorSwitchWhite) { player.ToggleColorToWhite();
                 saveUI.isBlue = false;
                 saveUI.isRed = false;

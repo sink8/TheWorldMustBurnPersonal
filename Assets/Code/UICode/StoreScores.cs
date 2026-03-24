@@ -116,21 +116,21 @@ public class StoreScores : MonoBehaviour
 
 
         // secrets, how will those be opened. Shitty way but I'm in hurry
-        if (SecretManager.Instance.secretsFound >= 7)
+        if (SecretManager.Instance.secretsFound >= 10)
         {
             levels[30].GetComponent<MovingOnLevelsMap>().locked = false;
             locks[30].SetActive(false);
             finished[30].GetComponent<Renderer>().sortingOrder = 40;
         }
 
-        if (SecretManager.Instance.secretsFound >= 17)
+        if (SecretManager.Instance.secretsFound >= 21)
         {
             levels[31].GetComponent<MovingOnLevelsMap>().locked = false;
             locks[31].SetActive(false);
             finished[31].GetComponent<Renderer>().sortingOrder = 40;
         }
 
-        if (SecretManager.Instance.secretsFound >= 30)
+        if (SecretManager.Instance.secretsFound >= 33)
         {
             levels[32].GetComponent<MovingOnLevelsMap>().locked = false;
             locks[32].SetActive(false);
@@ -187,7 +187,7 @@ public class StoreScores : MonoBehaviour
         countForTheEnd = 0;
         for (int K = 0; K < levelAmount; K++) {
 
-            if (goldHighScores[K] >= 0.1) {
+            if (goldHighScores[K] >= 0.1f) {
                 countForTheEnd++;
             }
         }

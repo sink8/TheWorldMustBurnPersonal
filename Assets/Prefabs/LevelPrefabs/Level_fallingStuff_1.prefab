@@ -4312,6 +4312,7 @@ GameObject:
   - component: {fileID: 3260055571071847194}
   - component: {fileID: 4434481115986806965}
   - component: {fileID: 269940482198031697}
+  - component: {fileID: 4312423778380363057}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -4391,6 +4392,20 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 3027601553231927643}
   m_ConfineScreenEdges: 1
   m_Damping: 0.37
+--- !u!114 &4312423778380363057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961543309604992221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c6b401604cc26448816319a143dfbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peekDistance: 4
+  smoothing: 5
 --- !u!1 &5065085242276236112
 GameObject:
   m_ObjectHideFlags: 0
@@ -13798,11 +13813,19 @@ PrefabInstance:
       objectReference: {fileID: 3892593964848604954}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: dashSpeed
-      value: 20.7
+      value: 20.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
+      propertyPath: dashTimer
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
+      propertyPath: jumpHeight
+      value: 4.9
       objectReference: {fileID: 0}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: "dashKipin\xE4"
@@ -13810,7 +13833,7 @@ PrefabInstance:
       objectReference: {fileID: 4212792255530255384}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: dashTimeDown
-      value: 0.57
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: dashBlockDown
@@ -13818,15 +13841,15 @@ PrefabInstance:
       objectReference: {fileID: 550127899732371852}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: dashDownSpeed
-      value: 20.2
+      value: 20.5
       objectReference: {fileID: 0}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: startDashTime
-      value: 0.18
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2090468872533308926, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: startDashTimeDown
-      value: 0.39
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2090468873649811846, guid: 72701c4534d8b6c4a9eaef52309e8243, type: 3}
       propertyPath: m_Color.b

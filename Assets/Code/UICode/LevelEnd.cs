@@ -265,9 +265,9 @@ public class LevelEnd : MonoBehaviour
         if(scoreCounter.runningScore < 50 && scoreCounter.runningScore > 0) {
             EndLevelScoreTextCommon.text = "Not Much was Burned..."; 
         } else if (scoreCounter.runningScore == 0) {
-            EndLevelScoreTextCommon.text = "Concrats! Didn't burn anything at all";
+            EndLevelScoreTextCommon.text = "It is all still there";
         } else if (scoreCounter.runningScore >= 50 && scoreCounter.runningScore < 75) {
-            EndLevelScoreTextCommon.text = "You burned something alright " + scoreCounter.runningScore + " %";
+            EndLevelScoreTextCommon.text = "Something was burned " + scoreCounter.runningScore + " %";
         } else if (scoreCounter.runningScore >= 75 && scoreCounter.runningScore < 100) {
             EndLevelScoreTextCommon.text = "Almost there, but not yet " + scoreCounter.runningScore + " %";
         } else if (scoreCounter.runningScore == 100 ) {
