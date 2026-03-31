@@ -54,18 +54,35 @@ public void Save(){
 }
 
 public void SaveBin(){
-    if(!Directory.Exists("FireSaves"))
-        Directory.CreateDirectory("FireSaves");
+    //if(!Directory.Exists("FireSaves"))
+    //    Directory.CreateDirectory("FireSaves");
 
-    BinaryFormatter formatter = new BinaryFormatter();
-    string dataPath = Application.persistentDataPath + "/fire" + SceneManager.GetActiveScene().buildIndex;
+    //BinaryFormatter formatter = new BinaryFormatter();
+    //string dataPath = Application.persistentDataPath + "/fire" + SceneManager.GetActiveScene().buildIndex;
 
-    FileStream stream = File.Create("FireSaves/" + activeSave.saveName + ".bin");
-    formatter.Serialize(stream, activeSave);
-    stream.Close();
+    //FileStream stream = File.Create("FireSaves/" + activeSave.saveName + ".bin");
+    //formatter.Serialize(stream, activeSave);
+    //stream.Close();
 
     Debug.Log("saved to " + Directory.GetCurrentDirectory().ToString() + "FireSaves/" + activeSave.saveName + " .bin");
-}
+
+        string folderPath = Path.Combine(Application.persistentDataPath, "FireSaves");
+        if (!Directory.Exists(folderPath))
+        {
+            Directory.CreateDirectory(folderPath);
+        }
+
+        // 3. Create the full path to the specific file
+        string filePath = Path.Combine(folderPath, activeSave.saveName + ".bin");
+
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(filePath, FileMode.Create);
+
+        formatter.Serialize(stream, activeSave);
+        stream.Close();
+
+        Debug.Log("Saved binary data to: " + filePath);
+    }
 
 
 public void Load(){
@@ -84,25 +101,52 @@ public void Load(){
 
 public void LoadBin(){
 
-    BinaryFormatter formatter = new BinaryFormatter();
+    //BinaryFormatter formatter = new BinaryFormatter();
 
-    FileStream stream = File.Open("FireSaves/" + activeSave.saveName + ".bin", FileMode.Open);
-    SaveData loadData = (SaveData) formatter.Deserialize(stream);
-    activeSave = loadData;
-    stream.Close();
+    //FileStream stream = File.Open("FireSaves/" + activeSave.saveName + ".bin", FileMode.Open);
+    //SaveData loadData = (SaveData) formatter.Deserialize(stream);
+    //activeSave = loadData;
+    //stream.Close();
 
-    Debug.Log("loaded " + Directory.GetCurrentDirectory().ToString() + "FireSaves/" + activeSave.saveName + " .bin");
-    hasLoaded = true;
-}
+    //Debug.Log("loaded " + Directory.GetCurrentDirectory().ToString() + "FireSaves/" + activeSave.saveName + " .bin");
+    //hasLoaded = true;
+
+        string filePath = Path.Combine(Application.persistentDataPath, "FireSaves", activeSave.saveName + ".bin");
+
+        if (File.Exists(filePath))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(filePath, FileMode.Open);
+
+            SaveData loadData = (SaveData)formatter.Deserialize(stream);
+            activeSave = loadData;
+
+            stream.Close();
+            hasLoaded = true;
+            Debug.Log("Loaded binary data from: " + filePath);
+        }
+        else
+        {
+            Debug.LogWarning("Save file not found at: " + filePath);
+        }
+    }
 
 
 
 public void DeleteSavedData(){
-    string dataPath = Application.persistentDataPath;
-    if(System.IO.File.Exists(dataPath + "/" + activeSave.saveName + ".save")){
-        File.Delete(dataPath + "/" + activeSave.saveName + ".save");
+    //string dataPath = Application.persistentDataPath;
+    //if(System.IO.File.Exists(dataPath + "/" + activeSave.saveName + ".save")){
+    //    File.Delete(dataPath + "/" + activeSave.saveName + ".save");
+    //}
+
+        string filePath = Path.Combine(Application.persistentDataPath, "FireSaves", activeSave.saveName + ".bin");
+
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+            Debug.Log("Deleted binary save at: " + filePath);
+        }
     }
-}
 
 
 

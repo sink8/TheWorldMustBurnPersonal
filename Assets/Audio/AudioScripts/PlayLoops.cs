@@ -101,7 +101,7 @@ public class PlayLoops : MonoBehaviour
             AudioFW.PlayLoop("wholesome");
         }
         if (levelNum == 26) {
-            AudioFW.PlayLoop("porrige");
+            AudioFW.PlayLoop("porridge");
         }
         if (levelNum == 27) {
             AudioFW.PlayLoop("Level1Forest");
@@ -189,7 +189,7 @@ public class PlayLoops : MonoBehaviour
             AudioFW.StopLoop("wholesome");
         }
         if (levelNum == 26) {
-            AudioFW.StopLoop("porrige");
+            AudioFW.StopLoop("porridge");
         }
         if (levelNum == 27) {
             AudioFW.StopLoop("njilnjil_track_2");
@@ -229,10 +229,11 @@ public class PlayLoops : MonoBehaviour
             AudioFW.StopLoop("MagicEscape");
             AudioFW.StopLoop("Galaxy");
             AudioFW.StopLoop("wholesome");
-            AudioFW.StopLoop("porrige");
+            AudioFW.StopLoop("porridge");
             AudioFW.StopLoop("njilnjil_track_2");
             AudioFW.StopLoop("Level2Cave3");
             AudioFW.StopLoop("WeirdBattle");
+            AudioFW.StopLoop("Rain");
 
     }
 

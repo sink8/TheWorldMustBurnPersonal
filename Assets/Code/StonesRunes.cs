@@ -18,7 +18,7 @@ public class StonesRunes : MonoBehaviour
     public float shininess;
 
     public bool hasAlfa = false;
-
+    [SerializeField] Canvas canvas;
     void Start()
     {
         stoneMaterial = GetComponentInChildren<SpriteRenderer>().material;
@@ -39,6 +39,16 @@ public class StonesRunes : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             EnableRuneLight();
+            StartCoroutine(openCanvas());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            
+            StartCoroutine(closeCanvas());
         }
     }
 
@@ -125,5 +135,17 @@ public class StonesRunes : MonoBehaviour
             isVisible = false;
 
     }
+    IEnumerator openCanvas()
+    {
 
-}
+        yield return new WaitForSeconds(2);
+        canvas.enabled = true;
+    }
+    IEnumerator closeCanvas()
+    {
+
+        yield return new WaitForSeconds(1);
+        canvas.enabled = false;
+    }
+
+    }

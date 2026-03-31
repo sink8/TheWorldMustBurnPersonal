@@ -15,6 +15,7 @@ public class LehtiOlio : MonoBehaviour
     private bool hasBurned = false;
     private bool willAttack = false;
     private float initialDialogueScaleX;
+    bool isBurned = false;
     void Start()
     {
         initialDialogueScaleX = Mathf.Abs(dialogue.transform.localScale.x);
@@ -63,7 +64,11 @@ public class LehtiOlio : MonoBehaviour
             //ash.Play();
             //dialogue.SetActive(false);
             enemyAttack.StopShooting();
+            if(isBurned == false)
+            {
             StartCoroutine(SwitchToBurned());
+
+            }
 
         }
              
@@ -89,11 +94,13 @@ public class LehtiOlio : MonoBehaviour
     }
     IEnumerator SwitchToBurned()
     {
+        AudioFW.Play("LeafDies");
         enemyAttack.enabled = false;
         dialogue.SetActive(false);
         yield return new WaitForSeconds(delayBeforeBurned);
         LehtiBurned.SetActive(true);
         sprite.enabled = false;
+        isBurned = true;
 
     }
 }
