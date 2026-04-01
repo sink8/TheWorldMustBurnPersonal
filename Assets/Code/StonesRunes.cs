@@ -32,6 +32,7 @@ public class StonesRunes : MonoBehaviour
         //    EnableRuneLight();
         //}
         //ChangeRuneslightAlpha(stoneMaterial);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,6 +42,11 @@ public class StonesRunes : MonoBehaviour
             EnableRuneLight();
             StartCoroutine(openCanvas());
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -138,13 +144,13 @@ public class StonesRunes : MonoBehaviour
     IEnumerator openCanvas()
     {
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.2f);
         canvas.enabled = true;
     }
     IEnumerator closeCanvas()
     {
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.3f);
         canvas.enabled = false;
     }
 
