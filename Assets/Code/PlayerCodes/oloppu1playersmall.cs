@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class oloppu1playersmall : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class oloppu1playersmall : MonoBehaviour
     private float timer;
     private bool fading;
     public GameObject loppucanvas;
+    public GameObject loppucanvasFirst;
     void Start()
     {
 
@@ -56,7 +58,8 @@ public class oloppu1playersmall : MonoBehaviour
             fading = false;
 
             if (loppucanvas != null)
-                loppucanvas.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(loppucanvasFirst);
+            loppucanvas.SetActive(true);
         }
     }
 }

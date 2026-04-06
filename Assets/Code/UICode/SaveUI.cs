@@ -38,7 +38,7 @@ public class SaveUI : MonoBehaviour
     public bool saveExists;
     [SerializeField] GameObject cont;
     [SerializeField] GameObject loads;
-    public bool isBlue, isGreen, isPurple, isBlack, isRed, isWhite = false;
+    public bool isBlue, isGreen, isPurple, isBlack, isRed, isWhite, isRainbow = false;
     public bool colorChanged = false;
 
     private void Awake() {

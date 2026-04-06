@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering.VirtualTexturing;
 
 public class Loppu2 : MonoBehaviour
@@ -9,6 +10,7 @@ public class Loppu2 : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] RayCastPlayer castPlayer;
     public GameObject loppucanvas;
+    public GameObject loppucanvasFirst;
     [SerializeField] Animator animator;
     [SerializeField] float soundDelay = 3.0f;
     //[SerializeField] Animator animatorplayer;
@@ -58,7 +60,10 @@ public class Loppu2 : MonoBehaviour
         {
 
             shouldMove = false; // Stop updating once we hit zero
-            if (loppucanvas != null) loppucanvas.SetActive(true);
+            if (loppucanvas != null) {
+                loppucanvas.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(loppucanvasFirst); 
+            }
         }
     }
 

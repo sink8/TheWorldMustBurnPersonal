@@ -14,12 +14,13 @@ using Newtonsoft.Json;
     public int secretdoor1 = 7;
     public int secretdoor2 = 17;
     public int secretdoor3 = 25;
+    public int secretdoor4 = 25;
 
     public int secretsFound = 0;
 
     public Dictionary<int, HashSet<string>> foundSecrets;
 
-    public TMPro.TextMeshProUGUI Secret1, Secret2, Secret3, allFlowers;
+    public TMPro.TextMeshProUGUI Secret1, Secret2, Secret3,Secret4, allFlowers;
 
     public int activeSaveForThis;
     [SerializeField] SaveUI saveUI;
@@ -61,6 +62,7 @@ using Newtonsoft.Json;
         Secret1.text = $"{secretsFound}/10";
         Secret2.text = $"{secretsFound}/21";
         Secret3.text = $"{secretsFound}/33";
+        Secret4.text = $"{secretsFound}/40";
         allFlowers.text = secretsFound.ToString();
 
 

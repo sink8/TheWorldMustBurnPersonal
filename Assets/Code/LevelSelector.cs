@@ -17,9 +17,15 @@ public class LevelSelector : MonoBehaviour
     public int levelNum;
     float delay = 0.5f;
 
+    public PlayerHealth playerHealth;
+
     void Start(){
         levels = GameObject.FindGameObjectsWithTag("Level");
 
+    }
+
+    public void UnstuckPlayer() {
+        playerHealth.Damaged(1);
     }
 
     private void Update()
@@ -82,6 +88,8 @@ public class LevelSelector : MonoBehaviour
             Debug.Log("Loading current level: " + (levelNum - 1));
             currentLevel = Instantiate(levelsAvailable[levelNum - 1], Vector3.zero, Quaternion.identity);
             currentLevel.SetActive(true);
+            UpdatePlayerReference();
+
             menuAudio.StopMenuMusic();
         }
         else
@@ -96,8 +104,10 @@ public class LevelSelector : MonoBehaviour
         currentLevel = Instantiate(levelsAvailable[level]) as GameObject;
         currentLevel.SetActive(true);
         currentLevel.transform.position = new Vector3(0, 0, 0);
-            //Instantiate(levelsAvailable[level], new Vector3(0, 0, 0), Quaternion.identity);
-            menuAudio.StopMenuMusic();
+        //Instantiate(levelsAvailable[level], new Vector3(0, 0, 0), Quaternion.identity);
+        UpdatePlayerReference();
+
+        menuAudio.StopMenuMusic();
 
     }
 
@@ -107,7 +117,8 @@ public class LevelSelector : MonoBehaviour
         //FindCurrentLevelNumber();
         currentLevel = Instantiate(levelsAvailable[level-1]) as GameObject;
         currentLevel.transform.position = new Vector3(0, 0, 0);
-            //Instantiate(levelsAvailable[level], new Vector3(0, 0, 0), Quaternion.identity);
+        //Instantiate(levelsAvailable[level], new Vector3(0, 0, 0), Quaternion.identity);
+        UpdatePlayerReference();
             menuAudio.StopMenuMusic();
         Debug.Log("load levels delay end ");
         //yield return new WaitForSeconds(delay);
@@ -146,7 +157,17 @@ public class LevelSelector : MonoBehaviour
         }
     }
 
+    private void UpdatePlayerReference() {
+        if (currentLevel != null) {
+            playerHealth = currentLevel.GetComponentInChildren<PlayerHealth>();
 
+            if (playerHealth == null) {
+                Debug.LogWarning("PlayerHealth component not found in the instantiated level!");
+            } else {
+                Debug.Log("PlayerHealth reference updated successfully.");
+            }
+        }
+    }
     // public void LoadLevel1() {
     //     Instantiate(level1, new Vector3(0, 0, 0),Quaternion.identity);
     //     menuAudio.StopMenuMusic();

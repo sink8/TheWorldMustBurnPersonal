@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SecretColorSwitch : MonoBehaviour
 {
-    public bool colorSwitchRed, colorSwitchGreen, colorSwitchBlue, colorSwitchBlueReal, colorSwitchPurple, colorSwitchBlack, colorSwitchWhite = false;
+    public bool colorSwitchRed, colorSwitchGreen, colorSwitchBlue, colorSwitchBlueReal, colorSwitchPurple, colorSwitchBlack, colorSwitchWhite, colorSwitcRainbow = false;
     public RayCastPlayer player;
     public SaveUI saveUI;
     void Start()
@@ -29,12 +29,19 @@ public class SecretColorSwitch : MonoBehaviour
                 saveUI.isPurple = false;
                 saveUI.isWhite = false;
                 saveUI.isBlack = false;
+                saveUI.isRainbow = false;
                 saveUI.isGreen = false;
                 saveUI.colorChanged = true;
                 player.ToggleColorToRed();
             }
             if (colorSwitchBlue) { player.ToggleColorToBlue();
                 saveUI.isBlue = true;
+                saveUI.isPurple = false;
+                saveUI.isWhite = false;
+                saveUI.isBlack = false;
+                saveUI.isRed = false;
+                saveUI.isRainbow = false;
+                saveUI.isGreen = false;
                 saveUI.colorChanged = true;
                 player.ToggleColorToBlue();
             }
@@ -47,6 +54,7 @@ public class SecretColorSwitch : MonoBehaviour
                 saveUI.isWhite = false;
                 saveUI.isBlack = false;
                 saveUI.isGreen = false;
+                saveUI.isRainbow = false;
 
                 saveUI.colorChanged = true;
                 player.ToggleColorToBlueReal();
@@ -58,6 +66,7 @@ public class SecretColorSwitch : MonoBehaviour
                 saveUI.isWhite = false;
                 saveUI.isBlack = false;
                 saveUI.isGreen = false;
+                saveUI.isRainbow = false;
                 saveUI.colorChanged = true;
                 player.ToggleColorToPurple();
             }
@@ -67,6 +76,7 @@ public class SecretColorSwitch : MonoBehaviour
                 saveUI.isPurple = false;
                 saveUI.isWhite = false;
                 saveUI.isBlack = false;
+                saveUI.isRainbow = false;
                 saveUI.isGreen = true;
                 saveUI.colorChanged = true;
                 player.ToggleColorToGreen();
@@ -78,6 +88,7 @@ public class SecretColorSwitch : MonoBehaviour
                 saveUI.isWhite = false;
                 saveUI.isBlack = true;
                 saveUI.isGreen = false;
+                saveUI.isRainbow = false;
                 saveUI.colorChanged = true;
                 player.ToggleColorToBlack();
             }
@@ -89,8 +100,22 @@ public class SecretColorSwitch : MonoBehaviour
                 saveUI.isWhite = true;
                 saveUI.isBlack = false;
                 saveUI.isGreen = false;
+                saveUI.isRainbow = false;
                 saveUI.colorChanged = true;
                 player.ToggleColorToWhite();
+            }
+
+            if (colorSwitcRainbow) {
+                player.ToggleColorToRainbow();
+                saveUI.isBlue = false;
+                saveUI.isRed = false;
+                saveUI.isPurple = false;
+                saveUI.isWhite = false;
+                saveUI.isBlack = false;
+                saveUI.isGreen = false;
+                saveUI.isRainbow = true;
+                saveUI.colorChanged = true;
+                player.ToggleColorToRainbow();
             }
         }
 

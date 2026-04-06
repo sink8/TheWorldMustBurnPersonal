@@ -6,7 +6,7 @@ using TMPro;
 
 public class StoreScores : MonoBehaviour
 {
-    public int levelAmount = 33;
+    public int levelAmount = 35;
 
 
 
@@ -135,6 +135,12 @@ public class StoreScores : MonoBehaviour
             levels[32].GetComponent<MovingOnLevelsMap>().locked = false;
             locks[32].SetActive(false);
             finished[32].GetComponent<Renderer>().sortingOrder = 40;
+        }
+
+        if (SecretManager.Instance.secretsFound >= 40) {
+            levels[33].GetComponent<MovingOnLevelsMap>().locked = false;
+            locks[33].SetActive(false);
+            finished[33].GetComponent<Renderer>().sortingOrder = 40;
         }
 
         //if (bronceHighScores[0] >= 0.5 || silverHighScores[0] >= 0.5 || goldHighScores[0] >= 0.5) {

@@ -27,7 +27,7 @@ public class EnemyHealth : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if(isCloudAlready == false)
         {
-            if (collision.gameObject.CompareTag("Sparks") || collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Player")) {
+            if (collision.gameObject.CompareTag("Sparks")  || collision.gameObject.CompareTag("Player")) {
                 health -= 1;
                 AudioFW.Play("HitEnemyWater");
                 if (canChange && health <= 0)
@@ -42,7 +42,7 @@ public class EnemyHealth : MonoBehaviour
                 
                 }
 
-                Destroy(gameObject, 0.3f);
+                Destroy(gameObject);
             }
         }
 

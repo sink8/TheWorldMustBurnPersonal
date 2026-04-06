@@ -82,7 +82,7 @@ public class RayCastPlayer : MonoBehaviour
     // animation states
 
 
-    public GameObject playerBodyRed, playerBodyBlue, playerBodyBlueReal, playerBodyPurple, playerBodyBlack, playerBodyGreen, playerBodyWhite;
+    public GameObject playerBodyRed, playerBodyBlue, playerBodyBlueReal, playerBodyPurple, playerBodyBlack, playerBodyGreen, playerBodyWhite, playerBodyRainbow;
     public ParticleSystem playerBodyRedParticle, playerBodyyellowParticle;
     public ParticleSystem eye1, eye2;
     public Color color2, color3, eyeColor;
@@ -167,7 +167,10 @@ public class RayCastPlayer : MonoBehaviour
             ToggleColorToWhite();
 
         }
+        if (saveUI.isRainbow) {
+            ToggleColorToRainbow();
 
+        }
     }
 
     private void Update() {
@@ -523,6 +526,8 @@ public class RayCastPlayer : MonoBehaviour
         playerBodyBlack.SetActive(false);
         playerBodyGreen.SetActive(false);
         playerBodyWhite.SetActive(false);
+        playerBodyRainbow.SetActive(false);
+
     }
     public void ToggleColorToBlueReal() {
         playerBodyRed.SetActive(false);
@@ -532,6 +537,8 @@ public class RayCastPlayer : MonoBehaviour
         playerBodyBlack.SetActive(false);
         playerBodyGreen.SetActive(false);
         playerBodyWhite.SetActive(false);
+        playerBodyRainbow.SetActive(false);
+
     }
     public void ToggleColorToPurple() {
         playerBodyRed.SetActive(false);
@@ -540,6 +547,8 @@ public class RayCastPlayer : MonoBehaviour
         playerBodyBlack.SetActive(false);
         playerBodyGreen.SetActive(false);
         playerBodyWhite.SetActive(false);
+        playerBodyRainbow.SetActive(false);
+
     }
     public void ToggleColorToBlack() {
         playerBodyRed.SetActive(false);
@@ -548,6 +557,8 @@ public class RayCastPlayer : MonoBehaviour
         playerBodyBlack.SetActive(true);
         playerBodyGreen.SetActive(false);
         playerBodyWhite.SetActive(false);
+        playerBodyRainbow.SetActive(false);
+
     }
     public void ToggleColorToGreen() {
         playerBodyRed.SetActive(false);
@@ -556,6 +567,8 @@ public class RayCastPlayer : MonoBehaviour
         playerBodyBlack.SetActive(false);
         playerBodyGreen.SetActive(true);
         playerBodyWhite.SetActive(false);
+        playerBodyRainbow.SetActive(false);
+
     }
     public void ToggleColorToWhite() {
         playerBodyRed.SetActive(false);
@@ -564,6 +577,8 @@ public class RayCastPlayer : MonoBehaviour
         playerBodyBlack.SetActive(false);
         playerBodyGreen.SetActive(false);
         playerBodyWhite.SetActive(true);
+        playerBodyRainbow.SetActive(false);
+
     }
     public void ToggleColorToRed() {
         playerBodyRed.SetActive(true);
@@ -572,6 +587,20 @@ public class RayCastPlayer : MonoBehaviour
         playerBodyBlack.SetActive(false);
         playerBodyGreen.SetActive(false);
         playerBodyWhite.SetActive(false);
+        playerBodyRainbow.SetActive(false);
+
     }
+
+    public void ToggleColorToRainbow() {
+        playerBodyRed.SetActive(false);
+        playerBodyBlue.SetActive(false);
+        playerBodyPurple.SetActive(false);
+        playerBodyBlack.SetActive(false);
+        playerBodyGreen.SetActive(false);
+        playerBodyWhite.SetActive(false);
+        playerBodyRainbow.SetActive(true);
+
+    }
+
 
 } // class

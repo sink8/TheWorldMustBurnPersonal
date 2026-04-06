@@ -3281,7 +3281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6034236989266062119
 Transform:
   m_ObjectHideFlags: 0
@@ -20197,6 +20197,10 @@ PrefabInstance:
     - target: {fileID: 3165400740264448659, guid: 68e14234d29908a47a2ce47e803ba853, type: 3}
       propertyPath: m_Name
       value: BreakingPlatform (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165400740264448659, guid: 68e14234d29908a47a2ce47e803ba853, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7336158404692188401, guid: 68e14234d29908a47a2ce47e803ba853, type: 3}
       propertyPath: m_SortingLayer
